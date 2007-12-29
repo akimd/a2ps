@@ -1,0 +1,387 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(%!ps) C n
+(% lib/ehandler.ps -- Downloaded Error Break-page handler) c n
+(% GOVERNMENT END USERS: See Notice file in TranScript library directory) N
+(% -- probably /usr/lib/ps/Notice) N
+(% -- code follows this line --) N
+(% assumes serverloop password is the default one) N
+(/$brkpage ) p
+(where) K n
+({) p
+(pop) K
+(\() p
+(Error Handler in place - not loaded again\\n) str
+(\)print flush stop}) p n
+({serverdict ) S
+(begin) K
+( statusdict ) p
+(begin) K
+( 0000 checkpassword) p n
+( {\() S
+(Error Handler downloaded.\\n) str
+(\)print flush 0000 exitserver}) p n
+( {\() S
+(Bad Password on loading error handler!!!\\n) str
+(\)print flush stop}) p
+(ifelse) K n
+(}) p
+(ifelse) K n
+(/$brkpage 64 ) p
+(dict) K
+( ) p
+(def) K
+( $brkpage ) p
+(begin) K n
+(/prnt) p n
+( {) S
+(dup) K
+( type/stringtype ne{=string cvs}) p
+(if) K
+( ) p
+(dup) K
+( ) p
+(length) K
+( 6 ) p
+(mul) K
+(/tx ) p
+(exch) K
+( ) p
+(def) K
+(/ty 10 ) p
+(def) K n
+(  currentpoint/toy ) p
+(exch) K
+( ) p
+(def) K
+(/tox ) p
+(exch) K
+( ) p
+(def) K
+( 1 ) p
+(setgray) K
+( ) p
+(newpath) K n
+(  tox toy 2 ) p
+(sub) K
+( ) p
+(moveto) K
+( 0 ty ) p
+(rlineto) K
+( tx 0 ) p
+(rlineto) K
+( 0 ty ) p
+(neg) K
+( ) p
+(rlineto) K n
+(  ) p
+(closepath) K
+( ) p
+(fill) K
+( tox toy ) p
+(moveto) K
+( 0 ) p
+(setgray) K
+( ) p
+(show) K
+(}) p
+(bind) K
+( ) p
+(def) K n
+(/nl) L
+({currentpoint ) p
+(exch) K
+( ) p
+(pop) K
+( lmargin ) p
+(exch) K
+( ) p
+(moveto) K
+( 0 -10 ) p
+(rmoveto) K
+(}) p
+(def) K n
+(/=={/cp 0 ) p
+(def) K
+( typeprint nl}) p
+(def) K n
+(/typeprint) L
+({) p
+(dup) K
+( type exec}readonly ) p
+(def) K n
+(/lmargin 72 ) p
+(def) K n
+(/rmargin 72 ) p
+(def) K n
+(/tprint) p n
+(   {) S
+(dup) K
+( ) p
+(length) K
+( cp ) p
+(add) K
+( rmargin ) p
+(gt) K
+({nl/cp 0 ) p
+(def) K
+(}) p
+(if) K n
+(    ) p
+(dup) K
+( ) p
+(length) K
+( cp ) p
+(add) K
+(/cp ) p
+(exch) K
+( ) p
+(def) K
+( prnt}readonly ) p
+(def) K n
+(/cvsprint) L
+({=string cvs tprint\() p
+( ) str
+(\)tprint}readonly ) p
+(def) K n
+(/integertype) L
+({cvsprint}readonly ) p
+(def) K n
+(/realtype) L
+({cvsprint}readonly ) p
+(def) K n
+(/booleantype) L
+({cvsprint}readonly ) p
+(def) K n
+(/operatortype) L
+({\() p
+(--) str
+(\)tprint =string cvs tprint\() p
+(-- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/marktype) L
+({) p
+(pop) K
+(\() p
+(-mark- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/dicttype) L
+({) p
+(pop) K
+(\() p
+(-dictionary- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/nulltype) L
+({) p
+(pop) K
+(\() p
+(-null- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/filetype) L
+({) p
+(pop) K
+(\() p
+(-filestream- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/savetype) L
+({) p
+(pop) K
+(\() p
+(-savelevel- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/fonttype) L
+({) p
+(pop) K
+(\() p
+(-fontid- ) str
+(\)tprint}readonly ) p
+(def) K n
+(/nametype) L
+({) p
+(dup) K
+( xcheck not{\() p
+(/) str
+(\)tprint}) p
+(if) K
+( cvsprint}readonly ) p
+(def) K n
+(/stringtype) p n
+( {) S
+(dup) K
+( rcheck{\() p
+(\\\() str
+(\)tprint tprint\() p
+(\\\)) str
+(\)tprint}{) p
+(pop) K
+(\() p
+(-string- ) str
+(\)tprint}) p
+(ifelse) K n
+( }readonly ) p
+(def) K n
+(/arraytype) p n
+( {) S
+(dup) K
+( rcheck{) p
+(dup) K
+( xcheck) p n
+(  {\() S
+({) str
+(\)tprint{typeprint}) p
+(forall) K
+(\() p
+(}) str
+(\)tprint}) p n
+(  {\() S
+([) str
+(\)tprint{typeprint}) p
+(forall) K
+(\() p
+(]) str
+(\)tprint}) p
+(ifelse) K
+(}{) p
+(pop) K
+(\() p
+(-array- ) str
+(\)tprint}) p
+(ifelse) K n
+( }readonly ) p
+(def) K n
+(/packedarraytype) p n
+( {) S
+(dup) K
+( rcheck{) p
+(dup) K
+( xcheck) p n
+(  {\() S
+({) str
+(\)tprint{typeprint}) p
+(forall) K
+(\() p
+(}) str
+(\)tprint}) p n
+(  {\() S
+([) str
+(\)tprint{typeprint}) p
+(forall) K
+(\() p
+(]) str
+(\)tprint}) p
+(ifelse) K
+(}{) p
+(pop) K
+(\() p
+(-packedarray- ) str
+(\)tprint}) p
+(ifelse) K n
+( }readonly ) p
+(def) K n
+(/courier/Courier ) p
+(findfont) K
+( 10 ) p
+(scalefont) K
+( ) p
+(def) K n
+(end) S
+( ) p
+(%$brkpage) c n
+(errordict/handleerror) p n
+( {systemdict ) S
+(begin) K
+( $error ) p
+(begin) K
+( $brkpage ) p
+(begin) K
+( newerror) p n
+(   {/newerror ) S
+(false) k
+( store) p n
+(    vmstatus ) S
+(pop) K
+( ) p
+(pop) K
+( 0 ne{grestoreall}) p
+(if) K
+( initgraphics courier ) p
+(setfont) K n
+(    lmargin 720 ) p
+(moveto) K
+(\() p
+(ERROR: ) str
+(\)prnt errorname prnt) p n
+(    nl\() S
+(OFFENDING COMMAND: ) str
+(\)prnt/command load prnt) p n
+(    $error/ostack) N
+(    ) S
+(known) K
+({nl nl\() p
+(STACK:) str
+(\)prnt nl nl $error/ostack ) p
+(get) K
+( aload ) p
+(length) K
+({==}repeat}) p
+(if) K n
+(    systemdict/) p
+(showpage) K
+( ) p
+(get) K
+( exec\() p
+(%%[ Error: ) str
+(\)print) p n
+(    errorname =print\() S
+(; OffendingCommand: ) str
+(\)print/command) p n
+(    load =print\() S
+( ]%%) str
+(\)= flush}) p
+(if) K
+( ) p
+(end) K
+( ) p
+(end) K
+( ) p
+(end) K
+(}) p n
+(dup) K
+( 0 systemdict ) p
+(put) K
+( ) p
+(dup) K
+( 4 $brkpage ) p
+(put) K
+( ) p
+(bind) K
+( readonly ) p
+(put) K n
+(ehandler) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

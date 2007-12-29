@@ -1,0 +1,184 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(REM Script to check space left in database.) c n
+(REM ) N
+(DECLARE) K n
+(  ) p
+(CURSOR) K
+( tot_space ) p
+(IS) K n
+(    ) p
+(SELECT) K
+( a.tablespace_name, ) p
+(sum) K
+(\(a.bytes\) ) p
+(FROM) K
+( dba_data_files a) p n
+(      ) S
+(GROUP) K
+( ) p
+(BY) K
+( tablespace_name;) p n
+(  tbl_tot    ) S
+(VARCHAR2) K
+(\(50\);) p n
+(  byt_tot    ) S
+(NUMBER) K
+(\(13\);) p n
+(  ) S
+(CURSOR) K
+( free_space ) p
+(IS) K n
+(    ) p
+(SELECT) K
+( ) p
+(sum) K
+(\(b.bytes\) ) p
+(FROM) K
+( dba_free_space b) p n
+(      ) S
+(WHERE) K
+( b.tablespace_name = tbl_tot) p n
+(      ) S
+(GROUP) K
+( ) p
+(BY) K
+( b.tablespace_name;) p n
+(  byt_free   ) S
+(NUMBER) K
+(\(13\);) p n
+(  pct_used   ) S
+(NUMBER) K
+(\(3\);) p n
+(/* ) c n
+( * Here are some useless comments, inserted for testing a2ps) N
+( */) N
+(BEGIN) K n
+(  DBMS_OUTPUT.PUT_LINE \(RPAD\(') p
+(TABLESPACE) str
+(',30,') p
+( ) str
+('\) ||  LPAD\(') p
+(Total Bytes) str
+(',17,') p
+( ) str
+('\) ||) p n
+( LPAD\(') S
+(Free Bytes) str
+(',17,') p
+( ) str
+('\)) p n
+(   || LPAD\(') S
+(% Used) str
+(',10,') p
+( ) str
+('\)\);) p n
+(  DBMS_OUTPUT.PUT_LINE \(RPAD\(') S
+(-) str
+(',79,') p
+(-) str
+('\)\);) p n
+(  ) S
+(LOOP) K n
+(    ) p
+(IF) K
+( ) p
+(NOT) K
+( tot_space%ISOPEN) p n
+(    ) S
+(THEN) K n
+(      ) p
+(OPEN) K
+( tot_space;) p n
+(    ) S
+(END) K
+( ) p
+(IF) K
+(;) p n
+(    ) S
+(FETCH) K
+( tot_space ) p
+(INTO) K n
+(      tbl_tot,) p n
+(      byt_tot;) N
+(    ) S
+(IF) K
+( tot_space%FOUND) p n
+(    ) S
+(THEN) K n
+(      ) p
+(OPEN) K
+( free_space;) p n
+(      ) S
+(FETCH) K
+( free_space ) p
+(INTO) K
+( byt_free;) p n
+(      ) S
+(IF) K
+( free_space%FOUND) p n
+(      ) S
+(THEN) K n
+(        pct_used := TRUNC\(\(\(1 - \(byt_free/byt_tot\)\) * 100\),0\);) p n
+(        DBMS_OUTPUT.PUT_LINE \(RPAD\(tbl_tot,30,') S
+( ) str
+('\) ||  LPAD\(byt_tot,17,') p
+( ) str
+('\) || LP) p n
+(AD\(byt_free,17,') S
+( ) str
+('\)) p n
+(         || LPAD\(pct_used,10,') S
+( ) str
+('\)\);) p n
+(      ) S
+(END) K
+( ) p
+(IF) K
+(;) p n
+(      ) S
+(CLOSE) K
+( free_space;) p n
+(    ) S
+(ELSE) K n
+(      ) p
+(EXIT) K
+(;) p n
+(    ) S
+(END) K
+( ) p
+(IF) K
+(;) p n
+(  ) S
+(END) K
+( ) p
+(LOOP) K
+(;) p n
+(  ) S
+(CLOSE) K
+( tot_space;) p n
+(END) K
+(;) p n
+(/) N
+(space.pls) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

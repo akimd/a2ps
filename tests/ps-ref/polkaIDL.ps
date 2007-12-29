@@ -1,0 +1,366 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(#ifndef) K
+( __polkaIDL_hh__) p n
+(#define) K
+( __polkaIDL_hh__) p n
+() N
+(#include) K
+( <omniORB2/CORBA.h>) p n
+() N
+(#include) K
+( <polkaTypes.hh>) p n
+(_CORBA_MODULE polka {) N
+(_CORBA_MODULE_PUBLIC) N
+() N
+(#ifndef) K
+( __polka_loader__) p n
+(#define) K
+( __polka_loader__) p n
+(  ) S
+(class) K
+(   loader;) p n
+(  ) S
+(typedef) K
+( loader* loader_ptr;) p n
+(  ) S
+(typedef) K
+( loader_ptr loaderRef;) p n
+() N
+(  ) S
+(class) K
+( loader_Helper {) p n
+(    ) S
+(public) K
+(:) p n
+(    ) S
+(static) K
+( loader_ptr _nil\(\);) p n
+(    ) S
+(static) K
+( CORBA::Boolean is_nil\(loader_ptr p\);) p n
+(    ) S
+(static) K
+( ) p
+(void) k
+( release\(loader_ptr p\);) p n
+(    ) S
+(static) K
+( loader_ptr unmarshalObjRef\(MemBufferedStream &s\);) p n
+(  };) N
+(  ) S
+(typedef) K
+( _CORBA_ObjRef_Var<loader,loader_Helper> loader_var;) p n
+() N
+(#endif) K n
+(#define) S
+( polka_loader_IntfRepoID ") p
+(IDL:polka/loader:1.0) str
+(") p n
+() N
+(  ) S
+(class) K
+( _sk_loader :  ) p
+(public) K
+( ) p
+(virtual) K
+( loader {) p n
+(  ) S
+(public) K
+(:) p n
+() N
+(    _sk_loader\(\) {}) N
+(    _sk_loader\() S
+(const) K
+( omniORB::objectKey& k\);) p n
+(    ) S
+(virtual) K
+( ~_sk_loader\(\) {}) p n
+(    loader_ptr _this\(\) { ) S
+(return) K
+( loader::_duplicate\() p
+(this) K
+(\); }) p n
+(    ) S
+(void) k
+( _obj_is_ready\(CORBA::BOA_ptr boa\) { boa->obj_is_ready\() p
+(this) K
+(\); }) p n
+() N
+(  ) S
+(protected) K
+(:) p n
+(    ) S
+(virtual) K
+( ) p
+(void) k
+( *_widenFromTheMostDerivedIntf\() p
+(const) K
+( ) p
+(char) k
+( *repoId\) {) p n
+(      ) S
+(return) K
+( loader::_widenFromTheMostDerivedIntf\(repoId\);) p n
+(    }) N
+(  ) S
+(private) K
+(:) p n
+(    _sk_loader \() S
+(const) K
+( _sk_loader&\);) p n
+(    _sk_loader &) S
+(operator) K
+(=\() p
+(const) K
+( _sk_loader&\);) p n
+(  };) N
+() N
+(  ) S
+(class) K
+( _proxy_loader :  ) p
+(public) K
+( ) p
+(virtual) K
+( loader {) p n
+(  ) S
+(private) K
+(:) p n
+() N
+(    _proxy_loader \() S
+(const) K
+( _proxy_loader&\);) p n
+(    _proxy_loader &) S
+(operator) K
+(=\() p
+(const) K
+( _proxy_loader&\);) p n
+(  };) N
+() N
+(  ) S
+(class) K
+( _nil_loader :   ) p
+(public) K
+( ) p
+(virtual) K
+( loader {) p n
+(  ) S
+(public) K
+(:) p n
+(    _nil_loader\(\) { ) S
+(this) K
+(->PR_setobj\(0\); }) p n
+(    ) S
+(virtual) K
+( ~_nil_loader\(\) {}) p n
+(    ) S
+(void) k
+( dump \(  \){) p n
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      ) p
+(return) K
+(;) p n
+(    }) N
+() N
+(    polkaStatus  enregistreServeur \( ) S
+(const) K
+( ) p
+(char) k
+( *  name \){) p n
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      polkaStatus _result = 0;) p n
+(polkaIDL.hh) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(      ) p
+(return) K
+( _result;) p n
+(    }) N
+() N
+(    polkaStatus  enregistreClient \( ) S
+(const) K
+( ) p
+(char) k
+( *  name, CORBA::Long & numSerie \)) p n
+({) N
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      polkaStatus _result = 0;) p n
+(      ) S
+(return) K
+( _result;) p n
+(    }) N
+() N
+(    polkaStatus  supprimeServeur \( ) S
+(const) K
+( ) p
+(char) k
+( *  name \){) p n
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      polkaStatus _result = 0;) p n
+(      ) S
+(return) K
+( _result;) p n
+(    }) N
+() N
+(    polkaStatus  supprimeClient \( ) S
+(const) K
+( ) p
+(char) k
+( *  name, CORBA::Long  numSerie \){) p n
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      polkaStatus _result = 0;) p n
+(      ) S
+(return) K
+( _result;) p n
+(    }) N
+() N
+(    ) S
+(void) k
+( terminaisonClient \(  \){) p n
+(      ) S
+(throw) K
+( CORBA::BAD_OPERATION\(0,CORBA::COMPLETED_NO\);) p n
+(      ) S
+(// never reach here! Dummy return to keep some compilers happy.) c n
+(      ) p
+(return) K
+(;) p n
+(    }) N
+() N
+(  ) S
+(protected) K
+(:) p n
+(    ) S
+(virtual) K
+( ) p
+(void) k
+( *_widenFromTheMostDerivedIntf\() p
+(const) K
+( ) p
+(char) k
+( *repoId\) {) p n
+(      ) S
+(return) K
+( loader::_widenFromTheMostDerivedIntf\(repoId\);) p n
+(    }) N
+(  };) N
+() N
+(  ) S
+(class) K
+( loader_proxyObjectFactory : ) p
+(public) K
+( proxyObjectFactory {) p n
+(  ) S
+(public) K
+(:) p n
+(    loader_proxyObjectFactory \(\) {}) N
+(    ) S
+(virtual) K
+( ~loader_proxyObjectFactory \(\) {}) p n
+(    ) S
+(virtual) K
+( ) p
+(const) K
+( ) p
+(char) k
+( *irRepoId\(\) ) p
+(const) K
+(;) p n
+(    ) S
+(virtual) K
+( CORBA::Object_ptr newProxyObject\(Rope *r,CORBA::Octet *key,size_t ke) p n
+(ysize,IOP::TaggedProfileList *profiles,CORBA::Boolean release\);) N
+(    ) S
+(virtual) K
+( CORBA::Boolean is_a\() p
+(const) K
+( ) p
+(char) k
+( *base_repoId\) ) p
+(const) K
+(;) p n
+(    ) S
+(static) K
+( polka::loader_ptr _nil\(\) {) p n
+(      ) S
+(if) K
+( \(!__nil_loader\) {) p n
+(        __nil_loader = ) S
+(new) K
+( polka::_nil_loader;) p n
+(      }) N
+(      ) S
+(return) K
+( __nil_loader;) p n
+(    }) N
+(  ) S
+(private) K
+(:) p n
+(    ) S
+(static) K
+( polka::loader_ptr __nil_loader;) p n
+(  };) N
+(};) N
+() N
+(#endif) K
+( ) p
+(// __polkaIDL_hh__) c n
+(polkaIDL.hh) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

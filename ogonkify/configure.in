@@ -1,0 +1,60 @@
+AC_PREREQ(2.53)
+
+AC_INIT(Ogonkify, 0.7.0)
+AC_CONFIG_AUX_DIR(../auxdir)
+AM_INIT_AUTOMAKE
+
+# What should get installed?
+AC_ARG_ENABLE(extensions,
+[  --disable-extensions    small footprint installation],
+[case "${enableval}" in
+  yes|no) ;;
+  *) AC_MSG_ERROR(bad value ${enableval} for --disable-extensions) ;;
+esac],[enable_extensions=yes])
+AM_CONDITIONAL(EXTENSIONS, test x$enable_extensions = xyes)
+
+#
+#	Ogonkify support
+#
+
+# Composite needs ibmfonts and perl
+AC_DEFUN([ad_IBMFONTS],
+ [AC_PATH_X
+  AC_MSG_CHECKING(for IBM font files)
+  for i in $x_libraries/X11/fonts/Type1 \
+     /usr/local/share/TeX/gs/fonts
+  do
+    if test -r "$i"; then
+      for j in 'cour*.pfa' 'ncr*.pfa'
+      do
+	if test -n "`echo $i/$j`"; then
+	  IBMFONTS=$i/$j
+	  AC_SUBST(IBMFONTS)
+	    break 2;
+	fi
+      done
+    fi
+  done
+  if test -n "$IBMFONTS"; then
+    AC_MSG_RESULT($IBMFONTS)
+  else
+    AC_MSG_RESULT(no)
+  fi])
+
+# Ogonkify is written in Perl.
+case "x$PERL" in
+ x/*) # User specified a version of Perl to use by absolute path.
+      AC_SUBST(PERL);;
+ x)   # She didn't specify at all.
+      AC_PATH_PROG(PERL, [perl perl5], no) ;;
+ x*)  # She specified the name, but we want the path.
+      AC_PATH_PROG(PERL, $PERL, no) ;;
+esac
+
+# We need the IBM PFA files.
+ad_IBMFONTS
+
+AC_CONFIG_FILES(composeglyphs, [chmod +x composeglyphs])
+AC_OUTPUT(Makefile ogonkify.in
+	   doc/Makefile
+	   m4/Makefile)

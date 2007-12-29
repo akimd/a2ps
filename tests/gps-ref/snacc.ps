@@ -1,0 +1,282 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (-- This file is extracted from the Snacc distribution.) c n
+0 T (-- Parts have be cut to win bytes, and the result is probably meaningless.) N
+0 T (--) N
+0 T () N
+(5) # () S
+(RFC1213-MIB DEFINITIONS ::= ) p
+(BEGIN) L n
+0 T () N
+0 T () S
+(          ) p
+(IMPORTS) L n
+0 T () S
+(                  mgmt, NetworkAddress, ) p
+(IpAddress) k
+(, Counter, ) p
+(Gauge) k
+(,) p n
+0 T (                          ) S
+(TimeTicks) k n
+(10) # () S
+(                      FROM RFC1155-SMI) p n
+0 T () N
+0 T () S
+(--                  OBJECT-TYPE) c n
+0 T (--                          FROM RFC-1212) N
+0 T () N
+(15) # () S
+(        ;) p n
+0 T () N
+0 T (          ) S
+(--  MIB-II \(same prefix as MIB-I\)) c n
+0 T () N
+0 T () S
+(          mib-2      ) p
+(OBJECT) k
+( ) p
+(IDENTIFIER) k
+( ::= { mgmt 1 }) p n
+(20) # () N
+0 T (          ) S
+(-- textual conventions) c n
+0 T () N
+0 T () S
+(          ) p
+(DisplayString) k
+( ::=) p n
+0 T (              ) S
+(OCTET) k
+( ) p
+(STRING) k n
+(25) # () S
+(          ) p
+(-- This data type is used to model textual information taken) c n
+0 T () S
+(          ) p
+(-- from the NVT ASCII character set.  By convention, objects) c n
+0 T () S
+(          ) p
+(-- with this syntax are declared as having) c n
+0 T () S
+(          ) p
+(--      SIZE \(0..255\)) c n
+0 T () N
+(30) # () S
+(          ) p
+(-- groups in MIB-II) c n
+0 T () N
+0 T () S
+(          system       ) p
+(OBJECT) k
+( ) p
+(IDENTIFIER) k
+( ::= { mib-2 1 }) p n
+0 T () N
+0 T (          ) S
+(-- historical \(some say hysterical\)) c n
+(35) # () S
+(          ) p
+(-- cmot      OBJECT IDENTIFIER ::= { mib-2 9 }) c n
+0 T () N
+0 T () S
+(          transmission ) p
+(OBJECT) k
+( ) p
+(IDENTIFIER) k
+( ::= { mib-2 10 }) p n
+0 T () N
+0 T () N
+(40) # (          ) S
+(-- the Interfaces table) c n
+0 T () N
+0 T () S
+(          ) p
+(-- The Interfaces table contains information on the entity's) c n
+0 T () S
+(          ) p
+(-- interfaces.  Each interface is thought of as being) c n
+0 T () S
+(          ) p
+(-- attached to a `subnetwork'.  Note that this term should) c n
+(45) # () S
+(          ) p
+(-- not be confused with `subnet' which refers to an) c n
+0 T () S
+(          ) p
+(-- addressing partitioning scheme used in the Internet suite) c n
+0 T () S
+(          ) p
+(-- of protocols.) c n
+0 T () N
+0 T () S
+(          ifTable ) p
+(OBJECT-TYPE) K n
+(50) # () S
+(              ) p
+(SYNTAX) K
+(  ) p
+(SEQUENCE) K
+( ) p
+(OF) K
+( IfEntry) p n
+0 T (              ) S
+(ACCESS) K
+(  not-accessible) p n
+0 T (              ) S
+(STATUS) K
+(  mandatory) p n
+0 T (              ) S
+(DESCRIPTION) K n
+0 T () S
+(                      ") p
+(A list of interface entries.  The number of) str n
+(55) # (                      entries is given by the value of ifNumber.) S
+(") p n
+0 T (              ::= { interfaces 2 }) N
+0 T () N
+0 T (          IfEntry ::=) N
+0 T (              ) S
+(SEQUENCE) K
+( {) p n
+(60) # (                  ifIndex) N
+0 T (                      ) S
+(INTEGER) k
+(,) p n
+0 T (                  ifDescr) N
+0 T (                      ) S
+(DisplayString) k
+(,) p n
+0 T (                  ifType) N
+(65) # (                      ) S
+(INTEGER) k
+(,) p n
+0 T (                  ifMtu) N
+0 T (                      ) S
+(INTEGER) k
+(,) p n
+0 T (                  ifSpeed) N
+0 T (                      ) S
+(Gauge) k
+(,) p n
+(70) # (                  ifPhysAddress) N
+(snacc.mib) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (                      ) p
+(PhysAddress) k
+(,) p n
+0 T (                  ifSpecific) N
+0 T (                      ) S
+(OBJECT) k
+( ) p
+(IDENTIFIER) k n
+0 T () S
+(              }) p n
+(75) # () N
+0 T () N
+0 T (          ifType ) S
+(OBJECT-TYPE) K n
+0 T () S
+(              ) p
+(SYNTAX) K
+(  ) p
+(INTEGER) k
+( {) p n
+0 T (                          other\(1\),          ) S
+(-- none of the following) c n
+(80) # () S
+(                          regular1822\(2\),) p n
+0 T (                          hdh1822\(3\),) N
+0 T (                          ddn-x25\(4\),) N
+0 T (                          rfc877-x25\(5\),) N
+0 T (                          e1\(19\),            ) S
+(-- european equiv. of T-1) c n
+(85) # () S
+(                          basicISDN\(20\),) p n
+0 T (                          primaryISDN\(21\),   ) S
+(-- proprietary serial) c n
+0 T () S
+(                          propPointToPointSerial\(22\),) p n
+0 T (                          ppp\(23\),) N
+0 T (                          softwareLoopback\(24\),) N
+(90) # (                          eon\(25\),            ) S
+(-- CLNP over IP [11]) c n
+0 T () S
+(                          ethernet-3Mbit\(26\),) p n
+0 T (                          nsip\(27\),           ) S
+(-- XNS over IP) c n
+0 T () S
+(                          slip\(28\),           ) p
+(-- generic SLIP) c n
+0 T () S
+(                          ultra\(29\),          ) p
+(-- ULTRA technologies) c n
+(95) # () S
+(                          ds3\(30\),            ) p
+(-- T-3) c n
+0 T () S
+(                          sip\(31\),            ) p
+(-- SMDS) c n
+0 T () S
+(                          frame-relay\(32\)) p n
+0 T (                      }) N
+0 T (              ) S
+(ACCESS) K
+(  read-only) p n
+(100) # (              ) S
+(STATUS) K
+(  mandatory) p n
+0 T (              ) S
+(DESCRIPTION) K n
+0 T () S
+(                      ") p
+(The type of interface, distinguished according to) str n
+0 T (                      the physical/link protocol\(s\) immediately `below') N
+0 T (                      the network layer in the protocol stack.) S
+(") p n
+(105) # (              ::= { ifEntry 3 }) N
+0 T () N
+0 T () N
+0 T () S
+(END) L n
+(snacc.mib) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

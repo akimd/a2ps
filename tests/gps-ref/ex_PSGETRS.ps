@@ -1,0 +1,723 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (! Gilles GRASSEAU \(CNRS/IDRIS - France\) <Gilles.Grasseau@idris.fr> - Nov. 1996) c n
+0 T () N
+0 T () S
+(program) K
+( ) p
+(test_psgetrs) L n
+0 T () S
+(!-------------------------------------------------------------------) c n
+(5) # (! Description : ) N
+0 T (!       Exemple de factorisation LU puis de resolution du systeme : ) N
+0 T (!        A * x = b ,  ou  A est une matrice \(5,5\). ) N
+0 T (!) N
+0 T (! Principe :) N
+(10) # (!       Les matrice/vecteurs A, x et b sont globaux et les matrices/ ) N
+0 T (!       vecteurs dist_a, dist_x et dist_b sont respectivement les   ) N
+0 T (!       matrices/vecteurs distribuees sur la grille de proc. 2x2. ) N
+0 T (!       La repartition de la matrice se fait par blocs cycliques 2x2 ) N
+0 T (!       \(2 elements par ligne et 2 elements par colonne - ) N
+(15) # (!       voir Exemple de repartition d'une matrice\). ) N
+0 T (!       La repartition des vecteurs se fait par blocs cycliques 2x1 ) N
+0 T (!       \(le processeur logique \(0,0\) possede les blocs {x\(1:2\) ,x\(5\)} ) N
+0 T (!       et le processeur logique \(1,0\) possede le bloc  x\(3:4\) \).  ) N
+0 T (!) N
+(20) # (! Algorithme :) N
+0 T (!   1 - Initialisation du BLACS et autres.) N
+0 T (!   2 - Distribution de la matrice A et du vecteur x vers les blocs  ) N
+0 T (!       locaux dist_a et dist_x de chaque processeur logique.) N
+0 T (!       \(voir Distribution de matrice\) ) N
+(25) # (!       On a simule la situation ou seul le processeur \(0,0\) possede  ) N
+0 T (!       la matrice et les vecteurs globaux A, x et b. ) N
+0 T (!   3 - Factorisation LU et resolution.) N
+0 T (!   4 - Recuperation et impression des resultats par le processeur) N
+0 T (!       logique \(0,0\).) N
+(30) # (!) N
+0 T (! Remarque :) N
+0 T (!   1 - Le tableau de travail 'work' a ete dimensionne a la valeur) N
+0 T (!       donnee par INITBUFF pour psgetrs \( > au buffer de psgetrf\).) N
+0 T (!   2 - La liste des pivots locaux 'dist_piv' est dimensionnee a ) N
+(35) # (!       'n_max' + 'rb_size'.) N
+0 T (!) N
+0 T (!-------------------------------------------------------------------) N
+0 T () S
+(  ) p
+(implicit) K
+( ) p
+(none) K n
+0 T () N
+(40) # () S
+(  ) p
+(integer) K
+(       :: pe, npes       ) p
+(! Identificateur du processeur et) c n
+0 T () S
+(                                  ) p
+(! nombre de processeurs physiques.) c n
+0 T () N
+0 T () S
+(  ) p
+(integer) K
+(, ) p
+(parameter) K
+(:: nprow=2, npcol=2 ) p
+(! Grille de proc. logiques.) c n
+0 T () S
+(  ) p
+(integer) K
+(           :: prow, pcol       ) p
+(! Coord. de mon proc. logique) c n
+(45) # () N
+0 T () S
+(  ) p
+(integer) K
+( :: icntxt                      ) p
+(! Contexte \(grille de procs\)) c n
+0 T () S
+(  ) p
+(integer) K
+(, ) p
+(dimension) K
+(\(8\) ::  desc_a       ) p
+(! Descripteur de la matrice.) c n
+0 T () S
+(  ) p
+(integer) K
+(, ) p
+(dimension) K
+(\(8\) ::  desc_x       ) p
+(! Descripteur des vecteurs.) c n
+0 T () N
+(50) # () S
+(  ) p
+(integer) K
+(, ) p
+(parameter) K
+(   :: n=5            ) p
+(! Ordre  matrices/vecteurs.) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n,n\) :: a              ) p
+(! Matrice globale a.) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n\) :: x                ) p
+(! Vecteur resultat x\(global\)) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n\) :: b                ) p
+(! Vecteur b \(global\)) c n
+0 T () N
+(55) # () S
+(  ) p
+(integer) K
+(, ) p
+(parameter) K
+( :: n_max=3          ) p
+(! Dim. des matrices/vecteurs) c n
+0 T () S
+(                                         ) p
+(! locaux.) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n_max,n_max\):: dist_a  ) p
+(! Matrice locale.) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n_max\)      :: dist_x  ) p
+(! Vecteur local.) c n
+0 T () S
+(  ) p
+(real) K
+(, ) p
+(dimension) K
+(\(n_max\)      :: dist_b  ) p
+(! Vecteur local.) c n
+(60) # () N
+0 T () S
+(  ) p
+(integer) K
+(, ) p
+(parameter) K
+( :: rb_size=2,   &   ) p
+(! Taille des blocs lignes ) c n
+0 T () S
+(                        cb_size=2        ) p
+(! et colonnes.) c n
+0 T () N
+0 T () S
+(  ) p
+(integer) K
+(, ) p
+(dimension) K
+(\(n_max+rb_size\):: dist_piv ) p
+(! Vecteur local des) c n
+(65) # () S
+(                                               ) p
+(! pivots.) c n
+0 T () N
+0 T () S
+(  ) p
+(integer) K
+( :: info, i, j) p n
+0 T () N
+0 T (  ) S
+(data) K
+( a/ 0.5, 0.0, 2.3, 0.0,-2.6,  & ) p
+(! Coefficients de la matrice ) c n
+(70) # () S
+(          0.0, 0.5,-1.4, 0.0,-0.7,  & ) p
+(! globale A.) c n
+(ex_PSGETRS.f90) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (          2.3,-1.4, 0.5, 0.0, 0.0,  &) p n
+0 T (          0.0, 0.0, 0.0, 1.0, 0.0,  &) N
+0 T (         -2.6,-0.7, 0.0, 0.0, 0.5/  ) N
+0 T () N
+(75) # (  ) S
+(data) K
+( b/-2.1, 0.3, 1.5, 0.0,-1.5/    ) p
+(! Coefficients du vecteur global) c n
+0 T () N
+0 T () N
+0 T () S
+(  ) p
+(integer) K
+(,) p
+(parameter) K
+(:: minb=rb_size, maxb=minb ) p
+(! Calcul de l'espace ) c n
+0 T () S
+(  ) p
+(integer) K
+(,) p
+(parameter) K
+(:: minp=nprow, maxd=n      ) p
+(! de travail) c n
+(80) # () S
+(  ) p
+(integer) K
+(,) p
+(parameter) K
+(:: wsize=2*maxb*\(\(\(maxd/minb\)/minp\)*maxb+maxb\)*8) p n
+0 T (  ) S
+(real) K
+(, ) p
+(dimension) K
+(\(wsize/8\) ::  work) p n
+0 T () N
+0 T () S
+(! Initialisation BLACS et autres.) c n
+0 T (!--------------------------------------) N
+(85) # () S
+(  ) p
+(call) K
+( ) p
+(initbuff) l
+(\(work,wsize\)   ) p
+(! Init. des buffers internes au PBLAS) c n
+0 T () S
+(  ) p
+(call) K
+( ) p
+(blacs_pinfo) l
+(\(pe, npes\)  ) p
+(! Init. mon PE, nbre de procs physiques) c n
+0 T () S
+(  ) p
+(call) K
+( ) p
+(blacs_gridinit) l
+(\(icntxt, & ) p
+(! Init. Grille de proc. logiques.) c n
+0 T () S
+(          ') p
+(C) str
+(', nprow, npcol\)) p n
+0 T () N
+(90) # (  ) S
+(call) K
+( ) p
+(blacs_gridinfo) l
+(\(icntxt, &       ) p
+(! Mes coord. dans la grille ) c n
+0 T () S
+(           nprow, npcol, prow, pcol\)  ) p
+(! de processeurs logiques.) c n
+0 T () N
+0 T () S
+(  ) p
+(call) K
+( ) p
+(descinit) l
+(\(desc_a, n, n,       & ) p
+(! Init. descripteur de la ) c n
+0 T () S
+(          rb_size, cb_size, 0, 0,   & ) p
+(! matrice a) c n
+(95) # () S
+(          icntxt, n_max, info\)) p n
+0 T (  ) S
+(if) K
+( \(info<0\) ) p
+(stop) K
+( ') p
+(descinit) str
+(') p n
+0 T () N
+0 T (  ) S
+(call) K
+( ) p
+(descinit) l
+(\(desc_x, n, 1,     & ) p
+(! Init. descripteur du vecteur x) c n
+0 T () S
+(          rb_size, 1, 0, 0,       &) p n
+(100) # (          icntxt, n_max, info\)    &) N
+0 T (  ) S
+(if) K
+( \(info<0\) ) p
+(stop) K
+( ') p
+(descinit) str
+(') p n
+0 T () N
+0 T () S
+(! Distribution de la matrice 'a' vers la matrice distribuee 'dist_a'.) c n
+0 T (!--------------------------------------------------------------------) N
+(105) # () S
+(  ) p
+(call) K
+( ) p
+(distribue) l
+(\(icntxt, a, n, dist_a, n_max, prow, pcol\)) p n
+0 T () N
+0 T () S
+(! Distribution du vecteur 'b' sur le vecteur distribue 'dist_b'.) c n
+0 T (!------------------------------------------------------------------) N
+0 T () S
+(  ) p
+(if) K
+( \(\(prow==0\)) p
+(\331) sy
+(\(pcol==0\)\) ) p
+(then) K n
+(110) # () S
+(    dist_b\(1:2\) = b\(1:2\)             ) p
+(! copie de b\(1:2\) dans proc\(0,0\)) c n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(sgesd2d) l
+(\(icntxt,2,1,       & ) p
+(! b\(3:5\) envoie au proc \(1,0\)) c n
+0 T () S
+(                  b\(3\),n,1,0\)            ) p n
+0 T (    dist_b\(3\) = b\(5\)                 ) S
+(! copie de b\(5\) dans proc \(0,0\)) c n
+0 T () S
+(  ) p
+(end) K
+( ) p
+(if) K n
+(115) # () S
+(  ) p
+(if) K
+( \(\(prow==1\)) p
+(\331) sy
+(\(pcol==0\)\) ) p
+(then) K n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(sgerv2d) l
+(\(icntxt, 2,1, dist_b\(1\), & ) p
+(! reception b\(3:5\) dans ) c n
+0 T () S
+(                  n_max, 0, 0\)             ) p
+(! dist_b\(1:2\).) c n
+0 T () S
+(  ) p
+(end) K
+( ) p
+(if) K n
+0 T () N
+(120) # () S
+(!  Calculs) c n
+0 T (!----------------------------------) N
+0 T () S
+(  ) p
+(call) K
+( ) p
+(PSGETRF) l
+(\(n, n, dist_a, 1, 1, desc_a,         &) p n
+0 T (               dist_piv, info\)) N
+0 T (  ) S
+(if) K
+( \(info ) p
+(\271) sy
+( 0\) ) p
+(print) K
+( *,') p
+(Erreur dans la factorisation : ) str
+(',info) p n
+(125) # () N
+0 T (  ) S
+(call) K
+( ) p
+(PSGETRS) l
+(\( ') p
+(N) str
+(', n, 1, dist_a, 1, 1, desc_a,   &) p n
+0 T (              dist_piv, dist_b, 1, 1, desc_x, info\)) N
+0 T (  ) S
+(if) K
+( \(info ) p
+(\271) sy
+( 0\) ) p
+(print) K
+( *,') p
+(Erreur dans la resolution : ) str
+(',info) p n
+0 T () N
+(130) # () S
+(!  Recuperation des resultats 'dist_b' -> 'x') c n
+0 T (!----------------------------------------------) N
+0 T () S
+(  ) p
+(if) K
+( \(\(prow==1\)) p
+(\331) sy
+(\(pcol==0\)\) ) p
+(then) K n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(sgesd2d) l
+(\(icntxt,2,1,dist_b\(1\),  & ) p
+(! envoie de dist_b\(1:2\) ) c n
+0 T () S
+(                 n_max, 0, 0\)             ) p
+(! au proc \(0,0\)) c n
+(135) # () S
+(  ) p
+(end) K
+( ) p
+(if) K n
+0 T () S
+(  ) p
+(if) K
+( \(\(prow==0\)) p
+(\331) sy
+(\(pcol==0\)\) ) p
+(then) K n
+0 T () S
+(    x\(1:2\) = dist_b\(1:2\)        ) p
+(! copie de dist_b\(1:2\) dans proc\(0,0\)) c n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(sgerv2d) l
+(\(icntxt,2,1,  & ) p
+(! reception dist_b\(1:2\) dans x\(3:4\)) c n
+0 T () S
+(                 x\(3\), n, 1, 0\)) p n
+(140) # (    x\(5\) = dist_b\(3\)            ) S
+(! copie de dist_b\(3\) dans proc \(0,0\)) c n
+(ex_PSGETRS.f90) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (  ) p
+(end) K
+( ) p
+(if) K n
+0 T () N
+0 T () S
+(! Impression des resultats) c n
+0 T (!-----------------------------) N
+(145) # () S
+(  ) p
+(if) K
+( \(\(prow==0\)) p
+(\331) sy
+(\(pcol==0\)\) ) p
+(then) K n
+0 T () S
+(    ) p
+(write) K
+(\(6,*\) ') p
+( resultats :) str
+(') p n
+0 T (    ) S
+(write) K
+(\(6,') p
+(\(1x,5F5.1\)) str
+('\) \(x\(j\),j=1,n\)) p n
+0 T (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () N
+(150) # (end) S
+( program) p n
+0 T () N
+0 T () S
+(!--------------------------------------------------------------------) c n
+0 T (! Distribution de la matrice 'x' vers la matrice distribuee 'dist_x'.) N
+0 T (!--------------------------------------------------------------------) N
+(155) # () S
+(subroutine) K
+( ) p
+(distribue) L
+(\( icntxt, x, n, dist_x, n_max, prow, pcol\)) p n
+0 T (  ) S
+(implicit) K
+( ) p
+(none) K n
+0 T () S
+(  ) p
+(integer) K
+( :: icntxt                    ) p
+(! Contexte \(grille de procs\)) c n
+0 T () S
+(  ) p
+(integer) K
+( :: n                         ) p
+(! Ordre de la matrice X) c n
+0 T () S
+(  ) p
+(integer) K
+( :: n_max                     ) p
+(! Ordre de la matrice locale.) c n
+(160) # () S
+(  ) p
+(real) K
+(,) p
+(dimension) K
+(\(n,n\):: x              ) p
+(! Matrice globale X.) c n
+0 T () S
+(  ) p
+(real) K
+(,) p
+(dimension) K
+(\(n_max,n_max\):: dist_x ) p
+(! Matrice locale.) c n
+0 T () S
+(  ) p
+(integer) K
+(            :: prow, pcol     ) p
+(! Coord. de mon proc. logique) c n
+0 T () N
+0 T () S
+(  ) p
+(if) K
+( \(\(prow == 0\) ) p
+(\331) sy
+( \(pcol == 0\)\) ) p
+(then) K
+(       ) p
+(! Emission par le ) c n
+(165) # () S
+(                                                ) p
+(! processeur \(0,0\)) c n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(sgesd2d) l
+(\( icntxt, 2,2, x\(1,3\), n, 0, 1\)) p n
+0 T (    ) S
+(call) K
+( ) p
+(sgesd2d) l
+(\( icntxt, 2,2, x\(3,1\), n, 1, 0\)) p n
+0 T (    ) S
+(call) K
+( ) p
+(sgesd2d) l
+(\( icntxt, 2,2, x\(3,3\), n, 1, 1\)) p n
+0 T (    ) S
+(call) K
+( ) p
+(sgesd2d) l
+(\( icntxt, 2,1, x\(3,5\), n, 1, 0\)) p n
+(170) # (    ) S
+(call) K
+( ) p
+(sgesd2d) l
+(\( icntxt, 1,2, x\(5,3\), n, 0, 1\)) p n
+0 T (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () N
+0 T () S
+(  ) p
+(if) K
+( \(\(prow == 0\) ) p
+(\331) sy
+( \(pcol == 0\)\) ) p
+(then) K
+(  ) p
+(! Copie des blocs ) c n
+0 T () S
+(    dist_x\(1:2,1:2\) = x\(1:2,1:2\)           ) p
+(! appartenant au proc\(0,0\)) c n
+(175) # () S
+(    dist_x\(1:2,3\) = x\(1:2,5\)) p n
+0 T (    dist_x\(3,1:2\) = x\(5,1:2\)) N
+0 T (    dist_x\(3,3\) = x\(5,5\)) N
+0 T (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () S
+(                                            ) p
+(! Reception par les ) c n
+(180) # () S
+(  ) p
+(if) K
+( \(\(prow == 0\) ) p
+(\331) sy
+( \(pcol == 1\)\) ) p
+(then) K
+(   ) p
+(! autres processeurs.) c n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(SGERV2D) l
+(\( icntxt, 2,2, dist_x\(1,1\), n_max, 0, 0\)) p n
+0 T (    ) S
+(call) K
+( ) p
+(SGERV2D) l
+(\( icntxt, 1,2, dist_x\(3,1\), n_max, 0, 0\)) p n
+0 T (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () S
+(  ) p
+(if) K
+( \(\(prow == 1\) ) p
+(\331) sy
+( \(pcol == 0\)\) ) p
+(then) K n
+(185) # () S
+(    ) p
+(call) K
+( ) p
+(SGERV2D) l
+(\( icntxt, 2,2, dist_x\(1,1\), n_max, 0, 0\)) p n
+0 T (    ) S
+(call) K
+( ) p
+(SGERV2D) l
+(\( icntxt, 2,1, dist_x\(1,3\), n_max, 0, 0\)) p n
+0 T (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () S
+(  ) p
+(if) K
+( \(\(prow == 1\) ) p
+(\331) sy
+( \(pcol == 1\)\) ) p
+(then) K n
+0 T () S
+(    ) p
+(call) K
+( ) p
+(SGERV2D) l
+(\( icntxt, 2,2, dist_x\(1,1\), n_max, 0, 0\)) p n
+(190) # (  ) S
+(end) K
+( ) p
+(if) K n
+0 T () N
+0 T (end) S
+( ) p
+(subroutine) K
+( ) p
+(distribue) L n
+(ex_PSGETRS.f90) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

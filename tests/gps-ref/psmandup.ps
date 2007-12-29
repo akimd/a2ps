@@ -1,0 +1,769 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (#! /bin/sh -e) c n
+0 T (# -*- ksh -*-) N
+0 T () N
+0 T (# psmandup --- produce a version of a PS file to print in manual Duplex.) N
+(5) # () N
+0 T (# Copyright \(c\) 1998, 1999 Akim Demaille, Miguel Santana) N
+0 T () N
+0 T (# This program is free software; you can redistribute it and/or modify) N
+0 T (# it under the terms of the GNU General Public License as published by) N
+(10) # (# the Free Software Foundation; either version 3, or \(at your option\)) N
+0 T (# any later version.) N
+0 T (#) N
+0 T (# This program is distributed in the hope that it will be useful,) N
+0 T (# but WITHOUT ANY WARRANTY; without even the implied warranty of) N
+(15) # (# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the) N
+0 T (# GNU General Public License for more details.) N
+0 T (#) N
+0 T (# You should have received a copy of the GNU General Public License) N
+0 T (# along with this program; if not, you can either send email to this) N
+(20) # (# program's maintainer or write to: The Free Software Foundation,) N
+0 T (# Inc.; 59 Temple Place, Suite 330; Boston, MA 02111-1307, USA.) N
+0 T () N
+0 T (# Author: Akim Demaille <Akim.Demaille@freefriends.org>) N
+0 T () N
+(25) # (# Get the name of the program) N
+0 T () S
+(program=`) p
+(echo) K
+( $0 | sed ') p
+(s#.*/##g) str
+('`) p n
+0 T () N
+0 T () S
+(# Local vars) c n
+0 T () S
+(address=0) p 16 T () S
+(# Where to put the manual feed feature) c n
+(30) # () S
+(back=:) p 8 T () S 16 T () S
+(# Print the back side pages.) c n
+0 T () S
+(debug=) p n
+0 T (file=) N
+0 T (front=:) S 8 T () S 16 T () S
+(# Print the front side pages.) c n
+0 T () S
+(output=-) p 16 T () S
+(# Default is stdout) c n
+(35) # () S
+(fixps=${FIXPS:-fixps}) p n
+0 T (message=) N
+0 T (psselect=${PSSELECT:-psselect}) N
+0 T (psset=${PSSET:-psset}) N
+0 T (tmpdir=`mktemp -d -t psmandup.XXXXXX` || { ) S
+(echo) K
+( ") p
+($program: Cannot create temporary dir!) str
+(" >&) p n
+0 T (2 ; ) S
+(exit) K
+( 1; }) p n
+(40) # () N
+0 T () S
+(# These two must be kept in synch.  They are opposed.) c n
+0 T () S
+(verbose=) p
+(echo) K n
+0 T () S
+(quiet=:) p n
+0 T () N
+(45) # () S
+(# The version/usage strings) c n
+0 T () S
+(version=") p
+(psmandup 2.1 \(GNU a2ps 4.13c\)) str n
+0 T (Written by Akim Demaille.) N
+0 T () N
+0 T (Copyright \(c\) 1998-1999 Akim Demaille, Miguel Santana) N
+(50) # (This is free software; see the source for copying conditions.  There is NO) N
+0 T (warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.) S
+(") p n
+0 T () N
+0 T (usage=") S
+(\\) str n
+0 T (Usage: $program FILE) N
+(55) # (Tries to produce a version of the PostScript FILE to print in manual) N
+0 T (Duplex.) N
+0 T () N
+0 T (Options:) N
+0 T ( -h, --help           display this help and exit) N
+(60) # ( -v, --version        display version information and exit) N
+0 T ( -q, --quiet          don't print informational messages) N
+0 T ( -o, --output=FILE    save result in FILE.  If FILE is \\`-', send to stdout) N
+0 T ( -n, --no-fix         don't call fixps to fix PS problems in FILE) N
+0 T ( -f, --front          output only the front pages \(recto\) on the regular) N
+(65) # (                      tray) N
+0 T ( -b, --back           output only the back pages \(verso\) on the manual) N
+0 T (                      feed tray) N
+0 T () N
+0 T (Produced output is meant for PS level 2 printers which don't support) N
+(psmandup) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(70) # (Duplex printing, but support Manual Feed.  Once the first set of pages) str n
+0 T (is printed \(odd pages\), manual feed is asked: introduce the odd pages) N
+0 T (to print the even pages on the other side.) N
+0 T () N
+0 T (Because there is usually a short time out for manually fed jobs, you) N
+(75) # (should really be next to the printer.  If ever the time out expired,) N
+0 T (use the option -b to send only the missing part.) N
+0 T () N
+0 T (Environment variables FIXPS, PSSELECT and PSSET, if defined, are used) N
+0 T (to find the tools.) N
+(80) # () N
+0 T (News, updates and documentation: http://www.inf.enst.fr/~demaille/a2ps/) N
+0 T (Report bugs to <bug-a2ps@gnu.org>) S
+(") p n
+0 T () N
+0 T (help=") S
+(Try \\`$program --help' for more information.) str
+(") p n
+(85) # () N
+0 T () S
+(# Parse command line arguments.) c n
+0 T () S
+(option_without_arguments=') p
+(vhsqnDbf) str
+(') p n
+0 T () N
+0 T () S
+(# Push a token among the arguments that will be used to notice when) c n
+(90) # (# we ended options/arguments parsing.) N
+0 T () S
+(arg_sep=") p
+($$--$$) str
+(") p n
+0 T () S
+(set) K
+( dummy ${1+") p
+($@) str
+("} ") p
+($arg_sep) str
+(") p n
+0 T () S
+(shift) K n
+0 T (while) S
+( ) p
+(test) K
+( ") p
+(x$1) str
+(" != ") p
+(x$arg_sep) str
+("; ) p
+(do) K n
+(95) # () N
+0 T () S
+(  ) p
+(# Handle --option=value by splitting apart and putting back on argv.) c n
+0 T () S
+(  ) p
+(case) K
+( ") p
+($1) str
+(" ) p
+(in) K n
+0 T () S
+(    --*=*\)) p n
+0 T (      opt=`) S
+(echo) K
+( ") p
+($1) str
+(" | sed -e ') p
+(s/=.*//) str
+('`) p n
+(100) # (      val=`) S
+(echo) K
+( ") p
+($1) str
+(" | sed -e ') p
+(s/[^=]*=//) str
+('`) p n
+0 T (      ) S
+(shift) K n
+0 T () S
+(      ) p
+(set) K
+( dummy ") p
+($opt) str
+(" ") p
+($val) str
+(" ${1+") p
+($@) str
+("}) p n
+0 T (      ) S
+(shift) K n
+0 T () S
+(      ;;) p n
+(105) # () N
+0 T (    -[$option_without_arguments]?*\)) N
+0 T (      ) S
+(# Prefix $1 with x to avoid running `echo -na' for instance.) c n
+0 T () S
+(      opt=`) p
+(echo) K
+( ") p
+(x$1) str
+(" | sed -e ') p
+(s/x-\\\(.\\\).*/-\\1/) str
+('`) p n
+0 T (      rest=`) S
+(echo) K
+( ") p
+(x$1) str
+(" | sed -e ') p
+(s/x-.\\\(.*\\\)/-\\1/) str
+('`) p n
+(110) # (      ) S
+(shift) K n
+0 T () S
+(      ) p
+(set) K
+( dummy ") p
+($opt) str
+(" ") p
+($rest) str
+(" ${1+") p
+($@) str
+("}) p n
+0 T (      ) S
+(shift) K n
+0 T () S
+(      ;;) p n
+0 T () N
+(115) # (    ) S
+(# This case needs to be protected so that the case `-??*' does) c n
+0 T () S
+(    ) p
+(# not split long options without arguments) c n
+0 T () S
+(    --*\)) p n
+0 T (      ;;) N
+0 T () N
+(120) # (    ) S
+(# This is an option with argument.  Split apart and put back on argv.) c n
+0 T () S
+(    -??*\)) p n
+0 T (      opt=`) S
+(echo) K
+( ") p
+(x$1) str
+(" | sed -e ') p
+(s/x-\\\(.\\\).*/-\\1/) str
+('`) p n
+0 T (      arg=`) S
+(echo) K
+( ") p
+(x$1) str
+(" | sed -e ') p
+(s/x-.\\\(.*\\\)/\\1/) str
+('`) p n
+0 T (      ) S
+(shift) K n
+(125) # () S
+(      ) p
+(set) K
+( dummy ") p
+($opt) str
+(" ") p
+($arg) str
+(" ${1+") p
+($@) str
+("}) p n
+0 T (      ) S
+(shift) K n
+0 T () S
+(      ;;) p n
+0 T (  ) S
+(esac) K n
+0 T () N
+(130) # () S
+(  ) p
+(# Now, handle the options.  $1 is the option *only*.  If it has an) c n
+0 T () S
+(  ) p
+(# argument, it is now necessarily in $2 etc.  Remember to shift) c n
+0 T () S
+(  ) p
+(# when fetching an argument.) c n
+0 T () S
+(  ) p
+(case) K
+( ") p
+($1) str
+(" ) p
+(in) K n
+0 T () S
+(    -v | --v*\) ) p
+(echo) K
+( ") p
+($version) str
+("; ) p
+(exit) K
+( 0;;) p n
+(135) # (    -h | --h*\) ) S
+(echo) K
+( ") p
+($usage) str
+("; ) p
+(exit) K
+( 0;;) p n
+0 T (    -q | -s | --s* | --q*\) verbose=:; quiet=) S
+(echo) K
+(;;) p n
+0 T (    ) S
+(# Delay debugging so that options parsing does not appear) c n
+0 T () S
+(    -D | --deb*\) debug=-D ;;) p n
+0 T (    -o | --out*\) ) S
+(shift) K
+( ; output=$1 ;;) p n
+(psmandup) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(140) # (    -b | --bac*\) front= ; back=: ;;) p n
+0 T (    -f | --fro*\) front=: ; back= ;;) N
+0 T (    -\) ) S
+(# We are working with stdin ;;) c n
+0 T () S
+(       ) p
+(set) K
+( dummy ") p
+($@) str
+(" ") p
+($1) str
+(") p n
+0 T (       ) S
+(shift) K n
+(145) # () S
+(       ;;) p n
+0 T (    -n | --no*\) fixps= ;;) N
+0 T () N
+0 T (    --\) ) S
+(# What remains are not options.) c n
+0 T () S
+(      ) p
+(shift) K n
+(150) # () S
+(      ) p
+(while) K
+( ) p
+(test) K
+( ") p
+(x$1) str
+(" != ") p
+(x$arg_sep) str
+("; ) p
+(do) K n
+0 T () S
+(        ) p
+(set) K
+( dummy ${1+") p
+($@) str
+("} ") p
+($1) str
+(") p n
+0 T (        ) S
+(shift) K n
+0 T () S
+() p 8 T () S
+(shift) K n
+0 T () S
+(      ) p
+(done) K n
+(155) # () S
+(      ) p
+(break) K
+(;;) p n
+0 T () N
+0 T (    -*\)) N
+0 T (      ) S
+(echo) K
+( ") p
+($program: Unknown or ambiguous option \\`$1'.) str
+(" >&2) p n
+0 T (      ) S
+(echo) K
+( ") p
+($program: Try \\`--help' for more information.) str
+(" >&2) p n
+(160) # (      ) S
+(exit) K
+( 1;;) p n
+0 T (    *\) ) S
+(set) K
+( dummy ${1+") p
+($@) str
+("} ") p
+($1) str
+(") p n
+0 T (       ) S
+(shift) K n
+0 T () S
+(       ;;) p n
+0 T (   ) S
+(esac) K n
+(165) # () S
+(   ) p
+(shift) K n
+0 T (done) N
+0 T () S
+(# Pop the token) c n
+0 T () S
+(shift) K n
+0 T () N
+(170) # () N
+0 T () S
+(# Check the number of arguments.) c n
+0 T () S
+(case) K
+( $# ) p
+(in) K n
+0 T () S
+(  0\)  file=-;;) p n
+0 T (  1\)  file=$1;;) N
+(175) # (  *\)  ) S
+(echo) K
+( ") p
+($program: too many arguments) str
+(" 1>&2) p n
+0 T (      ) S
+(echo) K
+( ") p
+($help) str
+("  1>&2) p n
+0 T (      ) S
+(exit) K
+( 1;;) p n
+0 T () S
+(esac) K n
+0 T () N
+(180) # (if) S
+( ) p
+(test) K
+( -n ") p
+($debug) str
+("; ) p
+(then) K n
+0 T () S
+(  ) p
+(# Set -x now if debugging) c n
+0 T () S
+(  ) p
+(set) K
+( -x) p n
+0 T () S
+(else) K n
+0 T () S
+(  ) p
+(# Temp dir.  Get ready not to leave junk \(if not debugging\)) c n
+(185) # () S
+(  ) p
+(trap) K
+( ") p
+(/bin/rm -rf $tmpdir) str
+(" 0 1 2 3 13 15) p n
+0 T () S
+(fi) K n
+0 T () N
+0 T () S
+(# If printing from stdin, save into a tmp file) c n
+0 T () S
+(if) K
+( ) p
+(test) K
+( $file = ') p
+(-) str
+('; ) p
+(then) K n
+(190) # () S
+(  file=$tmpdir/stdin.ps) p n
+0 T (  cat > $file) N
+0 T () S
+(fi) K n
+0 T () N
+0 T () S
+(# Fix the file beforehand, so that we can really expect to find the) c n
+(195) # (# page numbers.) N
+0 T () S
+(if) K
+( ) p
+(test) K
+( -n ") p
+($fixps) str
+("; ) p
+(then) K n
+0 T () S
+(  $fixps $file -o $tmpdir/fixed.ps `$quiet -q`) p n
+0 T (  file=$tmpdir/fixed.ps) N
+0 T () S
+(fi) K n
+(200) # () N
+0 T () S
+(# Get the number of pages of the document) c n
+0 T () S
+(pagenum=`sed -ne ') p
+(/^%%Pages:/{) str n
+0 T (s/%%Pages: \\\\\([0-9]*\\\\\).*$/\\\\1/p) N
+0 T (q) N
+(205) # (}) S
+(' $file`) p n
+0 T () N
+0 T () S
+(# Make the string to get the front pages \(even, increasing\) if needed) c n
+0 T () S
+(if) K
+( ) p
+(test) K
+( -n ") p
+($front) str
+("; ) p
+(then) K n
+0 T () S
+(  evens=") p
+(1) str
+(") p n
+(psmandup) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (4) 4
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(210) # (  i=3) p n
+0 T (  ) S
+(# Build the string to give to psselect) c n
+0 T () S
+(  ) p
+(while) K
+( ) p
+(test) K
+( $i -le $pagenum;) p n
+0 T (  ) S
+(do) K n
+0 T () S
+(    evens=") p
+($evens,$i) str
+(") p n
+(215) # (    i=`expr $i + 2`) N
+0 T (  ) S
+(done) K n
+0 T (fi) N
+0 T () N
+0 T () S
+(# Make the string to get the back pages \(odd, decreasing\) if needed) c n
+(220) # () S
+(if) K
+( ) p
+(test) K
+( -n ") p
+($back) str
+("; ) p
+(then) K n
+0 T () S
+(  ) p
+(# If the number of pages is odd, we need to insert a blank sheet) c n
+0 T () S
+(  ) p
+(case) K
+( ") p
+($pagenum) str
+(" ) p
+(in) K n
+0 T () S
+(    *[13579]\)) p n
+0 T (      odds=") S
+(_) str
+(") p n
+(225) # (      i=`expr $pagenum - 1 || ) S
+(exit) K
+( 0`) p n
+0 T (      ;;) N
+0 T (    *\) ) S
+(# Odd, and not 0, so at least >= 2) c n
+0 T () S
+(       odds=$pagenum) p n
+0 T (       i=`expr $pagenum - 2 || ) S
+(exit) K
+( 0`) p n
+(230) # (       ;;) N
+0 T (  ) S
+(esac) K n
+0 T () N
+0 T () S
+(  ) p
+(# Make the string to get the second half \(odd, decreasing\)) c n
+0 T () S
+(  ) p
+(while) K
+( ) p
+(test) K
+( $i != 0;) p n
+(235) # (  ) S
+(do) K n
+0 T () S
+(    odds=") p
+($odds,$i) str
+(") p n
+0 T (    i=`expr $i - 2 || ) S
+(exit) K
+( 0`) p n
+0 T (  ) S
+(done) K n
+0 T (fi) N
+(240) # () N
+0 T () S
+(# If there are both odds and evens to print, the separator is `,') c n
+0 T () S
+(test) K
+( -n ") p
+($odds) str
+(" && ) p
+(test) K
+( -n ") p
+($evens) str
+(" && separator=,) p n
+0 T () N
+0 T () S
+(# Reorder the pages) c n
+(245) # () S
+($psselect -q $evens$separator$odds $file > $tmpdir/ordered.ps) p n
+0 T () N
+0 T () S
+(# If needed, insert the manual feed request) c n
+0 T () S
+(if) K
+( ) p
+(test) K
+( -n ") p
+($back) str
+("; ) p
+(then) K n
+0 T () S
+(  ) p
+(# The option of psset to ask the manual feed.  If not set,) c n
+(250) # () S
+(  ) p
+(# psset just does nothing.) c n
+0 T () S
+(  pssetmanfeed=-m) p n
+0 T (  ) S
+(# Compute the address, depending on front pages are printed or not.) c n
+0 T () S
+(  ) p
+(if) K
+( ) p
+(test) K
+( -n ") p
+($front) str
+("; ) p
+(then) K n
+0 T () S
+(    address=`expr ') p
+(\() str
+(' $pagenum + 1 ') p
+(\)) str
+(' / 2 + 1`) p n
+(255) # (    message=") S
+(\\) str n
+0 T (Once the first half of the file printed, insert the sheets stack into) N
+0 T (the manual feed tray to print the second half.  Be aware the time out) N
+0 T (if usually short.  If it expired, use option -b to proceed.) S
+(") p n
+0 T (  ) S
+(else) K n
+(260) # () S
+(    address=0) p n
+0 T (    message=") S
+(Insert the front pages stack into the manual feed tray.) str
+(") p n
+0 T (  ) S
+(fi) K n
+0 T (fi) N
+0 T () N
+(265) # () S
+(# Insert the manual feed request if needed) c n
+0 T () S
+($psset -n $pssetmanfeed -a $address -o$output $tmpdir/ordered.ps $debug) p n
+0 T () N
+0 T () S
+(test) K
+( -n ") p
+($message) str
+(" && $verbose ") p
+($message) str
+(" 1>&2) p n
+0 T () S
+(exit) K
+( 0) p n
+(psmandup) (right) (4) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (4) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

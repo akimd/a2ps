@@ -1,0 +1,1299 @@
+# Turkish messages for a2ps
+# Copyright (C) 1997
+# H. Turgut Uyar <uyar@cs.itu.edu.tr>, 1997.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: a2ps 4.9\n"
+"POT-Creation-Date: 2002-10-03 19:05+0200\n"
+"PO-Revision-Date: 2002-03-25 18:17+0100\n"
+"Last-Translator: H. Turgut Uyar <uyar@cs.itu.edu.tr>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-9\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+# src/buffer.c:61
+#: src/buffer.c:68
+msgid "any type"
+msgstr "her tip"
+
+#: src/delegate.c:137 lib/confg.c:268 lib/encoding.c:530 lib/encoding.c:576
+#: lib/encoding.c:616 lib/output.c:302 lib/pair_ht.c:296 lib/prolog.c:146
+#, c-format
+msgid "missing argument for `%s'"
+msgstr "`%s' için eksik argüman"
+
+#: src/delegate.c:260 lib/routines.c:160 lib/xbackupfile.c:248
+#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
+#, c-format
+msgid "cannot create file `%s'"
+msgstr "`%s' dosyasý yaratýlamýyor"
+
+#: src/delegate.c:269 src/select.c:159 lib/routines.c:190 lib/routines.c:196
+#, c-format
+msgid "cannot open a pipe on `%s'"
+msgstr "`%s' üzerinde pipe açýlamýyor"
+
+#: src/delegate.c:389
+#, c-format
+msgid "Delegation `%s', from %s to %s\n"
+msgstr "Üstlenici `%s', %s -> %s\n"
+
+#: src/delegate.c:408 src/delegate.c:430
+msgid "Applications configured for delegation"
+msgstr "Üstlenici olarak ayarlanan uygulamalar"
+
+#: src/generate.c:88
+#, c-format
+msgid "`%s' is a directory"
+msgstr "`%s' bir dizin"
+
+#: src/generate.c:96 src/main.c:558 src/main.c:580 lib/confg.c:292
+#: lib/confg.c:455 lib/routines.c:154
+#, c-format
+msgid "cannot open file `%s'"
+msgstr "`%s' dosyasý açýlamýyor"
+
+#: src/generate.c:101 lib/xbackupfile.c:224
+#, c-format
+msgid "cannot get informations on file `%s'"
+msgstr "`%s' dosyasý ile ilgili bilgi alýnamýyor"
+
+#: src/generate.c:168
+#, c-format
+msgid "[%s (%s): 1 page on 1 sheet]\n"
+msgstr "[%s (%s): 1 sayfa / 1 kaðýt]\n"
+
+#: src/generate.c:174
+#, c-format
+msgid "[%s (%s): %d pages on 1 sheet]\n"
+msgstr "[%s (%s): %d sayfa / 1 kaðýt]\n"
+
+#: src/generate.c:181
+#, c-format
+msgid "[%s (%s): %d pages on %d sheets]\n"
+msgstr "[%s (%s): %d sayfa / %d kaðýt]\n"
+
+#: src/generate.c:208
+#, c-format
+msgid "[Total: 1 page on 1 sheet] %s\n"
+msgstr "[Toplam: 1 sayfa / 1 kaðýt] %s\n"
+
+#: src/generate.c:212
+#, c-format
+msgid "[Total: %d pages on 1 sheet] %s\n"
+msgstr "[Toplam: %d sayfa / 1 kaðýt] %s\n"
+
+#: src/generate.c:217
+#, c-format
+msgid "[Total: %d pages on %d sheets] %s\n"
+msgstr "[Toplam: %d sayfa / %d kaðýt] %s\n"
+
+#: src/generate.c:226
+msgid "[1 line wrapped]\n"
+msgstr ""
+
+#: src/generate.c:229
+#, fuzzy, c-format
+msgid "[%d lines wrapped]\n"
+msgstr "bir sayfaya %d satýr"
+
+#: src/generate.c:242
+msgid "[No output produced]\n"
+msgstr "[Çýktý üretilmedi]\n"
+
+#: src/generate.c:314
+#, c-format
+msgid "%s, delegated to %s"
+msgstr "%s, %s uygulamasýna devredildi"
+
+#: src/generate.c:322
+#, c-format
+msgid "[%s (%s): failed.  Ignored]\n"
+msgstr "[%s (%s): baþarýsýz.  Gözardý edildi]\n"
+
+#: src/generate.c:330
+#, c-format
+msgid "[%s (unprintable): ignored]\n"
+msgstr "[%s (basýlamaz): gözardý edildi]\n"
+
+#: src/generate.c:339
+#, c-format
+msgid "[%s (binary): ignored]\n"
+msgstr "[%s (ikili): gözardý edildi]\n"
+
+#: src/generate.c:360
+msgid "plain"
+msgstr "sade"
+
+#: lexssh.l:348
+msgid "end-of-line in string constant"
+msgstr "katar sabitinde satýr-sonu"
+
+#: lexssh.l:415 src/sheets-map.l:152 src/sheets-map.l:191
+#, fuzzy, c-format
+msgid "end of line inside a %s"
+msgstr "düzgün deyimde satýr-sonu"
+
+#: src/main.c:201
+#, c-format
+msgid "received signal %d: %s"
+msgstr "%d iþareti alýndý: %s"
+
+#: src/main.c:240
+msgid "heavy"
+msgstr "çok"
+
+#: src/main.c:244
+msgid "normal"
+msgstr "normal"
+
+#: src/main.c:248
+msgid "none"
+msgstr "yok"
+
+#: src/main.c:322 src/main.c:326
+msgid "yes"
+msgstr "evet"
+
+#: src/main.c:323 src/main.c:326 src/main.c:367
+msgid "no"
+msgstr "hayýr"
+
+#: src/main.c:333
+#, c-format
+msgid "Configuration status of %s %s\n"
+msgstr "%s için ayar durumu %s\n"
+
+#: src/main.c:337 src/main.c:694
+msgid "Sheets:\n"
+msgstr "Kaðýtlar:\n"
+
+#: src/main.c:338
+#, c-format
+msgid ""
+"  medium          = %s%s, %s\n"
+"  page layout     = %d x %d, %s\n"
+"  borders         = %s\n"
+"  file alignment  = %s\n"
+"  interior margin = %d\n"
+msgstr ""
+"  ortam            = %s%s, %s\n"
+"  sayfa düzeni     = %d x %d, %s\n"
+"  kenarlar         = %s\n"
+"  dosya hizalama   = %s\n"
+"  iç kenar aralýðý = %d\n"
+
+#: src/main.c:347
+msgid "portrait"
+msgstr "boyuna"
+
+#: src/main.c:347
+msgid "landscape"
+msgstr "enine"
+
+#: src/main.c:356
+#, c-format
+msgid "%d characters per line"
+msgstr "bir satýra %d karakter"
+
+#: src/main.c:359
+#, c-format
+msgid "%d lines per page"
+msgstr "bir sayfaya %d satýr"
+
+#: src/main.c:362
+#, c-format
+msgid "font size is %gpt"
+msgstr "yazýtipi boyu: %gpt"
+
+#: src/main.c:371
+msgid "each line"
+msgstr "her satýr"
+
+#: src/main.c:375
+#, c-format
+msgid "each %d lines"
+msgstr "her %d satýr"
+
+#: src/main.c:378 src/main.c:715
+msgid "Virtual pages:\n"
+msgstr "Sanal sayfalar:\n"
+
+#: src/main.c:379
+#, c-format
+msgid ""
+"  number lines         = %s\n"
+"  format               = %s\n"
+"  tabulation size      = %d\n"
+"  non printable format = %s\n"
+msgstr ""
+"  satýr numaralama = %s\n"
+"  format           = %s\n"
+"  tab boyu         = %d\n"
+"  basýlamaz format = %s\n"
+
+#: src/main.c:390
+msgid "Headers:\n"
+msgstr "Üstyazýlar:\n"
+
+#: src/main.c:391
+#, c-format
+msgid ""
+"  header       = %s\n"
+"  left footer  = %s\n"
+"  footer       = %s\n"
+"  right footer = %s\n"
+"  left title   = %s\n"
+"  center title = %s\n"
+"  right title  = %s\n"
+"  under lay    = %s\n"
+msgstr ""
+"  üstyazý     = %s\n"
+"  sol altyazý = %s\n"
+"  altyazý     = %s\n"
+"  sað altyazý = %s\n"
+"  sol baþlýk  = %s\n"
+"  orta baþlýk = %s\n"
+"  sað baþlýk  = %s\n"
+"  dipyazý     = %s\n"
+
+#: src/main.c:410 src/main.c:744
+msgid "Input:\n"
+msgstr "Girdi:\n"
+
+#: src/main.c:411
+#, c-format
+msgid ""
+"  truncate lines = %s\n"
+"  interpret      = %s\n"
+"  end of line    = %s\n"
+"  encoding       = %s\n"
+"  document title = %s\n"
+"  prologue       = %s\n"
+"  print anyway   = %s\n"
+"  delegating     = %s\n"
+msgstr ""
+"  satýrlarý kýrp  = %s\n"
+"  yorumla         = %s\n"
+"  satýr sonu      = %s\n"
+"  kodlama         = %s\n"
+"  belge baþlýðý   = %s\n"
+"  giriþ           = %s\n"
+"  yine de bas     = %s\n"
+"  üstlenici       = %s\n"
+
+#: src/main.c:436 src/main.c:502
+msgid "selected automatically"
+msgstr "kendiliðinden seçildi"
+
+#: src/main.c:439 src/main.c:763
+msgid "Pretty-printing:\n"
+msgstr "Süslü-basým:\n"
+
+#: src/main.c:440
+#, c-format
+msgid ""
+"  style sheet     = %s\n"
+"  highlight level = %s\n"
+"  strip level     = %d\n"
+msgstr ""
+"  stil dosyasý        = %s\n"
+"  renklendirme düzeyi = %s\n"
+"  ayýklama düzeyi     = %d\n"
+
+#: src/main.c:460
+msgid "never make backups"
+msgstr "asla yedek alma"
+
+#: src/main.c:464
+msgid "simple backups of every file"
+msgstr "her dosyanýn basit yedeðini al"
+
+#: src/main.c:469
+msgid ""
+"numbered backups of files already numbered,\n"
+"                            and simple of others"
+msgstr ""
+"numaralý dosyalarýn numaralý,\n"
+"               diðerlerinin basit yedeklerini al"
+
+#: src/main.c:474
+msgid "numbered backups of every file"
+msgstr "her dosyanýn numaralý yedeðini al"
+
+#: src/main.c:478 src/main.c:772
+msgid "Output:\n"
+msgstr "Çýktý:\n"
+
+#: src/main.c:479
+#, c-format
+msgid ""
+"  destination     = %s\n"
+"  version control = %s\n"
+"  backup suffix   = %s\n"
+msgstr ""
+"  varýþ          = %s\n"
+"  sürüm denetimi = %s\n"
+"  yedek soneki   = %s\n"
+
+#: src/main.c:492 src/main.c:782
+msgid "PostScript:\n"
+msgstr "PostScript:\n"
+
+#: src/main.c:493
+#, c-format
+msgid ""
+"  magic number              = %s\n"
+"  Printer Description (PPD) = %s\n"
+"  default PPD               = %s\n"
+"  page label format         = %s\n"
+"  number of copies          = %d\n"
+"  sides per sheet           = %s\n"
+"  page device definitions   = "
+msgstr ""
+"  büyülü numara            = %s\n"
+"  Yazýcý Betimlemesi (PPD) = %s\n"
+"  öntanýmlý PPD            = %s\n"
+"  sayfa etiketi formatý    = %s\n"
+"  kopya sayýsý             = %d\n"
+"  kaðýt yüzü sayýsý        = %s\n"
+"  sayfa aygýtý tanýmlarý   = "
+
+#: src/main.c:513
+msgid "  statusdict definitions    = "
+msgstr "  statusdict tanýmlarý      = "
+
+#: src/main.c:516
+#, c-format
+msgid "  page prefeed              = %s\n"
+msgstr "  sayfa önbesleme           = %s\n"
+
+#: src/main.c:525
+msgid "Internals:\n"
+msgstr "Ýç Ayrýntýlar:\n"
+
+#: src/main.c:526
+#, fuzzy, c-format
+msgid ""
+"  verbosity level     = %d\n"
+"  file command        = %s\n"
+"  library path        = \n"
+msgstr ""
+"  ayrýntý düzeyi = %d\n"
+"  dosya komutu   = %s\n"
+"  geçici dizin   = %s\n"
+"  kitaplýk yolu  = \n"
+
+#: src/main.c:651
+#, fuzzy, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"\n"
+"Convert FILE(s) or standard input to PostScript.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Long options marked with * require a yes/no argument, corresponding\n"
+"short options stand for `yes'.\n"
+msgstr ""
+"Kullaným: %s [SEÇENEKLER]... DOSYALAR...\n"
+"   ya da: %s [SEÇENEKLER]...\n"
+"DOSYALAR'ý ya da standart giriþi basmak için.\n"
+"Uzun seçeneklerin zorunlu argümanlarý kýsa seçeneklerde de zorunludur.\n"
+" * ile iþaretlenmiþ uzun seçenekler bir evet/hayýr argümaný isterler,\n"
+"bunlara karþý düþen kýsa seçenekler 'evet' anlamýna gelir.\n"
+
+#: src/main.c:665
+msgid "Tasks:\n"
+msgstr ""
+
+#: src/main.c:666
+#, fuzzy
+msgid ""
+"  --version        display version\n"
+"  --help           display this help\n"
+"  --guess          report guessed types of FILES\n"
+"  --which          report the full path of library files named FILES\n"
+"  --glob           report the full path of library files matching FILES\n"
+"  --list=defaults  display default settings and parameters\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, style-"
+"sheets,\n"
+"                   user-options)\n"
+msgstr ""
+"  -V, --version              sürüm numarasýný göster\n"
+"  --help                     bu yardým sayfasýný göster\n"
+"  --copyright                telif bilgilerini göster\n"
+"  --guess                    tahmin edilen dosya tiplerini göster\n"
+"  --list=KONU                KONU ile ilgili bir rapor ver\n"
+"\n"
+"KONU aþaðýdakilerden birinin yeterli bir kýsaltmasý olabilir:\n"
+" * `defaults': öntanýmlý ayarlar ve parametreler,\n"
+" * `features': desteklenen ortamlar, kodlamalar v.b.'nin kýsa listesi,\n"
+" * `delegations', `encodings', `variables', `media',\n"
+"   `ppd', `printers', `prologues', `style-sheets', `user-options': \n"
+"  ayrýntýlý liste.\n"
+
+#: src/main.c:677
+msgid ""
+"After having performed the task, exit successfully.  Detailed lists may\n"
+"provide additional help on specific features.\n"
+msgstr ""
+
+#: src/main.c:685
+msgid "Global:\n"
+msgstr "Genel:\n"
+
+#: src/main.c:686
+msgid ""
+"  -q, --quiet, --silent      be really quiet\n"
+"  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
+"  -=, --user-option=OPTION   use the user defined shortcut OPTION\n"
+"      --debug                enable debugging features\n"
+"  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
+msgstr ""
+"  -q, --quiet, --silent         gerçekten sessiz ol\n"
+"  -v, --verbose[=DÜZEY]         geveze kipe geç ya da DÜZEY olarak ayarla\n"
+"  -=, --user-option=SEÇENEK     kullanýcý tanýmlý SEÇENEK kestirmesini "
+"kullan\n"
+"      --debug                   hata ayýklama yeteneklerini aç\n"
+"  -D, --define=ANAHTAR[:DEÐER]  ANAHTAR deðiþkenini sil ya da DEÐER ata\n"
+
+#: src/main.c:695
+#, fuzzy
+msgid ""
+"  -M, --medium=NAME      use output medium NAME\n"
+"  -r, --landscape        print in landscape mode\n"
+"  -R, --portrait         print in portrait mode\n"
+"      --columns=NUM      number of columns per sheet\n"
+"      --rows=NUM         number of rows per sheet\n"
+"      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
+"  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
+"                         page, sheet, or a number)\n"
+"  -j, --borders*         print borders around columns\n"
+"      --margin[=NUM]     define an interior margin of size NUM\n"
+msgstr ""
+"  -M, --medium=ÝSÝM     ÝSÝM çýktý ortamýný kullan\n"
+"  -r, --landscape       enine kipte bas\n"
+"  -R, --portrait        boyuna kipte bas\n"
+"      --columns=SAYI    bir kaðýttaki sütun sayýsý (SAYI > 0)\n"
+"      --rows=SAYI       bir kaðýttaki satýr sayýsý (SAYI > 0)\n"
+"      --major=YÖN       önce (YÖN=)satýrlarý, ya da sütunlarý doldur\n"
+"  -1, -2, ..., -9       1, ..., 9 sanal sayfa için önceden tanýmlý\n"
+"                        yazýtipi boylarý ve sayfa düzenleri\n"
+"  -A, --file-align=KÝP  ayrý dosyalarý KÝP'e göre (fill, rank, page,\n"
+"                        sheet ya da bir sayý) hizala  -j, --borders*        "
+"sütunlarýn çevresine kenar çiz\n"
+"      --margin[=SAYI]   SAYI boyunda bir iç kenar aralýðý tanýmla\n"
+
+#: src/main.c:708
+msgid ""
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
+"layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
+"options (`--columns', `--font-size' etc.).\n"
+msgstr ""
+
+#: src/main.c:716
+msgid ""
+"      --line-numbers=NUM     precede each NUM lines with its line number\n"
+"  -C                         alias for --line-numbers=5\n"
+"  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
+"  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
+"  -m, --catman               process FILE as a man page (same as -L66)\n"
+"  -T, --tabsize=NUM          set tabulator size to NUM\n"
+"  --non-printable-format=FMT specify how non-printable chars are printed\n"
+msgstr ""
+"      --line-numbers=SAYI    her SAYI satýrýn önüne satýr numarasý ekle\n"
+"  -C                         --line-numbers=5 yerine geçer\n"
+"  -f, --font-size=BOY        metin için BOY (float) yazýtipini kullan\n"
+"  -L, --lines-per-page=SAYI  her sanal sayfaya SAYI satýr basýlacak\n"
+"                             þekilde yazýtipini ölçekle\n"
+"  -l, --chars-per-line=SAYI  her sanal sayfaya SAYI sütun basýlacak\n"
+"                             þekilde yazýtipini ölçekle\n"
+"  -m, --catman               dosyayý man sayfasý olarak iþle (-L66 ile "
+"ayný)\n"
+"  -T, --tabsize=SAYI         tab boyuna SAYI deðerini ver\n"
+"  --non-printable-format=FMT basýlamaz karakterlerin nasýl basýlacaðýný\n"
+"                             belirt\n"
+
+#: src/main.c:727
+msgid "Headings:\n"
+msgstr "Baþlýklar:\n"
+
+#: src/main.c:729
+#, fuzzy, no-c-format
+msgid ""
+"  -B, --no-header        no page headers at all\n"
+"  -b, --header[=TEXT]    set page header\n"
+"  -u, --underlay[=TEXT]  print TEXT under every page\n"
+"  --center-title[=TEXT]  set page title to TITLE\n"
+"  --left-title[=TEXT]    set left and right page title to TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]   set sheet footers to TEXT\n"
+"  --footer[=TEXT]\n"
+"  --right-footer[=TEXT]\n"
+msgstr ""
+"  -B, --no-header            sayfa üstyazýsý yok\n"
+"  -b, --header[=METÝN]       sayfa üstyazýsýný ayarla\n"
+"  -u, --underlay[=METÝN]     her sayfanýn altýna METÝN yazýsýný bas\n"
+"  --center-title[=METÝN]     sayfa baþlýðýna METÝN deðerini ver\n"
+"  --left-title[=METÝN]       sol ve sað baþlýklara METÝN deðerini ver\n"
+"  --right-title[=METÝN]\n"
+"  --left-footer[=METÝN]      sayfa altyazýlarýna METÝN deðerini ver\n"
+"  --footer[=METÝN]           METÝN yazýsýnda özel $ ve % kaçýþ dizgeleri\n"
+"  --right-footer[=METÝN]     bulunabilir\n"
+
+#: src/main.c:740
+msgid "The TEXTs may use special escapes.\n"
+msgstr ""
+
+#: src/main.c:745
+msgid ""
+"  -a, --pages[=RANGE]        select the pages to print\n"
+"  -c, --truncate-lines*      cut long lines\n"
+"  -i, --interpret*           interpret tab, bs and ff chars\n"
+"      --end-of-line=TYPE     specify the eol char (TYPE: r, n, nr, rn, any)\n"
+"  -X, --encoding=NAME        use input encoding NAME\n"
+"  -t, --title=NAME           set the name of the job\n"
+"      --stdin=NAME           set the name of the input file stdin\n"
+"      --print-anyway*        force binary printing\n"
+"  -Z, --delegate*            delegate files to another application\n"
+"      --toc[=TEXT]           generate a table of content\n"
+msgstr ""
+"  -a, --pages[=ARALIK]       basýlacak sayfalarý seç\n"
+"  -c, --truncate-lines*      uzun satýrlarý kýrp\n"
+"  -i, --interpret*           tab, bs ve ff karakterlerini yorumla\n"
+"      --end-of-line=TÝP      satýr-sonu karakterini belirt (TÝP: r, n, nr,\n"
+"                             rn, any)\n"
+"  -X, --encoding=ÝSÝM        ÝSÝM giriþ kodlamasýný kullan\n"
+"  -t, --title=ÝSÝM           iþe isim ver\n"
+"      --stdin=ÝSÝM           standart giriþ dosyasýna isim ver\n"
+"      --print-anyway*        ikili düzende basmayý zorla\n"
+"  -Z, --delegate*            dosyalarý baþka bir uygulamaya devret\n"
+"      --toc[=METÝN]          içindekiler bölümü oluþtur\n"
+
+#: src/main.c:757
+msgid ""
+"When delegations are enabled, a2ps may use other applications to handle the\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
+"PostScript, PDF etc.\n"
+msgstr ""
+
+#: src/main.c:764
+msgid ""
+"  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
+"  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
+"                             LEVEL can be none, normal or heavy\n"
+"  -g                         alias for --highlight-level=heavy\n"
+"  --strip-level=NUM          level of comments stripping\n"
+msgstr ""
+"  -E, --pretty-print[=DÝL]   süslü-basýmý aç (stili DÝL olarak ayarla)\n"
+"  --highlight-level=DÜZEY    süslü-basým renklendirme DÜZEYini ayarla\n"
+"                             DÜZEY none, normal ya da heavy olabilir\n"
+"  -g                         --highlight-level=heavy ile ayný\n"
+"  --strip-level=NUM          yorum ayýklama düzeyi\n"
+
+#: src/main.c:773
+msgid ""
+"  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
+"                             leave output to stdout.\n"
+"  --version-control=WORD     override the usual version control\n"
+"  --suffix=SUFFIX            override the usual backup suffix\n"
+"  -P, --printer=NAME         send output to printer NAME\n"
+"  -d                         send output to the default printer\n"
+msgstr ""
+"  -o, --output=DOSYA         çýktýyý DOSYA dosyasýna ver. DOSYA `-' ise\n"
+"                             çýktýyý standart çýkýþa ver.\n"
+"  --verson-control=SÖZCÜK    sürüm denetimini deðiþtir\n"
+"  --suffix=SONEK             yedek sonekini deðiþtir\n"
+"  -P, --printer=ÝSÝM         çýktýyý ÝSÝM yazýcýsýna yolla\n"
+"  -d                         çýktýyý öntanýmlý yazýcýya yolla\n"
+
+#: src/main.c:783
+msgid ""
+"      --prologue=FILE        include FILE.pro as PostScript prologue\n"
+"      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
+"  -n, --copies=NUM           print NUM copies of each page\n"
+"  -s, --sides=MODE           set the duplex MODE (`1' or `simplex',\n"
+"                             `2' or `duplex', `tumble')\n"
+"  -S, --setpagedevice=K[:V]  pass a page device definition to output\n"
+"      --statusdict=K[:[:]V]  pass a statusdict definition to the output\n"
+"  -k, --page-prefeed         enable page prefeed\n"
+"  -K, --no-page-prefeed      disable page prefeed\n"
+msgstr ""
+"      --prologue=DOSYA       DOSYA.pro dosyasýný PostScript giriþi olarak "
+"al\n"
+"      --ppd[=ANAHTAR]        PPD'yi kendin seç [ya da ANAHTAR deðerini ver]\n"
+"  -n, --copies=SAYI          her sayfadan SAYI kopya bas\n"
+"  -s, --sides=KÝP            duplex KÝP'e geç (`1' ya da `simplex',\n"
+"                             `2' ya da `duplex', `tumble'\n"
+"  -S, --setpagedevice=K[:V]  çýktýya bir sayfa aygýtý tanýmý geçir\n"
+"      --statusdict=K[:[:]V]  çýktýya bir statusdict tanýmý geçir\n"
+"  -k, --page-prefeed         sayfa önbeslemesine izin ver\n"
+"  -K, --no-page-prefeed      sayfa önbeslemesi iznini kaldýr\n"
+
+#: src/main.c:797
+msgid ""
+"By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
+"result to the printer `lw',\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"To process the files `sample.ps' and `sample.html' and display the result,\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"To process a mailbox in 4 up,\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"To print as a booklet on the default printer, which is Duplex capable,\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+msgstr ""
+
+#: src/main.c:818
+#, fuzzy
+msgid ""
+"News, updates and documentation: visit http://www.inf.enst.fr/~demaille/"
+"a2ps/.\n"
+msgstr ""
+"Haberler, güncellemeler ve belgeleme için adres: http://www.inf.enst.fr/"
+"~demaille/a2ps/\n"
+"Çeviriyle ilgili önerilerinizi <uyar@cs.itu.edu.tr> adresine yollayýn.\n"
+
+#: src/main.c:820
+#, fuzzy
+msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
+msgstr "Hata raporlarýný <bug-a2ps@gnu.org> adresine yollayýn.\n"
+
+#: src/main.c:938
+#, fuzzy
+msgid ""
+"Copyright (c) 1988-1993 Miguel Santana\n"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+msgstr ""
+"\n"
+"Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+"Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana\n"
+
+#: src/main.c:1168
+msgid "Table of Content"
+msgstr "Ýçindekiler"
+
+#: src/parsessh.y:236
+#, c-format
+msgid "cannot process `%s' which requires a2ps version %s"
+msgstr "`%s' iþlenemiyor, a2ps %s sürümü gerekli"
+
+#: src/sheets-map.l:110
+#, c-format
+msgid "unexpected character `%c'"
+msgstr ""
+
+#: src/sheets-map.l:210 lexppd.l:211
+msgid "too many includes"
+msgstr ""
+
+#: src/sheets-map.l:292 src/sheets-map.l:299
+#, fuzzy, c-format
+msgid "no key defined for `%s'"
+msgstr "`%s' dosyasý bulunamýyor"
+
+#: src/select.c:122 src/ssheet.c:866 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:328 lib/pathwalk.c:414
+#, c-format
+msgid "cannot find file `%s'"
+msgstr "`%s' dosyasý bulunamýyor"
+
+#: src/select.c:124
+msgid "automatic style selection cancelled"
+msgstr "kendiliðinden stil seçimi kapatýldý"
+
+#: src/ssheet.c:295
+#, c-format
+msgid "cannot compile regular expression `%s': %s"
+msgstr "`%s' düzgün deyimi derlenemiyor: %s"
+
+#: src/ssheet.c:974 src/ssheet.c:995
+msgid "Known Style Sheets"
+msgstr "Tanýnan Stil Dosyalarý"
+
+#: src/ssheet.c:1461
+#, c-format
+msgid "cannot find style sheet `%s': using plain style"
+msgstr "`%s' stil dosyasý bulunamýyor: sade stil kullanýlýyor"
+
+#: src/sshread.c:453
+#, c-format
+msgid "unknown encoding `%s', ignored"
+msgstr "tanýnmayan kodlama: `%s', gözardý edildi"
+
+#: src/version-etc.c:38
+msgid "Copyright (C) 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/version-etc.c:60
+#, fuzzy, c-format
+msgid "Written by %s.\n"
+msgstr "Basan: %s"
+
+#: src/version-etc.c:66
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: src/versions.c:133
+#, c-format
+msgid "invalid version number `%s'"
+msgstr "geçersiz sürüm numarasý `%s'"
+
+#: lib/caret.c:43
+msgid "space (i.e., ` ')"
+msgstr "boþluk (yani ` ')"
+
+#: lib/caret.c:45
+msgid "octal (i.e., `\\001' etc.)"
+msgstr "sekizli (yani `\\001' gibi)"
+
+#: lib/caret.c:47
+msgid "hexadecimal (i.e., `\\x0a' etc.)"
+msgstr "onaltýlý (yani `\\x0a' gibi)"
+
+#: lib/caret.c:49
+msgid "caret (i.e., `^C', `M-^C' etc.)"
+msgstr "þapka (yani `^C', `M-^C' gibi)"
+
+#: lib/caret.c:51
+msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
+msgstr "emacs (yani `C-c', `M-C-c' gibi)"
+
+#: lib/caret.c:53
+msgid "question-mark (i.e., `?')"
+msgstr "soru iþareti (yani `?')"
+
+#: lib/closeout.c:71 lib/closeout.c:73
+msgid "write error"
+msgstr ""
+
+#: lib/confg.c:257 lib/encoding.c:638
+#, c-format
+msgid "invalid option `%s'"
+msgstr "geçersiz seçenek `%s'"
+
+#: lib/confg.c:324 lib/confg.c:331 lib/confg.c:338
+#, c-format
+msgid "invalid definition for printer `%s': %s"
+msgstr "`%s' yazýcýsý için hatalý tanýmlama: %s"
+
+#: lib/confg.c:329 lib/confg.c:332 lib/printers.c:47
+msgid "Unknown Printer"
+msgstr "Tanýnmayan Yazýcý"
+
+#: lib/confg.c:336 lib/confg.c:339 lib/printers.c:46
+msgid "Default Printer"
+msgstr "Öntanýmlý Yazýcý"
+
+#: lib/confg.c:392 lib/options.c:697
+#, c-format
+msgid "invalid variable identifier `%s'"
+msgstr "geçersiz deðiþken adý `%s'"
+
+#: lib/confg.c:421
+#, c-format
+msgid "obsolete `%s' entry.  Ignored"
+msgstr "`%s' kaydý artýk anlamsýz.  Gözardý edildi"
+
+#: lib/encoding.c:1114 lib/encoding.c:1135
+msgid "Known Encodings"
+msgstr "Tanýnan kodlamalar"
+
+#: lib/faces.c:156
+msgid "incomplete knowledge of faces"
+msgstr "yüzler hakkýnda yetersiz bilgi"
+
+#: lib/filtdir.c:113
+#, c-format
+msgid "cannot close directory `%s'"
+msgstr "`%s' dizini kapatýlamýyor"
+
+#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#, c-format
+msgid "invalid argument `%s' for `%s'"
+msgstr "`%2$s' için geçersiz argüman `%1$s'"
+
+#: lib/getnum.c:123
+#, c-format
+msgid "Valid arguments are integers n such that: %s\n"
+msgstr "Geçerli argümanlar %s kuralýna uyan n tamsayýlarýdýr\n"
+
+#: lib/getnum.c:223
+#, c-format
+msgid "Valid arguments are floats f such that: %s\n"
+msgstr "Geçerli argümanlar %s kuralýna uyan f gerçel sayýlarýdýr\n"
+
+#: lib/jobs.c:307
+#, c-format
+msgid "unknown encoding `%s'"
+msgstr "tanýnmayan kodlama: `%s'"
+
+#: lib/madir.c:59
+msgid "rows first"
+msgstr "önce satýrlar"
+
+#: lib/madir.c:62
+msgid "columns first"
+msgstr "önce sütunlar"
+
+#: lib/media.c:173
+#, c-format
+msgid "unknown medium `%s'"
+msgstr "tanýnmayan ortam `%s'"
+
+#: lib/media.c:208 lib/media.c:237
+msgid "Known Media"
+msgstr "Tanýnan ortamlar"
+
+#: lib/media.c:211
+msgid "Name"
+msgstr "Ýsim"
+
+#: lib/media.c:212
+msgid "dimensions"
+msgstr "boyutlar"
+
+#: lib/metaseq.c:104 lib/metaseq.c:113
+msgid "Known Variables"
+msgstr "Bilinen Macro Meta Sequence'lar"
+
+#: lib/metaseq.c:162 lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608
+#: lib/metaseq.c:951 lib/metaseq.c:972
+#, c-format
+msgid "%s: missing `%c' for %s%c escape"
+msgstr "%1$s: %3$s%4$c kaçýþ dizgesinde `%2$c' eksik"
+
+#: lib/metaseq.c:288 lib/metaseq.c:300
+#, c-format
+msgid "Printed by %s"
+msgstr "Basan: %s"
+
+#: lib/metaseq.c:298
+#, c-format
+msgid "Printed by %s from %s"
+msgstr "Basan: %s, Yer: %s"
+
+#: lib/metaseq.c:308 lib/metaseq.c:327
+msgid "cannot get current working directory"
+msgstr "bulunulan dizin öðrenilemiyor"
+
+#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
+#: lib/metaseq.c:954 lib/metaseq.c:987
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr "%s: %s kaçýþ dizgesi için çok uzun argüman"
+
+#: lib/metaseq.c:364 lib/metaseq.c:675
+msgid "%b %d, %y"
+msgstr "%d %b %y"
+
+#: lib/metaseq.c:373 lib/metaseq.c:684
+msgid "%A %B %d, %Y"
+msgstr "%d %B %Y, %A"
+
+#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
+#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
+#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr "%s: tanýnmayan `%s' kaçýþ dizgesinde `%c' (%d)"
+
+#: lib/metaseq.c:426 lib/metaseq.c:815
+#, c-format
+msgid "Page %d"
+msgstr "Sayfa %d"
+
+#: lib/metaseq.c:431 lib/metaseq.c:826
+#, c-format
+msgid "Page %d/%c"
+msgstr "Sayfa %d/%c"
+
+#: lib/metaseq.c:593 lib/metaseq.c:1021
+#, c-format
+msgid "%s: invalid separator `%s%c' for `%s' escape"
+msgstr "%1$s: `%4$s' kaçýþ dizgesi için `%2$s%3$c' ayýrýcýsý hatalý"
+
+#: lib/metaseq.c:601 lib/metaseq.c:611
+#, c-format
+msgid "%s: invalid argument for %s%c escape"
+msgstr "%s: %s%c kaçýþ dizgesi için hatalý argüman"
+
+#: lib/metaseq.c:822
+#, c-format
+msgid "Page %d/%d"
+msgstr "Sayfa %d/%d"
+
+#: lib/metaseq.c:1266
+msgid "output command"
+msgstr "çýktý komutu"
+
+#: lib/options.c:302
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Daha çok bilgi almak için `%s --help' komutunu deneyin.\n"
+
+#: lib/output.c:466
+#, c-format
+msgid "invalid face `%s'"
+msgstr "geçersiz yüz `%s'"
+
+#: lib/output.c:538
+#, c-format
+msgid "`%s' with no matching `%s'"
+msgstr "`%s' için karþýlýk olan bir `%s' yok"
+
+#: lib/ppd.c:108
+msgid "Known Fonts"
+msgstr "Tanýnan Yazýtipleri"
+
+#: lib/ppd.c:111
+msgid ""
+"\n"
+"  None.\n"
+msgstr ""
+"\n"
+"  Yok.\n"
+
+#: lib/ppd.c:149 lib/ppd.c:165
+msgid "Known PostScript Printer Descriptions"
+msgstr "Tanýnan PostScript Yazýcý Betimlemeleri (PPD)"
+
+#: lib/prange.c:305 lib/prange.c:323
+#, c-format
+msgid "invalid interval `%s'"
+msgstr "geçersiz aralýk %s"
+
+#: lib/printers.c:396 lib/printers.c:413
+#, fuzzy, c-format
+msgid "no command for the `%s' (%s%s)"
+msgstr "tanýnmayan `%s' yazýcýsý için öntanýmlý bir komut yok"
+
+#: lib/printers.c:429
+msgid "sent to the standard output"
+msgstr "standart çýkýþa gönderildi"
+
+#: lib/printers.c:430
+msgid "sent to the default printer"
+msgstr "öntanýmlý yazýcýya gönderildi"
+
+#: lib/printers.c:435
+#, c-format
+msgid "saved into the file `%s'"
+msgstr "`%s' dosyasýna yazýldý"
+
+#: lib/printers.c:436
+#, c-format
+msgid "sent to the printer `%s'"
+msgstr "`%s' yazýcýsýna gönderildi"
+
+#: lib/printers.c:613 lib/printers.c:621
+msgid "Known Outputs (Printers, etc.)"
+msgstr "Tanýnan çýktý varýþlarý (yazýcýlar v.b.)"
+
+#: lib/prolog.c:98 lib/prolog.c:181
+msgid "Known Prologues"
+msgstr "Tanýnan giriþler"
+
+#: lib/prolog.c:579
+#, c-format
+msgid "font %f too big"
+msgstr "%f yazýtipi çok büyük"
+
+#: lib/psgen.c:662
+#, c-format
+msgid "`%s' is a binary file, printing aborted"
+msgstr "`%s' ikili bir dosya, basma iþlemi býrakýldý"
+
+#: lib/quotearg.c:200
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:203
+msgid "'"
+msgstr ""
+
+#: lib/userdata.c:129
+msgid "user"
+msgstr "kullanýcý"
+
+#: lib/userdata.c:130
+msgid "Unknown User"
+msgstr "Tanýnmayan Kullanýcý"
+
+#: lib/useropt.c:75
+#, c-format
+msgid "unknown user option `%s'"
+msgstr "tanýnmayan kullanýcý seçeneði `%s'"
+
+#: lib/useropt.c:86 lib/useropt.c:97
+msgid "Known User Options"
+msgstr "Tanýnan kullanýcý seçenekleri"
+
+#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+msgid "Memory exhausted"
+msgstr "Bellek tükendi"
+
+#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#, c-format
+msgid "cannot rename file `%s' as `%s'"
+msgstr "`%s' dosyasýnýn adý `%s' olarak deðiþtirilemiyor"
+
+#: lib/xbackupfile.c:255
+#, c-format
+msgid "restored file `%s'"
+msgstr "`%s' dosyasý kurtarýldý"
+
+#: lib/argmatch.c:159
+#, fuzzy, c-format
+msgid "invalid argument %s for `%s'"
+msgstr "`%s' seçeneði için hatalý argüman `%s'"
+
+#: lib/argmatch.c:160
+#, fuzzy, c-format
+msgid "ambiguous argument %s for `%s'"
+msgstr "`%2$s' seçeneði için belirsiz argüman `%1$s'"
+
+#: lib/argmatch.c:178
+msgid "Valid arguments are:"
+msgstr "Geçerli argümanlar:"
+
+#: lib/error.c:102
+msgid "Unknown system error"
+msgstr "Tanýnmayan sistem hatasý"
+
+#: lib/getopt.c:675
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: `%s' seçeneði belirsiz\n"
+
+#: lib/getopt.c:700
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: `--%s' seçeneðine argüman verilemez\n"
+
+#: lib/getopt.c:705
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: `%c%s' seçeneðine argüman verilemez\n"
+
+#: lib/getopt.c:723 lib/getopt.c:896
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: `%s' seçeneðine argüman verilmeli\n"
+
+#: lib/getopt.c:752
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: tanýnmayan seçenek `--%s'\n"
+
+#: lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: tanýnmayan seçenek `%c%s'\n"
+
+#: lib/getopt.c:782
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: geçersiz seçenek -- %c\n"
+
+#: lib/getopt.c:785
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: hatalý seçenek -- %c\n"
+
+#: lib/getopt.c:815 lib/getopt.c:945
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: seçeneðe bir argüman verilmeli -- %c\n"
+
+#: lib/getopt.c:862
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: `-W %s' seçeneði belirsiz\n"
+
+#: lib/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: `-W %s' seçeneðine argüman verilemez\n"
+
+#, fuzzy
+#~ msgid "end of line in a %s"
+#~ msgstr "düzgün deyimde satýr-sonu"
+
+#~ msgid "end-of-line in regular expression"
+#~ msgstr "düzgün deyimde satýr-sonu"
+
+#, fuzzy
+#~ msgid ""
+#~ "Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana"
+#~ msgstr ""
+#~ "\n"
+#~ "Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana\n"
+
+#~ msgid "Tasks (exit successfully):\n"
+#~ msgstr "Ýþler (baþarýyla sona erdi):\n"
+
+#~ msgid ""
+#~ "Written by <Akim.Demaille@inf.enst.fr> and <Miguel.Santana@st.com>.\n"
+#~ msgstr "Yazanlar: <Akim.Demaille@inf.enst.fr> ve <Miguel.Santana@st.com>\n"
+
+#~ msgid "no default command for option `-d'"
+#~ msgstr "`-d' seçeneði için öntanýmlý bir komut yok"
+
+#~ msgid "pipe in %s\n"
+#~ msgstr "pipe in %s\n"
+
+#~ msgid "save in %s\n"
+#~ msgstr "save in %s\n"
+
+#, fuzzy
+#~ msgid "%s: invalid argument `%s' for `%s'\n"
+#~ msgstr "`%s' seçeneði için hatalý argüman `%s'"
+
+#, fuzzy
+#~ msgid "invalid interval: %s"
+#~ msgstr "geçersiz seçenek aralýðý: %s"
+
+#~ msgid "illegal integer interval: %s"
+#~ msgstr "geçersiz seçenek aralýðý: %s"
+
+#, fuzzy
+#~ msgid "cannot find file %s"
+#~ msgstr "`%s' dosyasý bulunamýyor"
+
+#, fuzzy
+#~ msgid "unrecognized font `%s'"
+#~ msgstr "tanýnmayan yazýtipi: `%s'"
+
+#, fuzzy
+#~ msgid "unrecognized face `%s'"
+#~ msgstr "tanýnmayan yüz: `%s'"
+
+#, fuzzy
+#~ msgid "missing argument for %s"
+#~ msgstr "`%s' için eksik argüman"
+
+#, fuzzy
+#~ msgid "invalid variable identifier %s"
+#~ msgstr "hatalý makro belirteci `%s'"
+
+#, fuzzy
+#~ msgid "cannot create file %s"
+#~ msgstr "`%s' dosyasý yaratýlamýyor"
+
+#, fuzzy
+#~ msgid "cannot open a pipe on %s"
+#~ msgstr "`%s' üzerinde pipe açýlamýyor"
+
+#, fuzzy
+#~ msgid "cannot open file %s"
+#~ msgstr "`%s' dosyasý açýlamýyor"
+
+#, fuzzy
+#~ msgid "cannot open configuration file %s"
+#~ msgstr "`%s' ayar dosyasý açýlamýyor"
+
+#~ msgid "encoding %s unknown"
+#~ msgstr "%s kodlamasý tanýnmýyor"
+
+#~ msgid "  library path        = \n"
+#~ msgstr "  arþiv yolu          = \n"
+
+#~ msgid "user option `%s' not defined"
+#~ msgstr "`%s' kullanýcý seçeneði tanýmlý deðil"
+
+#, fuzzy
+#~ msgid "illegal option: %s"
+#~ msgstr "geçersiz seçenek: `%s'"
+
+#~ msgid "illegal option: `%s'"
+#~ msgstr "geçersiz seçenek: `%s'"
+
+#~ msgid ""
+#~ "syntax error in option string `%s':\n"
+#~ "missing end of quotation: %c"
+#~ msgstr ""
+#~ "`%s' seçenek katarýnda yazým hatasý:\n"
+#~ "açýlan týrnak kapatýlmamýþ: %c"
+
+#, fuzzy
+#~ msgid "cannot backup and create file `%s'"
+#~ msgstr "`%s' dosyasý yaratýlamýyor"
+
+#~ msgid "wrong value for option %s: `%s'"
+#~ msgstr "%s seçeneði için yanlýþ deðer: `%s'"
+
+#~ msgid "Valid arguments are integers between %d and %d\n"
+#~ msgstr "Geçerli argümanlar %d ile %d arasýndaki tamsayýlardýr\n"
+
+#~ msgid "Valid arguments are integers greater than %d\n"
+#~ msgstr "Geçerli argümanlar %d sayýsýndan büyük olan tamsayýlardýr\n"
+
+#~ msgid "Valid arguments are lengths between %gpt and %gpt\n"
+#~ msgstr "Geçerli argümanlar %gpt ile %gpt arasýndaki uzunluklardýr\n"
+
+#~ msgid "cannot find configuration file `%s'"
+#~ msgstr "`%s' ayar dosyasý bulunamýyor"
+
+#~ msgid "Dynamic array `%s':\n"
+#~ msgstr "Dinamik dizi `%s':\n"
+
+#~ msgid "\tload: %d/%d (%2.1f%%)\n"
+#~ msgstr "\tyükle: %d/%d (%2.1f%%)\n"
+
+#~ msgid "Dynamic string:\n"
+#~ msgstr "Dinamik katar:\n"
+
+#~ msgid "steady"
+#~ msgstr "sabit"
+
+#~ msgid "linear"
+#~ msgstr "çizgisel"
+
+#~ msgid "geometrical"
+#~ msgstr "geometrik"
+
+#~ msgid "\tgrowth: %s, increment: %d\n"
+#~ msgstr "\tbüyüme: %s, artýþ: %d\n"
+
+#~ msgid "can't allocate %ld bytes for hash table: memory exhausted"
+#~ msgstr "Hash tablosu için %ld sekizli ayrýlamýyor: bellek tükendi"
+
+#~ msgid "Load=%ld/%ld=%.0f%%, "
+#~ msgstr "Yükle=%ld/%ld=%.0f%%, "
+
+#~ msgid "Rehash=%d, "
+#~ msgstr "Rehash=%d, "
+
+#~ msgid "Collisions=%ld/%ld=%.0f%%"
+#~ msgstr "Çakýþmalar=%ld/%ld=%.0f%%"
+
+#~ msgid "Document title"
+#~ msgstr "Belge baþlýðý"
+
+#~ msgid "Page label"
+#~ msgstr "Sayfa etiketi"

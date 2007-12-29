@@ -1,0 +1,74 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (#! /bin/zsh) c n
+0 T (# zsh script to peruse the help directory) N
+0 T (#) N
+0 T () S
+(if) K
+( [[ $1 = ") p
+(-l) str
+(" ]]; ) p
+(then) K n
+(5) # () S
+(  ) p
+(if) K
+( [[ ${HELPDIR:-} ) p
+(\330) sy
+(= "" ]]; ) p
+(then) K n
+0 T () S
+(    ) p
+(echo) K
+( ') p
+(Here is a list of topics for which help is available:) str
+(') p n
+0 T (    ) S
+(echo) K
+( "") p n
+0 T (    ls $HELPDIR) N
+0 T (  ) S
+(else) K n
+(10) # () S
+(    ) p
+(echo) K
+( ') p
+(There is no help available at this time) str
+(') p n
+0 T (  ) S
+(fi) K n
+0 T (elif) S
+( [[ ${HELPDIR:-} ) p
+(\330) sy
+(= "" && -r $HELPDIR/$1 ]]) p n
+0 T () S
+(then) K n
+0 T () S
+(    ${=PAGER:-more} $HELPDIR/$1) p n
+(15) # () S
+(else) K n
+0 T () S
+(    man $1) p n
+0 T () S
+(fi) K n
+(run-help) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

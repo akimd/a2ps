@@ -1,0 +1,129 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T () p n
+0 T () N
+0 T () S
+(MODULE) K
+( Confirm ) p
+(EXPORTS) K
+( Main;) p n
+0 T () N
+(5) # () S
+(IMPORT) K
+( Trestle, VBT, TextVBT, RigidVBT, ButtonVBT, BorderedVBT, HVSplit;) p n
+0 T () S
+(IMPORT) K
+( PaintOp, Pixmap, Axis;) p n
+0 T () S
+(IMPORT) K
+( ConfirmVBT;) p n
+0 T () N
+0 T () S
+(PROCEDURE) K
+( Yes \(self: ButtonVBT.T; ) p
+(READONLY) K
+( cd: VBT.MouseRec\) ) p
+(\272) sy n
+(10) # () S
+(  ) p
+(BEGIN) K n
+0 T () S
+(    Trestle.Delete\(main\);) p n
+0 T (  ) S
+(END) K
+( Yes;) p n
+0 T () N
+0 T () S
+(PROCEDURE) K
+( QuitAction \(self: ButtonVBT.T; ) p
+(READONLY) K
+( cd: VBT.MouseRec\) ) p
+(\272) sy n
+(15) # () S
+(  ) p
+(VAR) K n
+0 T () S
+(    msg     := ") p
+(Do you really wish to quit?) str
+(";) p n
+0 T (    confirm := ConfirmVBT.New\(msg, Yes\);) N
+0 T (  ) S
+(BEGIN) K n
+0 T () S
+(    Trestle.Install\(confirm\)) p n
+(20) # (  ) S
+(END) K
+( QuitAction;) p n
+0 T () N
+0 T () S
+(CONST) K n
+0 T () S
+(  \(*) p
+( sizes for the RigidVBT ) c
+(*\)) p n
+0 T (  horz ) S
+(\272) sy
+( 30.0;) p n
+(25) # (  vert ) S
+(\272) sy
+( 10.0;                   \(*) p
+( size in millimeters ) c
+(*\)) p n
+0 T (  \(*) S
+( border size for text and button ) c
+(*\)) p n
+0 T (  bsize ) S
+(\272) sy
+( 1.5;                   \(*) p
+( size in millimeters ) c
+(*\)) p n
+0 T () N
+0 T () S
+(VAR) K n
+(30) # () S
+(  blue  := PaintOp.FromRGB\(0.0, 0.0, 1.0\);) p n
+0 T (  green := PaintOp.FromRGB\(0.0, 1.0, 0.0\);) N
+0 T (  text  := RigidVBT.FromHV\(TextVBT.New\(") S
+(Confirm demo) str
+("\), horz, vert\);) p n
+0 T (  top := BorderedVBT.New\() N
+0 T (           text, size := bsize, op := blue, txt := Pixmap.Solid\);) N
+(35) # (  button := ButtonVBT.New\(TextVBT.New\(") S
+(Quit) str
+("\), QuitAction\);) p n
+0 T (  bottom := BorderedVBT.New\() N
+0 T (              button, size := bsize, op := green, txt := Pixmap.Gray\);) N
+0 T (  main := HVSplit.Cons\(Axis.T.Ver, top, bottom\);) N
+0 T () N
+(40) # () S
+(BEGIN) K n
+0 T () S
+(  Trestle.Install\(main\);) p n
+0 T (  Trestle.AwaitDelete\(main\)) N
+0 T () S
+(END) K
+( Confirm.) p n
+0 T () N
+(45) # () N
+(confirm.m3) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

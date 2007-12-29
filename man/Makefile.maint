@@ -1,0 +1,29 @@
+# This -*- Makefile -*- uses features of GNU make.
+# It is included via GNUmakefile.
+
+HELP2MAN-run = $(PERL) -w -- $(srcdir)/$(HELP2MAN)
+
+# Depend on configure.in to get version number changes.
+$(man_MANS): $(top_srcdir)/configure.in common.x
+
+# Depend on the source file containing the --help text.
+# Filter out irregular cases.
+regular_men = $(filter-out $(irregular_men),$(man_MANS))
+$(regular_men): %.1: $(top_srcdir)/contrib/%.in
+
+executable = $(wildcard $(top_builddir)/*/$(basename $@))
+$(man_MANS): %.1: %.x $(HELP2MAN)
+	@if test -f $(executable); then \
+	  echo "Updating man page $@"; \
+	  rm -f $@-t; \
+	  $(HELP2MAN-run) \
+	    --include=$(basename $@).x \
+	    --include=common.x \
+	    $(executable) > $@-t || exit 1; \
+	  chmod -w $@-t || exit 1; \
+	  rm -f $@ || exit 1; \
+	  mv $@-t $@ || exit 1; \
+	else \
+	  echo "WARNING: The man page $@ cannot be updated yet."; \
+	  echo "         Retry once the corresponding executable is built."; \
+	fi

@@ -1,0 +1,1170 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(------------------------------------------------------------------------------) c n
+(--                                                                          --) N
+(--                            GLADE COMPONENTS                              --) N
+(--                                                                          --) N
+(--                 S Y S T E M . G A R L I C . N A M I N G                  --) N
+(--                                                                          --) N
+(--                                 B o d y                                  --) N
+(--                                                                          --) N
+(--                                                                          --) N
+(--         Copyright \(C\) 1996,1997 Free Software Foundation, Inc.           --) N
+(--                                                                          --) N
+(-- GARLIC is free software;  you can redistribute it and/or modify it under --) N
+(-- terms of the  GNU General Public License  as published by the Free Soft- --) N
+(-- ware Foundation;  either version 3,  or \(at your option\)  any later ver- --) N
+(-- sion.  GARLIC is distributed  in the hope that  it will be  useful,  but --) N
+(-- WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHANTABI- --) N
+(-- LITY or  FITNESS FOR A PARTICULAR PURPOSE.  See the  GNU General Public  --) N
+(-- License  for more details.  You should have received  a copy of the GNU  --) N
+(-- General Public License  distributed with GARLIC;  see file COPYING.  If  --) N
+(-- not, write to the Free Software Foundation, 59 Temple Place - Suite 330, --) N
+(-- Boston, MA 02111-1307, USA.                                              --) N
+(--                                                                          --) N
+(-- As a special exception,  if other files  instantiate  generics from this --) N
+(-- unit, or you link  this unit with other files  to produce an executable, --) N
+(-- this  unit  does not  by itself cause  the resulting  executable  to  be --) N
+(-- covered  by the  GNU  General  Public  License.  This exception does not --) N
+(-- however invalidate  any other reasons why  the executable file  might be --) N
+(-- covered by the  GNU Public License.                                      --) N
+(--                                                                          --) N
+(--               GLADE  is maintained by ACT Europe.                        --) N
+(--               \(email: glade-report@act-europe.fr\)                        --) N
+(--                                                                          --) N
+(------------------------------------------------------------------------------) N
+() p n
+(with) K
+( Ada.Exceptions;) p n
+(with) K
+( Interfaces.C; ) p
+(use) K
+( Interfaces.C;) p n
+(with) K
+( Interfaces.C.Strings; ) p
+(use) K
+( Interfaces.C.Strings;) p n
+(with) K
+( System.Garlic.Constants; ) p
+(use) K
+( System.Garlic.Constants;) p n
+(with) K
+( System.Garlic.OS_Lib; ) p
+(use) K
+( System.Garlic.OS_Lib;) p n
+(with) K
+( Unchecked_Conversion;) p n
+(with) K
+( Unchecked_Deallocation;) p n
+() N
+(package body ) K
+(System.Garlic.Naming) L
+( is) K n
+() p n
+(   ) S
+(use) K
+( Thin;) p n
+() N
+(   Default_Buffer_Size : ) S
+(constant) K
+( := 16384;) p n
+() N
+(   ) S
+(procedure ) K
+(Free) l
+( is) K n
+(      ) p
+(new) K
+( Unchecked_Deallocation \(char_array, char_array_access\);) p n
+() N
+(   ) S
+(function ) K
+(Allocate) l
+( \(Size : Positive := Default_Buffer_Size\)) p n
+(     ) S
+(return) K
+( char_array_access;) p n
+(   ) S
+(--  Allocate a buffer.) c n
+() p n
+(   ) S
+(function ) K
+(Parse_Entry) l
+( \(Host : Hostent\)) p n
+(     ) S
+(return) K
+( Host_Entry;) p n
+(   ) S
+(--  Parse an entry.) c n
+() p n
+(   ) S
+(procedure ) K
+(Raise_Naming_Error) l n
+(     \(Errno   : ) p
+(in) K
+( C.Int;) p n
+(      Message : ) S
+(in) K
+( String\);) p n
+(   ) S
+(--  Raise the exception Naming_Error with an appropriate error message.) c n
+() p n
+(   ) S
+(protected) K
+( Gethost_In_Progress ) p
+(is) K n
+(      ) p
+(entry) K
+( Lock;) p n
+(s-garnam.adb) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(      ) p
+(procedure ) K
+(Unlock) l
+(;) p n
+(   ) S
+(private) K n
+(      Locked : Boolean := False;) p n
+(   ) S
+(end) K
+( Gethost_In_Progress;) p n
+(   ) S
+(--  We have to protect this.) c n
+() p n
+(   ) S
+(----------------) c n
+(   ) p
+(-- Address_Of --) c n
+(   ) p
+(----------------) c n
+() p n
+(   ) S
+(function ) K
+(Address_Of) l
+( \(Something : String\)) p n
+(     ) S
+(return) K
+( Address) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(if) K
+( Is_IP_Address \(Something\) ) p
+(then) K n
+(         ) p
+(return) K
+( Value \(Something\);) p n
+(      ) S
+(else) K n
+(         ) p
+(return) K
+( Info_Of \(Something\) .Addresses \(1\);) p n
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(   ) S
+(end) K
+( Address_Of;) p n
+() N
+(   ) S
+(------------) c n
+(   ) p
+(-- Adjust --) c n
+(   ) p
+(------------) c n
+() p n
+(   ) S
+(procedure ) K
+(Adjust) l
+( \(Object : ) p
+(in) K
+( ) p
+(out) K
+( Host_Entry\)) p n
+(   ) S
+(is) K n
+(      Aliases : String_Array ) p
+(renames) K
+( Object.Aliases;) p n
+(   ) S
+(begin) K n
+(      Object.Name := ) p
+(new) K
+( String'\(Object.Name.) p
+(all) K
+(\);) p n
+(      ) S
+(for) K
+( I ) p
+(in) K
+( Aliases'Range ) p
+(loop) K n
+(         Aliases \(I\) := ) p
+(new) K
+( String'\(Aliases \(I\) .) p
+(all) K
+(\);) p n
+(      ) S
+(end) K
+( ) p
+(loop) K
+(;) p n
+(   ) S
+(end) K
+( Adjust;) p n
+() N
+(   ) S
+(--------------) c n
+(   ) p
+(-- Allocate --) c n
+(   ) p
+(--------------) c n
+() p n
+(   ) S
+(function ) K
+(Allocate) l n
+(     \(Size : Positive := Default_Buffer_Size\)) p n
+(     ) S
+(return) K
+( char_array_access) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(return) K
+( ) p
+(new) K
+( char_array \(1 .. size_t \(Size\)\);) p n
+(   ) S
+(end) K
+( Allocate;) p n
+() N
+(   ) S
+(-----------------) c n
+(   ) p
+(-- Any_Address --) c n
+(   ) p
+(-----------------) c n
+() p n
+(   ) S
+(function ) K
+(Any_Address) l
+( return) K
+( Address) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(return) K
+( To_Address \(Inaddr_Any\);) p n
+(   ) S
+(end) K
+( Any_Address;) p n
+() N
+(   ) S
+(--------------) c n
+(   ) p
+(-- Finalize --) c n
+(   ) p
+(--------------) c n
+() p n
+(   ) S
+(procedure ) K
+(Finalize) l
+( \(Object : ) p
+(in) K
+( ) p
+(out) K
+( Host_Entry\)) p n
+(   ) S
+(is) K n
+(      Aliases : String_Array ) p
+(renames) K
+( Object.Aliases;) p n
+(      ) S
+(procedure ) K
+(Free) l
+( is) K n
+(         ) p
+(new) K
+( Unchecked_Deallocation \(String, String_Access\);) p n
+(s-garnam.adb) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(   ) p
+(begin) K n
+(      Free \(Object.Name\);) p n
+(      ) S
+(for) K
+( I ) p
+(in) K
+( Aliases'Range ) p
+(loop) K n
+(         Free \(Aliases \(I\)\);) p n
+(      ) S
+(end) K
+( ) p
+(loop) K
+(;) p n
+(   ) S
+(end) K
+( Finalize;) p n
+() N
+(   ) S
+(-------------------------) c n
+(   ) p
+(-- Gethost_In_Progress --) c n
+(   ) p
+(-------------------------) c n
+() p n
+(   ) S
+(protected) K
+( ) p
+(body) K
+( Gethost_In_Progress ) p
+(is) K n
+() p n
+(      ) S
+(----------) c n
+(      ) p
+(-- Lock --) c n
+(      ) p
+(----------) c n
+() p n
+(      ) S
+(entry) K
+( Lock ) p
+(when) K
+( ) p
+(not) K
+( Locked ) p
+(is) K n
+(      ) p
+(begin) K n
+(         Locked := True;) p n
+(      ) S
+(end) K
+( Lock;) p n
+() N
+(      ) S
+(------------) c n
+(      ) p
+(-- Unlock --) c n
+(      ) p
+(------------) c n
+() p n
+(      ) S
+(procedure ) K
+(Unlock) l
+( is) K n
+(      ) p
+(begin) K n
+(         Locked := False;) p n
+(      ) S
+(end) K
+( Unlock;) p n
+() N
+(   ) S
+(end) K
+( Gethost_In_Progress;) p n
+() N
+(   ) S
+(---------------) c n
+(   ) p
+(-- Host_Name --) c n
+(   ) p
+(---------------) c n
+() p n
+(   ) S
+(function ) K
+(Host_Name) l
+( return) K
+( String) p n
+(   ) S
+(is) K n
+(      Buff   : char_array_access  := Allocate;) p n
+(      Buffer : ) S
+(constant) K
+( chars_ptr := To_Chars_Ptr \(Buff\);) p n
+(      Res    : ) S
+(constant) K
+( int       := C_Gethostname \(Buffer, Buff'Length\);) p n
+(   ) S
+(begin) K n
+(      ) p
+(if) K
+( Res = Failure ) p
+(then) K n
+(         Free \(Buff\);) p n
+(         Raise_Naming_Error \(C_Errno, ""\);) N
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(      ) S
+(declare) K n
+(         Result : ) p
+(constant) K
+( String := Value \(Buffer\);) p n
+(      ) S
+(begin) K n
+(         Free \(Buff\);) p n
+(         ) S
+(return) K
+( Result;) p n
+(      ) S
+(end) K
+(;) p n
+(   ) S
+(end) K
+( Host_Name;) p n
+() N
+(   ) S
+(-----------) c n
+(   ) p
+(-- Image --) c n
+(   ) p
+(-----------) c n
+() p n
+(   ) S
+(function ) K
+(Image) l
+( \(Add : Address\) ) p
+(return) K
+( String) p n
+(   ) S
+(is) K n
+() p n
+(      ) S
+(function ) K
+(Image) l
+( \(A : Address_Component\) ) p
+(return) K
+( String;) p n
+(      ) S
+(--  Return the string corresponding to its argument without) c n
+(      ) p
+(--  the leading space.) c n
+() p n
+(s-garnam.adb) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (4) 4
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(      ) p
+(-----------) c n
+(      ) p
+(-- Image --) c n
+(      ) p
+(-----------) c n
+() p n
+(      ) S
+(function ) K
+(Image) l
+( \(A : Address_Component\)) p n
+(        ) S
+(return) K
+( String) p n
+(      ) S
+(is) K n
+(         Im : ) p
+(constant) K
+( String := Address_Component'Image \(A\);) p n
+(      ) S
+(begin) K n
+(         ) p
+(return) K
+( Im \(2 .. Im'Last\);) p n
+(      ) S
+(end) K
+( Image;) p n
+() N
+(   ) S
+(begin) K n
+(      ) p
+(return) K
+( Image \(Add.H1\) & ") p
+(.) str
+(" & Image \(Add.H2\) & ") p
+(.) str
+(" &) p n
+(        Image \(Add.H3\) & ") S
+(.) str
+(" & Image \(Add.H4\);) p n
+(   ) S
+(end) K
+( Image;) p n
+() N
+(   ) S
+(-------------) c n
+(   ) p
+(-- Info_Of --) c n
+(   ) p
+(-------------) c n
+() p n
+(   ) S
+(function ) K
+(Info_Of) l
+( \(Name : String\)) p n
+(     ) S
+(return) K
+( Host_Entry) p n
+(   ) S
+(is) K n
+(      Res    : Hostent_Access;) p n
+(      C_Name : chars_ptr := New_String \(Name\);) N
+(   ) S
+(begin) K n
+(      Gethost_In_Progress.Lock;) p n
+(      Res := C_Gethostbyname \(C_Name\);) N
+(      Free \(C_Name\);) N
+(      ) S
+(if) K
+( Res = ) p
+(null) K
+( ) p
+(then) K n
+(         Gethost_In_Progress.Unlock;) p n
+(         Raise_Naming_Error \(C_Errno, Name\);) N
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(      ) S
+(declare) K n
+(         Result : ) p
+(constant) K
+( Host_Entry := Parse_Entry \(Res.) p
+(all) K
+(\);) p n
+(      ) S
+(begin) K n
+(         Gethost_In_Progress.Unlock;) p n
+(         ) S
+(return) K
+( Result;) p n
+(      ) S
+(end) K
+(;) p n
+(   ) S
+(end) K
+( Info_Of;) p n
+() N
+(   ) S
+(-------------) c n
+(   ) p
+(-- Info_Of --) c n
+(   ) p
+(-------------) c n
+() p n
+(   ) S
+(function ) K
+(Info_Of) l
+( \(Addr : Address\)) p n
+(     ) S
+(return) K
+( Host_Entry) p n
+(   ) S
+(is) K n
+(      ) p
+(function ) K
+(Convert) l
+( is) K n
+(         ) p
+(new) K
+( Unchecked_Conversion \(Source => In_Addr_Access,) p n
+(                                   Target => chars_ptr\);) N
+(      Temp    : ) S
+(aliased) K
+( In_Addr    := To_In_Addr \(Addr\);) p n
+(      C_Addr  : ) S
+(constant) K
+( chars_ptr := Convert \(Temp'Unchecked_Access\);) p n
+(      Res     : Hostent_Access;) N
+(   ) S
+(begin) K n
+(      Gethost_In_Progress.Lock;) p n
+(      Res := C_Gethostbyaddr \(C_Addr,) N
+(                              C.Int \(Temp'Size / CHAR_BIT\),) N
+(                              Af_Inet\);) N
+(      ) S
+(if) K
+( Res = ) p
+(null) K
+( ) p
+(then) K n
+(         Gethost_In_Progress.Unlock;) p n
+(         Raise_Naming_Error \(C_Errno, Image \(Addr\)\);) N
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(      ) S
+(declare) K n
+(         Result : ) p
+(constant) K
+( Host_Entry := Parse_Entry \(Res.) p
+(all) K
+(\);) p n
+(s-garnam.adb) (right) (4) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (4) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (5) 5
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(      ) p
+(begin) K n
+(         Gethost_In_Progress.Unlock;) p n
+(         ) S
+(return) K
+( Result;) p n
+(      ) S
+(end) K
+(;) p n
+(   ) S
+(end) K
+( Info_Of;) p n
+() N
+(   ) S
+(------------------------) c n
+(   ) p
+(-- Info_Of_Name_Or_IP --) c n
+(   ) p
+(------------------------) c n
+() p n
+(   ) S
+(function ) K
+(Info_Of_Name_Or_IP) l
+( \(Something : String\)) p n
+(     ) S
+(return) K
+( Host_Entry) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(if) K
+( Is_IP_Address \(Something\) ) p
+(then) K n
+(         ) p
+(return) K
+( Info_Of \(Value \(Something\)\);) p n
+(      ) S
+(else) K n
+(         ) p
+(return) K
+( Info_Of \(Something\);) p n
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(   ) S
+(end) K
+( Info_Of_Name_Or_IP;) p n
+() N
+(   ) S
+(-------------------) c n
+(   ) p
+(-- Is_Ip_Address --) c n
+(   ) p
+(-------------------) c n
+() p n
+(   ) S
+(function ) K
+(Is_IP_Address) l
+( \(Something : String\)) p n
+(     ) S
+(return) K
+( Boolean) p n
+(   ) S
+(is) K n
+(      First : ) p
+(constant) K
+( Natural := Character'Pos \(Something \(Something'First\)\);) p n
+(   ) S
+(begin) K n
+(      ) p
+(return) K
+( First >= Character'Pos \(') p
+(0) str
+('\) ) p
+(and) K
+( ) p
+(then) K n
+(        First <= Character'Pos \(') p
+(9) str
+('\);) p n
+(   ) S
+(end) K
+( Is_IP_Address;) p n
+() N
+(   ) S
+(-------------) c n
+(   ) p
+(-- Name_Of --) c n
+(   ) p
+(-------------) c n
+() p n
+(   ) S
+(function ) K
+(Name_Of) l
+( \(Something : String\)) p n
+(     ) S
+(return) K
+( String) p n
+(   ) S
+(is) K n
+(      Hostent : ) p
+(constant) K
+( Host_Entry := Info_Of_Name_Or_IP \(Something\);) p n
+(   ) S
+(begin) K n
+(      ) p
+(if) K
+( Hostent.Name = ) p
+(null) K
+( ) p
+(then) K n
+(         Ada.Exceptions.Raise_Exception \(Naming_Error'Identity,) p n
+(                                         ") S
+(No name for ) str
+(" & Something\);) p n
+(      ) S
+(end) K
+( ) p
+(if) K
+(;) p n
+(      ) S
+(return) K
+( Hostent.Name.) p
+(all) K
+(;) p n
+(   ) S
+(end) K
+( Name_Of;) p n
+() N
+(   ) S
+(-----------------) c n
+(   ) p
+(-- Parse_Entry --) c n
+(   ) p
+(-----------------) c n
+() p n
+(   ) S
+(function ) K
+(Parse_Entry) l
+( \(Host : Hostent\)) p n
+(     ) S
+(return) K
+( Host_Entry) p n
+(   ) S
+(is) K n
+(      C_Aliases : ) p
+(constant) K
+( Thin.Chars_Ptr_Array    :=) p n
+(        Chars_Ptr_Pointers.Value \(Host.H_Aliases\);) N
+(      C_Addr    : ) S
+(constant) K
+( In_Addr_Access_Array :=) p n
+(                                    In_Addr_Access_Pointers.Value) N
+(                                      \(Host.H_Addr_List\);) N
+(      Result    : Host_Entry \(N_Aliases     => C_Aliases'Length - 1,) N
+(                              N_Addresses => C_Addr'Length - 1\);) N
+(   ) S
+(begin) K n
+(      Result.Name := ) p
+(new) K
+( String'\(Value \(Host.H_Name\)\);) p n
+(s-garnam.adb) (right) (5) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (5) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (6) 6
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(      ) p
+(for) K
+( I ) p
+(in) K
+( 1 .. Result.Aliases'Last ) p
+(loop) K n
+(         ) p
+(declare) K n
+(            Index   : Natural := I - 1 + Natural \(C_Aliases'First\);) p n
+(            Current : chars_ptr ) S
+(renames) K
+( C_Aliases \(size_t \(Index\)\);) p n
+(         ) S
+(begin) K n
+(            Result.Aliases \(I\) := ) p
+(new) K
+( String'\(Value \(Current\)\);) p n
+(         ) S
+(end) K
+(;) p n
+(      ) S
+(end) K
+( ) p
+(loop) K
+(;) p n
+(      ) S
+(for) K
+( I ) p
+(in) K
+( Result.Addresses'Range ) p
+(loop) K n
+(         ) p
+(declare) K n
+(            Index   : Natural := I - 1 + Natural \(C_Addr'First\);) p n
+(            Current : In_Addr_Access ) S
+(renames) K
+( C_Addr \(Index\);) p n
+(         ) S
+(begin) K n
+(            Result.Addresses \(I\) := To_Address \(Current.) p
+(all) K
+(\);) p n
+(         ) S
+(end) K
+(;) p n
+(      ) S
+(end) K
+( ) p
+(loop) K
+(;) p n
+(      ) S
+(return) K
+( Result;) p n
+(   ) S
+(end) K
+( Parse_Entry;) p n
+() N
+(   ) S
+(------------------------) c n
+(   ) p
+(-- Raise_Naming_Error --) c n
+(   ) p
+(------------------------) c n
+() p n
+(   ) S
+(procedure ) K
+(Raise_Naming_Error) l n
+(     \(Errno   : ) p
+(in) K
+( C.Int;) p n
+(      Message : ) S
+(in) K
+( String\)) p n
+(   ) S
+(is) K n
+() p n
+(      ) S
+(function ) K
+(Error_Message) l
+( return) K
+( String;) p n
+(      ) S
+(--  Return the message according to Errno.) c n
+() p n
+(      ) S
+(-------------------) c n
+(      ) p
+(-- Error_Message --) c n
+(      ) p
+(-------------------) c n
+() p n
+(      ) S
+(function ) K
+(Error_Message) l
+( return) K
+( String ) p
+(is) K n
+(      ) p
+(begin) K n
+(         ) p
+(case) K
+( Errno ) p
+(is) K n
+(            ) p
+(when) K
+( Host_Not_Found => ) p
+(return) K
+( ") p
+(Host not found) str
+(";) p n
+(            ) S
+(when) K
+( Try_Again      => ) p
+(return) K
+( ") p
+(Try again) str
+(";) p n
+(            ) S
+(when) K
+( No_Recovery    => ) p
+(return) K
+( ") p
+(No recovery) str
+(";) p n
+(            ) S
+(when) K
+( No_Address     => ) p
+(return) K
+( ") p
+(No address) str
+(";) p n
+(            ) S
+(when) K
+( ) p
+(others) K
+(         => ) p
+(return) K
+( ") p
+(Unknown error) str
+(" &) p n
+(                                          C.Int'Image \(Errno\);) N
+(         ) S
+(end) K
+( ) p
+(case) K
+(;) p n
+(      ) S
+(end) K
+( Error_Message;) p n
+() N
+(   ) S
+(begin) K n
+(      Ada.Exceptions.Raise_Exception \(Naming_Error'Identity,) p n
+(                                      Error_Message & ") S
+(: ) str
+(" & Message\);) p n
+(   ) S
+(end) K
+( Raise_Naming_Error;) p n
+() N
+(   ) S
+(----------------) c n
+(   ) p
+(-- To_Address --) c n
+(   ) p
+(----------------) c n
+() p n
+(   ) S
+(function ) K
+(To_Address) l
+( \(Addr : In_Addr\) ) p
+(return) K
+( Address) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(return) K
+( \(H1 => Address_Component \(Addr.S_B1\),) p n
+(              H2 => Address_Component \(Addr.S_B2\),) N
+(              H3 => Address_Component \(Addr.S_B3\),) N
+(              H4 => Address_Component \(Addr.S_B4\)\);) N
+(   ) S
+(end) K
+( To_Address;) p n
+() N
+(   ) S
+(----------------) c n
+(s-garnam.adb) (right) (6) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (6) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (7) 7
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(   ) p
+(-- To_In_Addr --) c n
+(   ) p
+(----------------) c n
+() p n
+(   ) S
+(function ) K
+(To_In_Addr) l
+( \(Addr : Address\) ) p
+(return) K
+( In_Addr) p n
+(   ) S
+(is) K n
+(   ) p
+(begin) K n
+(      ) p
+(return) K
+( \(S_B1 => unsigned_char \(Addr.H1\),) p n
+(              S_B2 => unsigned_char \(Addr.H2\),) N
+(              S_B3 => unsigned_char \(Addr.H3\),) N
+(              S_B4 => unsigned_char \(Addr.H4\)\);) N
+(   ) S
+(end) K
+( To_In_Addr;) p n
+() N
+(   ) S
+(-----------) c n
+(   ) p
+(-- Value --) c n
+(   ) p
+(-----------) c n
+() p n
+(   ) S
+(function ) K
+(Value) l
+( \(Add : String\) ) p
+(return) K
+( Address) p n
+(   ) S
+(is) K n
+(      ) p
+(function ) K
+(Convert) l
+( is) K n
+(         ) p
+(new) K
+( Unchecked_Conversion \(Source => unsigned_long,) p n
+(                                   Target => In_Addr\);) N
+(      C_Add     : chars_ptr        := New_String \(Add\);) N
+(      Converted : ) S
+(constant) K
+( In_Addr := Convert \(C_Inet_Addr \(C_Add\)\);) p n
+(   ) S
+(begin) K n
+(      Free \(C_Add\);) p n
+(      ) S
+(return) K
+( \(H1 => Address_Component \(Converted.S_B1\),) p n
+(              H2 => Address_Component \(Converted.S_B2\),) N
+(              H3 => Address_Component \(Converted.S_B3\),) N
+(              H4 => Address_Component \(Converted.S_B4\)\);) N
+(   ) S
+(end) K
+( Value;) p n
+() N
+(end) K
+( System.Garlic.Naming;) p n
+(s-garnam.adb) (right) (7) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (7) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

@@ -1,0 +1,120 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(-- file: .../asn1specs/ex1.asn1) c n
+(--) N
+(--  This is an example ASN.1 module used in the documentation) N
+(--) N
+(--  MS 92) N
+(--) N
+(-- Initial checkin.) N
+(--) N
+(-- Revision 1.2  1997/02/16 20:25:22  rj) N
+(-- check-in of a few cosmetic changes) N
+(--) N
+(-- Revision 1.1  1994/10/08  05:41:32  rj) N
+(-- initial check-in.) N
+(--) N
+() p n
+(EX1 ) S
+(DEFINITIONS) K
+( ::=) p n
+(BEGIN) K n
+() p n
+(anOidVal      ) S
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( ::= { ) p
+(joint-iso-ccitt) k
+( 40 foobar\(29\) }) p n
+(theSameOidVal ) S
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( ::= { 2 40 29 }) p n
+(anIntVal      ) S
+(INTEGER) K
+( ::= 1) p n
+(aBoolVal      ) S
+(BOOLEAN) K
+( ::= ) p
+(TRUE) K n
+() p n
+() N
+(NULL) K
+( ::= identifier ) p
+(END) K n
+() p n
+(T1 ::= ) S
+(SEQUENCE) K n
+({) p n
+(   ) S
+(INTEGER) K
+( ) p
+(OPTIONAL) K
+(,) p n
+(   ) S
+(OCTET) K
+( ) p
+(STRING) K
+( ) p
+(OPTIONAL) K
+(,) p n
+(   ) S
+(ENUMERATED) K
+( { a\(0\), b\(1\), c\(2\) },) p n
+(   ) S
+(SEQUENCE) K
+( ) p
+(OF) K
+( ) p
+(INTEGER) K
+(,) p n
+(   ) S
+(SEQUENCE) K
+( { id ) p
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+(, value ) p
+(OCTET) K
+( ) p
+(STRING) K
+( },) p n
+(   ) S
+(CHOICE) K
+( { ) p
+(INTEGER) K
+(, ) p
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( }) p n
+(   DESCRIPTION ") S
+(This is a string with a quote "" in it.) str
+(") p n
+(}) N
+() N
+(END) K n
+(ex1.asn1) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

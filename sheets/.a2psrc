@@ -1,0 +1,27 @@
+##########
+# Variables used in the generation of the sheets.html file
+#
+
+# The home for most html files:
+Variable: html.home http://www.inf.enst.fr/~demaille
+
+# The rules:
+Variable: html.hline \
+<img src="#{html.home}/images/barre.bleu.bleu.gif" \
+alt="" height=4 width=100\% align=center>
+
+# To have a backgroung
+Variable: html.begin.hook \
+<body background="#{html.home}/images/chalk.jpg" bgcolor="\#FFFFFF">
+
+Variable: html.end.hook \
+#{html.hline}\n\
+<!--\#include virtual="#{html.home}/images/quick.html"-->
+
+# The title that goes in the Windows' title
+Variable: hmtl.title \
+GNU a2ps language support
+
+# The title that goes inside the frame.  I want a picture
+Variable: html.title.1 \
+<img src="#{html.home}/images/a2ps-language-support.gif" alt="#{html.title}">

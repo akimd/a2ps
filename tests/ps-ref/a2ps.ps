@@ -1,0 +1,174 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p n
+() N
+() N
+(A2PS\(1L\)          Misc. Reference Manual Pages           A2PS\(1L\)) N
+() N
+() N
+() N
+(NAME) K n
+(     a2ps - formats an ascii file for printing  on  a  postscript) p n
+(     printer) N
+() N
+(SYNOPSIS) K n
+(     ) p
+(a2ps) K
+( [ ) p
+(global) K
+( ) p
+(options) K
+( ] [ ) p
+(positional) K
+( ) p
+(options) K
+(  ]  [  ) p
+(file1) k
+(  [) p n
+(     ) S
+(positional) K
+( ) p
+(options) K
+( ] ] ) p
+(file2) k
+( ... ] ]) p n
+() N
+(DESCRIPTION) K n
+(     ) p
+(a2ps) k
+( formats each named file for printing  in  a  postscript) p n
+(     printer;  if  no file is given, ) S
+(a2ps) k
+( reads from the standard) p n
+(     input. The output is sent to the printer or to stdout or  to) N
+(     a  file.   The format used is nice and compact: normally two) N
+(     pages on each  physical  page,  borders  surrounding  pages,) N
+(     headers with useful information \(page number, printing date,) N
+(     file name  or  supplied  header\),  line  numbering,  keyword) N
+(     highlighting,  symbol substitution etc.  This is very useful) N
+(     for making archive listings of programs.) N
+() N
+(  ) S
+(Global) K
+( ) p
+(options) K n
+(     Global options offered by ) p
+(a2ps) k
+( are the following:) p n
+() N
+(     ) S
+(-?) K
+( ) p
+(-h) K
+( Print usage information.) p n
+() N
+(     ) S
+(-a) K
+(    Use alternative paper size. In general defined  to  be) p n
+(           US letter. \(see -V\).) N
+() N
+(     ) S
+(-b) K
+(    Force printing binary files. By default, binary  files) p n
+(           printing  is  stopped  before  second  page  \(see  -nb) N
+(           option\).) N
+() N
+(     ) S
+(-c) K
+(    Compact mode for a  sequence  of  files.  This  option) p n
+(           allows  the printing of two files in the same physical) N
+(           page: last page of the first file in the left \(or  up\)) N
+(           side  and  first  page of the second file in the right) N
+(           \(or down\) side. This option is valid only for twinpage) N
+(           mode \(two pages per physical page\).) N
+() N
+(     ) S
+(-f) K
+(    Fold lines too large to be printed inside the  borders) p n
+(           \(default option\).  Max line size depends on format and) N
+(           font size used and whether  line  numbering  has  been) N
+(           suppressed.) N
+() N
+(     ) S
+(-h) K
+(    Print usage information.) p n
+() N
+(     ) S
+(-I) K
+(file) k n
+(           Use the specified file as the postscript prologue  for) p n
+(           a2ps.) N
+() N
+(     ) S
+(-i) K
+(    Interpret TAB, BS and FF characters \(default  option\).) p n
+(           TAB  is  replaced  by  enough spaces to reach next tab) N
+(           stop while BS and FF have their meanings.) N
+() N
+() N
+() N
+(SunOS 5.5          Last change: 9 August 1996                   1) N
+() N
+(Some weird characters that exists out there are:) N
+() N
+(a2ps.man) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(- O plus: ) p
+(\305) sy
+( and ) p
+(\305) sy n
+() p n
+(- Copyright: ) S
+(\343) sy n
+() p n
+(- Plus or minus: ) S
+(\261) sy n
+() p n
+(- Greater than or equal to: ) S
+(\263) sy n
+() p n
+(- Less than or equal to: ) S
+(\243) sy n
+() p n
+(- Another form of ) S
+(underlining.) k
+(a2ps.man) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

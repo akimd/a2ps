@@ -1,0 +1,1192 @@
+# Japanese messages for GNU a2ps
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# This file is distributed under the same license as the a2ps package.
+# Yasuyuki Furukawa <furukawa@vinelinux.org>, 2000.
+# Masayuki Hatta <mhatta@gnu.org>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: a2ps 4.13b\n"
+"POT-Creation-Date: 2000-06-20 19:30+0900\n"
+"PO-Revision-Date: 2003-03-23 18:22+0900\n"
+"Last-Translator: Masayuki Hatta <mhatta@po.airs.net>\n"
+"Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=EUC-JP\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. TRANS: the type of the end-of-line rules, is `any type', i.e.
+#. lines ended by \n, or \r, or \r\n, or \n\r are OK
+#: src/buffer.c:67
+msgid "any type"
+msgstr "全てのタイプ"
+
+#: lib/routines.c:160 lib/xbackupfile.c:248 lib/xbackupfile.c:276
+#: lib/xbackupfile.c:284 src/delegate.c:260
+#, c-format
+msgid "cannot create file `%s'"
+msgstr "ファイル`%s'を作成できません"
+
+#: lib/routines.c:190 lib/routines.c:196 src/delegate.c:269 src/select.c:159
+#, c-format
+msgid "cannot open a pipe on `%s'"
+msgstr "`%s'のパイプを開けません"
+
+#. E.g.: Delegation `PsNup', from ps to ps
+#: src/delegate.c:389
+#, c-format
+msgid "Delegation `%s', from %s to %s\n"
+msgstr "外部フィルタ`%s', %sから %sへ\n"
+
+#: src/delegate.c:408 src/delegate.c:430
+msgid "Applications configured for delegation"
+msgstr "アプリケーションは外部フィルタの設定がされていません"
+
+#: src/generate.c:88
+#, c-format
+msgid "`%s' is a directory"
+msgstr "`%s'はディレクトリです"
+
+#: lib/confg.c:288 lib/confg.c:451 lib/routines.c:154 src/generate.c:96
+#: src/main.c:558 src/main.c:580
+#, c-format
+msgid "cannot open file `%s'"
+msgstr "ファイル`%s'を開けません"
+
+#. Another kind of error occured: exit
+#: lib/xbackupfile.c:224 src/generate.c:101
+#, c-format
+msgid "cannot get informations on file `%s'"
+msgstr "ファイル`%s'上の情報を取得できません"
+
+#: src/generate.c:168
+#, c-format
+msgid "[%s (%s): 1 page on 1 sheet]\n"
+msgstr "[%s (%s): 1ページ, 1シート]\n"
+
+#: src/generate.c:174
+#, c-format
+msgid "[%s (%s): %d pages on 1 sheet]\n"
+msgstr "[%s (%s): %dページ, 1シート]\n"
+
+#: src/generate.c:181
+#, c-format
+msgid "[%s (%s): %d pages on %d sheets]\n"
+msgstr "[%s (%s): %dページ, %dシート]\n"
+
+#: src/generate.c:208
+#, c-format
+msgid "[Total: 1 page on 1 sheet] %s\n"
+msgstr "[合計: 1ページ, 1シート] %s\n"
+
+#: src/generate.c:212
+#, c-format
+msgid "[Total: %d pages on 1 sheet] %s\n"
+msgstr "[合計: %dページ, 1シート] %s\n"
+
+#: src/generate.c:217
+#, c-format
+msgid "[Total: %d pages on %d sheets] %s\n"
+msgstr "[合計: %dページ, %dシート] %s\n"
+
+#: src/generate.c:226
+msgid "[1 line wrapped]\n"
+msgstr "[1行 折り畳み]\n"
+
+#: src/generate.c:229
+#, c-format
+msgid "[%d lines wrapped]\n"
+msgstr "[%d行 折り畳み]\n"
+
+#: src/generate.c:242
+msgid "[No output produced]\n"
+msgstr "[出力はありません]\n"
+
+#: src/generate.c:314
+#, c-format
+msgid "%s, delegated to %s"
+msgstr "%s, %sへフィルタします "
+
+#: src/generate.c:322
+#, c-format
+msgid "[%s (%s): failed.  Ignored]\n"
+msgstr "[%s (%s): 失敗しました.  無効になります]\n"
+
+#: src/generate.c:330
+#, c-format
+msgid "[%s (unprintable): ignored]\n"
+msgstr "[%s (印刷不可): 無効です]\n"
+
+#: src/generate.c:339
+#, c-format
+msgid "[%s (binary): ignored]\n"
+msgstr "[%s (バイナリ): 無効です]\n"
+
+#: src/generate.c:360
+msgid "plain"
+msgstr "プレーン"
+
+#: /home/akim/src/a2ps-4.12/src/lexssh.l:348
+msgid "end-of-line in string constant"
+msgstr "文字列中に行末がきています"
+
+#. TRANS: %s is ".." or <..> or /../ etc.
+#: /home/akim/src/a2ps-4.12/src/lexssh.l:415 src/sheets-map.l:152
+#: src/sheets-map.l:191
+#, c-format
+msgid "end of line inside a %s"
+msgstr "%s 文字列中に行末がきています"
+
+#: src/main.c:201
+#, c-format
+msgid "received signal %d: %s"
+msgstr "シグナル%dを受け取りました: %s"
+
+#. TRANS: highlighting level = heavy (2/2)
+#: src/main.c:240
+msgid "heavy"
+msgstr "ヘビー"
+
+#. TRANS: highlighting level = normal (1/2)
+#: src/main.c:244
+msgid "normal"
+msgstr "通常"
+
+#. TRANS: highlighting level = none (0/2)
+#: src/main.c:248
+msgid "none"
+msgstr "なし"
+
+#. This is just so that gettext knows I use those two strings.
+#: src/main.c:322
+msgid "yes"
+msgstr ""
+
+#: src/main.c:323 src/main.c:367
+msgid "no"
+msgstr "無効"
+
+#: src/main.c:333
+#, c-format
+msgid "Configuration status of %s %s\n"
+msgstr "%s %sの設定状態\n"
+
+#: src/main.c:337 src/main.c:694
+msgid "Sheets:\n"
+msgstr "シート:\n"
+
+#: src/main.c:338
+#, c-format
+msgid ""
+"  medium          = %s%s, %s\n"
+"  page layout     = %d x %d, %s\n"
+"  borders         = %s\n"
+"  file alignment  = %s\n"
+"  interior margin = %d\n"
+msgstr ""
+"  メディア              = %s%s, %s\n"
+"  ページレイアウト      = %d x %d, %s\n"
+"  枠                    = %s\n"
+"  ファイル区切り        = %s\n"
+"  内部マージン          = %d\n"
+
+#: src/main.c:347
+msgid "portrait"
+msgstr ""
+
+#: src/main.c:347
+msgid "landscape"
+msgstr ""
+
+#: src/main.c:356
+#, c-format
+msgid "%d characters per line"
+msgstr "%d文字/行"
+
+#: src/main.c:359
+#, c-format
+msgid "%d lines per page"
+msgstr "%d行/ページ"
+
+#: src/main.c:362
+#, c-format
+msgid "font size is %gpt"
+msgstr "%gptフォントサイズ"
+
+#. number line: each line
+#: src/main.c:371
+msgid "each line"
+msgstr "各行"
+
+#. number line: each %d line
+#: src/main.c:375
+#, c-format
+msgid "each %d lines"
+msgstr "各%d行"
+
+#: src/main.c:378 src/main.c:715
+msgid "Virtual pages:\n"
+msgstr "仮想ページ:\n"
+
+#: src/main.c:379
+#, c-format
+msgid ""
+"  number lines         = %s\n"
+"  format               = %s\n"
+"  tabulation size      = %d\n"
+"  non printable format = %s\n"
+msgstr ""
+"  行番号                = %s\n"
+"  形式                  = %s\n"
+"  タブサイズ            = %d\n"
+"  印刷不可時の形式      = %s\n"
+
+#: src/main.c:390
+msgid "Headers:\n"
+msgstr "ヘッダ:\n"
+
+#: src/main.c:391
+#, c-format
+msgid ""
+"  header       = %s\n"
+"  left footer  = %s\n"
+"  footer       = %s\n"
+"  right footer = %s\n"
+"  left title   = %s\n"
+"  center title = %s\n"
+"  right title  = %s\n"
+"  under lay    = %s\n"
+msgstr ""
+"      ヘッダ          = %s\n"
+"   左 フッタ          = %s\n"
+"      フッタ          = %s\n"
+"   右 フッタ          = %s\n"
+"   左 タイトル        = %s\n"
+"  中央タイトル        = %s\n"
+"   右 タイトル        = %s\n"
+"  下 メッセージ       = %s\n"
+
+#: src/main.c:410 src/main.c:744
+msgid "Input:\n"
+msgstr "入力:\n"
+
+#: src/main.c:411
+#, c-format
+msgid ""
+"  truncate lines = %s\n"
+"  interpret      = %s\n"
+"  end of line    = %s\n"
+"  encoding       = %s\n"
+"  document title = %s\n"
+"  prologue       = %s\n"
+"  print anyway   = %s\n"
+"  delegating     = %s\n"
+msgstr ""
+"  行の切り詰め          = %s\n"
+"  割り込み              = %s\n"
+"  改行コード            = %s\n"
+"  標準エンコード        = %s\n"
+"  文章題名              = %s\n"
+"  標準プロローグ        = %s\n"
+"  強制印刷              = %s\n"
+"  外部フィルタリング    = %s\n"
+
+#. TRANS: a2ps -E --list=options.  Warning, this answer is also
+#. used for the PPD file.  Make it compatible with both.
+#: src/main.c:436 src/main.c:502
+msgid "selected automatically"
+msgstr "自動選択"
+
+#: src/main.c:439 src/main.c:763
+msgid "Pretty-printing:\n"
+msgstr "印刷装飾:\n"
+
+#: src/main.c:440
+#, c-format
+msgid ""
+"  style sheet     = %s\n"
+"  highlight level = %s\n"
+"  strip level     = %d\n"
+msgstr ""
+"  スタイルシート        = %s\n"
+"  装飾レベル            = %s\n"
+"  コメント省略レベル    = %d\n"
+
+#: src/main.c:460
+msgid "never make backups"
+msgstr "バックアップを作成しない"
+
+#: src/main.c:464
+msgid "simple backups of every file"
+msgstr "各ファイルの単純バックアップ"
+
+#. appears in a2ps --version-=existing --list=defaults
+#: src/main.c:469
+msgid ""
+"numbered backups of files already numbered,\n"
+"                            and simple of others"
+msgstr ""
+"ファイルのバックアップ番号はすでに番号が存在しており、\n"
+"                         他の単純バックアップもあります"
+
+#: src/main.c:474
+msgid "numbered backups of every file"
+msgstr "各ファイルの数字によるバックアップ"
+
+#: src/main.c:478 src/main.c:772
+msgid "Output:\n"
+msgstr "出力:\n"
+
+#: src/main.c:479
+#, c-format
+msgid ""
+"  destination     = %s\n"
+"  version control = %s\n"
+"  backup suffix   = %s\n"
+msgstr ""
+"  出力先                  = %s\n"
+"  バージョン制御          = %s\n"
+"  バックアップサフィックス= %s\n"
+
+#: src/main.c:492 src/main.c:782
+msgid "PostScript:\n"
+msgstr "ポストスクリプト:\n"
+
+#: src/main.c:493
+#, c-format
+msgid ""
+"  magic number              = %s\n"
+"  Printer Description (PPD) = %s\n"
+"  default PPD               = %s\n"
+"  page label format         = %s\n"
+"  number of copies          = %d\n"
+"  sides per sheet           = %s\n"
+"  page device definitions   = "
+msgstr ""
+"  マジック番号              = %s\n"
+"  プリンタデスクプリタ(PPD) = %s\n"
+"  標準 PPD                  = %s\n"
+"  ページラベル形式          = %s\n"
+"  印刷部数                  = %d\n"
+"  サイド／シート            = %s\n"
+"  ページデバイス定義        = "
+
+#: src/main.c:513
+msgid "  statusdict definitions    = "
+msgstr "  statusdict定義            = "
+
+#: src/main.c:516
+#, c-format
+msgid "  page prefeed              = %s\n"
+msgstr "  ページプレフィード        = %s\n"
+
+#.
+#. * Internal Details
+#.
+#: src/main.c:525
+msgid "Internals:\n"
+msgstr "内部情報:\n"
+
+#: src/main.c:526
+#, c-format
+msgid ""
+"  verbosity level     = %d\n"
+"  file command        = %s\n"
+"  library path        = \n"
+msgstr ""
+"  メッセージ詳細レベル= %d\n"
+"  fileコマンドパス    = %s\n"
+"  ライブラリパス      = \n"
+
+#: src/main.c:651
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"\n"
+"Convert FILE(s) or standard input to PostScript.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Long options marked with * require a yes/no argument, corresponding\n"
+"short options stand for `yes'.\n"
+msgstr ""
+"使用法: %s [オプション]‥‥ ファイル‥‥\n"
+"\n"
+"ファイルまたは標準入力をPostscriptへ変換します。\n"
+"\n"
+"ロングオプションへの省略できない引数は、ショートオプションに対しても\n"
+"同様です。『*』マーク付のロングオプションには yes/no の引数が必要です。\n"
+"これに対応するショートオプションは`yes'が立っています\n"
+
+#: src/main.c:665
+msgid "Tasks:\n"
+msgstr "タスク:\n"
+
+#: src/main.c:666
+msgid ""
+"  --version        display version\n"
+"  --help           display this help\n"
+"  --guess          report guessed types of FILES\n"
+"  --which          report the full path of library files named FILES\n"
+"  --glob           report the full path of library files matching FILES\n"
+"  --list=defaults  display default settings and parameters\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, "
+"style-sheets,\n"
+"                   user-options)\n"
+msgstr ""
+"  --version                  バージョンを表示する\n"
+"  --help                     このヘルプメッセージを表示する\n"
+"  --guess                    ファイルの類推タイプを表示する\n"
+"  --which                    FILESの名の付くライブラリファイルのフルパスを表示する\n"
+"  --glob                     FILESと一致するライブラリファイルのフルパスを表示する\n"
+"  --list=defaults            標準設定およびパラメータを出力する\n"
+"  --list=題目                各題目の情報を出力する(delegations, encodings,\n"
+"                             features, variables, media, ppd, printers,\n"
+"                             prologues, style-sheets, user-options)\n"
+
+#: src/main.c:677
+msgid ""
+"After having performed the task, exit successfully.  Detailed lists may\n"
+"provide additional help on specific features.\n"
+msgstr ""
+"タスク処理終了後に, 正常に終了します.  詳細なリストによって\n"
+"指定した機能に関する追加ヘルプが提供されます.\n"
+
+#: src/main.c:685
+msgid "Global:\n"
+msgstr "全般:\n"
+
+#: src/main.c:686
+msgid ""
+"  -q, --quiet, --silent      be really quiet\n"
+"  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
+"  -=, --user-option=OPTION   use the user defined shortcut OPTION\n"
+"      --debug                enable debugging features\n"
+"  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
+msgstr ""
+"  -q, --quiet, --silent      メッセージを出力しない\n"
+"  -v, --verbose[=レベル]     詳細なメッセージを出力、またはそのレベルの設定\n"
+"  -=, --user-option=OPTION   ユーザ定義のショートカットオプションを利用する\n"
+"      --debug                デバッグ機能を有効にする\n"
+"  -D, --define=キー[:値]     キーの値の設定もしくは解除\n"
+
+#: src/main.c:695
+msgid ""
+"  -M, --medium=NAME      use output medium NAME\n"
+"  -r, --landscape        print in landscape mode\n"
+"  -R, --portrait         print in portrait mode\n"
+"      --columns=NUM      number of columns per sheet\n"
+"      --rows=NUM         number of rows per sheet\n"
+"      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
+"  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
+"                         page, sheet, or a number)\n"
+"  -j, --borders*         print borders around columns\n"
+"      --margin[=NUM]     define an interior margin of size NUM\n"
+msgstr ""
+"  -M, --medium=名前      出力媒体名の指定\n"
+"  -r, --landscape        landscapeモードで出力\n"
+"  -R, --portrait         portraitモードで出力\n"
+"      --columns=数値     1シートあたりのコラム数(数値 > 0)\n"
+"      --rows=数値        1シートあたりの列数(数値 > 0)\n"
+"      --major=方向       ページを埋めて行く方向. rows,またはcolumnsを指定\n"
+"  -1, -2, ..., -9        1, .., 9 の仮想ページのレイアウトの指定\n"
+"  -A, --file-align=モード ファイルの区切りの指定(fill, rank\n"
+"                         page, sheet, もしくは number)\n"
+"  -j, --borders*         カラム枠を出力する\n"
+"      --margin[=数値]    内部マージンの指定\n"
+
+#: src/main.c:708
+msgid ""
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
+"layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
+"options (`--columns', `--font-size' etc.).\n"
+msgstr ""
+"オプション -1.. -9 は, 事前に設定された80桁のレイアウトを設定する\n"
+"いくつかの基本パラメータに影響します。\n"
+"そのため、以下のようなことが起こります: `-R -f40 -2' は`-2'と同等\n"
+"です.  レイアウトを加工するのに, `-2Rf40'を用いるか、もしくは、基本\n"
+"オプションを組み合わせます (`--columns', `--font-size' 等)。\n"
+
+#: src/main.c:716
+msgid ""
+"      --line-numbers=NUM     precede each NUM lines with its line number\n"
+"  -C                         alias for --line-numbers=5\n"
+"  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
+"  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
+"  -m, --catman               process FILE as a man page (same as -L66)\n"
+"  -T, --tabsize=NUM          set tabulator size to NUM\n"
+"  --non-printable-format=FMT specify how non-printable chars are printed\n"
+msgstr ""
+"      --line-numbers=数値    各行おきに行番号を行頭につける\n"
+"  -C                         --line-numbers=5のエイリアス\n"
+"  -f, --font-size=サイズ     文章本体のフォントサイズ(float)の指定\n"
+"  -L, --lines-per-page=数値  各ページの印刷行数の指定\n"
+"  -l, --chars-per-line=数値  ページ辺りの印刷横文字数の指定\n"
+"  -m, --catman               manとしてファイルを処理する(-L66と同様)\n"
+"  -T, --tabsize=数値         タブサイズの設定\n"
+"  --non-printable-format=FMT 非表示文字の出力形式の指定\n"
+
+#: src/main.c:727
+msgid "Headings:\n"
+msgstr "ヘッダ:\n"
+
+#: src/main.c:729
+#, no-c-format
+msgid ""
+"  -B, --no-header        no page headers at all\n"
+"  -b, --header[=TEXT]    set page header\n"
+"  -u, --underlay[=TEXT]  print TEXT under every page\n"
+"  --center-title[=TEXT]  set page title to TITLE\n"
+"  --left-title[=TEXT]    set left and right page title to TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]   set sheet footers to TEXT\n"
+"  --footer[=TEXT]\n"
+"  --right-footer[=TEXT]\n"
+msgstr ""
+"  -B, --no-header            ページヘッダをなくす\n"
+"  -b, --header[=TEXT]        ページヘッダの設定\n"
+"  -u, --underlay[=TEXT]      TEXTを各ページの下に表示\n"
+"  --center-title[=TEXT]      ページの題名をTEXTに設定する\n"
+"  --left-title[=TEXT]        左右ページタイトルをTEXTに設定する\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]       シートフッタをTEXTに設定する\n"
+"  --footer[=TEXT]            \n"
+"  --right-footer[=TEXT]\n"
+
+#: src/main.c:740
+msgid "The TEXTs may use special escapes.\n"
+msgstr "TEXTには特殊なエスケープが利用できます。\n"
+
+#: src/main.c:745
+msgid ""
+"  -a, --pages[=RANGE]        select the pages to print\n"
+"  -c, --truncate-lines*      cut long lines\n"
+"  -i, --interpret*           interpret tab, bs and ff chars\n"
+"      --end-of-line=TYPE     specify the eol char (TYPE: r, n, nr, rn, any)\n"
+"  -X, --encoding=NAME        use input encoding NAME\n"
+"  -t, --title=NAME           set the name of the job\n"
+"      --stdin=NAME           set the name of the input file stdin\n"
+"      --print-anyway*        force binary printing\n"
+"  -Z, --delegate*            delegate files to another application\n"
+"      --toc[=TEXT]           generate a table of content\n"
+msgstr ""
+"  -a, --pages[=範囲]         印刷ページの選択\n"
+"  -c, --truncate-lines*      長すぎる行を削除する\n"
+"  -i, --interpret*           タブ、バックスペース、ff文字を解釈する\n"
+"      --end-of-line=タイプ   改行文字の指定 (タイプ: r, n, nr, rn, any)\n"
+"  -X, --encoding=エンコード  エンコード名の指定\n"
+"  -t, --title=タイトル       内容の題名の設定する\n"
+"      --stdin=名前           入力ファイル標準入力の名前の設定\n"
+"      --print-anyway*        強制的にバイナリを印刷する\n"
+"  -Z, --delegate*            他のアプリケーションへフィルタリングする\n"
+"      --toc[=テキスト]       目次を作成する\n"
+
+#: src/main.c:757
+msgid ""
+"When delegations are enabled, a2ps may use other applications to handle the\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
+"PostScript, PDF etc.\n"
+msgstr ""
+"外部フィルタを有効にしている場合, a2ps は生情報として印刷すべきではない\n"
+"ファイルの処理に対して, 別のアプリケーションを利用します。\n"
+"   例: HTML, Postscript, PDF等.\n"
+
+#: src/main.c:764
+msgid ""
+"  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
+"  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
+"                             LEVEL can be none, normal or heavy\n"
+"  -g                         alias for --highlight-level=heavy\n"
+"  --strip-level=NUM          level of comments stripping\n"
+msgstr ""
+"  -E, --pretty-print[=言語]  装飾印刷を有効にする(言語でスタイルを設定する)\n"
+"  --highlight-level=LEVEL    装飾印刷レベルを設定する\n"
+"                             レベルは none, normal もしくは heavy です\n"
+"  -g                         --highlight-level=heavyのエイリアス\n"
+"  --strip-level=NUM          コメント省略レベル\n"
+
+#: src/main.c:773
+msgid ""
+"  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
+"                             leave output to stdout.\n"
+"  --version-control=WORD     override the usual version control\n"
+"  --suffix=SUFFIX            override the usual backup suffix\n"
+"  -P, --printer=NAME         send output to printer NAME\n"
+"  -d                         send output to the default printer\n"
+msgstr ""
+"  -o, --output=ファイル      指定ファイル名へ出力する. \n"
+"                                ファイル名が`-'なら,標準出力になります.\n"
+"  --version-control=WORD     通常のバージョンアップ制御の上書き指定\n"
+"  --suffix=SUFFIX            通常のバックアップサフィックスの上書き指定\n"
+"  -P, --printer=プリンタ     指定プリンタへ出力を送信する\n"
+"  -d                         標準プリンタへ出力を送信する\n"
+
+#: src/main.c:783
+msgid ""
+"      --prologue=FILE        include FILE.pro as PostScript prologue\n"
+"      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
+"  -n, --copies=NUM           print NUM copies of each page\n"
+"  -s, --sides=MODE           set the duplex MODE (`1' or `simplex',\n"
+"                             `2' or `duplex', `tumble')\n"
+"  -S, --setpagedevice=K[:V]  pass a page device definition to output\n"
+"      --statusdict=K[:[:]V]  pass a statusdict definition to the output\n"
+"  -k, --page-prefeed         enable page prefeed\n"
+"  -K, --no-page-prefeed      disable page prefeed\n"
+msgstr ""
+"      --prologue=ファイル    "
+"PostScriptプロローグとしてファイル.proを取り込む\n"
+"      --ppd[=キー]           自動PPD選択、もしくはキーを設定\n"
+"  -n, --copies=数値          各ページの部数の指定\n"
+"  -s, --sides=モード         複式モードの設定 (`1'もしくは`simplex'\n"
+"                             `2' もしくは`duplex', `tumble')\n"
+"  -D, --setpagedevice=K[:V]  ページデバイス定義を出力へ通す\n"
+"  -S, --statusdict=K[:[:]V]  statusdict定義を出力へ通す\n"
+"  -k, --page-prefeed         ページプレフィードを有効にする\n"
+"  -K, --no-page-prefeed      ページプレフィードを無効にする\n"
+
+#: src/main.c:797
+msgid ""
+"By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
+"result to the printer `lw',\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"To process the files `sample.ps' and `sample.html' and display the result,\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"To process a mailbox in 4 up,\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"To print as a booklet on the default printer, which is Duplex capable,\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+msgstr ""
+"デフォルトで, a2ps はあなたの希望するよう動作をするように調整されています。\n"
+"`src'ディレクトリの内容と、そのインデックステーブルをきれいに印刷して結果を\n"
+"`lw' プリンタ へ送信するには、\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"`sample.ps'と`sample.html'を単純に処理して結果を表示するには、\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"4アップの郵便を処理するには、\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"両面印刷が可能な標準プリンタへ小冊子として印刷するには、\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+
+#: src/main.c:818
+msgid ""
+"News, updates and documentation: visit "
+"http://www.inf.enst.fr/~demaille/a2ps/.\n"
+msgstr ""
+"新着情報や、更新情報、ドキュメントには、\n"
+" http://www.inf.enst.fr/~demaille/a2ps/ を訪れてください。\n"
+
+#: src/main.c:820
+msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
+msgstr "バグを発見したら <bug-a2ps@gnu.org> 宛に報告して下さい.\n"
+
+#: src/main.c:938
+msgid ""
+"Copyright (c) 1988-1993 Miguel Santana\n"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+msgstr ""
+
+#: src/main.c:1168
+msgid "Table of Content"
+msgstr "コンテントテーブル"
+
+#: src/parsessh.y:236
+#, c-format
+msgid "cannot process `%s' which requires a2ps version %s"
+msgstr "`%s'を処理するには a2psバージョン %sが必要です"
+
+#: src/sheets-map.l:110
+#, c-format
+msgid "unexpected character `%c'"
+msgstr "予期しない文字`%c'です。"
+
+#: /home/akim/src/a2ps-4.12/lib/lexppd.l:211 src/sheets-map.l:210
+msgid "too many includes"
+msgstr "includeが多すぎます"
+
+#: src/sheets-map.l:292 src/sheets-map.l:299
+#, c-format
+msgid "no key defined for `%s'"
+msgstr "`%s'に対するキーは定義されていません"
+
+#: /home/akim/src/a2ps-4.12/lib/fonts.l:837
+#: /home/akim/src/a2ps-4.12/lib/fonts.l:839
+#: /home/akim/src/a2ps-4.12/lib/fonts.l:841 lib/pathwalk.c:328
+#: lib/pathwalk.c:414 src/select.c:122 src/ssheet.c:866
+#, c-format
+msgid "cannot find file `%s'"
+msgstr "ファイル`%s'が見つかりません"
+
+#. sheets.map can not be found: there is no automatic prettyprinting
+#: src/select.c:124
+msgid "automatic style selection cancelled"
+msgstr "自動スタイル選択がキャンセルされました"
+
+#: src/ssheet.c:295
+#, c-format
+msgid "cannot compile regular expression `%s': %s"
+msgstr "正規表現`%s'を翻訳できません: %s"
+
+#: src/ssheet.c:974 src/ssheet.c:995
+msgid "Known Style Sheets"
+msgstr "利用可能なスタイルシート"
+
+#: src/ssheet.c:1461
+#, c-format
+msgid "cannot find style sheet `%s': using plain style"
+msgstr "スタイルシート`%s'が見つかりません: プレーンスタイルを使用します"
+
+#: src/sshread.c:453
+#, c-format
+msgid "unknown encoding `%s', ignored"
+msgstr "不明なエンコーディングです: `%s', 無効になります"
+
+#: src/version-etc.c:38
+msgid "Copyright (C) 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/version-etc.c:60
+#, c-format
+msgid "Written by %s.\n"
+msgstr "作成者: %s\n"
+
+#: src/version-etc.c:66
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"このプログラムは便利になることを希望していますが完全に無保証です。\n"
+"営利目的やある特定の目的のための適正のものでもありません。\n"
+
+#: src/versions.c:133
+#, c-format
+msgid "invalid version number `%s'"
+msgstr "おかしなバージョン番号です `%s'"
+
+#: lib/caret.c:43
+msgid "space (i.e., ` ')"
+msgstr "空白 (例, ` ')"
+
+#: lib/caret.c:45
+msgid "octal (i.e., `\\001' etc.)"
+msgstr "octal (例, `\\001'等)"
+
+#: lib/caret.c:47
+msgid "hexadecimal (i.e., `\\x0a' etc.)"
+msgstr "hexadecimal (例, `\\x0a'等)"
+
+#: lib/caret.c:49
+msgid "caret (i.e., `^C', `M-^C' etc.)"
+msgstr "caret (例, `^C', `M-^C'等)"
+
+#: lib/caret.c:51
+msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
+msgstr "emacs (例, `C-c', `M-C-c'等)"
+
+#: lib/caret.c:53
+msgid "question-mark (i.e., `?')"
+msgstr "question-mark (例, `?')"
+
+#: lib/closeout.c:71 lib/closeout.c:73
+msgid "write error"
+msgstr "書き込みエラー"
+
+#: lib/confg.c:253 lib/encoding.c:639
+#, c-format
+msgid "invalid option `%s'"
+msgstr "間違ったオプションです: `%s'"
+
+#: lib/confg.c:264 lib/encoding.c:577 lib/encoding.c:617 lib/prolog.c:146
+#, c-format
+msgid "missing argument for `%s'"
+msgstr "`%s'に対する引数が足りません"
+
+#: lib/confg.c:320 lib/confg.c:327 lib/confg.c:334
+#, c-format
+msgid "invalid definition for printer `%s': %s"
+msgstr "おかしなプリンタの定義です `%s': %s"
+
+#: lib/confg.c:325 lib/confg.c:328
+msgid "Unknown Printer"
+msgstr "不明なプリンタ"
+
+#: lib/confg.c:332 lib/confg.c:335
+msgid "Default Printer"
+msgstr "標準プリンタ"
+
+#: lib/confg.c:388 lib/options.c:703
+#, c-format
+msgid "invalid variable identifier `%s'"
+msgstr "おかしな変数証明です `%s'"
+
+#: lib/confg.c:417
+#, c-format
+msgid "obsolete `%s' entry.  Ignored"
+msgstr "旧式の`%s'エントリです.  無効です"
+
+#: lib/encoding.c:1115 lib/encoding.c:1136
+msgid "Known Encodings"
+msgstr "利用可能なエンコード"
+
+#: lib/faces.c:156
+msgid "incomplete knowledge of faces"
+msgstr "フェースに関して不完全な情報です"
+
+#: lib/filtdir.c:113
+#, c-format
+msgid "cannot close directory `%s'"
+msgstr "ディレクトリ`%s'を閉じられません"
+
+#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#, c-format
+msgid "invalid argument `%s' for `%s'"
+msgstr "おかしな引数`%s'が`%s'に指定されています"
+
+#: lib/getnum.c:123
+#, c-format
+msgid "Valid arguments are integers n such that: %s\n"
+msgstr "整数の指定が間違っています:%s\n"
+
+#: lib/getnum.c:223
+#, c-format
+msgid "Valid arguments are floats f such that: %s\n"
+msgstr "実数の指定が間違っています:%s\n"
+
+#: lib/jobs.c:307
+#, c-format
+msgid "unknown encoding `%s'"
+msgstr "不明なエンコーディングです: `%s'"
+
+#: lib/madir.c:59
+msgid "rows first"
+msgstr "行優先"
+
+#: lib/madir.c:62
+msgid "columns first"
+msgstr "桁優先"
+
+#: lib/media.c:173
+#, c-format
+msgid "unknown medium `%s'"
+msgstr "不明なメディアです `%s'"
+
+#: lib/media.c:208 lib/media.c:237
+msgid "Known Media"
+msgstr "利用可能なメディア"
+
+#: lib/media.c:211
+msgid "Name"
+msgstr "名前"
+
+#: lib/media.c:212
+msgid "dimensions"
+msgstr "ディメンジョン"
+
+#. TRANS: Variables (formely called `macro meta sequences', eeeaerk)
+#. are things such as #(psnup) which is substituted to a bigger strings,
+#. e.g. -#v #?q|-q|| #?j|-d|| #?r||-c| -w#w -h#h
+#: lib/metaseq.c:104 lib/metaseq.c:113
+msgid "Known Variables"
+msgstr "利用可能な変数"
+
+#: lib/metaseq.c:288 lib/metaseq.c:300
+#, c-format
+msgid "Printed by %s"
+msgstr "ユーザ名: %s"
+
+#: lib/metaseq.c:298
+#, c-format
+msgid "Printed by %s from %s"
+msgstr "ユーザ名:%s  場所:%s"
+
+#: lib/metaseq.c:308 lib/metaseq.c:327
+msgid "cannot get current working directory"
+msgstr "カレントディレクトリが得られません"
+
+#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
+#: lib/metaseq.c:954 lib/metaseq.c:987
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr "%s: エスケープ%sに対する引数が長過ぎます"
+
+#. Translators: please make a short date format
+#. * according to the std form in your language, using
+#. * the standard strftime(3)
+#: lib/metaseq.c:364 lib/metaseq.c:675
+msgid "%b %d, %y"
+msgstr "%y年 %b%e日"
+
+#. Translators: please make a long date format
+#. * according to the std form in your language, using
+#. * GNU strftime(3)
+#: lib/metaseq.c:373 lib/metaseq.c:684
+msgid "%A %B %d, %Y"
+msgstr "%Y年 %b%e日 %A"
+
+#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
+#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
+#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr "%s: 不明な `%s'エスケープ `%c' (%d)"
+
+#. `%q' localized `Page %d'
+#: lib/metaseq.c:426 lib/metaseq.c:815
+#, c-format
+msgid "Page %d"
+msgstr "%dページ"
+
+#. `%Q' localized `Page %d/%c'
+#: lib/metaseq.c:431 lib/metaseq.c:826
+#, c-format
+msgid "Page %d/%c"
+msgstr "%d/%c ページ"
+
+#: lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608 lib/metaseq.c:951
+#: lib/metaseq.c:972
+#, c-format
+msgid "%s: missing `%c' for %s%c escape"
+msgstr "%s: `%c'がエスケープ %s%cに対して不足しています"
+
+#: lib/metaseq.c:593 lib/metaseq.c:1021
+#, c-format
+msgid "%s: invalid separator `%s%c' for `%s' escape"
+msgstr "%s: `%s%c'はエスケープ %s に対して不適切です"
+
+#: lib/metaseq.c:601 lib/metaseq.c:611
+#, c-format
+msgid "%s: invalid argument for %s%c escape"
+msgstr "%s: エスケープ %s%cに対して不適切な引数です"
+
+#. This file is finised, we do know its real number of pages
+#: lib/metaseq.c:822
+#, c-format
+msgid "Page %d/%d"
+msgstr "%d/%dページ"
+
+#: lib/metaseq.c:1266
+msgid "output command"
+msgstr "出力コマンド"
+
+#: lib/options.c:302
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "詳しくは`%s --help'を実行して下さい.\n"
+
+#: lib/output.c:466
+#, c-format
+msgid "invalid face `%s'"
+msgstr "間違ったフェースです: `%s'"
+
+#: lib/output.c:538
+#, c-format
+msgid "`%s' with no matching `%s'"
+msgstr "`%s' は `%s' と一致していません"
+
+#: lib/ppd.c:108
+msgid "Known Fonts"
+msgstr "利用可能なフォント"
+
+#. TRANS: This `none' is an answer to `List of known fonts: None'
+#: lib/ppd.c:111
+msgid ""
+"\n"
+"  None.\n"
+msgstr ""
+"\n"
+"  なし.\n"
+
+#: lib/ppd.c:149 lib/ppd.c:165
+msgid "Known PostScript Printer Descriptions"
+msgstr "利用可能なPostScriptプリンタの記述"
+
+#: lib/prange.c:305 lib/prange.c:323
+#, c-format
+msgid "invalid interval `%s'"
+msgstr "おかしなマクロ情報です `%s'"
+
+#: lib/printers.c:396 lib/printers.c:413
+#, c-format
+msgid "no command for the `%s' (%s%s)"
+msgstr "`%s'コマンドはありません (%s%s)"
+
+#: lib/printers.c:429
+msgid "sent to the standard output"
+msgstr "標準出力へ転送します"
+
+#: lib/printers.c:430
+msgid "sent to the default printer"
+msgstr "標準プリンタへ転送します"
+
+#: lib/printers.c:435
+#, c-format
+msgid "saved into the file `%s'"
+msgstr "ファイル`%s'へ保存します"
+
+#: lib/printers.c:436
+#, c-format
+msgid "sent to the printer `%s'"
+msgstr "プリンタ`%s'へ転送します"
+
+#: lib/printers.c:613 lib/printers.c:621
+msgid "Known Outputs (Printers, etc.)"
+msgstr "利用可能な出力先(プリンタ等)"
+
+#: lib/prolog.c:98 lib/prolog.c:181
+msgid "Known Prologues"
+msgstr "不明なプロローグ"
+
+#: lib/prolog.c:579
+#, c-format
+msgid "font %f too big"
+msgstr "フォント %f は大きすぎます"
+
+#: lib/psgen.c:662
+#, c-format
+msgid "`%s' is a binary file, printing aborted"
+msgstr "`%s'はバイナリファイルです, 印刷は中断します"
+
+#: lib/quotearg.c:200
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:203
+msgid "'"
+msgstr ""
+
+#: lib/userdata.c:129
+msgid "user"
+msgstr "ユーザー"
+
+#: lib/userdata.c:130
+msgid "Unknown User"
+msgstr "不明なユーザーです"
+
+#: lib/useropt.c:75
+#, c-format
+msgid "unknown user option `%s'"
+msgstr "不明なユーザオプション`%s'です"
+
+#: lib/useropt.c:86 lib/useropt.c:97
+msgid "Known User Options"
+msgstr "利用可能なユーザオプション"
+
+#. If XALLOC_FAIL_FUNC is NULL, or does return, display this message
+#. before exiting when memory is exhausted.  Goes through gettext.
+#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+msgid "Memory exhausted"
+msgstr "メモリが足りません"
+
+#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#, c-format
+msgid "cannot rename file `%s' as `%s'"
+msgstr "ファイル`%s'を`%s'へ名前変更できません"
+
+#: lib/xbackupfile.c:255
+#, c-format
+msgid "restored file `%s'"
+msgstr "ファイル`%s'を修復します"
+
+#: lib/argmatch.c:159
+#, c-format
+msgid "invalid argument %s for `%s'"
+msgstr "おかしな引数`%s'が`%s'に指定されています"
+
+#: lib/argmatch.c:160
+#, c-format
+msgid "ambiguous argument %s for `%s'"
+msgstr "曖昧な引数`%s'が`%s'に対して指定されています"
+
+#. We try to put synonyms on the same line.  The assumption is that
+#. synonyms follow each other
+#: lib/argmatch.c:178
+msgid "Valid arguments are:"
+msgstr "おかしな引数です:"
+
+#: lib/error.c:102
+msgid "Unknown system error"
+msgstr "不明なシステムエラーです"
+
+#: lib/getopt.c:675
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: オプション`%s'は曖昧です\n"
+
+#: lib/getopt.c:700
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: オプション`--%s'は引数を取りません\n"
+
+#: lib/getopt.c:705
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: オプション`%c%s'は引数を取りません\n"
+
+#: lib/getopt.c:723 lib/getopt.c:896
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: オプション`%s'には引数が必要です\n"
+
+#. --option
+#: lib/getopt.c:752
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: 不明なオプションです `--%s'\n"
+
+#. +option or -option
+#: lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: 不明なオプションです `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: lib/getopt.c:782
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: 間違ったオプションです -- %c\n"
+
+#: lib/getopt.c:785
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: 不適切なオプションです -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: lib/getopt.c:815 lib/getopt.c:945
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: オプションには引数が必要です -- %c\n"
+
+#: lib/getopt.c:862
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: オプション`-W %s'が曖昧です\n"
+
+#: lib/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: オプション`-W %s'は引数を取りません\n"
+

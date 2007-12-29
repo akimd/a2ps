@@ -1,0 +1,219 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(#!/usr/local/bin/perl) c n
+(eval) K
+( ') p
+(exec perl -S $0 "$@") str
+(') p n
+() S 8 T () S
+(if) K
+( $running_under_some_shell;) p n
+() N
+(# includeres: include resources in PostScript file) c n
+(#) N
+(# Copyright \(C\) Angus J. C. Duggan 1991-1995) N
+(# See file LICENSE for details.) N
+() p n
+($prog = \($0 =~ ) S
+(s) K
+(=.*/==\);) p n
+() N
+(%extn = \(") S
+(font) str
+(", ") p
+(.pfa) str
+(", ") p
+(file) str
+(", ") p
+(.ps) str
+(", ") p
+(procset) str
+(", ") p
+(.ps) str
+(", ) p
+(# resource extns) c n
+() p 8 T ( ") S
+(pattern) str
+(", ") p
+(.pat) str
+(", ") p
+(form) str
+(", ") p
+(.frm) str
+(", ") p
+(encoding) str
+(", ") p
+(.enc) str
+("\);) p n
+(%type = \(") S
+(%%BeginFile:) str
+(", ") p
+(file) str
+(", ") p
+(%%BeginProcSet:) str
+(", ") p
+(procset) str
+(",) p n
+() S 8 T ( ") S
+(%%BeginFont:) str
+(", ") p
+(font) str
+("\); ) p
+(# resource types) c n
+() p n
+(=head1 NAME) C n
+() N
+(        foo - script which blah ) N
+() N
+(=cut) N
+() p n
+() N
+(sub) K
+( ) p
+(filename) L
+( {) p 16 T () S 24 T () S 32 T () S
+(# make filename for resource in @_) c n
+(   ) p
+(local) K
+(\($name\);) p n
+(   ) S
+(foreach) K
+( \(@_\) {) p 24 T () S 32 T () S
+(# sanitise name) c n
+(      ) p
+(s) K
+(/[!\(\)\\$\\#*&\\\\\\|\\`\\'\\"\\~\\{\\}\\[\\]\\<\\>\\?]//g;) p n
+(      $name .= $_;) N
+(   }) N
+(   $name =~ ) S
+(s) K
+(@.*/@@;) p 24 T () S 32 T () S
+(# drop directories) c n
+(   ) p
+(die) K
+( ") p
+(Filename not found for resource ) str
+(", ) p
+(join) K
+(\(") p
+( ) str
+(", @_\), ") p
+(\\n) str
+(") p n
+(      ) S
+(if) K
+( $name =~ /^$/;) p n
+(   $name;) N
+(}) N
+() N
+(while) K
+( \(<>\) {) p n
+(   ) S
+(if) K
+( \(/^%%IncludeResource:/ || /^%%IncludeFont:/ || /^%%IncludeProcSet:/\) {) p n
+(      ) S
+(local) K
+(\($comment, @res\) = ) p
+(split) K
+(\(/\\s+/\);) p n
+(      ) S
+(local) K
+(\($type\) = ) p
+(defined) K
+(\($type{$comment}\) ? $type{$comment} : ) p
+(shift) K
+(\(@res\);) p n
+(      ) S
+(local) K
+(\($name\) = ) p
+(&filename) l
+(\(@res\);) p n
+(      ) S
+(local) K
+(\($inc\) = ") p
+(/inf/soft/infthes/demaille/include/psutils) str
+("; ) p
+(# system include directory) c n
+(      ) p
+(if) K
+( \() p
+(open) K
+(\(RES, $name\) || ) p
+(open) K
+(\(RES, ") p
+($name$extn{$type}) str
+("\) ||) p n
+() S 8 T (  ) S
+(open) K
+(\(RES, ") p
+($inc/$name) str
+("\) || ) p
+(open) K
+(\(RES, ") p
+($inc/$name$extn{$type}) str
+("\)\) {) p n
+() S 8 T ( ) S
+(while) K
+( \(<RES>\) {) p n
+() S 8 T (    ) S
+(print) K
+( $_;) p n
+() S 8 T ( }) N
+() S 8 T ( ) S
+(close) K
+(\(RES\);) p n
+(      } ) S
+(else) K
+( {) p n
+() S 8 T ( ) S
+(print) K
+( ") p
+(%%IncludeResource: ) str
+(", ) p
+(join) K
+(\(") p
+( ) str
+(", $type, @res\), ") p
+(\\n) str
+(";) p n
+() S 8 T ( ) S
+(print) K
+( STDERR ") p
+(Resource $name not found\\n) str
+(";) p n
+(      }) N
+(   } ) S
+(else) K
+( {) p n
+(      ) S
+(print) K
+( $_;) p n
+(   }) N
+(}) N
+() N
+(=head1 SEE ALSO) C n
+() N
+(blah blah. This is pod documentation.) N
+(blah blah) N
+(includeres) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

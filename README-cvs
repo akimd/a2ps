@@ -1,0 +1,62 @@
+These notes intend to help people working on the CVS versions of a2ps.
+Only the sources are installed in the CVS repository (to ease the
+maintenance, merges etc.), therefore you will have to the maintainer
+tools we depend upon:
+
+- Automake 1.6.3
+
+- Autoconf 2.57
+  (ftp://ftp.gnu.org/pub/gnu/autoconf/autoconf-2.57.tar.gz)
+
+- Gettext 0.11.5
+
+- Libtool 1.4.2a
+  I'm using the Debian package.
+
+- Gperf 2.7.2
+
+Only building the initial full source tree will be a bit painful,
+later, a plain `cvs update -P & make' should be sufficient.
+
+* First CVS checkout
+
+Obviously, if you are reading these notes, you did manage to check out
+Bison from CVS.  For the records, you will find all the relevant
+information on:
+
+	http://savannah.gnu.org/cvs/?group_id=56
+
+The next step is asking the installation of all the missing files:
+
+	$ ./bootstrap
+
+At this point, there should be no difference between your local copy,
+and the CVS master copy:
+
+	$ cvs diff
+
+should output no difference, except maybe the date in po/*.po files.
+
+Enjoy!
+
+
+-----
+
+Copyright (C) 2002 Free Software Foundation, Inc.
+
+This file is part of GNU a2ps.
+
+GNU a2ps is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3, or (at your option) any
+later version.
+
+GNU a2ps is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with GNU a2ps; see the file COPYING.  If not, write to the Free
+Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.

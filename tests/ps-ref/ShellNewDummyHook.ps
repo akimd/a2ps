@@ -1,0 +1,229 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+({-----------------------------------------------------------------------------) c n
+(The contents of this file are subject to the GNU General Public License) N
+(Version 1.1 or later \(the "License"\); you may not use this file except in) N
+(compliance with the License. You may obtain a copy of the License at) N
+(http://www.gnu.org/copyleft/gpl.html) N
+() N
+(Software distributed under the License is distributed on an "AS IS" basis,) N
+(WITHOUT WARRANTY OF ANY KIND, either expressed or implied. See the License for) N
+(the specific language governing rights and limitations under the License.) N
+() N
+(The Initial Developer of the Original Code is Michael Elsdrfer.) N
+(All Rights Reserved.) N
+() N
+(You may retrieve the latest version of this file at the NTFS Link Homepage) N
+(located at http://www.elsdoerfer.net/ntfslink/) N
+() N
+(Please note:) N
+(This is /not/ a real shell extension. We use this fake COM object factory to) N
+(register the "ShellNew" menu items. It's just the easiest way to do this,) N
+(because the Delphi RTL will automatically call the UpdateRegistry\(\) method if) N
+(a client calls DllRegisterServer.) N
+(-----------------------------------------------------------------------------}) N
+() p n
+(unit) K
+( ) p
+(ShellNewDummyHook) L
+(;) p n
+() N
+(interface) l n
+() p n
+(uses) K n
+(  Windows, ComObj, ActiveX;) p n
+() N
+(type) K n
+(  TShellNewDummyHook = class\(TComObject) p
+(\(* no interfaces needed, it's a fake! *\)) C
+(\)) p n
+(  ) S
+(end) K
+(;) p n
+() N
+(  TShellNewDummyFactory = class\(TComObjectFactory\)) N
+(  public) N
+(    ) S
+(procedure) K
+( ) p
+(UpdateRegistry) l
+(\(Register: ) p
+(Boolean) k
+(\); override;) p n
+(  ) S
+(end) K
+(;) p n
+() N
+(implementation) N
+() N
+(uses) K n
+(  ComServ, SysUtils, JclRegistry;) p n
+() N
+({ TShellNewDummyFactory }) c n
+() p n
+(procedure) K
+( ) p
+(TShellNewDummyFactory.UpdateRegistry) l
+(\(Register: ) p
+(Boolean) k
+(\);) p n
+() N
+(  ) S
+(procedure) K
+( ) p
+(CreateShellNewStructure) l
+(\(FileExtKey, FileClassKey,) p n
+(    DllFunctionName, ItemCaption: ) S
+(string) k
+(; IconIndex: ) p
+(Integer) k
+(\);) p n
+(  ) S
+(begin) K n
+(    // Create the ) p
+(file) K
+( extension key + the "ShellNew" key) p n
+(    CreateRegKey\(FileExtKey, '', FileClassKey, HKEY_CLASSES_ROOT\);) N
+(    CreateRegKey\(FileExtKey + ') S
+(\\ShellNew) str
+(', ') p
+(Command) str
+(',) p n
+(                 ') S
+(rundll32.exe ") str
+(' + ComServer.ServerFileName + ') p
+(",) str
+(' +) p n
+(                    DLLFunctionName + ') S
+( %1) str
+(',) p n
+(                 HKEY_CLASSES_ROOT\);) N
+(    // Create the ) S
+(file) K
+( class key, + the the icon ) p
+(and) K
+( a command sub-key) p n
+(    CreateRegKey\(FileClassKey, '', ItemCaption, HKEY_CLASSES_ROOT\);) N
+(    CreateRegKey\(FileClassKey + ') S
+(\\DefaultIcon) str
+(', '',) p n
+(                 ComServer.ServerFileName + ') S
+(,) str
+(' + IntToStr\(IconIndex\),) p n
+(                 HKEY_CLASSES_ROOT\);) N
+(    CreateRegKey\(FileClassKey + ') S
+(\\Shell\\Open\\Command) str
+(', '', ') p
+(.) str
+(',) p n
+(                 HKEY_CLASSES_ROOT\);) N
+(  ) S
+(end) K
+(;) p n
+() N
+(ShellNewDummyHook.pas) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(const) K n
+(  HARDLINK_FILEEXT_KEY   = ') p
+(.ntfs-hardlink) str
+(';) p n
+(  HARDLINK_FILECLASS_KEY = ') S
+(NTFSLink.Hardlink) str
+(';) p n
+(  JUNCTION_FILEEXT_KEY   = ') S
+(.ntfs-junction) str
+(';) p n
+(  JUNCTION_FILECLASS_KEY = ') S
+(NTFSLink.Junction) str
+(';) p n
+(begin) K n
+(  ) p
+(if) K
+( Register ) p
+(then) K n
+(  ) p
+(begin) K n
+(    CreateShellNewStructure\(HARDLINK_FILEEXT_KEY, HARDLINK_FILECLASS_KEY,) p n
+(                            ') S
+(NewHardlinkDlg) str
+(', ') p
+(NTFS Hardlink) str
+(', 0\);) p n
+(    CreateShellNewStructure\(JUNCTION_FILEEXT_KEY, JUNCTION_FILECLASS_KEY,) N
+(                            ') S
+(NewJunctionDlg) str
+(', ') p
+(NTFS Junction Point) str
+(', 1\);) p n
+(  ) S
+(end) K
+( ) p
+(else) K n
+(  ) p
+(begin) K n
+(    try RegDeleteKeyTree\(HKEY_CLASSES_ROOT, HARDLINK_FILEEXT_KEY\); except ) p
+(end) K
+(;) p n
+(    try RegDeleteKeyTree\(HKEY_CLASSES_ROOT, HARDLINK_FILECLASS_KEY\); except ) S
+(end) K
+(;) p n
+(    try RegDeleteKeyTree\(HKEY_CLASSES_ROOT, JUNCTION_FILEEXT_KEY\); except ) S
+(end) K
+(;) p n
+(    try RegDeleteKeyTree\(HKEY_CLASSES_ROOT, JUNCTION_FILECLASS_KEY\); except ) S
+(end) K
+(;) p n
+(  ) S
+(end) K
+(;) p n
+(  ) N
+(  // *NO* inherited call here, it would just make unnecessary registry entries) N
+(end) K
+(;) p n
+() N
+(initialization) N
+(  TShellNewDummyFactory.Create\(ComServer, TShellNewDummyHook, GUID_NULL, '', '',) N
+(      ciMultiInstance, tmApartment\);) N
+() N
+(end) K
+(.) p n
+(ShellNewDummyHook.pas) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

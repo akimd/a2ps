@@ -1,0 +1,698 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (//------------------------------------------------------------------+) c n
+0 T (//   MARIE                                         Yves Caseau      |) N
+0 T (//   typing.cl                                                      |) N
+0 T (//                                                                  |) N
+(5) # (//   Moteur Algebrique pour la Resolution d'Inferences Elementaires |) N
+0 T (//   Copyright \(C\) 1986-97  by Y. CASEAU. All Rights Reserved       |) N
+0 T (//------------------------------------------------------------------+) N
+0 T () N
+0 T (//-------------------------------------------------------------------) N
+(10) # (//This file contains:) N
+0 T (//a lot of useful stuff for manipulating algebraic terms) N
+0 T (//-------------------------------------------------------------------) N
+0 T () N
+0 T () S
+(//*******************************************************************) C n
+(15) # (//*               Part 1:  get_range/get_domain                     *) N
+0 T (//*               Part 2:  Utility methods for compilation          *) N
+0 T (//*               Part 3:  Inversion of Properties                  *) N
+0 T (//*******************************************************************) N
+0 T () N
+(20) # (//*******************************************************************) N
+0 T (//*               Part 1:  get_range/get_domain                     *) N
+0 T (//*******************************************************************) N
+0 T () N
+0 T () S
+(// a small range inference algorithm, to improve the system) c n
+(25) # (//) N
+0 T () S
+(get_range\(self:abstract_relation,x:type\) : type) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(case) K
+( self) p n
+0 T (      \(phi x, ) N
+0 T (       composition get_range\(self.r1,) N
+(30) # (                                         get_range\(self.r2, x\)\),) N
+0 T (       ands get_range\(self.r1, x\) ^) N
+0 T (                   get_range\(self.r2, x\),) N
+0 T (       ors get_range\(self.r1, x\) ) S
+(\310) sy n
+0 T () S
+(                  get_range\(self.r2, x\),) p n
+(35) # (       psi \() S
+(if) K
+( \(self.op ) p
+(\316) sy
+( class\) self.op) p n
+0 T (                 ) S
+(else) K
+( extract_range\(self.op,) p n
+0 T (                                    list\(get_range\(self.r1, x\),) N
+0 T (                                         get_range\(self.r2, x\)\)\)\),) N
+0 T (       array \() S
+(if) K
+( self.multivalued? member\(self.range\) ) p
+(else) K
+( self.range\),) p n
+(40) # (       property \() S
+(if) K
+( \(self ) p
+(\272) sy
+( Id\) x ) p
+(else) K
+( extract_range\(self, list\(x\)\)\), ) p n
+0 T (       product self.ens, ) N
+0 T (       annotation get_range\(self.v.definition, x\),) N
+0 T (       connotation get_range\(self.r, x\),) N
+0 T (       denotation \() S
+(if) K
+( unknown?\(definition, self.v\)) p n
+(45) # (                           self.v.range) N
+0 T (                        ) S
+(else) K
+( get_range\(self.v.definition,) p n
+0 T (                                             x\)\),) N
+0 T (       property_inverse ) N
+0 T (         get_domain\(self.r, x\),) N
+(50) # (       any error\(") S
+(error: range is not defined for ~S\(~S\)) str
+(", self,) p n
+0 T (                 owner\(self\)\)\)\)  ) N
+0 T () N
+0 T () S
+(// a similar domain inference algorithm) c n
+0 T (//) N
+(55) # () S
+(get_domain\(self:abstract_relation,x:type\) : type) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(case) K
+( self) p n
+0 T (      \(phi x, ) N
+0 T (       composition get_domain\(self.r2,) N
+0 T (                                          get_domain\(self.r1,) N
+(60) # (                                                           x\)\),) N
+0 T (       ands get_domain\(self.r1, x\) ^ ) N
+0 T (                   get_domain\(self.r2, x\),) N
+0 T (       ors get_domain\(self.r1, x\) ) S
+(\310) sy n
+0 T () S
+(                  get_domain\(self.r2, x\),) p n
+(65) # (       property \() S
+(if) K
+( \(self ) p
+(\272) sy
+( Id\) x) p n
+0 T (                ) S
+(else) K
+( ) p
+(let) K
+( y := ) p
+(\306) sy
+( ) p
+(in) K
+( ) p n
+0 T (                       \() S
+(for) K
+( r ) p
+(in) K
+( self.restrictions ) p n
+0 T (                          \() S
+(if) K
+( \(self.multivalued? | x ^ r.range\)) p n
+0 T (                              y :U domain!\(r\)\),) N
+(70) # (                        y\)\),) N
+(typing.cl) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (       property_inverse ) p n
+0 T (         get_range\(self.r, x\),) N
+0 T (       product \() S
+(if) K
+( known?\(BASE\) BASE ) p
+(else) K
+( any\),) p n
+0 T (       psi \() S
+(if) K
+( inv?\(self\)) p n
+(75) # (                    get_range\(inverse!\(self\), x\)) N
+0 T (                 ) S
+(else) K
+( domain!\(self.r1\) ^ domain!\(self.r2\)\),) p n
+0 T (       psi get_domain\(self.r1, x\) ^) N
+0 T (                  get_domain\(self.r2, x\),) N
+0 T (       denotation get_domain\(self.v.definition, x\),) N
+(80) # (       any domain!\(self\)\)\)) N
+0 T () N
+0 T () S
+(// we extend range_type to take the type of arguments into account.) c n
+0 T (//) N
+0 T () S
+(extract_range\(self:property,l:list\) : type) p n
+(85) # ( ) S
+(\256) sy
+( \() p
+(let) K
+( %first := l[1],) p n
+0 T (         %rest := \(copy\(l\) << 1\),) N
+0 T (         prop := Optimize/restriction!\(self, l\),) N
+0 T (         %res := \() S
+(case) K
+( prop \(restriction prop.range, any self.range\)\) ) p
+(in) K
+( ) p n
+0 T (       \() S
+(if) K
+( self.multivalued? member\(%res\) ) p
+(else) K
+( %res\)\)  ) p n
+(90) # (extract_range\(self:property_operator,l:list\) : type) N
+0 T ( ) S
+(\256) sy
+( extract_range\(self.op, l\)  ) p n
+0 T () N
+0 T () S
+(// A small range inference algorithm, to improve the system.) c n
+0 T (// \(x X y\) is the signature of the input pair) N
+(95) # (//) N
+0 T () S
+(get_range\(self:derivative,x:type,y:type\) : type) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(case) K
+( self) p n
+0 T (      \(Tone y, ) N
+0 T (       Tinv x,) N
+(100) # (       Tphi get_domain\(self.e1, x, y\),) N
+0 T (       compr get_range\(self.r1,) N
+0 T (                                   get_range\(self.e2, x, y\)\),) N
+0 T (       compl get_range\(self.e1, x, y\),) N
+0 T (       Tand get_range\(self.e1, x, y\) ^) N
+(105) # (                   get_range\(self.r2, any\),) N
+0 T (       Tunion get_range\(self.e1, x, y\) ) S
+(\310) sy n
+0 T () S
+(                     get_range\(self.e2, x, y\),) p n
+0 T (       Tpsi extract_range\(self.op,) N
+0 T (                                list\(get_range\(self.e1, x, y\),) N
+(110) # (                                     get_range\(self.r2,) N
+0 T (                                                     get_domain\(self.e1, x, y\)\)\)) N
+0 T (\),) N
+0 T (       Tannotation2) N
+0 T (         get_range\(self.e1, x, y\),) N
+0 T (       Tannotation1) N
+(115) # (         get_range\(self.v.definition, any\),) N
+0 T (       Tconnotation2) N
+0 T (         get_range\(self.r,) N
+0 T (                         get_domain\(self.e1, x, y\)\),) N
+0 T (       Tconnotation1) N
+(120) # (         get_range\(self.e1, x, y\),) N
+0 T (       Tif get_range\(self.r1,) N
+0 T (                                 get_domain\(self.e1, x, y\)\) ) S
+(\310) sy n
+0 T () S
+(                  get_range\(self.r2,) p n
+0 T (                                  get_domain\(self.e1, x, y\)\),) N
+(125) # (       Tdenotation get_range\(self.e1, x, y\),) N
+0 T (       any error\(") S
+(error: get_range is not defined for ~S \(~S\)) str
+(", self,) p n
+0 T (                 owner\(self\)\)\)\)  ) N
+0 T () N
+0 T () S
+(// A small domain inference algorithm, to improve the system.) c n
+(130) # (// \(x X y\) is the signature of the input pair) N
+0 T (//) N
+0 T () S
+(get_domain\(self:derivative,x:type,y:type\) : type) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(case) K
+( self) p n
+0 T (      \(Tone x, ) N
+(135) # (       Tinv y,) N
+0 T (       Tphi get_domain\(self.e1, x, y\),) N
+0 T (       compr get_domain\(self.e2, x, y\),) N
+0 T (       compl get_domain\(self.r2,) N
+0 T (                                    get_domain\(self.e1, x, y\)\),) N
+(typing.cl) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(140) # (       Tand get_domain\(self.e1, x, y\) ^) p n
+0 T (                   get_domain\(self.r2, any\),) N
+0 T (       Tunion get_domain\(self.e1, x, y\) ) S
+(\310) sy n
+0 T () S
+(                     get_domain\(self.e2, x, y\),) p n
+0 T (       Tpsi get_domain\(self.e1, x, y\) ^) N
+(145) # (                   get_domain\(self.r2, any\),) N
+0 T (       Tannotation2) N
+0 T (         get_domain\(self.e1, x, y\),) N
+0 T (       Tannotation1) N
+0 T (         get_domain\(self.e1, x, y\) ^) N
+(150) # (           get_domain\(self.v.definition, any\),) N
+0 T (       Tconnotation2) N
+0 T (         get_domain\(self.v.definition, any\),) N
+0 T (       Tconnotation1) N
+0 T (         get_domain\(self.e1, x, y\),) N
+(155) # (       Tdenotation get_domain\(self.e1, x, y\),) N
+0 T (       Tif get_domain\(self.e1, x, y\),) N
+0 T (       any error\(") S
+(error: get_domain is not defined for ~S \(~S\)) str
+(", self,) p n
+0 T (                 owner\(self\)\)\)\)  ) N
+0 T () N
+(160) # () S
+(//*******************************************************************) C n
+0 T (//*               Part 2:  Utility methods for compilation          *) N
+0 T (//*******************************************************************) N
+0 T () S
+(// a protected substitution) c n
+0 T (//) N
+(165) # () S
+(Logic/cpsubst\(self:any,x:any,y:any\) : any) p n
+0 T ( ) S
+(\256) sy
+( substitution\(instruction_copy\(self\), x, y\)) p n
+0 T () N
+0 T () S
+(// instruction copy with fresh local variables) c n
+0 T (//) N
+(170) # () S
+(Logic/cpfresh\(self:any\) : any) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(let) K
+( l := bound_variables\(self\),) p n
+0 T (         x := instruction_copy\(self\) ) S
+(in) K
+( ) p n
+0 T (       \() S
+(for) K
+( y ) p
+(in) K
+( l x := substitution\(x, y, Variable\(pname ) p
+(\272) sy
+( y.pname\)\), x\)\)  ) p n
+0 T () N
+(175) # () S
+(// make a copy with fresh variable + a substitution) c n
+0 T (//) N
+0 T () S
+(cpfresh\(self:any,x1:Variable,x2:Variable\) : any) p n
+0 T ( ) S
+(\256) sy
+( substitution\(cpfresh\(self\), x1, x2\)) p n
+0 T () N
+(180) # () S
+(// make a new two variable conclusion) c n
+0 T (//) N
+0 T () S
+(cpfresh\(self:any,x1:Variable,x2:Variable,y1:Variable,y2:Variable\) : any) p n
+0 T ( ) S
+(\256) sy
+( substitution\(substitution\(cpfresh\(self\), x1, x2\), y1, y2\)) p n
+0 T () N
+(185) # () S
+(// we create so many binary messages ...) c n
+0 T (//) N
+0 T () S
+(Logic/message!\(x:any,p:property,y:any\) : Call ) p
+(\256) sy
+( Call\(p, list\(x, y\)\)) p n
+0 T () N
+0 T (Logic/make_a_and\(self:list\) : any) N
+(190) # ( ) S
+(\256) sy
+( \() p
+(if) K
+( \(size\(self\) ) p
+(\272) sy
+( 1\) self[1] ) p
+(else) K
+( And\(args ) p
+(\272) sy
+( self\)\)) p n
+0 T () N
+0 T () S
+(//*******************************************************************) C n
+0 T (//*               Part 3:  Inversion of Properties                  *) N
+0 T (//*******************************************************************) N
+(195) # () S
+(// now we van define the inversion of a psi ------------------------) c n
+0 T (//) N
+0 T (// a psi term is usually non inversible.) N
+0 T (// two exceptions are interesting:) N
+0 T (//   - the second subterm is a constant \(a constant is always placed) N
+(200) # (//     in the second place\) and we have an addition or a multiplication) N
+0 T (//   - the two subterm are inversible and the operation is a mapping) N
+0 T (//) N
+0 T () S
+(inv?\(self:psi\) : boolean) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(let) K
+( %d := description[self.op] ) p
+(in) K n
+(205) # () S
+(       \(\(%d ) p
+(\272) sy
+( group_operation &) p n
+0 T (         \(inv?\(self.r1\) & self.r2 ) S
+(\316) sy
+( product\)\) | ) p n
+0 T (        \(\(%d ) S
+(\272) sy
+( monoid |) p n
+0 T (          \(%d ) S
+(\272) sy
+( binary_operation & ) p n
+0 T (           known?\(ternary_inverse_of[self.op]\)\)\) & ) N
+(typing.cl) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (4) 4
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(210) # (         \(\(inv?\(self.r1\) & const?\(self.r2\)\) |) p n
+0 T (          \(inv?\(self.r2\) & const?\(self.r1\)\)\)\)\)\)) N
+0 T () N
+0 T () S
+(// this is only called if the psi is inversible) c n
+0 T (//) N
+(215) # () S
+(inverse!\(self:psi\) : any) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(let) K
+( %o := self.op,) p n
+0 T (         t1 := self.r1,) N
+0 T (         t2 := self.r2 ) S
+(in) K n
+0 T () S
+(       \() p
+(if) K
+( \(description[%o] ) p
+(\272) sy
+( group_operation\)) p n
+(220) # (           compose\(inverse!\(t1\), ) N
+0 T (                         psify\(%o, Id,) N
+0 T (                                     compose\(function_inverse[%o],) N
+0 T (                                                   t2\)\)\)) N
+0 T (        ) S
+(else) K
+( ) p
+(if) K
+( \(description[%o] ) p
+(\272) sy
+( monoid\) ) p n
+(225) # (           \() S
+(if) K
+( const?\(t2\) ) p n
+0 T (               compose\(inverse!\(t1\),) N
+0 T (                             compose\(psify\(ternary_inverse[%o],) N
+0 T (                                                       Id, t2\),) N
+0 T (                                           phi\(op ) S
+(\272) sy
+( ) p n
+(230) # (                                                       comparison_inverse[%o],) N
+0 T (                                                     r1 ) S
+(\272) sy
+( Id,) p n
+0 T (                                                     r2 ) S
+(\272) sy
+( t2\)\)\)) p n
+0 T (            ) S
+(else) K
+( compose\(inverse!\(t2\),) p n
+0 T (                               compose\(psify\(ternary_inverse[%o],) N
+(235) # (                                                         Id, t1\),) N
+0 T (                                             phi\(op ) S
+(\272) sy
+( ) p n
+0 T (                                                         comparison_inverse[%o],) N
+0 T (                                                       r1 ) S
+(\272) sy
+( Id,) p n
+0 T (                                                       r2 ) S
+(\272) sy
+( t1\)\)\)\)) p n
+(240) # (        ) S
+(else) K
+( ) p
+(if) K
+( known?\(ternary_inverse_of[%o]\)) p n
+0 T (           \() S
+(if) K
+( const?\(t2\)) p n
+0 T (               compose\(inverse!\(t1\),) N
+0 T (                             psify\(ternary_inverse_of[%o],) N
+0 T (                                         Id, t2\)\)) N
+(245) # (            ) S
+(else) K
+( compose\(inverse!\(t2\), psify\(%o, t1, Id\)\)\) ) p n
+0 T (        ) S
+(else) K
+( ) p
+(if) K
+( \(description[%o] ) p
+(\272) sy
+( mapping\)) p n
+0 T (           ands\(r1 ) S
+(\272) sy
+( ) p n
+0 T (                        compose\(inverse!\(t1\),) N
+0 T (                                      projection1[%o]\),) N
+(250) # (                      r2 ) S
+(\272) sy n
+0 T () S
+(                        compose\(inverse!\(t2\),) p n
+0 T (                                      projection2[%o]\)\)\)\)) N
+0 T () N
+0 T () S
+(// check if a relation can be inversed without trouble) c n
+(255) # (//) N
+0 T () S
+(inv?\(self:relation\) : boolean) p n
+0 T ( ) S
+(\256) sy
+( \(known?\(inverse, self\) |) p n
+0 T (     \() S
+(case) K
+( self ) p n
+0 T (       \(relation finite?\(self.domain\), ) N
+(260) # (        property ) S
+(\330) sy
+(\({ r ) p
+(in) K
+( self.restrictions | ) p n
+0 T (                       ) S
+(\330) sy
+(\(finite?\(domain!\(r\)\)\)}\)\)\)\)) p n
+0 T (inverse!\(self:relation\) : relation) N
+0 T ( ) S
+(\256) sy
+( \() p
+(let) K
+( r1 := get\(inverse, self\) ) p
+(in) K n
+0 T () S
+(       ) p
+(case) K
+( r1) p n
+(265) # (        \(relation r1,) N
+0 T (         any property_inverse\(r ) S
+(\272) sy
+( self\)\)\)) p n
+0 T () N
+0 T () S
+(// a constant expression is either a constant or an expression involving) c n
+0 T (// constants) N
+(270) # (//) N
+0 T () S
+(const?\(self:abstract_relation\) : boolean) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(case) K
+( self) p n
+0 T (      \(constant true, ) N
+0 T (       composition const?\(self.r2\),) N
+(275) # (       psi \(const?\(self.r1\) &) N
+0 T (                  const?\(self.r2\)\)\)\)) N
+0 T () N
+0 T () S
+(//*******************************************************************) C n
+0 T (//*               Part 4:  Algebra Canonical Injection              *) N
+(typing.cl) (right) (4) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (4) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (5) 5
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(280) # (//*******************************************************************) C n
+0 T () N
+0 T () S
+(domain!\(r:relation\) : type ) p
+(\256) sy
+( r.domain) p n
+0 T () N
+0 T () S
+(// a property is an abstract relation ----------------------------------) c n
+(285) # (// "inversion" is straightforward, we create a message) N
+0 T (//) N
+0 T () S
+(inversion\(self:property,x:any,y:Variable\) : any) p n
+0 T ( ) S
+(\256) sy
+( \() p
+(if) K
+( self.multivalued?) p n
+0 T (        Call\(selector ) S
+(\272) sy
+( ) p
+(\316) sy
+(, args ) p
+(\272) sy
+( list\(y, inversion!\(self, x\)\)\) ) p n
+(290) # (     ) S
+(else) K
+( Call\(selector ) p
+(\272) sy
+( ) p
+(\272) sy
+(, args ) p
+(\272) sy
+( list\(y, inversion!\(self, x\)\)\)\)) p n
+0 T (inversion!\(self:property,x:any\) : any) N
+0 T ( ) S
+(\256) sy
+( \() p
+(if) K
+( \(self ) p
+(\272) sy
+( Id\) x ) p
+(else) K
+( Call\(selector ) p
+(\272) sy
+( self, args ) p
+(\272) sy
+( list\(x\)\)\)) p n
+0 T () N
+0 T () S
+(// an extensional relation) c n
+(295) # (//) N
+0 T () S
+(inversion\(self:array,x:any,y:Variable\) : any) p n
+0 T ( ) S
+(\256) sy
+( Call\(selector ) p
+(\272) sy
+( ) p
+(\272) sy
+(, args ) p
+(\272) sy
+( list\(y, inversion!\(self, x\)\)\)) p n
+0 T (inversion!\(self:array,x:any\) : any) N
+0 T ( ) S
+(\256) sy
+( Call\(selector ) p
+(\272) sy
+( nth, args ) p
+(\272) sy
+( list\(self, x\)\)) p n
+(300) # () N
+(typing.cl) (right) (5) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (5) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

@@ -1,0 +1,1566 @@
+# Missatges en català per a a2ps.
+# Copyright (c) 1997, 98 Miquel Àngel Varó i Giner
+# Miquel Àngel Varó i Giner <mvaro@dlsi.ua.es>, 1998.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: a2ps 4.7.21\n"
+"POT-Creation-Date: 2002-10-03 19:05+0200\n"
+"PO-Revision-Date: 1999-01-11 15:57+01:00\n"
+"Last-Translator: Miquel Àngel Varó i Giner <mvaro@dlsi.ua.es>\n"
+"Language-Team: Catalan <mvaro@dlsi.ua.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/buffer.c:68
+msgid "any type"
+msgstr "qualsevol"
+
+#: src/delegate.c:137 lib/confg.c:268 lib/encoding.c:530 lib/encoding.c:576
+#: lib/encoding.c:616 lib/output.c:302 lib/pair_ht.c:296 lib/prolog.c:146
+#, c-format
+msgid "missing argument for `%s'"
+msgstr "falta argument per a `%s'"
+
+#: src/delegate.c:260 lib/routines.c:160 lib/xbackupfile.c:248
+#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
+#, c-format
+msgid "cannot create file `%s'"
+msgstr "no es pot crear el fitxer `%s'"
+
+#: src/delegate.c:269 src/select.c:159 lib/routines.c:190 lib/routines.c:196
+#, c-format
+msgid "cannot open a pipe on `%s'"
+msgstr "no es pot obrir una canonada en `%s'"
+
+#: src/delegate.c:389
+#, c-format
+msgid "Delegation `%s', from %s to %s\n"
+msgstr "Delegació `%s', de %s a %s\n"
+
+#: src/delegate.c:408 src/delegate.c:430
+msgid "Applications configured for delegation"
+msgstr "Aplicacions configurades per a la delegació"
+
+#: src/generate.c:88
+#, c-format
+msgid "`%s' is a directory"
+msgstr "`%s' es un directori"
+
+#: src/generate.c:96 src/main.c:558 src/main.c:580 lib/confg.c:292
+#: lib/confg.c:455 lib/routines.c:154
+#, c-format
+msgid "cannot open file `%s'"
+msgstr "impossible obrir el fitxer '%s'"
+
+#: src/generate.c:101 lib/xbackupfile.c:224
+#, c-format
+msgid "cannot get informations on file `%s'"
+msgstr "no es pot obtenir informació del fitxer `%s'"
+
+#: src/generate.c:168
+#, c-format
+msgid "[%s (%s): 1 page on 1 sheet]\n"
+msgstr "[%s (%s): 1 pàgina en 1 full]\n"
+
+#: src/generate.c:174
+#, c-format
+msgid "[%s (%s): %d pages on 1 sheet]\n"
+msgstr "[%s (%s): %d pàgines en 1 full]\n"
+
+#: src/generate.c:181
+#, c-format
+msgid "[%s (%s): %d pages on %d sheets]\n"
+msgstr "[%s (%s): %d pàgines en %d fulls]\n"
+
+#: src/generate.c:208
+#, c-format
+msgid "[Total: 1 page on 1 sheet] %s\n"
+msgstr "[Total: 1 pàgina en 1 full] %s\n"
+
+#: src/generate.c:212
+#, c-format
+msgid "[Total: %d pages on 1 sheet] %s\n"
+msgstr "[Total: %d pàgines en 1 full] %s\n"
+
+#: src/generate.c:217
+#, c-format
+msgid "[Total: %d pages on %d sheets] %s\n"
+msgstr "[Total: %d pàgines en %d fulls] %s\n"
+
+#: src/generate.c:226
+msgid "[1 line wrapped]\n"
+msgstr ""
+
+#: src/generate.c:229
+#, fuzzy, c-format
+msgid "[%d lines wrapped]\n"
+msgstr "%d línies per pàgina"
+
+#: src/generate.c:242
+msgid "[No output produced]\n"
+msgstr "[No s'ha produit eixida]\n"
+
+#: src/generate.c:314
+#, c-format
+msgid "%s, delegated to %s"
+msgstr "%s, delegat a %s"
+
+#: src/generate.c:322
+#, c-format
+msgid "[%s (%s): failed.  Ignored]\n"
+msgstr "[%s (%s): ha fallat. Ignorat]\n"
+
+#: src/generate.c:330
+#, c-format
+msgid "[%s (unprintable): ignored]\n"
+msgstr "[%s (no imprimible): ignorat]\n"
+
+#: src/generate.c:339
+#, c-format
+msgid "[%s (binary): ignored]\n"
+msgstr "[%s (binari): ignorat]\n"
+
+#: src/generate.c:360
+msgid "plain"
+msgstr "estàndard"
+
+#: lexssh.l:348
+msgid "end-of-line in string constant"
+msgstr "final-de-línia en una constant de cadena"
+
+#: lexssh.l:415 src/sheets-map.l:152 src/sheets-map.l:191
+#, fuzzy, c-format
+msgid "end of line inside a %s"
+msgstr "final-de-línia en una expressió regular"
+
+#: src/main.c:201
+#, c-format
+msgid "received signal %d: %s"
+msgstr ""
+
+#: src/main.c:240
+msgid "heavy"
+msgstr "màxim"
+
+#: src/main.c:244
+msgid "normal"
+msgstr "normal"
+
+#: src/main.c:248
+msgid "none"
+msgstr "cap"
+
+#: src/main.c:322 src/main.c:326
+msgid "yes"
+msgstr "sí"
+
+#: src/main.c:323 src/main.c:326 src/main.c:367
+msgid "no"
+msgstr "no"
+
+#: src/main.c:333
+#, c-format
+msgid "Configuration status of %s %s\n"
+msgstr "Estat de la configuració de %s %s\n"
+
+#: src/main.c:337 src/main.c:694
+msgid "Sheets:\n"
+msgstr "Fulls:\n"
+
+#: src/main.c:338
+#, c-format
+msgid ""
+"  medium          = %s%s, %s\n"
+"  page layout     = %d x %d, %s\n"
+"  borders         = %s\n"
+"  file alignment  = %s\n"
+"  interior margin = %d\n"
+msgstr ""
+"  suport                 = %s%s, %s\n"
+"  disposició de pàgines  = %d x %d, %s\n"
+"  vores                  = %s\n"
+"  alineament de fitxers  = %s\n"
+"  marge interior         = %d\n"
+
+#: src/main.c:347
+msgid "portrait"
+msgstr "vertical"
+
+#: src/main.c:347
+msgid "landscape"
+msgstr "apaïsat"
+
+#: src/main.c:356
+#, c-format
+msgid "%d characters per line"
+msgstr "%d caràcters per línia"
+
+#: src/main.c:359
+#, c-format
+msgid "%d lines per page"
+msgstr "%d línies per pàgina"
+
+#: src/main.c:362
+#, c-format
+msgid "font size is %gpt"
+msgstr "la grandària de la lletra es %g punts"
+
+#: src/main.c:371
+msgid "each line"
+msgstr "cada línia"
+
+#: src/main.c:375
+#, c-format
+msgid "each %d lines"
+msgstr "cada %d línies"
+
+#: src/main.c:378 src/main.c:715
+msgid "Virtual pages:\n"
+msgstr "Pàgines virtuals:\n"
+
+#: src/main.c:379
+#, c-format
+msgid ""
+"  number lines         = %s\n"
+"  format               = %s\n"
+"  tabulation size      = %d\n"
+"  non printable format = %s\n"
+msgstr ""
+"  numeració de línies      = %s\n"
+"  format                   = %s\n"
+"  longitud de tabulació    = %d\n"
+"  caràcters no imprimibles = %s\n"
+
+#: src/main.c:390
+msgid "Headers:\n"
+msgstr "Encapçalaments:\n"
+
+#: src/main.c:391
+#, c-format
+msgid ""
+"  header       = %s\n"
+"  left footer  = %s\n"
+"  footer       = %s\n"
+"  right footer = %s\n"
+"  left title   = %s\n"
+"  center title = %s\n"
+"  right title  = %s\n"
+"  under lay    = %s\n"
+msgstr ""
+"  encapçalament           = %s\n"
+"  peu de pàgina esquerre  = %s\n"
+"  peu de pàgina           = %s\n"
+"  peu de pàgina dret      = %s\n"
+"  títol esquerre          = %s\n"
+"  títol central           = %s\n"
+"  títol dret              = %s\n"
+"  marca d'aigua           = %s\n"
+
+#: src/main.c:410 src/main.c:744
+msgid "Input:\n"
+msgstr "Entrada:\n"
+
+#: src/main.c:411
+#, c-format
+msgid ""
+"  truncate lines = %s\n"
+"  interpret      = %s\n"
+"  end of line    = %s\n"
+"  encoding       = %s\n"
+"  document title = %s\n"
+"  prologue       = %s\n"
+"  print anyway   = %s\n"
+"  delegating     = %s\n"
+msgstr ""
+"  truncar les línies       = %s\n"
+"  interpretar tab, ff i bs = %s\n"
+"  final de línia           = %s\n"
+"  codificació              = %s\n"
+"  títol del document       = %s\n"
+"  pròleg                   = %s\n"
+"  imprimir els binaris     = %s\n"
+"  delegacions              = %s\n"
+
+#: src/main.c:436 src/main.c:502
+msgid "selected automatically"
+msgstr "seleccionat automàticament"
+
+#: src/main.c:439 src/main.c:763
+msgid "Pretty-printing:\n"
+msgstr "Pretty-printing:\n"
+
+#: src/main.c:440
+#, c-format
+msgid ""
+"  style sheet     = %s\n"
+"  highlight level = %s\n"
+"  strip level     = %d\n"
+msgstr ""
+"  full d'estil             = %s\n"
+"  nivell de color          = %s\n"
+"  supressió de comentaris  = %d\n"
+
+#: src/main.c:460
+msgid "never make backups"
+msgstr "mai fer còpies de seguretat"
+
+#: src/main.c:464
+msgid "simple backups of every file"
+msgstr "còpies de seguretat simples de cada fitxer"
+
+#: src/main.c:469
+msgid ""
+"numbered backups of files already numbered,\n"
+"                            and simple of others"
+msgstr ""
+"còpies de seguretat numerades de fitxers ja numerats,\n"
+"                            i simples dels altres"
+
+#: src/main.c:474
+msgid "numbered backups of every file"
+msgstr "còpies de seguretat numerades de cada fitxer"
+
+#: src/main.c:478 src/main.c:772
+msgid "Output:\n"
+msgstr "Eixida:\n"
+
+#: src/main.c:479
+#, c-format
+msgid ""
+"  destination     = %s\n"
+"  version control = %s\n"
+"  backup suffix   = %s\n"
+msgstr ""
+"  destinació                  = %s\n"
+"  versió de control           = %s\n"
+"  sufix de les còpies         = %s\n"
+
+#: src/main.c:492 src/main.c:782
+msgid "PostScript:\n"
+msgstr "PostScript:\n"
+
+#: src/main.c:493
+#, c-format
+msgid ""
+"  magic number              = %s\n"
+"  Printer Description (PPD) = %s\n"
+"  default PPD               = %s\n"
+"  page label format         = %s\n"
+"  number of copies          = %d\n"
+"  sides per sheet           = %s\n"
+"  page device definitions   = "
+msgstr ""
+"  magic number                  = %s\n"
+"  Descripció d'Impressora (PPD) = %s\n"
+"  PPD implícita                 = %s\n"
+"  format del número de pàgina   = %s\n"
+"  nombre de còpies              = %d\n"
+"  cares per full                = %s\n"
+"  def. pàgina del dispositiu    = "
+
+#: src/main.c:513
+msgid "  statusdict definitions    = "
+msgstr "  definicions statusdict    = "
+
+#: src/main.c:516
+#, c-format
+msgid "  page prefeed              = %s\n"
+msgstr "  precàrrega del paper      = %s\n"
+
+#: src/main.c:525
+msgid "Internals:\n"
+msgstr "Detalls interns:\n"
+
+#: src/main.c:526
+#, fuzzy, c-format
+msgid ""
+"  verbosity level     = %d\n"
+"  file command        = %s\n"
+"  library path        = \n"
+msgstr ""
+"  nivell de comentaris   = %d\n"
+"  ordre de fitxer        = %s\n"
+"  directori temporal     = %s\n"
+"  accés a les llibreries = \n"
+
+#: src/main.c:651
+#, fuzzy, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"\n"
+"Convert FILE(s) or standard input to PostScript.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Long options marked with * require a yes/no argument, corresponding\n"
+"short options stand for `yes'.\n"
+msgstr ""
+"Ús: %s [OPCIONS]... [FITXERS]...\n"
+" o: %s [OPCIONS]...\n"
+"Per a imprimir FITXERS, o imprimir per l'eixida estàndard.\n"
+"Els arguments obligatoris per a opcions llargues ho son també per\n"
+"a les curtes. Les opcions llargues marcades amb * requereixen un\n"
+"argument sí/no; les corresponents opcions curtes suposen un 'sí'.\n"
+
+#: src/main.c:665
+msgid "Tasks:\n"
+msgstr ""
+
+#: src/main.c:666
+#, fuzzy
+msgid ""
+"  --version        display version\n"
+"  --help           display this help\n"
+"  --guess          report guessed types of FILES\n"
+"  --which          report the full path of library files named FILES\n"
+"  --glob           report the full path of library files matching FILES\n"
+"  --list=defaults  display default settings and parameters\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, style-"
+"sheets,\n"
+"                   user-options)\n"
+msgstr ""
+"  -V, --version              mostra versió i acaba\n"
+"  --help                     mostra aquesta ajuda i acaba\n"
+"  --copyright                mostra els drets i condicions de còpia\n"
+"  --guess                    mostra els FITXERS del tipus elegit\n"
+"  --list=CATEGORIA           mostra opcions de configuració (i valor)\n"
+"\n"
+"CATEGORIA pot ser una abreviatura no ambigua de:\n"
+" * `defaults': configuració i valors implícits,\n"
+" * `features': llista curta de fulls d'estil, suports, etc.,\n"
+" * `delegations', `encodings', `variables', `media',\n"
+"   `ppd', `printers', `prologues', `style-sheets', `user-options': \n"
+"   llista detallada.\n"
+
+#: src/main.c:677
+msgid ""
+"After having performed the task, exit successfully.  Detailed lists may\n"
+"provide additional help on specific features.\n"
+msgstr ""
+
+#: src/main.c:685
+msgid "Global:\n"
+msgstr "Global:\n"
+
+#: src/main.c:686
+msgid ""
+"  -q, --quiet, --silent      be really quiet\n"
+"  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
+"  -=, --user-option=OPTION   use the user defined shortcut OPTION\n"
+"      --debug                enable debugging features\n"
+"  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
+msgstr ""
+"  -q, --quiet, --silent      no mostrar cap missatge\n"
+"  -v, --verbose[=NIVELL]     activar l'aparició de missatges, o posar-ho\n"
+"                             a un cert NIVELL\n"
+"  -=, --user-option=OPCIÓ    emprar l'OPCIÓ abreujada de l'usuari\n"
+"      --debug                activar l'opció de depuració\n"
+"  -D, --define=CLAU[:VALOR]  posar o llevar un VALOR a la CLAU\n"
+
+#: src/main.c:695
+#, fuzzy
+msgid ""
+"  -M, --medium=NAME      use output medium NAME\n"
+"  -r, --landscape        print in landscape mode\n"
+"  -R, --portrait         print in portrait mode\n"
+"      --columns=NUM      number of columns per sheet\n"
+"      --rows=NUM         number of rows per sheet\n"
+"      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
+"  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
+"                         page, sheet, or a number)\n"
+"  -j, --borders*         print borders around columns\n"
+"      --margin[=NUM]     define an interior margin of size NUM\n"
+msgstr ""
+"  -M, --medium=NOM           utilitza el suport d'eixida NOM\n"
+"  -r, --landscape            imprimeix en apaïsat\n"
+"  -R, --portrait             imprimeix en vertical\n"
+"      --columns=NOMBRE       NOMBRE de columnes per full (NOMBRE > 0)\n"
+"      --rows=NOMBRE          NOMBRE de línies per full (NOMBRE > 0)\n"
+"      --major=DIRECCIÓ       ompli primer files(row)/columnes(column)\n"
+"  -1, -2, ..., -9            disposicions predef. de pàgines virtuals\n"
+"  -A, --file-align=MODE      alinea diversos fitxers segons el MODE\n"
+"                             (fill, rank, sheet, o un número)\n"
+"  -j, --borders*             imprimeix les vores de les columnes\n"
+"      --margin[=GRAND]       defineix marge interior de grandària GRAND\n"
+
+#: src/main.c:708
+msgid ""
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
+"layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
+"options (`--columns', `--font-size' etc.).\n"
+msgstr ""
+
+#: src/main.c:716
+msgid ""
+"      --line-numbers=NUM     precede each NUM lines with its line number\n"
+"  -C                         alias for --line-numbers=5\n"
+"  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
+"  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
+"  -m, --catman               process FILE as a man page (same as -L66)\n"
+"  -T, --tabsize=NUM          set tabulator size to NUM\n"
+"  --non-printable-format=FMT specify how non-printable chars are printed\n"
+msgstr ""
+"      --line-numbers=NOM     numera una de cada NOM línies\n"
+"  -C                         igual que --line-numbers=5\n"
+"  -f, --fontsize=GRANDÀRIA   utilitza el tipus de lletra GRANDÀRIA (real)\n"
+"  -L, --lines-per-page=NOM   indica les línies per pàgina\n"
+"  -l, --chars-per-line=NOM   indica les columnes per pàgina\n"
+"  -m, --catman               processa el fitxer com una pàgina\n"
+"                             d'ajuda (igual que -L66)\n"
+"  -T, --tabsize=NOM          longitud de tabulació = NOM\n"
+"  --non-printable-format=FMT indica com s'imprimeixen els caràcters\n"
+"                             no visibles\n"
+
+#: src/main.c:727
+msgid "Headings:\n"
+msgstr "Encapçalaments:\n"
+
+#: src/main.c:729
+#, fuzzy, no-c-format
+msgid ""
+"  -B, --no-header        no page headers at all\n"
+"  -b, --header[=TEXT]    set page header\n"
+"  -u, --underlay[=TEXT]  print TEXT under every page\n"
+"  --center-title[=TEXT]  set page title to TITLE\n"
+"  --left-title[=TEXT]    set left and right page title to TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]   set sheet footers to TEXT\n"
+"  --footer[=TEXT]\n"
+"  --right-footer[=TEXT]\n"
+msgstr ""
+"  -B, --no-header            sense encapçalaments\n"
+"  -b, --header[=TEXT]        posa encapçalament\n"
+"  -u, --underlay[=TEXT]      imprimeix TEXT davall de cada pàgina\n"
+"  --center-title[=TEXT]      posa TEXT com a títol de pàgina\n"
+"  --left-title[=TEXT]        títols esquerre i dret\n"
+"  --right-title[=TEXT] \n"
+"  --left-footer[=TEXT]       peu de pàgina\n"
+"  --footer[=TEXT]            permet usar seqüències d'escapament $ i %\n"
+"  --right-footer[=TEXT]\n"
+
+#: src/main.c:740
+msgid "The TEXTs may use special escapes.\n"
+msgstr ""
+
+#: src/main.c:745
+msgid ""
+"  -a, --pages[=RANGE]        select the pages to print\n"
+"  -c, --truncate-lines*      cut long lines\n"
+"  -i, --interpret*           interpret tab, bs and ff chars\n"
+"      --end-of-line=TYPE     specify the eol char (TYPE: r, n, nr, rn, any)\n"
+"  -X, --encoding=NAME        use input encoding NAME\n"
+"  -t, --title=NAME           set the name of the job\n"
+"      --stdin=NAME           set the name of the input file stdin\n"
+"      --print-anyway*        force binary printing\n"
+"  -Z, --delegate*            delegate files to another application\n"
+"      --toc[=TEXT]           generate a table of content\n"
+msgstr ""
+"  -a, --pages[=RANGE]        selecciona les pàgines a imprimir\n"
+"  -c, --truncate-lines*      trunca les línies llarges\n"
+"  -i, --interpret*           interpreta els tab, bs i ff\n"
+"      --end-of-line=TIPUS    especifica el caràcter de final de línia\n"
+"                             (r, n, nr, rn, any)\n"
+"  -X, --encoding=NOM         utilitza la codif. d'entrada NOM\n"
+"  -t, --title=NOM            posa el NOM del treball\n"
+"      --stdin=NOM            posa el NOM de l'entrada estàndard\n"
+"      --print-anyway         força la impressió binària\n"
+"  -Z, --delegate*            delega fitxers a altres aplicacions\n"
+"      --toc[=TEXT]           genera una taula de continguts\n"
+
+#: src/main.c:757
+msgid ""
+"When delegations are enabled, a2ps may use other applications to handle the\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
+"PostScript, PDF etc.\n"
+msgstr ""
+
+#: src/main.c:764
+msgid ""
+"  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
+"  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
+"                             LEVEL can be none, normal or heavy\n"
+"  -g                         alias for --highlight-level=heavy\n"
+"  --strip-level=NUM          level of comments stripping\n"
+msgstr ""
+"  -E, --pretty-print[=LLENG] activa pretty-printing (posa l'estil LLENG)\n"
+"  --highlight-level=NIVELL   posa el NIVELL de color (none, normal, heavy)\n"
+"  -g                         igual que --highlight-level=heavy\n"
+"  --strip-level=NOM          nivell de supressió de comentaris\n"
+
+#: src/main.c:773
+msgid ""
+"  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
+"                             leave output to stdout.\n"
+"  --version-control=WORD     override the usual version control\n"
+"  --suffix=SUFFIX            override the usual backup suffix\n"
+"  -P, --printer=NAME         send output to printer NAME\n"
+"  -d                         send output to the default printer\n"
+msgstr ""
+"  -o, --output=FITX          guarda l'eixida en el fitxer FITX.\n"
+"                             Si FITX és '-', enviar-la a l'eixida\n"
+"                             estàndard.\n"
+"  --version-control=PARAULA  sobrescriu el control de versió usual\n"
+"  --suffix=SUFIX             sobrescriu el sufix de còpies usual\n"
+"  -P, --printer=NOM          envia l'eixida a la impressora NOM\n"
+"  -d                         envia l'eixida a la impressora implícita\n"
+
+#: src/main.c:783
+msgid ""
+"      --prologue=FILE        include FILE.pro as PostScript prologue\n"
+"      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
+"  -n, --copies=NUM           print NUM copies of each page\n"
+"  -s, --sides=MODE           set the duplex MODE (`1' or `simplex',\n"
+"                             `2' or `duplex', `tumble')\n"
+"  -S, --setpagedevice=K[:V]  pass a page device definition to output\n"
+"      --statusdict=K[:[:]V]  pass a statusdict definition to the output\n"
+"  -k, --page-prefeed         enable page prefeed\n"
+"  -K, --no-page-prefeed      disable page prefeed\n"
+msgstr ""
+"      --prologue=FITXER      posa FITXER.pro com a pròleg PostScript\n"
+"      --ppd[=CLAU]           selecció automàtica del PPD o el posa a CLAU\n"
+"  -n, --copies=NOM           imprimeix NOM còpies de cada pàgina\n"
+"  -s, --sides=MODE           imprimeix en MODE `simplex' (o `1'), `duplex'\n"
+"                             (o `2'), o `tumble'\n"
+"  -S, --setpagedevice=K[:V]  passa definició de dispositiu de pàgina\n"
+"                             a l'eixida\n"
+"      --statusdict=K[:[:]V]  passa la definició statusdict a l'eixida\n"
+"  -k, --page-prefeed         activa la precàrrega de paper\n"
+"  -K, --no-page-prefeed      desactiva la precàrrega de paper\n"
+
+#: src/main.c:797
+msgid ""
+"By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
+"result to the printer `lw',\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"To process the files `sample.ps' and `sample.html' and display the result,\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"To process a mailbox in 4 up,\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"To print as a booklet on the default printer, which is Duplex capable,\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+msgstr ""
+
+#: src/main.c:818
+#, fuzzy
+msgid ""
+"News, updates and documentation: visit http://www.inf.enst.fr/~demaille/"
+"a2ps/.\n"
+msgstr ""
+"Notícies, actualizacions  documentació: visiteu http://www.inf.enst.fr/"
+"~demaille/a2ps/\n"
+"Envieu comentaris sobre la traducció a <mvaro@dlsi.ua.es>\n"
+
+#: src/main.c:820
+#, fuzzy
+msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
+msgstr ""
+"Informes d'error a <bug-a2ps@gnu.org>\n"
+"Informes sobre la traducció a <mvaro@dlsi.ua.es>\n"
+
+#: src/main.c:938
+#, fuzzy
+msgid ""
+"Copyright (c) 1988-1993 Miguel Santana\n"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+msgstr ""
+"\n"
+"Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+"Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana\n"
+
+#: src/main.c:1168
+msgid "Table of Content"
+msgstr "Taula de Continguts"
+
+#: src/parsessh.y:236
+#, c-format
+msgid "cannot process `%s' which requires a2ps version %s"
+msgstr "no es pot processar `%s' que requereix a2ps versió %s"
+
+#: src/sheets-map.l:110
+#, fuzzy, c-format
+msgid "unexpected character `%c'"
+msgstr "opció desconeguda: `%c' (%d)"
+
+#: src/sheets-map.l:210 lexppd.l:211
+msgid "too many includes"
+msgstr ""
+
+#: src/sheets-map.l:292 src/sheets-map.l:299
+#, fuzzy, c-format
+msgid "no key defined for `%s'"
+msgstr "no es pot trobar el fitxer `%s'"
+
+#: src/select.c:122 src/ssheet.c:866 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:328 lib/pathwalk.c:414
+#, c-format
+msgid "cannot find file `%s'"
+msgstr "no es pot trobar el fitxer `%s'"
+
+#: src/select.c:124
+msgid "automatic style selection cancelled"
+msgstr "cancel.lada selecció d'estil automàtica"
+
+#: src/ssheet.c:295
+#, c-format
+msgid "cannot compile regular expression `%s': %s"
+msgstr "no es pot compilar l'expressió regular `%s': %s"
+
+#: src/ssheet.c:974 src/ssheet.c:995
+msgid "Known Style Sheets"
+msgstr "Fulls d'Estil Coneguts"
+
+#: src/ssheet.c:1461
+#, c-format
+msgid "cannot find style sheet `%s': using plain style"
+msgstr "no es pot trobar el full d'estil `%s': usant l'estil implícit"
+
+#: src/sshread.c:453
+#, c-format
+msgid "unknown encoding `%s', ignored"
+msgstr "codificació desconeguda `%s', ignorada"
+
+#: src/version-etc.c:38
+msgid "Copyright (C) 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/version-etc.c:60
+#, fuzzy, c-format
+msgid "Written by %s.\n"
+msgstr "Imprés per %s"
+
+#: src/version-etc.c:66
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+
+#: src/versions.c:133
+#, c-format
+msgid "invalid version number `%s'"
+msgstr "número de versió `%s' no vàlid"
+
+#: lib/caret.c:43
+msgid "space (i.e., ` ')"
+msgstr "espai (` ')"
+
+#: lib/caret.c:45
+msgid "octal (i.e., `\\001' etc.)"
+msgstr "octal (`\\001',...)"
+
+#: lib/caret.c:47
+msgid "hexadecimal (i.e., `\\x0a' etc.)"
+msgstr "hexadecimal (`\\x0a',...)"
+
+#: lib/caret.c:49
+msgid "caret (i.e., `^C', `M-^C' etc.)"
+msgstr "circumflex (`^C', `M-^C',...)"
+
+#: lib/caret.c:51
+msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
+msgstr "emacs (`C-c', `M-C-c',...)"
+
+#: lib/caret.c:53
+msgid "question-mark (i.e., `?')"
+msgstr "signe d'interrogació (`?')"
+
+#: lib/closeout.c:71 lib/closeout.c:73
+msgid "write error"
+msgstr ""
+
+#: lib/confg.c:257 lib/encoding.c:638
+#, c-format
+msgid "invalid option `%s'"
+msgstr "opció no vàlida `%s'"
+
+#: lib/confg.c:324 lib/confg.c:331 lib/confg.c:338
+#, c-format
+msgid "invalid definition for printer `%s': %s"
+msgstr "definició no vàlida per a la impressora `%s': %s"
+
+#: lib/confg.c:329 lib/confg.c:332 lib/printers.c:47
+msgid "Unknown Printer"
+msgstr "Impressora Desconeguda"
+
+#: lib/confg.c:336 lib/confg.c:339 lib/printers.c:46
+msgid "Default Printer"
+msgstr "Impressora Implícita"
+
+#: lib/confg.c:392 lib/options.c:697
+#, c-format
+msgid "invalid variable identifier `%s'"
+msgstr "identificador de variable `%s' no vàlid"
+
+#: lib/confg.c:421
+#, c-format
+msgid "obsolete `%s' entry.  Ignored"
+msgstr "entrada obsoleta '%s'. Ignorada"
+
+#: lib/encoding.c:1114 lib/encoding.c:1135
+msgid "Known Encodings"
+msgstr "Codificacions Conegudes"
+
+#: lib/faces.c:156
+msgid "incomplete knowledge of faces"
+msgstr "coneiximent incomplet dels estils de caràcters"
+
+#: lib/filtdir.c:113
+#, c-format
+msgid "cannot close directory `%s'"
+msgstr "no es pot tancar el directori `%s'"
+
+#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#, c-format
+msgid "invalid argument `%s' for `%s'"
+msgstr "argument no vàlid `%s' per a `%s'"
+
+#: lib/getnum.c:123
+#, c-format
+msgid "Valid arguments are integers n such that: %s\n"
+msgstr "Els arguments vàlids son sensers n tal com: %s\n"
+
+#: lib/getnum.c:223
+#, c-format
+msgid "Valid arguments are floats f such that: %s\n"
+msgstr "Els arguments vàlids son reals f tal com: %s\n"
+
+#: lib/jobs.c:307
+#, c-format
+msgid "unknown encoding `%s'"
+msgstr "codificació desconeguda `%s', ignorada"
+
+#: lib/madir.c:59
+msgid "rows first"
+msgstr "files primer"
+
+#: lib/madir.c:62
+msgid "columns first"
+msgstr "columnes primer"
+
+#: lib/media.c:173
+#, c-format
+msgid "unknown medium `%s'"
+msgstr "suport `%s' desconegut"
+
+#: lib/media.c:208 lib/media.c:237
+msgid "Known Media"
+msgstr "Suport Conegut"
+
+#: lib/media.c:211
+msgid "Name"
+msgstr "Nom"
+
+#: lib/media.c:212
+msgid "dimensions"
+msgstr "dimensions"
+
+#: lib/metaseq.c:104 lib/metaseq.c:113
+msgid "Known Variables"
+msgstr "Variables Conegudes"
+
+#: lib/metaseq.c:162 lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608
+#: lib/metaseq.c:951 lib/metaseq.c:972
+#, c-format
+msgid "%s: missing `%c' for %s%c escape"
+msgstr "%s: falta `%c' per a la seqüència d'escapament %s%c"
+
+#: lib/metaseq.c:288 lib/metaseq.c:300
+#, c-format
+msgid "Printed by %s"
+msgstr "Imprés per %s"
+
+#: lib/metaseq.c:298
+#, c-format
+msgid "Printed by %s from %s"
+msgstr "Imprés per %s des de %s"
+
+#: lib/metaseq.c:308 lib/metaseq.c:327
+msgid "cannot get current working directory"
+msgstr "no es pot determinar el directori actual"
+
+#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
+#: lib/metaseq.c:954 lib/metaseq.c:987
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr "%s: argument massa llarg per a la seqüència d'escapament %s"
+
+#: lib/metaseq.c:364 lib/metaseq.c:675
+msgid "%b %d, %y"
+msgstr "%d %b %y"
+
+#: lib/metaseq.c:373 lib/metaseq.c:684
+msgid "%A %B %d, %Y"
+msgstr "%A %d %B %Y"
+
+#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
+#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
+#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr "%s: seqüència d'escapament \"%s%c\" (%d) desconeguda"
+
+#: lib/metaseq.c:426 lib/metaseq.c:815
+#, c-format
+msgid "Page %d"
+msgstr "Pàgina %d"
+
+#: lib/metaseq.c:431 lib/metaseq.c:826
+#, c-format
+msgid "Page %d/%c"
+msgstr "Pàgina %d/%c"
+
+#: lib/metaseq.c:593 lib/metaseq.c:1021
+#, c-format
+msgid "%s: invalid separator `%s%c' for `%s' escape"
+msgstr "%s: separador no válid `%s%c' per a la seqüència d'escapament `%s'"
+
+#: lib/metaseq.c:601 lib/metaseq.c:611
+#, c-format
+msgid "%s: invalid argument for %s%c escape"
+msgstr "%s: argument no válid per a la seqüència d'escapament %s%c"
+
+#: lib/metaseq.c:822
+#, c-format
+msgid "Page %d/%d"
+msgstr "Pàgina %d/%d"
+
+#: lib/metaseq.c:1266
+msgid "output command"
+msgstr "ordre d'eixida"
+
+#: lib/options.c:302
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Prova `%s --help' per a més informació.\n"
+
+#: lib/output.c:466
+#, c-format
+msgid "invalid face `%s'"
+msgstr "opció no vàlida `%s'"
+
+#: lib/output.c:538
+#, c-format
+msgid "`%s' with no matching `%s'"
+msgstr "`%s' sense corresponent `%s'"
+
+#: lib/ppd.c:108
+msgid "Known Fonts"
+msgstr "Tipus de Lletra Coneguts"
+
+#: lib/ppd.c:111
+msgid ""
+"\n"
+"  None.\n"
+msgstr ""
+"\n"
+"  Cap.\n"
+
+#: lib/ppd.c:149 lib/ppd.c:165
+msgid "Known PostScript Printer Descriptions"
+msgstr "Descripcions d'Impressores PostScript Conegudes"
+
+#: lib/prange.c:305 lib/prange.c:323
+#, c-format
+msgid "invalid interval `%s'"
+msgstr "interval `%s' no vàlid"
+
+#: lib/printers.c:396 lib/printers.c:413
+#, fuzzy, c-format
+msgid "no command for the `%s' (%s%s)"
+msgstr "no hi ha ordre implícita per a la impressora desconeguda `%s'"
+
+#: lib/printers.c:429
+msgid "sent to the standard output"
+msgstr "enviat a l'eixida estàndard"
+
+#: lib/printers.c:430
+msgid "sent to the default printer"
+msgstr "enviat a la impressora implícita"
+
+#: lib/printers.c:435
+#, c-format
+msgid "saved into the file `%s'"
+msgstr "guardat al fitxer `%s'"
+
+#: lib/printers.c:436
+#, c-format
+msgid "sent to the printer `%s'"
+msgstr "enviat a la impressora `%s'"
+
+#: lib/printers.c:613 lib/printers.c:621
+msgid "Known Outputs (Printers, etc.)"
+msgstr "Eixides Conegudes (Impressores, etc.)"
+
+#: lib/prolog.c:98 lib/prolog.c:181
+msgid "Known Prologues"
+msgstr "Pròlegs Coneguts"
+
+#: lib/prolog.c:579
+#, c-format
+msgid "font %f too big"
+msgstr "el tipus de lletra %f és massa gran"
+
+#: lib/psgen.c:662
+#, c-format
+msgid "`%s' is a binary file, printing aborted"
+msgstr "`%s' és un fitxer binari, impressió interrompuda"
+
+#: lib/quotearg.c:200
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:203
+msgid "'"
+msgstr ""
+
+#: lib/userdata.c:129
+msgid "user"
+msgstr "usuari"
+
+#: lib/userdata.c:130
+msgid "Unknown User"
+msgstr "Usuari Desconegut"
+
+#: lib/useropt.c:75
+#, c-format
+msgid "unknown user option `%s'"
+msgstr "opció d'usuari `%s' desconeguda"
+
+#: lib/useropt.c:86 lib/useropt.c:97
+msgid "Known User Options"
+msgstr "Opcions d'Usuari Conegudes"
+
+#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+msgid "Memory exhausted"
+msgstr "Memòria esgotada"
+
+#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#, c-format
+msgid "cannot rename file `%s' as `%s'"
+msgstr "no es pot renombrar el fitxer `%s' com %s"
+
+#: lib/xbackupfile.c:255
+#, c-format
+msgid "restored file `%s'"
+msgstr "fitxer restaurat `%s'"
+
+#: lib/argmatch.c:159
+#, c-format
+msgid "invalid argument %s for `%s'"
+msgstr "argument no vàlid %s per a `%s'"
+
+#: lib/argmatch.c:160
+#, fuzzy, c-format
+msgid "ambiguous argument %s for `%s'"
+msgstr "argument ambigu `%s' per a `%s'"
+
+#: lib/argmatch.c:178
+msgid "Valid arguments are:"
+msgstr "Els arguments vàlids són:"
+
+#: lib/error.c:102
+msgid "Unknown system error"
+msgstr "Error de sistema desconegut"
+
+#: lib/getopt.c:675
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: l'opció `%s' és ambigua\n"
+
+#: lib/getopt.c:700
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: l'opció `--%s' no permet un argument\n"
+
+#: lib/getopt.c:705
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: l'opció `%c%s' no permet un argument\n"
+
+#: lib/getopt.c:723 lib/getopt.c:896
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: l'opció `%s' necessita un argument\n"
+
+#: lib/getopt.c:752
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: opció desconeguda `--%s'\n"
+
+#: lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: opció desconeguda `%c%s'\n"
+
+#: lib/getopt.c:782
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: opció il.legal -- %c\n"
+
+#: lib/getopt.c:785
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: opció no vàlida -- %c\n"
+
+#: lib/getopt.c:815 lib/getopt.c:945
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: l'opció necessita un argument -- %c\n"
+
+#: lib/getopt.c:862
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: l'opció `-W %s' és ambigua\n"
+
+#: lib/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: l'opció `-W %s' no permet un argument\n"
+
+#, fuzzy
+#~ msgid "end of line in a %s"
+#~ msgstr "final-de-línia en una expressió regular"
+
+#~ msgid "end-of-line in regular expression"
+#~ msgstr "final-de-línia en una expressió regular"
+
+#, fuzzy
+#~ msgid ""
+#~ "Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana"
+#~ msgstr ""
+#~ "\n"
+#~ "Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana\n"
+
+#~ msgid "Tasks (exit successfully):\n"
+#~ msgstr "Tarees (acaben amb éxit):\n"
+
+#~ msgid ""
+#~ "This program is free software; you can redistribute it and/or modify\n"
+#~ "it under the terms of the GNU General Public License as published by\n"
+#~ "the Free Software Foundation; either version 3, or (at your option)\n"
+#~ "any later version.\n"
+#~ "\n"
+#~ "This program is distributed in the hope that it will be useful,\n"
+#~ "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+#~ "GNU General Public License for more details.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License\n"
+#~ "along with this program; if not, write to the Free Software Foundation,\n"
+#~ "Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.\n"
+#~ msgstr ""
+#~ "This program is free software; you can redistribute it and/or modify\n"
+#~ "it under the terms of the GNU General Public License as published by\n"
+#~ "the Free Software Foundation; either version 3, or (at your option)\n"
+#~ "any later version.\n"
+#~ "\n"
+#~ "This program is distributed in the hope that it will be useful,\n"
+#~ "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+#~ "GNU General Public License for more details.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License\n"
+#~ "along with this program; if not, write to the Free Software Foundation,\n"
+#~ "Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.\n"
+
+#~ msgid ""
+#~ "Written by <Akim.Demaille@inf.enst.fr> and <Miguel.Santana@st.com>.\n"
+#~ msgstr "Escrit pet <Akim.Demaille@inf.enst.fr> i <Miguel.Santana@st.com>\n"
+
+#~ msgid "no default command for option `-d'"
+#~ msgstr "no hi ha ordre implícita per a l'opció `-d'"
+
+#~ msgid "pipe in %s\n"
+#~ msgstr "canonada en %s\n"
+
+#~ msgid "save in %s\n"
+#~ msgstr "guardat en %s\n"
+
+#~ msgid "%s: invalid argument `%s' for `%s'\n"
+#~ msgstr "%s: argument no vàlid `%s' per a `%s'\n"
+
+#, fuzzy
+#~ msgid "invalid interval: %s"
+#~ msgstr "interval senser `%s' no vàlid"
+
+#~ msgid "illegal integer interval: %s"
+#~ msgstr "interval senser il.legal: %s"
+
+#~ msgid "cannot find file %s"
+#~ msgstr "no es pot trobar el fitxer %s"
+
+#, fuzzy
+#~ msgid "unrecognized font `%s'"
+#~ msgstr "tipus de lletra %s desconegut"
+
+#, fuzzy
+#~ msgid "unrecognized face `%s'"
+#~ msgstr "estil de caràcter %s desconegut"
+
+#~ msgid "missing argument for %s"
+#~ msgstr "falta argument per a %s"
+
+#~ msgid "invalid variable identifier %s"
+#~ msgstr "identificador de variable %s no vàlid"
+
+#~ msgid "cannot create file %s"
+#~ msgstr "no es pot crear el fitxer %s"
+
+#~ msgid "cannot open a pipe on %s"
+#~ msgstr "no es pot obrir una canonada en %s"
+
+#~ msgid "cannot open file %s"
+#~ msgstr "no es pot obrir el fitxer %s"
+
+#~ msgid "cannot open configuration file %s"
+#~ msgstr "no es pot obrir el fitxer de configuració %s"
+
+#~ msgid "encoding %s unknown"
+#~ msgstr "codificació %s desconeguda"
+
+#~ msgid "user option `%s' not defined"
+#~ msgstr "l'opció d'usuari `%s' no està definida"
+
+#, fuzzy
+#~ msgid "illegal option: %s"
+#~ msgstr "opció il.legal: `%s'"
+
+#~ msgid "illegal option: `%s'"
+#~ msgstr "opció il.legal: `%s'"
+
+#~ msgid ""
+#~ "syntax error in option string `%s':\n"
+#~ "missing end of quotation: %c"
+#~ msgstr ""
+#~ "error de sintaxi en la cadena d'opció '%s':\n"
+#~ "falta el tancament: %c"
+
+#, fuzzy
+#~ msgid "cannot backup and create file `%s'"
+#~ msgstr "no és pot crear el fitxer d'eixida `%s'"
+
+#~ msgid "wrong value for option %s: `%s'"
+#~ msgstr "valor erroni per a l'opció %s: `%s'"
+
+#~ msgid "Valid arguments are integers between %d and %d\n"
+#~ msgstr "Els arguments vàlids son sensers entre %d i %d\n"
+
+#~ msgid "Valid arguments are integers greater than %d\n"
+#~ msgstr "Els arguments vàlids son sensers majors que %d\n"
+
+#, fuzzy
+#~ msgid "Valid arguments are lengths between %gpt and %gpt\n"
+#~ msgstr "Els arguments vàlids son sensers entre %d i %d\n"
+
+#~ msgid "cannot find configuration file `%s'"
+#~ msgstr "no és pot trobar el fitxer de configuració `%s'"
+
+#~ msgid "Dynamic array `%s':\n"
+#~ msgstr "Vector dinàmic '%s':\n"
+
+#~ msgid "\tload: %d/%d (%2.1f%%)\n"
+#~ msgstr "\tcàrrega: %d/%d (%2.1f%%)\n"
+
+#~ msgid "Dynamic string:\n"
+#~ msgstr "Cadena dinàmica:\n"
+
+#~ msgid "steady"
+#~ msgstr "fix"
+
+#~ msgid "linear"
+#~ msgstr "lineal"
+
+#~ msgid "geometrical"
+#~ msgstr "geomètric"
+
+#~ msgid "\tgrowth: %s, increment: %d\n"
+#~ msgstr "\tcreixement: %s, increment: %d\n"
+
+#~ msgid "can't allocate %ld bytes for hash table: memory exhausted"
+#~ msgstr ""
+#~ "no és poden reservar %ld octets per a la taula de dispersió: memòria "
+#~ "esgotada"
+
+#~ msgid "Load=%ld/%ld=%.0f%%, "
+#~ msgstr "Càrrega=%ld/%ld=%.0f%%, "
+
+#~ msgid "Rehash=%d, "
+#~ msgstr "2a dispersió=%d, "
+
+#~ msgid "Collisions=%ld/%ld=%.0f%%"
+#~ msgstr "Col.lisions=%ld/%ld=%.0f%%"
+
+#, fuzzy
+#~ msgid "Document title"
+#~ msgstr "títol central"
+
+#, fuzzy
+#~ msgid "Valid arguments are floats greater than %.1f\n"
+#~ msgstr "Els arguments vàlids son sensers majors que %d\n"
+
+#~ msgid "free"
+#~ msgstr "lliure"
+
+#, fuzzy
+#~ msgid "  %-10s = save in %s\n"
+#~ msgstr "  %-20s = guarda en %s\n"
+
+#~ msgid "delegating command"
+#~ msgstr "delegant ordre"
+
+#~ msgid "water mark"
+#~ msgstr "marca d'aigua"
+
+#~ msgid "right header"
+#~ msgstr "encapçalament dret"
+
+#~ msgid "center footer"
+#~ msgstr "peu de pàgina central"
+
+#~ msgid "right footer"
+#~ msgstr "peu de pàgina dret"
+
+#~ msgid "left footer"
+#~ msgstr "peu de pàgina esquerre"
+
+#~ msgid "center title"
+#~ msgstr "títol central"
+
+#~ msgid "right title"
+#~ msgstr "títol dret"
+
+#~ msgid "left title"
+#~ msgstr "títol esquerre"
+
+#, fuzzy
+#~ msgid "General information on %s:\n"
+#~ msgstr "no és pot obtindre informació del fitxer `%s'"
+
+#~ msgid "found following options (argc=%d):\n"
+#~ msgstr "trobades les següents opcions (argc=%d):\n"
+
+#~ msgid "failure\n"
+#~ msgstr "error\n"
+
+#~ msgid "Walk through path\n"
+#~ msgstr "Caminant per el camí\n"
+
+#, fuzzy
+#~ msgid "Unkown Printer"
+#~ msgstr "Impressora desconeguda"
+
+#~ msgid "syntax error in fonts(s) `%s'"
+#~ msgstr "Error de sintaxi en tipus de lletra '%s'"
+
+#~ msgid "cannot launch `%s' (delegation `%s')"
+#~ msgstr "impossible enviar '%s' (delegació '%s')"
+
+#~ msgid "delegation %s did not create the file"
+#~ msgstr "la delegació %s no ha creat el fitxer"
+
+#~ msgid "delegation %s failed and exited with status %d"
+#~ msgstr "la delegació %s ha fallat i ha eixit amb el estat %d"
+
+#~ msgid "delegation %s failed"
+#~ msgstr "la delegació %s ha fallat"
+
+#~ msgid "%s: no closing ')' for %s escape"
+#~ msgstr "%s: falta ')' per a la seqüència d'escapament %s"
+
+#~ msgid "%s: too long variable name for %s escape"
+#~ msgstr "%s: nom de variable massa llarg per a la seqüència d'escapament %s"
+
+#, fuzzy
+#~ msgid "file_lookup(%s%c%s%s) = "
+#~ msgstr "file_lookup(%s%c%s%s) = "
+
+#~ msgid "suffix_lookup(): %s%c*.%s\n"
+#~ msgstr "suffix_lookup(): %s%c*.%s\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "  -P, --printer=NAME         send output to printer NAME\n"
+#~ "  -d                         send output to the  default printer\n"
+#~ "  -s, --sides=NUM            number of sheet sides (recto/recto-verso)\n"
+#~ msgstr ""
+#~ "  -P, --printer[=NOM]        imprimeix a la impressora NOM\n"
+#~ "  -d                         imprimeix per la impressora estàndard\n"
+#~ "  -s  --sides=NOM            nombre de cares per full (1 o 2)\n"
+
+#, fuzzy
+#~ msgid "In the style %s, the keyword `%s' uses upper chars"
+#~ msgstr "En el estil %s, la paraula clau '%s' utilitza majúscules"
+
+#, fuzzy
+#~ msgid "In the style %s, the sequence `%s-%s' uses upper chars"
+#~ msgstr "En el estil %s, la seqüència '%s-%s' utilitza majúscules"
+
+#~ msgid "in style %s, keyword `%s' is defined twice"
+#~ msgstr "en l'estil %s, la paraula clau `%s' està definida dues vegades"
+
+#, fuzzy
+#~ msgid "in style %s, operator `%s' is defined twice"
+#~ msgstr "en l'estil %s, la paraula clau `%s' està definida dues vegades"
+
+#~ msgid "can't get current working directory"
+#~ msgstr "no és pot determinar el directori actual"
+
+#, fuzzy
+#~ msgid "expansion of %s user string (`%s') is `%s'\n"
+#~ msgstr "l'expansió de la cadena d'usuari %s (\"%s\") és \"%s\"\n"
+
+#, fuzzy
+#~ msgid "cannot open `%s'"
+#~ msgstr "impossible obrir el fitxer \"%s\""
+
+#~ msgid "error opening `%s'"
+#~ msgstr "error en obrir `%s'"
+
+#, fuzzy
+#~ msgid "error getting file `%s' modification time"
+#~ msgstr "error en obtenir la data de modificació del fitxer \"%s\""
+
+#, fuzzy
+#~ msgid "cannot find file \"%s%s\""
+#~ msgstr "no és pot trobar el fitxer \"%s\""
+
+#, fuzzy
+#~ msgid "couldn't find system's configuration file `%s%c%s'"
+#~ msgstr "no és pot obrir el fitxer de configuració `%s%c%s'"
+
+#, fuzzy
+#~ msgid "unable to fork"
+#~ msgstr "impossible obrir una canonada"
+
+#~ msgid "error starting `/bin/sh -c %s'"
+#~ msgstr "error a l'iniciar `/bin/sh -c %s'"
+
+#~ msgid "[Total: %d page on "
+#~ msgstr "[Total: %d pàgina en "
+
+#~ msgid "sheet"
+#~ msgstr "full"
+
+#~ msgid "space"
+#~ msgstr "espai"
+
+#~ msgid "caret"
+#~ msgstr "circumflex"
+
+#, fuzzy
+#~ msgid "Known Media\n"
+#~ msgstr "Suports coneguts (%d)\n"
+
+#~ msgid "Known languages (%d)"
+#~ msgstr "Llenguatges coneguts (%d)"
+
+#~ msgid ""
+#~ "  In %s:\n"
+#~ "\t"
+#~ msgstr ""
+#~ "  En %s:\n"
+#~ "\t"
+
+#~ msgid "rows"
+#~ msgstr "files"
+
+#~ msgid "columns"
+#~ msgstr "columnes"
+
+#~ msgid "path_walk() on path %s\n"
+#~ msgstr "path_walk() en la trajectòria %s\n"
+
+#~ msgid "In the style %s, the symbol '%s' uses upper chars"
+#~ msgstr "En el estil %s, el símbol '%s' utilitza majúscules"
+
+#, fuzzy
+#~ msgid "in style %s, symbol `%s' is defined twice"
+#~ msgstr "en l'estil %s, el símbol regular `%s' està definit dues vegades"
+
+#~ msgid "in style %s, regular symbol `%s' is defined twice"
+#~ msgstr "en l'estil %s, el símbol regular `%s' està definit dues vegades"
+
+#~ msgid "in style %s, special symbol `%s' is defined twice"
+#~ msgstr "en l'estil %s, el símbol especial `%s' està definit dues vegades"
+
+#~ msgid "not enough \\verb delimiters (%s) to print %s"
+#~ msgstr "insuficients delimitadors \\verb (%s) per a imprimir %s"
+
+#~ msgid "unknown"
+#~ msgstr "desconegut"
+
+#~ msgid "couldn't find prolog \"%s\""
+#~ msgstr "no és pot trobar el pròleg \"%s\""
+
+#~ msgid "language %s unknown"
+#~ msgstr "llenguatge %s desconegut"
+
+#~ msgid "illegal language: `%s'"
+#~ msgstr "llenguatge il.legal: `%s'"
+
+#~ msgid "Bold"
+#~ msgstr "Negreta"
+
+#~ msgid "fnmatch failed on file \"%s\" and pattern \"%s\": %s"
+#~ msgstr "fnmatch fallà en el fitxer \"%s\" y en el patró \"%s\": %s"
+
+#~ msgid "couldn't find requested file \"%s\""
+#~ msgstr "no és pot trobar el fitxer \"%s\""
+
+#~ msgid "illegal language: %s in line %d of configuration file `%s'"
+#~ msgstr "llenguatge il.legal: %s, línia %d del fitxer de configuració `%s'"
+
+#~ msgid "illegal option: %s in line %d of configuration file `%s'"
+#~ msgstr "opció il.legal: %s, línia %d del fitxer de configuració `%s'"
+
+#~ msgid "Print service\n"
+#~ msgstr "Servei d'impressió\n"
+
+#~ msgid ""
+#~ "  lpr command         = %s\n"
+#~ "  option              = %s\n"
+#~ "  option for printer  = %s\n"
+#~ "  default             = %s\n"
+#~ msgstr ""
+#~ "  ordre lpr           = %s\n"
+#~ "  opció               = %s\n"
+#~ "  opció d'impressora  = %s\n"
+#~ "  per defecte         = %s\n"
+
+#~ msgid "2-sided"
+#~ msgstr "a 2 cares"
+
+#~ msgid "1-sided"
+#~ msgstr "a 1 cara"
+
+#~ msgid "  print services not compiled in\n"
+#~ msgstr "  serveis d'impressió no compilats en\n"
+
+#~ msgid "page"
+#~ msgstr "pàgina"
+
+#~ msgid "pages"
+#~ msgstr "pàgines"

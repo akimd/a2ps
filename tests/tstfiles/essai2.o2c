@@ -1,0 +1,133 @@
+set options "-I/inf/erebe/bdstag/sigbench/release/Schema/include";
+set schema sigrel;
+set base sigrelb;
+
+set application Index_lineaire;
+
+name Nt_rem_oid:Tt_rem_oid;
+name Ns_rem_oid:set (Tt_rem_oid);
+name No_JS_feuilleA:C_Feuille;
+name No_JS_feuilleB:C_Feuille;
+name Ns_JS_jointure_cles:set (tuple (cleA:string, cleB:string));
+function
+F_JS_big_theta (Pt_a:Tt_rem_oid, Pt_b:Tt_rem_oid):boolean;
+     function body F_JS_big_theta (Pt_a:Tt_rem_oid, Pt_b:Tt_rem_oid):boolean
+{
+/* test si "a intersecte b (sens strict)" */
+  return ((Pt_a.Ai_xmin < Pt_b.Ai_xmax)
+	  && (Pt_a.Ai_ymin < Pt_b.Ai_ymax)
+	  && (Pt_a.Ai_xmax > Pt_b.Ai_xmin) && (Pt_a.Ai_ymax > Pt_b.Ai_ymin));
+};
+function
+F_JS_existe_cle (Pc_cleA:string, Pc_cleB:string):boolean;
+     function body F_JS_existe_cle (Pc_cleA:string, Pc_cleB:string):boolean
+{
+#include "varextbis.h"
+
+  Handle poign_root, poign_objet_final, *poign_cle;
+  Scan *scan_index;
+  Predicate *predicat;
+  void *index_id;
+  o2 string cle = "index-racine";
+
+/************** Fermeture du scan index et retour ******/
+  o2_col_scan_close (scan_index);
+/*printf("sortie F_Lecture_index\n");*/
+  printf (" ===> feuille %s ok ...\n", Pc_cleA + Pc_cleB);
+  return true;
+};
+
+function
+F_JS_get_quadrant (Pc_cle:string, Pt_rem:Tt_rem_oid):Tt_rem_oid;
+     function body F_JS_get_quadrant (Pc_cle:string,
+				      Pt_rem:Tt_rem_oid):Tt_rem_oid
+{
+  o2 integer dx = (Pt_rem.Ai_xmax - Pt_rem.Ai_xmin) / 2;
+  o2 integer dy = (Pt_rem.Ai_ymax - Pt_rem.Ai_ymin) / 2;
+  o2 integer i;
+  for (i = 0; i < count (Pc_cle); i++)
+    {
+      switch (Pc_cle[i])
+	{
+	default:
+	  printf ("Nom de feuille (%s) erronee !!!\n", Pc_cle);
+	}
+      dx = dx / 2;
+      dy = dy / 2;
+    }
+  return (Pt_rem);
+};
+
+
+function F_JS_join_f (Pc_cleA:string,
+		      Pt_remA:Tt_rem_oid, Pc_cleB:string, Pt_remB:Tt_rem_oid);
+function body
+F_JS_join_f (Pc_cleA:string,
+	     Pt_remA:Tt_rem_oid, Pc_cleB:string, Pt_remB:Tt_rem_oid)
+{
+#include "varextbis.h"		/* contexte general */
+
+  printf ("tente (%s,%s) ...", Pc_cleA, Pc_cleB);
+  if (F_JS_small_theta (Pt_remA, Pt_remB))
+    {
+      printf ("===> ok");
+    Ns_JS_jointure_cles += set (tuple (cleA: Pc_cleA, cleB:Pc_cleB));
+    }
+  printf ("\n");
+  return;
+};
+;
+
+program private
+P_JS_Lance_jointure (Pc_quad_linA:string, Pc_quad_linB:string)
+     in application Index_lineaire;
+     transaction body P_JS_Lance_jointure (Pc_quad_linA:string,
+					   Pc_quad_linB:string)
+     in application Index_lineaire
+     {
+#include "varextbis.h"
+
+       o2 Tt_def_index t_def_idxA;
+       o2 Tt_def_index t_def_idxB;
+       o2 Tt_def_index def_idx;
+
+       o2 Tt_rem_oid t_remA;
+       o2 Tt_rem_oid t_remB;
+
+     };
+
+program public
+P_JS_select (Pc_noeud:string)
+     in application Index_lineaire;
+     transaction body P_JS_select (Pc_noeud:string)
+     in application Index_lineaire
+     {
+       o2 set (C_Feuille) Tree = set ();
+       o2 C_Feuille f = nil;
+       o2 integer reso2q = 0;
+       o2 Tt_rem_oid rem, quadrant;
+       o2 set (Tt_rem_oid) Resultat = set ();
+       o2 Tt_rem_oid Po_objet = Nt_rem_oid;
+       o2 Tt_def_index Po_index, idx;
+       for (idx in Nt_indexes.Al_def_index)
+	 if (idx.Ao_index == No_quad_lin01)
+	     Po_index = idx;
+
+/* Recuperation des feuilles de l'arbre */
+         reso2q = o2query (Tree, "select f from f in $1", Po_index.Ao_index);
+       if (reso2q)
+	 {
+	   printf ("Index vide ou inexistant ...!!!");
+/* return set();*/
+	   abort;
+	 }
+
+       for (f in Tree)
+         if (F_JS_small_theta (Po_objet, rem)
+           Resultat += set (rem);
+       Ns_rem_oid = Resultat;
+/*return Resultat;*/
+     };
+
+commit;
+quit;

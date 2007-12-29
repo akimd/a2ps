@@ -1,0 +1,13 @@
+% This is an a2ps prologue sampler.
+%
+\header{This is an example of header}
+\footer{This is an example of footer}
+\keyword{This is an example of keyword}
+\Keyword{This is an example of keyword strong}
+\comment{This is an example of comment}
+\Comment{This is an example of Comment strong}
+\label{This is an example of label}
+\Label{This is an example of Label strong}
+\string{This is an example of string}
+\symbol{This is an example of symbol}
+\error{This is an example of error}

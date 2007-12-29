@@ -1,0 +1,1073 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: a2ps 4.10.3\n"
+"POT-Creation-Date: 2002-10-03 19:05+0200\n"
+"PO-Revision-Date: 1998-06-18 12:00+02:00\n"
+"Last-Translator: full name <email@address>\n"
+"Language-Team: Danish <da@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/buffer.c:68
+#, fuzzy
+msgid "any type"
+msgstr "mange til en"
+
+#: src/delegate.c:137 lib/confg.c:268 lib/encoding.c:530 lib/encoding.c:576
+#: lib/encoding.c:616 lib/output.c:302 lib/pair_ht.c:296 lib/prolog.c:146
+#, fuzzy, c-format
+msgid "missing argument for `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: src/delegate.c:260 lib/routines.c:160 lib/xbackupfile.c:248
+#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
+#, fuzzy, c-format
+msgid "cannot create file `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/delegate.c:269 src/select.c:159 lib/routines.c:190 lib/routines.c:196
+#, fuzzy, c-format
+msgid "cannot open a pipe on `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/delegate.c:389
+#, c-format
+msgid "Delegation `%s', from %s to %s\n"
+msgstr ""
+
+#: src/delegate.c:408 src/delegate.c:430
+msgid "Applications configured for delegation"
+msgstr ""
+
+#: src/generate.c:88
+#, c-format
+msgid "`%s' is a directory"
+msgstr ""
+
+#: src/generate.c:96 src/main.c:558 src/main.c:580 lib/confg.c:292
+#: lib/confg.c:455 lib/routines.c:154
+#, fuzzy, c-format
+msgid "cannot open file `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/generate.c:101 lib/xbackupfile.c:224
+#, fuzzy, c-format
+msgid "cannot get informations on file `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/generate.c:168
+#, c-format
+msgid "[%s (%s): 1 page on 1 sheet]\n"
+msgstr ""
+
+#: src/generate.c:174
+#, c-format
+msgid "[%s (%s): %d pages on 1 sheet]\n"
+msgstr ""
+
+#: src/generate.c:181
+#, c-format
+msgid "[%s (%s): %d pages on %d sheets]\n"
+msgstr ""
+
+#: src/generate.c:208
+#, c-format
+msgid "[Total: 1 page on 1 sheet] %s\n"
+msgstr ""
+
+#: src/generate.c:212
+#, c-format
+msgid "[Total: %d pages on 1 sheet] %s\n"
+msgstr ""
+
+#: src/generate.c:217
+#, c-format
+msgid "[Total: %d pages on %d sheets] %s\n"
+msgstr ""
+
+#: src/generate.c:226
+msgid "[1 line wrapped]\n"
+msgstr ""
+
+#: src/generate.c:229
+#, c-format
+msgid "[%d lines wrapped]\n"
+msgstr ""
+
+#: src/generate.c:242
+msgid "[No output produced]\n"
+msgstr ""
+
+#: src/generate.c:314
+#, c-format
+msgid "%s, delegated to %s"
+msgstr ""
+
+#: src/generate.c:322
+#, c-format
+msgid "[%s (%s): failed.  Ignored]\n"
+msgstr ""
+
+#: src/generate.c:330
+#, c-format
+msgid "[%s (unprintable): ignored]\n"
+msgstr ""
+
+#: src/generate.c:339
+#, c-format
+msgid "[%s (binary): ignored]\n"
+msgstr ""
+
+#: src/generate.c:360
+msgid "plain"
+msgstr ""
+
+#: lexssh.l:348
+msgid "end-of-line in string constant"
+msgstr ""
+
+#: lexssh.l:415 src/sheets-map.l:152 src/sheets-map.l:191
+#, c-format
+msgid "end of line inside a %s"
+msgstr ""
+
+#: src/main.c:201
+#, c-format
+msgid "received signal %d: %s"
+msgstr ""
+
+#: src/main.c:240
+msgid "heavy"
+msgstr ""
+
+#: src/main.c:244
+msgid "normal"
+msgstr ""
+
+#: src/main.c:248
+msgid "none"
+msgstr ""
+
+#: src/main.c:322 src/main.c:326
+msgid "yes"
+msgstr ""
+
+#: src/main.c:323 src/main.c:326 src/main.c:367
+msgid "no"
+msgstr ""
+
+#: src/main.c:333
+#, c-format
+msgid "Configuration status of %s %s\n"
+msgstr ""
+
+#: src/main.c:337 src/main.c:694
+msgid "Sheets:\n"
+msgstr ""
+
+#: src/main.c:338
+#, c-format
+msgid ""
+"  medium          = %s%s, %s\n"
+"  page layout     = %d x %d, %s\n"
+"  borders         = %s\n"
+"  file alignment  = %s\n"
+"  interior margin = %d\n"
+msgstr ""
+
+#: src/main.c:347
+msgid "portrait"
+msgstr ""
+
+#: src/main.c:347
+msgid "landscape"
+msgstr ""
+
+#: src/main.c:356
+#, c-format
+msgid "%d characters per line"
+msgstr ""
+
+#: src/main.c:359
+#, c-format
+msgid "%d lines per page"
+msgstr ""
+
+#: src/main.c:362
+#, c-format
+msgid "font size is %gpt"
+msgstr ""
+
+#: src/main.c:371
+msgid "each line"
+msgstr ""
+
+#: src/main.c:375
+#, c-format
+msgid "each %d lines"
+msgstr ""
+
+#: src/main.c:378 src/main.c:715
+msgid "Virtual pages:\n"
+msgstr ""
+
+#: src/main.c:379
+#, c-format
+msgid ""
+"  number lines         = %s\n"
+"  format               = %s\n"
+"  tabulation size      = %d\n"
+"  non printable format = %s\n"
+msgstr ""
+
+#: src/main.c:390
+msgid "Headers:\n"
+msgstr ""
+
+#: src/main.c:391
+#, c-format
+msgid ""
+"  header       = %s\n"
+"  left footer  = %s\n"
+"  footer       = %s\n"
+"  right footer = %s\n"
+"  left title   = %s\n"
+"  center title = %s\n"
+"  right title  = %s\n"
+"  under lay    = %s\n"
+msgstr ""
+
+#: src/main.c:410 src/main.c:744
+msgid "Input:\n"
+msgstr ""
+
+#: src/main.c:411
+#, c-format
+msgid ""
+"  truncate lines = %s\n"
+"  interpret      = %s\n"
+"  end of line    = %s\n"
+"  encoding       = %s\n"
+"  document title = %s\n"
+"  prologue       = %s\n"
+"  print anyway   = %s\n"
+"  delegating     = %s\n"
+msgstr ""
+
+#: src/main.c:436 src/main.c:502
+msgid "selected automatically"
+msgstr ""
+
+#: src/main.c:439 src/main.c:763
+msgid "Pretty-printing:\n"
+msgstr ""
+
+#: src/main.c:440
+#, c-format
+msgid ""
+"  style sheet     = %s\n"
+"  highlight level = %s\n"
+"  strip level     = %d\n"
+msgstr ""
+
+#: src/main.c:460
+msgid "never make backups"
+msgstr ""
+
+#: src/main.c:464
+msgid "simple backups of every file"
+msgstr ""
+
+#: src/main.c:469
+msgid ""
+"numbered backups of files already numbered,\n"
+"                            and simple of others"
+msgstr ""
+
+#: src/main.c:474
+msgid "numbered backups of every file"
+msgstr ""
+
+#: src/main.c:478 src/main.c:772
+msgid "Output:\n"
+msgstr ""
+
+#: src/main.c:479
+#, c-format
+msgid ""
+"  destination     = %s\n"
+"  version control = %s\n"
+"  backup suffix   = %s\n"
+msgstr ""
+
+#: src/main.c:492 src/main.c:782
+msgid "PostScript:\n"
+msgstr ""
+
+#: src/main.c:493
+#, c-format
+msgid ""
+"  magic number              = %s\n"
+"  Printer Description (PPD) = %s\n"
+"  default PPD               = %s\n"
+"  page label format         = %s\n"
+"  number of copies          = %d\n"
+"  sides per sheet           = %s\n"
+"  page device definitions   = "
+msgstr ""
+
+#: src/main.c:513
+msgid "  statusdict definitions    = "
+msgstr ""
+
+#: src/main.c:516
+#, c-format
+msgid "  page prefeed              = %s\n"
+msgstr ""
+
+#: src/main.c:525
+msgid "Internals:\n"
+msgstr ""
+
+#: src/main.c:526
+#, c-format
+msgid ""
+"  verbosity level     = %d\n"
+"  file command        = %s\n"
+"  library path        = \n"
+msgstr ""
+
+#: src/main.c:651
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"\n"
+"Convert FILE(s) or standard input to PostScript.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Long options marked with * require a yes/no argument, corresponding\n"
+"short options stand for `yes'.\n"
+msgstr ""
+
+#: src/main.c:665
+msgid "Tasks:\n"
+msgstr ""
+
+#: src/main.c:666
+msgid ""
+"  --version        display version\n"
+"  --help           display this help\n"
+"  --guess          report guessed types of FILES\n"
+"  --which          report the full path of library files named FILES\n"
+"  --glob           report the full path of library files matching FILES\n"
+"  --list=defaults  display default settings and parameters\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, style-"
+"sheets,\n"
+"                   user-options)\n"
+msgstr ""
+
+#: src/main.c:677
+msgid ""
+"After having performed the task, exit successfully.  Detailed lists may\n"
+"provide additional help on specific features.\n"
+msgstr ""
+
+#: src/main.c:685
+msgid "Global:\n"
+msgstr ""
+
+#: src/main.c:686
+msgid ""
+"  -q, --quiet, --silent      be really quiet\n"
+"  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
+"  -=, --user-option=OPTION   use the user defined shortcut OPTION\n"
+"      --debug                enable debugging features\n"
+"  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
+msgstr ""
+
+#: src/main.c:695
+msgid ""
+"  -M, --medium=NAME      use output medium NAME\n"
+"  -r, --landscape        print in landscape mode\n"
+"  -R, --portrait         print in portrait mode\n"
+"      --columns=NUM      number of columns per sheet\n"
+"      --rows=NUM         number of rows per sheet\n"
+"      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
+"  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
+"                         page, sheet, or a number)\n"
+"  -j, --borders*         print borders around columns\n"
+"      --margin[=NUM]     define an interior margin of size NUM\n"
+msgstr ""
+
+#: src/main.c:708
+msgid ""
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
+"layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
+"options (`--columns', `--font-size' etc.).\n"
+msgstr ""
+
+#: src/main.c:716
+msgid ""
+"      --line-numbers=NUM     precede each NUM lines with its line number\n"
+"  -C                         alias for --line-numbers=5\n"
+"  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
+"  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
+"  -m, --catman               process FILE as a man page (same as -L66)\n"
+"  -T, --tabsize=NUM          set tabulator size to NUM\n"
+"  --non-printable-format=FMT specify how non-printable chars are printed\n"
+msgstr ""
+
+#: src/main.c:727
+msgid "Headings:\n"
+msgstr ""
+
+#: src/main.c:729
+#, no-c-format
+msgid ""
+"  -B, --no-header        no page headers at all\n"
+"  -b, --header[=TEXT]    set page header\n"
+"  -u, --underlay[=TEXT]  print TEXT under every page\n"
+"  --center-title[=TEXT]  set page title to TITLE\n"
+"  --left-title[=TEXT]    set left and right page title to TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]   set sheet footers to TEXT\n"
+"  --footer[=TEXT]\n"
+"  --right-footer[=TEXT]\n"
+msgstr ""
+
+#: src/main.c:740
+msgid "The TEXTs may use special escapes.\n"
+msgstr ""
+
+#: src/main.c:745
+msgid ""
+"  -a, --pages[=RANGE]        select the pages to print\n"
+"  -c, --truncate-lines*      cut long lines\n"
+"  -i, --interpret*           interpret tab, bs and ff chars\n"
+"      --end-of-line=TYPE     specify the eol char (TYPE: r, n, nr, rn, any)\n"
+"  -X, --encoding=NAME        use input encoding NAME\n"
+"  -t, --title=NAME           set the name of the job\n"
+"      --stdin=NAME           set the name of the input file stdin\n"
+"      --print-anyway*        force binary printing\n"
+"  -Z, --delegate*            delegate files to another application\n"
+"      --toc[=TEXT]           generate a table of content\n"
+msgstr ""
+
+#: src/main.c:757
+msgid ""
+"When delegations are enabled, a2ps may use other applications to handle the\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
+"PostScript, PDF etc.\n"
+msgstr ""
+
+#: src/main.c:764
+msgid ""
+"  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
+"  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
+"                             LEVEL can be none, normal or heavy\n"
+"  -g                         alias for --highlight-level=heavy\n"
+"  --strip-level=NUM          level of comments stripping\n"
+msgstr ""
+
+#: src/main.c:773
+msgid ""
+"  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
+"                             leave output to stdout.\n"
+"  --version-control=WORD     override the usual version control\n"
+"  --suffix=SUFFIX            override the usual backup suffix\n"
+"  -P, --printer=NAME         send output to printer NAME\n"
+"  -d                         send output to the default printer\n"
+msgstr ""
+
+#: src/main.c:783
+msgid ""
+"      --prologue=FILE        include FILE.pro as PostScript prologue\n"
+"      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
+"  -n, --copies=NUM           print NUM copies of each page\n"
+"  -s, --sides=MODE           set the duplex MODE (`1' or `simplex',\n"
+"                             `2' or `duplex', `tumble')\n"
+"  -S, --setpagedevice=K[:V]  pass a page device definition to output\n"
+"      --statusdict=K[:[:]V]  pass a statusdict definition to the output\n"
+"  -k, --page-prefeed         enable page prefeed\n"
+"  -K, --no-page-prefeed      disable page prefeed\n"
+msgstr ""
+
+#: src/main.c:797
+msgid ""
+"By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
+"result to the printer `lw',\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"To process the files `sample.ps' and `sample.html' and display the result,\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"To process a mailbox in 4 up,\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"To print as a booklet on the default printer, which is Duplex capable,\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+msgstr ""
+
+#: src/main.c:818
+msgid ""
+"News, updates and documentation: visit http://www.inf.enst.fr/~demaille/"
+"a2ps/.\n"
+msgstr ""
+
+#: src/main.c:820
+#, fuzzy
+msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
+msgstr ""
+"\n"
+"Rapportér fejl til <recode-bugs@gnu.ai.mit.edu>.\n"
+
+#: src/main.c:938
+msgid ""
+"Copyright (c) 1988-1993 Miguel Santana\n"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+msgstr ""
+
+#: src/main.c:1168
+msgid "Table of Content"
+msgstr ""
+
+#: src/parsessh.y:236
+#, c-format
+msgid "cannot process `%s' which requires a2ps version %s"
+msgstr ""
+
+#: src/sheets-map.l:110
+#, c-format
+msgid "unexpected character `%c'"
+msgstr ""
+
+#: src/sheets-map.l:210 lexppd.l:211
+msgid "too many includes"
+msgstr ""
+
+#: src/sheets-map.l:292 src/sheets-map.l:299
+#, fuzzy, c-format
+msgid "no key defined for `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/select.c:122 src/ssheet.c:866 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:328 lib/pathwalk.c:414
+#, fuzzy, c-format
+msgid "cannot find file `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/select.c:124
+msgid "automatic style selection cancelled"
+msgstr ""
+
+#: src/ssheet.c:295
+#, fuzzy, c-format
+msgid "cannot compile regular expression `%s': %s"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: src/ssheet.c:974 src/ssheet.c:995
+msgid "Known Style Sheets"
+msgstr ""
+
+#: src/ssheet.c:1461
+#, c-format
+msgid "cannot find style sheet `%s': using plain style"
+msgstr ""
+
+#: src/sshread.c:453
+#, fuzzy, c-format
+msgid "unknown encoding `%s', ignored"
+msgstr "Ukendt tegnsæt \"%s\""
+
+#: src/version-etc.c:38
+msgid "Copyright (C) 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/version-etc.c:60
+#, c-format
+msgid "Written by %s.\n"
+msgstr ""
+
+#: src/version-etc.c:66
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"Dette er fri software; se kopieringsbetingelserne i kildeteksten.  Der "
+"gives\n"
+"INGEN garanti; end ikke for SALGBARHED eller ANVENDELIGHED TIL ET GIVET "
+"FORMÅL.\n"
+
+#: src/versions.c:133
+#, fuzzy, c-format
+msgid "invalid version number `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/caret.c:43
+msgid "space (i.e., ` ')"
+msgstr ""
+
+#: lib/caret.c:45
+msgid "octal (i.e., `\\001' etc.)"
+msgstr ""
+
+#: lib/caret.c:47
+msgid "hexadecimal (i.e., `\\x0a' etc.)"
+msgstr ""
+
+#: lib/caret.c:49
+msgid "caret (i.e., `^C', `M-^C' etc.)"
+msgstr ""
+
+#: lib/caret.c:51
+msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
+msgstr ""
+
+#: lib/caret.c:53
+msgid "question-mark (i.e., `?')"
+msgstr ""
+
+#: lib/closeout.c:71 lib/closeout.c:73
+msgid "write error"
+msgstr ""
+
+#: lib/confg.c:257 lib/encoding.c:638
+#, fuzzy, c-format
+msgid "invalid option `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/confg.c:324 lib/confg.c:331 lib/confg.c:338
+#, c-format
+msgid "invalid definition for printer `%s': %s"
+msgstr ""
+
+#: lib/confg.c:329 lib/confg.c:332 lib/printers.c:47
+msgid "Unknown Printer"
+msgstr ""
+
+#: lib/confg.c:336 lib/confg.c:339 lib/printers.c:46
+msgid "Default Printer"
+msgstr ""
+
+#: lib/confg.c:392 lib/options.c:697
+#, fuzzy, c-format
+msgid "invalid variable identifier `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/confg.c:421
+#, c-format
+msgid "obsolete `%s' entry.  Ignored"
+msgstr ""
+
+#: lib/encoding.c:1114 lib/encoding.c:1135
+msgid "Known Encodings"
+msgstr ""
+
+#: lib/faces.c:156
+msgid "incomplete knowledge of faces"
+msgstr ""
+
+#: lib/filtdir.c:113
+#, c-format
+msgid "cannot close directory `%s'"
+msgstr ""
+
+#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#, fuzzy, c-format
+msgid "invalid argument `%s' for `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/getnum.c:123
+#, c-format
+msgid "Valid arguments are integers n such that: %s\n"
+msgstr ""
+
+#: lib/getnum.c:223
+#, c-format
+msgid "Valid arguments are floats f such that: %s\n"
+msgstr ""
+
+#: lib/jobs.c:307
+#, fuzzy, c-format
+msgid "unknown encoding `%s'"
+msgstr "Ukendt tegnsæt \"%s\""
+
+#: lib/madir.c:59
+msgid "rows first"
+msgstr ""
+
+#: lib/madir.c:62
+msgid "columns first"
+msgstr ""
+
+#: lib/media.c:173
+#, fuzzy, c-format
+msgid "unknown medium `%s'"
+msgstr "Ukendt sekvens \"%s\""
+
+#: lib/media.c:208 lib/media.c:237
+msgid "Known Media"
+msgstr ""
+
+#: lib/media.c:211
+msgid "Name"
+msgstr ""
+
+#: lib/media.c:212
+msgid "dimensions"
+msgstr ""
+
+#: lib/metaseq.c:104 lib/metaseq.c:113
+msgid "Known Variables"
+msgstr ""
+
+#: lib/metaseq.c:162 lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608
+#: lib/metaseq.c:951 lib/metaseq.c:972
+#, c-format
+msgid "%s: missing `%c' for %s%c escape"
+msgstr ""
+
+#: lib/metaseq.c:288 lib/metaseq.c:300
+#, c-format
+msgid "Printed by %s"
+msgstr ""
+
+#: lib/metaseq.c:298
+#, c-format
+msgid "Printed by %s from %s"
+msgstr ""
+
+#: lib/metaseq.c:308 lib/metaseq.c:327
+msgid "cannot get current working directory"
+msgstr ""
+
+#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
+#: lib/metaseq.c:954 lib/metaseq.c:987
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr ""
+
+#: lib/metaseq.c:364 lib/metaseq.c:675
+msgid "%b %d, %y"
+msgstr ""
+
+#: lib/metaseq.c:373 lib/metaseq.c:684
+msgid "%A %B %d, %Y"
+msgstr ""
+
+#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
+#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
+#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr ""
+
+#: lib/metaseq.c:426 lib/metaseq.c:815
+#, c-format
+msgid "Page %d"
+msgstr ""
+
+#: lib/metaseq.c:431 lib/metaseq.c:826
+#, c-format
+msgid "Page %d/%c"
+msgstr ""
+
+#: lib/metaseq.c:593 lib/metaseq.c:1021
+#, c-format
+msgid "%s: invalid separator `%s%c' for `%s' escape"
+msgstr ""
+
+#: lib/metaseq.c:601 lib/metaseq.c:611
+#, c-format
+msgid "%s: invalid argument for %s%c escape"
+msgstr ""
+
+#: lib/metaseq.c:822
+#, c-format
+msgid "Page %d/%d"
+msgstr ""
+
+#: lib/metaseq.c:1266
+msgid "output command"
+msgstr ""
+
+#: lib/options.c:302
+#, fuzzy, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Prøv \"%s %s\" for mere information.\n"
+
+#: lib/output.c:466
+#, fuzzy, c-format
+msgid "invalid face `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/output.c:538
+#, c-format
+msgid "`%s' with no matching `%s'"
+msgstr ""
+
+#: lib/ppd.c:108
+msgid "Known Fonts"
+msgstr ""
+
+#: lib/ppd.c:111
+msgid ""
+"\n"
+"  None.\n"
+msgstr ""
+
+#: lib/ppd.c:149 lib/ppd.c:165
+msgid "Known PostScript Printer Descriptions"
+msgstr ""
+
+#: lib/prange.c:305 lib/prange.c:323
+#, fuzzy, c-format
+msgid "invalid interval `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/printers.c:396 lib/printers.c:413
+#, c-format
+msgid "no command for the `%s' (%s%s)"
+msgstr ""
+
+#: lib/printers.c:429
+msgid "sent to the standard output"
+msgstr ""
+
+#: lib/printers.c:430
+msgid "sent to the default printer"
+msgstr ""
+
+#: lib/printers.c:435
+#, c-format
+msgid "saved into the file `%s'"
+msgstr ""
+
+#: lib/printers.c:436
+#, c-format
+msgid "sent to the printer `%s'"
+msgstr ""
+
+#: lib/printers.c:613 lib/printers.c:621
+msgid "Known Outputs (Printers, etc.)"
+msgstr ""
+
+#: lib/prolog.c:98 lib/prolog.c:181
+msgid "Known Prologues"
+msgstr ""
+
+#: lib/prolog.c:579
+#, c-format
+msgid "font %f too big"
+msgstr ""
+
+#: lib/psgen.c:662
+#, c-format
+msgid "`%s' is a binary file, printing aborted"
+msgstr ""
+
+#: lib/quotearg.c:200
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:203
+msgid "'"
+msgstr ""
+
+#: lib/userdata.c:129
+msgid "user"
+msgstr ""
+
+#: lib/userdata.c:130
+#, fuzzy
+msgid "Unknown User"
+msgstr "Ukendt sekvens \"%s\""
+
+#: lib/useropt.c:75
+#, fuzzy, c-format
+msgid "unknown user option `%s'"
+msgstr "Ukendt sekvens \"%s\""
+
+#: lib/useropt.c:86 lib/useropt.c:97
+msgid "Known User Options"
+msgstr ""
+
+#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+msgid "Memory exhausted"
+msgstr ""
+
+#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#, fuzzy, c-format
+msgid "cannot rename file `%s' as `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: lib/xbackupfile.c:255
+#, fuzzy, c-format
+msgid "restored file `%s'"
+msgstr "Kan ikke kontrollere %s automatisk"
+
+#: lib/argmatch.c:159
+#, fuzzy, c-format
+msgid "invalid argument %s for `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/argmatch.c:160
+#, fuzzy, c-format
+msgid "ambiguous argument %s for `%s'"
+msgstr "Flertydigt tegnsæt \"%s\""
+
+#: lib/argmatch.c:178
+msgid "Valid arguments are:"
+msgstr ""
+
+#: lib/error.c:102
+msgid "Unknown system error"
+msgstr ""
+
+#: lib/getopt.c:675
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:700
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:705
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:723 lib/getopt.c:896
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#: lib/getopt.c:752
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#: lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#: lib/getopt.c:782
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:785
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:815 lib/getopt.c:945
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:862
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#~ msgid ""
+#~ "This program is free software; you can redistribute it and/or modify\n"
+#~ "it under the terms of the GNU General Public License as published by\n"
+#~ "the Free Software Foundation; either version 3, or (at your option)\n"
+#~ "any later version.\n"
+#~ "\n"
+#~ "This program is distributed in the hope that it will be useful,\n"
+#~ "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+#~ "GNU General Public License for more details.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License\n"
+#~ "along with this program; if not, write to the Free Software Foundation,\n"
+#~ "Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.\n"
+#~ msgstr ""
+#~ "Dette program er fri software; du må redistribuere det og/eller "
+#~ "modificere\n"
+#~ "det under betingelserne givet i GNU General Public License som publiceret "
+#~ "af\n"
+#~ "Free Software Foundation; enten version 3, eller (efter dit valg) en "
+#~ "senere\n"
+#~ "version.\n"
+#~ "\n"
+#~ "Dette program distribueres i håbet om, at det vil være nyttigt, men UDEN\n"
+#~ "NOGEN GARANTI; end ikke en underforstået garanti for SALGBARHED eller\n"
+#~ "ANVENDELIGHED TIL ET GIVET FORMÅL.  Se GNU General Public License for\n"
+#~ "flere detaljer.\n"
+#~ "\n"
+#~ "Du skulle have modtaget en kopi af GNU General Public License sammen med\n"
+#~ "dette program; hvis ikke, så skriv til Free Software Foundation, Inc.,\n"
+#~ "59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.\n"
+
+#, fuzzy
+#~ msgid "%s: invalid argument `%s' for `%s'\n"
+#~ msgstr "Flertydigt tegnsæt \"%s\""
+
+#, fuzzy
+#~ msgid "invalid interval: %s"
+#~ msgstr "Flertydigt tegnsæt \"%s\""
+
+#, fuzzy
+#~ msgid "cannot find file %s"
+#~ msgstr "Kan ikke kontrollere %s automatisk"
+
+#, fuzzy
+#~ msgid "missing argument for %s"
+#~ msgstr "Flertydigt tegnsæt \"%s\""
+
+#, fuzzy
+#~ msgid "invalid variable identifier %s"
+#~ msgstr "Flertydigt tegnsæt \"%s\""
+
+#, fuzzy
+#~ msgid "cannot create file %s"
+#~ msgstr "Kan ikke kontrollere %s automatisk"
+
+#, fuzzy
+#~ msgid "cannot open a pipe on %s"
+#~ msgstr "Kan ikke kontrollere %s automatisk"
+
+#, fuzzy
+#~ msgid "cannot open file %s"
+#~ msgstr "Kan ikke kontrollere %s automatisk"
+
+#, fuzzy
+#~ msgid "cannot open configuration file %s"
+#~ msgstr "Kan ikke kontrollere %s automatisk"
+
+#, fuzzy
+#~ msgid "encoding %s unknown"
+#~ msgstr "Oversætter %s..."

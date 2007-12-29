@@ -1,0 +1,128 @@
+#! /bin/sh
+# Set the testing environment.
+
+# top_builddir is passed through the environment
+prog=a2ps
+top_srcdir=`cd @top_srcdir@ && pwd`
+top_builddir=`cd ${top_builddir-..} && pwd`
+srcdir=`cd @srcdir@ && pwd`
+builddir=$top_builddir/tests
+AWK=@AWK@
+
+echo_n='@ECHO_N@'
+echo_c='@ECHO_C@'
+
+# LC_MESSAGES is always shadowed by LC_ALL.  Here are the only cases:
+# - GNU:       LANGUAGE -> LC_ALL -> LC_MESSAGES -> LANG
+# - POSIX:     LC_ALL -> LC_MESSAGES -> LANG
+# - XPG4:      LC_ALL -> LANG
+# - SysV/XPG2: LANG
+# I saw a broken machine that does not support export LC_ALL before
+# its definition!
+LANGUAGE=C
+export LANGUAGE
+LANG=C
+export LANG
+LC_ALL=C
+export LC_ALL
+
+# Make it read the provided resources, not that installed
+A2PS_CONFIG=$builddir/a2ps-tst.cfg
+export A2PS_CONFIG
+
+# Tell a2ps not to honor other config files than the system's
+# (here, A2PS_CONFIG)
+NO_HOME_CONF=no
+export NO_HOME_CONF
+
+# A var often used to detect failure
+failure=0
+
+# where is the tested program?
+CHK=$top_builddir/src/${prog}
+A2PS=$CHK
+export A2PS
+REF=${prog}
+
+# Here is stored the produced postscript
+REF_DIR=$srcdir/ps-ref
+CHK_DIR=$builddir/ps-chk
+REF_FILE=$REF_DIR/$OUT_NAME
+CHK_FILE=$CHK_DIR/$OUT_NAME
+
+# Here are the test files
+TST_DIR=$top_srcdir/tests/tstfiles
+TST_FILE=$TST_DIR/$IN_NAME
+# Let the user choose the set of test files at run time.
+: ${TEST_FILES="
+AppDelegate.m:objc
+InsertBlock.java:java
+a2ps.man:plain
+bookie.idl:cidl
+configure.in:autoconf
+confirm.m3:modula3
+ehandler:ps
+eplv_chkr.v:verilog
+essai2.o2c:o2c
+ex1.asn1:asn1
+ex_PSGETRS.f90:fortran
+ShellNewDummyHook.pas:pascal
+formfeed.txt:plain
+ftp2.pml:promela
+includeres:perl
+mofibida.hs:haskell
+mtvplot.octave:octave
+mutex.py:python
+pi.b:bc
+polkaIDL.hh:cxx
+prosamp.pre:pre
+psmandup:sh
+report.pre:texscript
+run-help:zsh
+s-garnam.adb:ada
+snacc.mib:mib
+space.pls:plsql
+sqlcrtbl.sql:sql
+sqlinit.ora:oracle
+sqlpq92.sql:sql92
+sqlspace.pkb:plsql
+strange.mail:mail
+symbol.pre:pre
+synopsys.setup:dc_shell
+tabulation.pre:pre
+template.e:eiffel
+typing.cl:claire
+vrcaml.ml:caml
+wide.txt:plain"}
+
+# The temp directory
+TMPDIR=${TMPDIR:-/tmp}
+tmpdir=$TMPDIR/a2$$
+
+# Remove the junk files.
+trap "/bin/rm -rf $tmpdir" 0 1 2 3 13 15
+
+# Make sure the directories exist
+for dir in $REF_DIR $CHK_DIR $tmpdir
+do
+  [ -d "$dir" ] || mkdir $dir
+  chmod u+wrx $dir
+done
+
+# File descriptor usage:
+# 0 standard input
+# 1 file creation
+# 2 errors and warnings
+# 3 some systems may open it to /dev/tty
+# 4 used on the Kubota Titan
+# 5 a2ps' stderr
+if test yes = "$VERBOSE"; then
+  exec 5>&2
+  verbose=echo
+else
+  exec 5>/dev/null
+  verbose=:
+fi
+
+# Any kind of error should be a failure
+set -e

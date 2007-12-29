@@ -1,0 +1,320 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (/* ########################################################################) c n
+0 T () N
+0 T () S 8 T () S 16 T () S 24 T (       Bookie.idl) N
+0 T () N
+(5) # (   This program is free software; you can redistribute it and/or modify) N
+0 T (   it under the terms of the GNU General Public License as published by) N
+0 T (   the Free Software Foundation; either version 3, or \(at your option\)) N
+0 T (   any later version.) N
+0 T () N
+(10) # (   \(c\) Copyright 1999 Bob Phillips) N
+0 T () N
+0 T (   ######################################################################## */) N
+0 T () N
+0 T () S
+(#include) K
+( <IncludedIdl.idl>) p n
+(15) # () N
+0 T () S
+(#define) K
+( FIVE_BUCKS 5.00) p n
+0 T () N
+0 T () S
+(module) K
+( Bookie {) p n
+0 T () N
+(20) # () S
+(// For now, we will cheat on the date, time,) c n
+0 T (// and location. Eventually, we want to make) N
+0 T (// these real objects.) N
+0 T () S
+(typedef) K
+( ) p
+(string) k
+( Date;) p n
+0 T () S
+(typedef) K
+( ) p
+(string) k
+( Time;) p n
+(25) # () S
+(typedef) K
+( ) p
+(string) k
+( Location;) p n
+0 T () N
+0 T () S
+(exception) K
+( NoBet {};) p n
+0 T () S
+(exception) K
+( EmptyBetList{};) p n
+0 T () N
+(30) # () S 8 T () S
+(# pragma) K
+( MindlessJunk) p n
+0 T () N
+0 T () S
+(// PointSpread is a bit of a hack.  We need to be able to express the) c n
+0 T (// 1/2 point push-eliminator What we will do is create an object that) N
+0 T (// can be initialized with a float/double.  Any non-zero part of the) N
+(35) # (// fraction will be rounded \(up or down\) to 1/2 -- the implementation) N
+0 T (// will probably represent it as a short int \(16-bit, so, allowing 1) N
+0 T (// bit to serve as the 1/2 fraction and 1 to serve as a sign, we have) N
+0 T (// 14 bit spreads.  Even in basketball, that isn't going to happen) N
+0 T (// anytime soon :^\)) N
+(40) # () N
+0 T () S
+(   ) p
+(interface) K
+( PointSpread {) p n
+0 T () S 8 T () S
+(// Attributes would be the logical way to) c n
+0 T () S
+(        ) p
+(// do this, but the example is short on) c n
+0 T () S
+(        ) p
+(// methods... So we need to have some methods.) c n
+(45) # () S
+() p 8 T () S
+(void) k
+( ) p
+(SetSpread) l
+(\() p
+(in) K
+( ) p
+(float) k
+( spread\);) p n
+0 T () S 8 T () S
+(float) k
+( ) p
+(GetSpread) l
+(\() p
+(void) k
+(\);) p n
+0 T (   };) N
+0 T () N
+0 T () S
+(// Same sort of thing with currency.  We want a Fixed representation) c n
+(50) # (// So we allow any float in.  We output a Float for other purposes.) N
+0 T (// We can later add all sorts of operations.) N
+0 T () N
+0 T () S
+(   ) p
+(interface) K
+( Currency {) p n
+0 T () S 8 T () S
+(attribute) K
+( ) p
+(float) k
+( amount;) p n
+(55) # (   };) N
+0 T () N
+0 T () N
+0 T () S
+(const) K
+( ) p
+(float) k
+( NICKEL_BET FIVE_BUCKS;) p n
+0 T () S
+(const) K
+( ) p
+(float) k
+( DIME_BET  10.00;) p n
+(60) # () N
+0 T (   ) S
+(interface) K
+( Team {) p n
+0 T (      ) S
+(readonly) K
+( ) p
+(attribute) K
+( ) p
+(string) k
+( name; ) p
+(// No need to change this) c n
+0 T () S
+(      ) p
+(attribute) K
+( ) p
+(unsigned) k
+( ) p
+(long) k
+( wins;) p n
+0 T (      ) S
+(attribute) K
+( ) p
+(unsigned) k
+( ) p
+(long) k
+( losses;) p n
+(65) # (   };) N
+0 T () N
+0 T (   ) S
+(interface) K
+( Game {) p n
+0 T (     ) S
+(attribute) K
+( Date date;) p n
+0 T (     ) S
+(attribute) K
+( Time time;) p n
+(70) # (     ) S
+(attribute) K
+( Location location;) p n
+(bookie.idl) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (   }) p n
+0 T () N
+0 T (   ) S
+(interface) K
+( Bet {) p n
+0 T () S 8 T () S
+(// If an attribute ever changes, we need to create a new Bet.) c n
+(75) # () S
+() p 8 T () S
+(// This allows for record keeping if we integrate persistent) c n
+0 T () S
+() p 8 T () S
+(// storage -- we have a record of every bet ever made.) c n
+0 T () S
+() p 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Game game;) p n
+0 T () S 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Team team;) p n
+0 T () S 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Currency amount;) p n
+(80) # (   };) N
+0 T () N
+0 T () S
+(typedef) K
+( ) p
+(sequence) k
+(<Bet> BetList;) p n
+0 T () N
+0 T (   ) S
+(interface) K
+( Customer {) p n
+(85) # (     ) S
+(readonly) K
+( ) p
+(attribute) K
+( ) p
+(string) k
+( name;) p n
+0 T (     ) S
+(attribute) K
+( ) p
+(boolean) k
+( PaidUp;) p n
+0 T (     ) S
+(void) k
+( ) p
+(AddToBetList) l
+( \() p
+(in) K
+( Bet bet\);) p n
+0 T (     ) S
+(void) k
+( ) p
+(DelFromBetList) l
+( \() p
+(in) K
+( Bet bet\)) p n
+0 T () S 8 T () S
+(raises) K
+( \(NoBet\);) p n
+(90) # (     ) S
+(void) k
+( ) p
+(SetBetlist) l
+( \() p
+(in) K
+( BetList list\);) p n
+0 T (     ) S
+(oneway) K
+( ) p
+(void) k
+( ) p
+(ClearBetList) l
+( \() p
+(void) k
+(\);) p n
+0 T (     ) S
+(void) k
+( ) p
+(FindBet) l
+(\() p
+(inout) K
+( Bet bet\) ) p
+(// Need to show an inout...) c n
+0 T () S
+() p 8 T () S
+(raises) K
+(\(NoBet\);) p n
+0 T (     ) S
+(void) k
+( ) p
+(GetBetList) l
+(\() p
+(out) K
+( BetList list\) ) p
+(// Need to show an out param...) c n
+(95) # () S
+() p 8 T () S
+(raises) K
+( \(EmptyBetList\);) p n
+0 T (   };) N
+0 T (};) N
+(bookie.idl) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

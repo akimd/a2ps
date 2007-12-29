@@ -1,0 +1,108 @@
+-- This file is extracted from the Snacc distribution.
+-- Parts have be cut to win bytes, and the result is probably meaningless.
+--
+
+RFC1213-MIB DEFINITIONS ::= BEGIN
+
+          IMPORTS
+                  mgmt, NetworkAddress, IpAddress, Counter, Gauge,
+                          TimeTicks
+                      FROM RFC1155-SMI
+
+--                  OBJECT-TYPE
+--                          FROM RFC-1212
+
+        ;
+
+          --  MIB-II (same prefix as MIB-I)
+
+          mib-2      OBJECT IDENTIFIER ::= { mgmt 1 }
+
+          -- textual conventions
+
+          DisplayString ::=
+              OCTET STRING
+          -- This data type is used to model textual information taken
+          -- from the NVT ASCII character set.  By convention, objects
+          -- with this syntax are declared as having
+          --      SIZE (0..255)
+
+          -- groups in MIB-II
+
+          system       OBJECT IDENTIFIER ::= { mib-2 1 }
+
+          -- historical (some say hysterical)
+          -- cmot      OBJECT IDENTIFIER ::= { mib-2 9 }
+
+          transmission OBJECT IDENTIFIER ::= { mib-2 10 }
+
+
+          -- the Interfaces table
+
+          -- The Interfaces table contains information on the entity's
+          -- interfaces.  Each interface is thought of as being
+          -- attached to a `subnetwork'.  Note that this term should
+          -- not be confused with `subnet' which refers to an
+          -- addressing partitioning scheme used in the Internet suite
+          -- of protocols.
+
+          ifTable OBJECT-TYPE
+              SYNTAX  SEQUENCE OF IfEntry
+              ACCESS  not-accessible
+              STATUS  mandatory
+              DESCRIPTION
+                      "A list of interface entries.  The number of
+                      entries is given by the value of ifNumber."
+              ::= { interfaces 2 }
+
+          IfEntry ::=
+              SEQUENCE {
+                  ifIndex
+                      INTEGER,
+                  ifDescr
+                      DisplayString,
+                  ifType
+                      INTEGER,
+                  ifMtu
+                      INTEGER,
+                  ifSpeed
+                      Gauge,
+                  ifPhysAddress
+                      PhysAddress,
+                  ifSpecific
+                      OBJECT IDENTIFIER
+              }
+
+
+          ifType OBJECT-TYPE
+              SYNTAX  INTEGER {
+                          other(1),          -- none of the following
+                          regular1822(2),
+                          hdh1822(3),
+                          ddn-x25(4),
+                          rfc877-x25(5),
+                          e1(19),            -- european equiv. of T-1
+                          basicISDN(20),
+                          primaryISDN(21),   -- proprietary serial
+                          propPointToPointSerial(22),
+                          ppp(23),
+                          softwareLoopback(24),
+                          eon(25),            -- CLNP over IP [11]
+                          ethernet-3Mbit(26),
+                          nsip(27),           -- XNS over IP
+                          slip(28),           -- generic SLIP
+                          ultra(29),          -- ULTRA technologies
+                          ds3(30),            -- T-3
+                          sip(31),            -- SMDS
+                          frame-relay(32)
+                      }
+              ACCESS  read-only
+              STATUS  mandatory
+              DESCRIPTION
+                      "The type of interface, distinguished according to
+                      the physical/link protocol(s) immediately `below'
+                      the network layer in the protocol stack."
+              ::= { ifEntry 3 }
+
+
+END

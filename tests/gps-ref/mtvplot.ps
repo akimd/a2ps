@@ -1,0 +1,81 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (## usage mtvplot\(input,titles,filename\)) c n
+0 T (##) N
+0 T (## Outpluts graphs in MTV 1.4.1 curve2d format.) N
+0 T (##) N
+(5) # (##     input:    is a matrix with the ordinate in the first column,) N
+0 T (##               each successive column is a separate curve to plot) N
+0 T (##               on the SEPARATE axes.) N
+0 T (##     titles:   a list of string titles for each plot) N
+0 T (##     filename: the file to store the mtv file in) N
+(10) # () N
+0 T () S
+(function) K
+( mtvplot\(input,titles,filename\)) p n
+0 T (  file=fopen\(filename,") S
+(w) str
+("\);) p n
+0 T () N
+0 T () N
+(15) # (  ) S
+(for) K
+( g=\(1:columns\(input\)-1\)) p n
+0 T (    fprintf\(file,") S
+(%s\\n) str
+(",") p
+($DATA=Curve2d) str
+("\);) p n
+0 T (    fprintf\(file,") S
+(%s %s %s\\n) str
+(",") p
+(%toplabel=\\") str
+(",titles\(g,:\),") p
+(\\") str
+("\);) p n
+0 T (    fprintf\(file,") S
+(%s\\n) str
+(",") p
+(% linetype=1) str
+("\);) p n
+0 T (    ) S
+(for) K
+( x=1:rows\(input\)) p n
+(20) # (      fprintf\(file,") S
+(%f %f\\n) str
+(",input\(x,1\),input\(x,g+1\)\);) p n
+0 T (    ) S
+(endfor) K n
+0 T () S
+(  ) p
+(endfor) K n
+0 T () S
+(  fclose\(file\)) p n
+0 T () S
+(endfunction) K n
+(25) # () N
+0 T () S
+(  ) p n
+0 T (  ) S
+(mtvplot.octave) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

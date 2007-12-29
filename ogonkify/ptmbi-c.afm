@@ -1,0 +1,65 @@
+StartFontMetrics 3.0
+Comment More composite characters for Times-Roman.
+Comment by J. Chroboczek <jec@dcs.ed.ac.uk>
+Comment This is not strictly a conforming AFM file.
+FontName Times-BoldItalic-Comp
+StartComposites 57
+CC abreve 2 ; PCC a 0 0 ; PCC breve 83 0 ;
+CC Abreve 2 ; PCC A 0 0 ; PCC breve 227 224 ;
+CC aogonek 2 ; PCC a 0 0 ; PCC ogonek 255 -30 ;
+CC Aogonek 2 ; PCC A 0 0 ; PCC ogonek 410 -30 ;
+CC cacute  2 ; PCC c 0 0 ; PCC acute 30 0 ;
+CC Cacute  2 ; PCC C 0 0 ; PCC acute 190 212 ;
+CC ccaron  2 ; PCC c 0 0 ; PCC caron 84 0 ;
+CC Ccaron  2 ; PCC C 0 0 ; PCC caron 248 212 ;
+CC dbar 2 ; PCC d 0 0 ; PCC hyphen 240 320 ;
+CC Dbar 2 ; PCC Eth 0 0 ; PCC space 0 0 ;
+CC dcaron 2 ; PCC d 0 0 ; PCC quoteright 439 84 ;  
+CC Dcaron 2 ; PCC D 0 0 ; PCC caron 251 214 ;  
+CC ecaron  2 ; PCC e 0 0 ; PCC caron 55 0 ;
+CC Ecaron  2 ; PCC E 0 0 ; PCC caron 167 204 ;
+CC edotaccent 2 ; PCC e 0 0 ; PCC dotaccent 84 0 ;
+CC Edotaccent 2 ; PCC E 0 0 ; PCC dotaccent 220 212 ;
+CC eogonek 2 ; PCC e 0 0 ; PCC ogonek 145 -30 ;
+CC Eogonek 2 ; PCC E 0 0 ; PCC ogonek 358 -30 ;
+CC gbreve 2 ; PCC g 0 0 ; PCC breve 83 0 ;
+CC Gbreve 2 ; PCC G 0 0 ; PCC breve 204 212 ;
+CC Idotaccent 2 ; PCC I 0 0 ; PCC dotaccent 44 212 ;
+CC iogonek 2 ; PCC i 0 0 ; PCC ogonek 12 -30 ;
+CC Iogonek 2 ; PCC I 0 0 ; PCC ogonek 33 -30 ;
+CC lacute 2 ; PCC l 0 0 ; PCC acute 54 214 ;  
+CC Lacute 2 ; PCC L 0 0 ; PCC acute 196 214 ;  
+CC lcaron 2 ; PCC l 0 0 ; PCC quoteright 212 84 ;  
+CC Lcaron 2 ; PCC L 0 0 ; PCC quoteright 328 51 ;  
+CC nacute  2 ; PCC n 0 0 ; PCC acute 60 0 ;
+CC Nacute  2 ; PCC N 0 0 ; PCC acute 190 212 ;
+CC ncaron 2 ; PCC n 0 0 ; PCC caron 111 0 ;  
+CC Ncaron 2 ; PCC N 0 0 ; PCC caron 251 214 ;  
+CC ohungarumlaut 2 ; PCC o 0 0 ; PCC hungarumlaut 83 0 ;
+CC Ohungarumlaut 2 ; PCC O 0 0 ; PCC hungarumlaut 194 204 ;
+CC racute 2 ; PCC r 0 0 ; PCC acute 52 0 ;  
+CC Racute 2 ; PCC R 0 0 ; PCC acute 270 214 ;  
+CC rcaron 2 ; PCC r 0 0 ; PCC caron 28 0 ;  
+CC Rcaron 2 ; PCC R 0 0 ; PCC caron 224 214 ;  
+CC sacute  2 ; PCC s 0 0 ; PCC acute -50 0 ;
+CC Sacute  2 ; PCC S 0 0 ; PCC acute 70 212 ;
+CC scedilla 2 ; PCC s 0 0 ; PCC cedilla 28 0 ;
+CC Scedilla 2 ; PCC S 0 0 ; PCC cedilla 111 0 ;
+CC tcaron 2 ; PCC t 0 0 ; PCC quoteright 203 0 ;  
+CC Tcaron 2 ; PCC T 0 0 ; PCC caron 196 214 ;  
+CC tcedilla 2 ; PCC t 0 0 ; PCC cedilla 60 0 ;
+CC Tcedilla 2 ; PCC T 0 0 ; PCC cedilla 198 0 ;
+CC uhungarumlaut 2 ; PCC u 0 0 ; PCC hungarumlaut 111 0 ;
+CC Uhungarumlaut 2 ; PCC U 0 0 ; PCC hungarumlaut 194 204 ;
+CC umacron 2 ; PCC u 0 0 ; PCC macron 108 0 ;
+CC Umacron 2 ; PCC U 0 0 ; PCC macron 253 212 ;
+CC uring 2 ; PCC u 0 0 ; PCC ring 111 0 ;  
+CC Uring 2 ; PCC U 0 0 ; PCC ring 240 175 ;  
+CC uogonek 2 ; PCC u 0 0 ; PCC ogonek 242 -30 ;
+CC Uogonek 2 ; PCC U 0 0 ; PCC ogonek 287 -30 ;
+CC zacute  2 ; PCC z 0 0 ; PCC acute 30 0 ;
+CC Zacute  2 ; PCC Z 0 0 ; PCC acute 130 212 ;
+CC zdotaccent 2 ; PCC z 0 0 ; PCC dotaccent -20 0 ;
+CC Zdotaccent 2 ; PCC Z 0 0 ; PCC dotaccent 130 212 ;
+EndComposites
+EndFontMetrics

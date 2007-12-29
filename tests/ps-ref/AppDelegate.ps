@@ -1,0 +1,242 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p n
+(#import) K
+( ") p
+(AppDelegate.h) str
+(") p n
+() N
+(#import) K
+( <foundation/NSArray.h>) p n
+(#import) K
+( <dbkit/DBValue.h>) p n
+() N
+(@implementation) K
+( AppDelegate) p n
+() N
+(// --------------------- Constants) c n
+() p n
+(#define) K
+( N_FIELDS) p 24 T () S 32 T (\(8\)) N
+() N
+(// --------------------- Global variables) c n
+() p n
+(NSString) N
+(    *AppDelegateNewSetNotificationName = @") S
+(AppDelegateNewSetNotification) str
+(",) p n
+(    ) S 8 T () S
+(// This is the name of the notification sent out when a new) c n
+() p 8 T () S
+(// field set has been selected for manipulation.) c n
+(    *AppDelegateNewFieldNotificationName = @") p
+(AppDelegateNewSetNotification) str
+(";) p n
+(    ) S 8 T () S
+(// This is the name of the notification sent out when a new) c n
+() p 8 T () S
+(// field has been selected for manipulation.) c n
+(    ) p n
+(// --------------------- Class variables) c n
+() p n
+(static) K
+( NSMutableArray) p n
+() S 8 T (*classDefaultSet = nil;) N
+() S 8 T () N
+(// --------------------- Methods) c n
+() p n
+(+ initize) K n
+({) p n
+(    ) S
+(// This method will be called automatically prior to any) c n
+(    ) p
+(// other to this class.) c n
+(    ) p n
+(    ) S
+(int) k
+( ) p n
+(    ) S 8 T (i;) N
+() S 8 T () N
+(    ) S
+(// Create an array to hold the actual field objects.) c n
+(    classDefaultSet = [[NSMutableArray array] retain];) p n
+(    ) S 8 T () S 16 T (    ) N
+(        ) N
+(    ) S
+(return) K
+( ) p
+(self) K
+(;) p n
+(    ) S 8 T () S 16 T (    ) N
+(} ) S
+(// initize) c n
+(    ) p n
+(- \(id <FieldSet>\)fieldSet) K n
+({) p n
+(    ) S
+(// This method returns an object \(conforming to the FieldSet) c n
+(    ) p
+(// protocol\) which is being manipulated by this application.  ) c n
+(    ) p n
+(    ) S
+(// If we don't have one yet...) c n
+(    ) p
+(if) K
+( \(!myFieldSet\)) p n
+(    {) N
+(    ) S 8 T () S
+(// Just adopt the default one for this class.) c n
+() p 8 T ([) S
+(self) K
+( setFieldSet:\() p
+(id) k
+(\)classDefaultSet];) p n
+(    }) N
+(    ) N
+(    ) S
+(return) K
+( myFieldSet;) p n
+(    ) N
+(} ) S
+(// fieldSet) c n
+() p n
+(- \(void\)setFieldSet:\(id <FieldSet>\)newValue) K n
+({) p n
+(    ) S
+(// This method sets the field set being manipulated to the one given.) c n
+(    ) p
+(// If the new set differs from the old, the AppDelegateNewSet) c n
+(    ) p
+(// notification will be posted informing watchers of the change.) c n
+(AppDelegate.m) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(    ) p n
+(    ) S
+(// If the new field is the same as the old..) c n
+(    ) p
+(if) K
+( \(newValue EQ myFieldSet\)) p n
+(    {) N
+(    ) S 8 T () S
+(return) K
+(;) p 16 T () S
+(// do nothing) c n
+(    } ) p n
+(    ) N
+(    ) S
+(// Release the old value and adopt the new.) c n
+(    [newValue retain];) p n
+(    ) N
+(    ) S
+(// Post a notification of the change.) c n
+(    [[NotificationCenter defaultCenter]) p n
+(    ) S 8 T (postNotificationName:AppDelegateNewSetNotificationName) N
+() S 8 T (object:myFieldSet];) N
+(    ) N
+(} ) S
+(// setFieldSet:) c n
+() p n
+(- \(Field *\)selectedField) K n
+({) p n
+(    ) S
+(// This method returns the field from our field set) c n
+(    ) p
+(// which is currently considered selected.) c n
+(    ) p n
+(    ) S
+(// If we don't currently have a selected field...) c n
+(    ) p
+(if) K
+( \(!mySelectedField\)) p n
+(    {) N
+(     ) S 8 T () S
+(// Adopt the first field in our set.) c n
+() p 8 T ([) S
+(self) K
+( setSelectedField:[[) p
+(self) K
+( fieldSet] fieldAtIndex:0]];) p n
+(    }) N
+(    ) N
+(    ) S
+(return) K
+( mySelectedField;) p n
+(    ) N
+(} ) S
+(// selectedField) c n
+() p n
+(- \(void\)setSelectedField:\(Field *\)newValue) K n
+({) p n
+(    ) S
+(// This method causes the given field to be taken as the active one.) c n
+(    ) p
+(// If the new field differs from the old, the AppDelegateNewField ) c n
+(    ) p
+(// notification will be posted informing watchers of the change.) c n
+(    ) p n
+(    ) S
+(// If the new field is the same as the old..) c n
+(    ) p
+(if) K
+( \(newValue EQ mySelectedField\)) p n
+(    {) N
+(    ) S 8 T () S
+(return) K
+(;) p 16 T () S
+(// do nothing) c n
+(    } ) p n
+(    ) N
+(    ) S
+(// Release the old value and adopt the new.) c n
+(    [newValue retain];) p n
+(    ) N
+(    ) S
+(// Post a notification of the change.) c n
+(    [[NotificationCenter defaultCenter]) p n
+(    ) S 8 T (postNotificationName:AppDelegateNewFieldNotificationName ) N
+() S 8 T (object:mySelectedField];) N
+(    ) N
+(} ) S
+(// setSelectedField:) c n
+() p n
+(@end) K n
+(AppDelegate.m) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

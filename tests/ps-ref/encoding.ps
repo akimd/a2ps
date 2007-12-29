@@ -1,0 +1,3225 @@
+%!PS-Adobe-3.0
+%%Title: a2ps output
+%%For: Somebody
+%%Creator: a version of a2ps
+%%CreationDate: once upon a time
+%%BoundingBox: 24 24 571 818
+%%DocumentData: Clean7Bit
+%%Orientation: Landscape
+%%Pages: 2
+%%PageOrder: Ascend
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Symbol
+%%+ font Times-Bold
+%%+ font Times-Roman
+%%DocumentProcessColors: Black Blue Green Red 
+%%DocumentSuppliedResources: procset a2ps-color-prolog
+%%+ encoding ASCIIEncoding
+%%+ encoding HPRomanEncoding
+%%+ encoding IBM-CP437Encoding
+%%+ encoding IBM-CP850Encoding
+%%+ encoding ISO-8859-10Encoding
+%%+ encoding ISO-8859-1Encoding
+%%+ encoding ISO-8859-2Encoding
+%%+ encoding ISO-8859-3Encoding
+%%+ encoding ISO-8859-4Encoding
+%%+ encoding ISO-8859-9Encoding
+%%+ encoding MS-CP1250Encoding
+%%+ encoding MacintoshEncoding
+%%+ font Courier-Bold-Ogonki
+%%+ font Courier-Ogonki
+%%+ font Helvetica-Bold-Ogonki
+%%+ font PCFont
+%%+ font Times-Roman-Ogonki
+%%EndComments
+/a2psdict 200 dict def
+a2psdict begin
+%%BeginProlog
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+
+% EPSF import as in the Red Book
+/BeginInclude {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack 
+  userdict begin
+    0 setgray 0 setlinecap
+    1 setlinewidth 0 setlinejoin
+    10 setmiterlimit [ ] 0 setdash newpath
+    gs_languagelevel 1 ne {
+      false setstrokeadjust false setoverprint 
+    } if
+} bind def
+
+/EndInclude {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+/BeginEPSF {
+  BeginInclude
+  /showpage { } def
+} bind def
+
+/EndEPSF {
+  EndInclude
+} bind def
+
+% Page prefeed
+/page_prefeed {         % bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} bind def
+
+/deffont {
+  findfont exch scalefont def
+} bind def
+
+/reencode_font {
+  findfont reencode 2 copy definefont pop def
+} bind def
+
+% Function c-show (str => -)
+% centers text only according to x axis.
+/c-show { 
+  dup stringwidth pop
+  2 div neg 0 rmoveto
+  show
+} bind def
+
+% Function l-show (str => -)
+% prints texts so that it ends at currentpoint
+/l-show {
+  dup stringwidth pop neg 
+  0 
+  rmoveto show
+} bind def
+
+% center-fit show (str w => -)
+% show centered, and scale currentfont so that the width is less than w
+/cfshow {
+  exch dup stringwidth pop
+  % If the title is too big, try to make it smaller
+  3 2 roll 2 copy
+  gt
+  { % if, i.e. too big
+    exch div
+    currentfont exch scalefont setfont
+  } { % ifelse
+    pop pop 
+  }
+  ifelse
+  c-show			% center title
+} bind def
+
+% Return the y size of the current font
+% - => fontsize
+/currentfontsize {
+  currentfont /FontMatrix get 3 get 1000 mul
+} bind def
+
+% reencode the font
+% <encoding-vector> <fontdict> -> <newfontdict>
+/reencode { %def
+  dup length 5 add dict begin
+    { %forall
+      % <vector> <key> <val>
+      1 index /FID ne 
+      { def }{ pop pop } ifelse
+    } forall
+    /Encoding exch def % -
+
+    % Use the font's bounding box to determine the ascent, descent,
+    % and overall height; don't forget that these values have to be
+    % transformed using the font's matrix.
+    % We use `load' because sometimes BBox is executable, sometimes not.
+    % Since we need 4 numbers an not an array avoid BBox from being executed
+    /FontBBox load aload pop
+    FontMatrix transform /Ascent exch def pop
+    FontMatrix transform /Descent exch def pop
+    /FontHeight Ascent Descent sub def
+
+    % Get the underline position and thickness if they're defined.
+    % Use 1 if they are not defined.
+    currentdict /FontInfo 2 copy known
+    { get
+      /UnderlinePosition 2 copy % <FontInfo> /UP <FontInfo> /UP
+      2 copy known
+      { get }{ pop pop 1 } ifelse
+      0 exch FontMatrix transform exch pop
+      def % <FontInfo>
+
+      /UnderlineThickness 2 copy % <FontInfo> /UT <FontInfo> /UT
+      2 copy known
+      { get }{ pop pop 1 } ifelse
+      0 exch FontMatrix transform exch pop
+      def % <FontInfo>
+      pop % -
+    }{ pop pop
+    } ifelse
+
+    currentdict
+  end 
+} bind def
+
+% Function print line number (<string> # -)
+/# {
+  gsave
+    sx cw mul neg 2 div 0 rmoveto
+    f# setfont
+    c-show
+  grestore
+} bind def
+
+% -------- Some routines to enlight plain b/w printings ---------
+
+% Underline
+% width --
+/dounderline {
+  currentpoint
+  gsave
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    0 rlineto
+    stroke
+  grestore
+} bind def
+
+% Underline a string
+% string --
+/dounderlinestring {
+  stringwidth pop
+  dounderline
+} bind def
+
+/UL {
+  /ul exch store
+} bind def
+
+% Draw a box of WIDTH wrt current font
+% width --
+/dobox {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  grestore
+} bind def
+
+/BX {
+  /bx exch store
+} bind def
+
+% Box a string
+% string --
+/doboxstring {
+  stringwidth pop
+  dobox
+} bind def
+
+%
+% ------------- Color routines ---------------
+%
+/FG /setrgbcolor load def
+
+% Draw the background
+% width --
+/dobackground {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    bgcolor aload pop setrgbcolor
+    fill
+  grestore
+} bind def
+
+% Draw bg for a string
+% string --
+/dobackgroundstring {
+  stringwidth pop
+  dobackground
+} bind def
+
+
+/BG {
+  dup /bg exch store
+  { mark 4 1 roll ] /bgcolor exch store } if
+} bind def
+
+
+/Show {
+  bg { dup dobackgroundstring } if
+  ul { dup dounderlinestring } if
+  bx { dup doboxstring } if
+  show
+} bind def
+
+% Function T(ab), jumps to the n-th tabulation in the current line
+/T {
+  cw mul x0 add
+  bg { dup currentpoint pop sub dobackground } if
+  ul { dup currentpoint pop sub dounderline } if
+  bx { dup currentpoint pop sub dobox } if
+  y0 moveto
+} bind def
+
+% Function n: move to the next line
+/n {
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+% Function N: show and move to the next line
+/N {
+  Show
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+/S {
+  Show
+} bind def
+
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Function title: prints page header.
+% <ct> <rt> <lt> are passed as argument
+/title { 
+  % 1. Draw the background
+  x v get y v get moveto
+  0 setgray
+  gsave
+    0 th 2 div neg rmoveto 
+    th setlinewidth
+    0.5 0.5 1 setrgbcolor
+    pw 0 rlineto stroke
+  grestore
+  % 2. Border it
+  gsave
+    0.7 setlinewidth
+    pw 0 rlineto
+    0 th neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+  % stk: ct rt lt
+  x v get y v get th sub 1 add moveto
+%%IncludeResource: font Helvetica
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  % 3. The left title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    fnfs 0.8 mul hm rmoveto
+    show			% left title
+  grestore
+  exch
+  % stk: ct ltw rt
+  % 4. the right title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    dup
+    pw exch stringwidth pop fnfs 0.8 mul add sub
+    hm
+    rmoveto
+    show			% right title
+  grestore
+  % stk: ct ltw rtw
+  % 5. the center title
+  gsave
+    pw 3 1 roll
+    % stk: ct pw ltw rtw
+    3 copy 
+    % Move to the center of the left room
+    sub add 2 div hm rmoveto
+    % What is the available space in here?
+    add sub fnfs 0.8 mul sub fnfs 0.8 mul sub
+    % stk: ct space_left
+%%IncludeResource: font Helvetica-Bold
+  fHelvetica-Bold fnfs scalefont setfont
+    1 setgray
+    cfshow
+  grestore
+} bind def
+
+% Function border: prints virtual page border
+/border { %def
+  gsave				% print four sides
+    0 setgray
+    x v get y v get moveto
+    0.7 setlinewidth		% of the square
+    pw 0 rlineto
+    0 ph neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+} bind def
+
+% Function water: prints a water mark in background
+/water { %def
+  gsave
+    scx scy moveto rotate
+%%IncludeResource: font Times-Bold
+  fTimes-Bold 100 scalefont setfont
+    .97 setgray
+    dup stringwidth pop 2 div neg -50 rmoveto
+    show
+  grestore
+} bind def
+
+% Function rhead: prints the right header
+/rhead {  %def
+  lx ly moveto
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  l-show
+} bind def
+
+% Function footer (cf rf lf -> -)
+/footer {
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  dx dy moveto
+  show
+
+  snx sny moveto
+  l-show
+  
+  fnx fny moveto
+  c-show
+} bind def
+
+% Function print line number (<string> # -)
+/# {
+  gsave
+    sx cw mul neg 2 div 0 rmoveto
+    f# setfont
+    c-show
+  grestore
+} bind def
+%%BeginResource: procset a2ps-color-prolog 2.0 1
+
+%% Definition of the color faces.
+/p {
+  0 0 0 FG
+  false BG
+  false UL
+  false BX
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/sy {
+  0 0 0 FG
+  false BG
+  fSymbol bfs scalefont setfont
+  Show
+} bind def
+
+/k {
+  false BG
+  false UL
+  false BX
+  0 0 0.9 FG
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/K {
+  false BG
+  false UL
+  false BX
+  0 0 0.8 FG
+  fCourier-Bold bfs scalefont setfont
+  Show
+} bind def
+
+/c {
+  false BG
+  false UL
+  false BX
+  0.8 0 0 FG
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/C {
+  false BG
+  false UL
+  false BX
+  0.8 0 0 FG
+  fCourier-Bold bfs scalefont setfont
+  Show
+} bind def
+
+/l {
+  0 0 0 FG
+  0.8 0.8 0 true BG
+  false UL
+  false BX
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/L {
+  0 0 0 FG
+  1 1 0 true BG
+  false UL
+  false BX
+  fCourier-Bold bfs scalefont setfont
+  Show
+} bind def
+
+/str {
+  false BG
+  false UL
+  false BX
+  0 0.5 0 FG
+  fTimes-Roman bfs scalefont setfont
+  Show
+} bind def
+
+/e{
+  1 0 0 true BG
+  false UL
+  true BX
+  1 1 1 FG
+  fHelvetica-Bold bfs scalefont setfont
+  Show
+} bind def
+
+% Function print line number (<string> # -)
+/# {
+  gsave
+    sx cw mul 2 div neg 0 rmoveto
+    f# setfont
+    0.8 0.1 0.1 FG
+    c-show
+  grestore
+} bind def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Symbol
+%%BeginResource: encoding ISO-8859-1Encoding
+/ISO-8859-1Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section 
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron 
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /bullet 
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown 
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla 
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply 
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls 
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla 
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis 
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide 
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis 
+] def
+%%EndResource
+%%BeginResource: encoding ASCIIEncoding
+/ASCIIEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /tilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+] def
+%%EndResource
+%%BeginResource: encoding ISO-8859-2Encoding
+/ISO-8859-2Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /Aogonek /breve /Lslash /currency /Lcaron /Sacute /section 
+/dieresis /Scaron /Scedilla /Tcaron /Zacute /hyphen /Zcaron /Zdotaccent 
+/degree /aogonek /ogonek /lslash /acute /lcaron /sacute /caron 
+/cedilla /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent 
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla 
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron 
+/Dbar /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply 
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls 
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla 
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron 
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide 
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent 
+] def
+%%EndResource
+%%BeginResource: encoding ISO-8859-3Encoding
+/ISO-8859-3Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /Hstroke /breve /sterling /currency /yen /Hcircumflex /section 
+/dieresis /Idotaccent /Scedilla /Gbreve /Jcircumflex /hyphen /registered /Zdotaccent 
+/degree /hstroke /twosuperior /threesuperior /acute /mu /hcircumflex /bullet 
+/cedilla /dotlessi /scedilla /gbreve /jcircumflex /onehalf /threequarters /zdotaccent 
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Cdotaccent /Ccircumflex /Ccedilla 
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Gdotaccent /Odieresis /multiply 
+/Gcircumflex /Ugrave /Uacute /Ucircumflex /Udieresis /Ubreve /Scircumflex /germandbls 
+/agrave /aacute /acircumflex /atilde /adieresis /cdotaccent /ccircumflex /ccedilla 
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis 
+/eth /ntilde /ograve /oacute /ocircumflex /gdotaccent /odieresis /divide 
+/gcircumflex /ugrave /uacute /ucircumflex /udieresis /ubreve /scircumflex /dotaccent 
+] def
+%%EndResource
+%%BeginResource: encoding ISO-8859-4Encoding
+/ISO-8859-4Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /Aogonek /kra /Rcedilla /currency /Itilde /Lcedilla /section 
+/dieresis /Scaron /Emacron /Gcedilla /Tbar /hyphen /Zcaron /macron 
+/degree /aogonek /ogonek /rcedilla /acute /itilde /lcedilla /caron 
+/cedilla /scaron /emacron /gcedilla /tbar /Eng /zcaron /eng 
+/Amacron /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Iogonek 
+/Ccaron /Eacute /Eogonek /Edieresis /Edotaccent /Iacute /Icircumflex /Imacron 
+/Eth /Ncedilla /Omacron /Kcedilla /Ocircumflex /Otilde /Odieresis /multiply 
+/Oslash /Uogonek /Uacute /Ucircumflex /Udieresis /Utilde /Umacron /germandbls 
+/amacron /aacute /acircumflex /atilde /adieresis /aring /ae /iogonek 
+/ccaron /eacute /eogonek /edieresis /edotaccent /iacute /icircumflex /imacron 
+/dbar /ncedilla /omacron /kcedilla /ocircumflex /otilde /odieresis /divide 
+/oslash /uogonek /uacute /ucircumflex /udieresis /utilde /umacron /dotaccent 
+] def
+%%EndResource
+%%BeginResource: encoding ISO-8859-9Encoding
+/ISO-8859-9Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section 
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron 
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /bullet 
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown 
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla 
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+/Gbreve /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply 
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Idotaccent /Scedilla /germandbls 
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla 
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis 
+/gbreve /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide 
+/oslash /ugrave /uacute /ucircumflex /udieresis /dotlessi /scedilla /ydieresis 
+] def
+%%EndResource
+%%BeginResource: encoding ISO-8859-10Encoding
+/ISO-8859-10Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /Aogonek /Emacron /Gcedilla /Imacron /Itilde /Kcedilla /Lcedilla 
+/acute /Rcedilla /Scaron /Tbar /Zcaron /hyphen /kra /Eng 
+/Dbar /aogonek /emacron /gcedilla /imacron /itilde /kcedilla /lcedilla 
+/nacute /rcedilla /scaron /tbar /zcaron /section /germandbls /eng 
+/Amacron /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Iogonek 
+/Ccaron /Eacute /Eogonek /Edieresis /Edotaccent /Iacute /Icircumflex /Idieresis 
+/Dbar /Ncedilla /Omacron /Oacute /Ocircumflex /Otilde /Odieresis /Utilde 
+/Oslash /Uogonek /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /Umacron 
+/amacron /aacute /acircumflex /atilde /adieresis /aring /ae /iogonek 
+/ccaron /eacute /eogonek /edieresis /edotaccent /iacute /icircumflex /idieresis 
+/eth /ncedilla /omacron /oacute /ocircumflex /otilde /odieresis /utilde 
+/oslash /uogonek /uacute /ucircumflex /udieresis /yacute /thorn /umacron 
+] def
+%%EndResource
+%%BeginResource: encoding MS-CP1250Encoding
+/MS-CP1250Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /tilde /.notdef 
+/.notdef /.notdef /quotesinglbase /.notdef /quotedblbase /ellipsis /dagger /daggerdbl 
+/.notdef /perthousand /Scaron /guilsinglleft /Sacute /Tcaron /Zcaron /Zacute 
+/.notdef /quoteleft /quoteright /quotedblleft /quotedblright /bullet /endash /emdash 
+/.notdef /trademark /scaron /guilsinglright /sacute /tcaron /zcaron /zacute 
+/space /caron /breve /Lslash /currency /Aogonek /brokenbar /section 
+/dieresis /copyright /Scedilla /guillemotleft /logicalnot /hyphen /registered /Zdotaccent 
+/degree /plusminus /ogonek /lslash /acute /mu /paragraph /bullet 
+/cedilla /aogonek /scedilla /guillemotright /Ydieresis /hungarumlaut /Lcaron /zdotaccent 
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla 
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron 
+/Eth /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply 
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls 
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla 
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron 
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide 
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent 
+] def
+%%EndResource
+%%BeginResource: encoding IBM-CP850Encoding
+/IBM-CP850Encoding [
+/.notdef /.notdef /.notdef /heart /diamond /club /spade /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /paragraph /section /.notdef /.notdef 
+/arrowup /arrowdown /.notdef /.notdef /.notdef /arrowboth /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /tilde /.notdef 
+/Ccedilla /udieresis /eacute /acircumflex /adieresis /agrave /aring /ccedilla 
+/ecircumflex /edieresis /egrave /idieresis /icircumflex /igrave /Adieresis /Aring 
+/Eacute /ae /AE /ocircumflex /odieresis /ograve /ucircumflex /ugrave 
+/ydieresis /Odieresis /Udieresis /cent /sterling /yen /.notdef /florin 
+/aacute /iacute /oacute /uacute /ntilde /Ntilde /ordfeminine /degree 
+/questiondown /.notdef /logicalnot /onehalf /onequarter /exclamdown /guillemotleft /guillemotright 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/alpha /germandbls /Gamma /pi /Sigma /sigma /mu /tau 
+/phi /theta /Omega /delta /infinity /oslash /epsilon /intersection 
+/equivalence /plusminus /greaterequal /lessequal /integraltp /integralbt /divide /approxequal 
+/degree /dotaccent /dotaccent /radical /.notdef /twosuperior /.notdef /.notdef 
+] def
+%%EndResource
+%%BeginResource: encoding IBM-CP437Encoding
+/IBM-CP437Encoding [
+/null /Wsmiley /Bsmiley /heart /diamond /club /spade /Bbullet 
+/Wbullet /Bcircle /Wcircle /male /female /quarternote /sixteenthnote /sun 
+/pointerright /pointerleft /Varrowboth /exclamdbl /paragraph /section /cursorblock /floor 
+/arrowup /arrowdown /arrowright /arrowleft /smallLLsingle /arrowboth /pointerup /pointerdown 
+/blank /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle 
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /brokenbar /braceright /asciitilde /Delta 
+/Ccedilla /udieresis /eacute /acircumflex /adieresis /agrave /aring /ccedilla 
+/ecircumflex /edieresis /egrave /idieresis /icircumflex /igrave /Adieresis /Aring 
+/Eacute /ae /AE /ocircumflex /odieresis /ograve /ucircumflex /ugrave 
+/ydieresis /Odieresis /Udieresis /cent /sterling /yen /point /integral 
+/aacute /iacute /oacute /uacute /ntilde /Ntilde /aunder /ounder 
+/questiondown /smallULsingle /smallURsingle /half /quarter /exclamdown /lessdbl /greaterdbl 
+/lightbox /mediumbox /darkbox /Vsingle /VsingleTleftsingle /VsingleTleftdbl /VdblTleftsingle /VdblURsingle 
+/VsingleURdbl /VdblTleftdbl /Vdbl /VdblURdbl /VdblLRdbl /VdblLRsingle /VsingleLRdbl /VsingleURsingle 
+/VsingleLLsingle /HsingleTupsingle /HsingleTdownsingle /VsingleTrightsingle /Hsingle /VsingleXsingle /VsingleTrightdbl /VdblTrightsingle 
+/VdblLLdbl /VdblULdbl /HdblTupdbl /HdblTdowndbl /VdblTrightdbl /Hdbl /VdblXdbl /HdblTupsingle 
+/HsingleTupdbl /HdblTdownsingle /HsingleTdowndbl /VdblLLsingle /VsingleLLdbl /VsingleULdbl /VdblULsingle /VdblXsingle 
+/VsingleXdbl /VsingleLRsingle /VsingleULsingle /allblack /botblack /leftblack /rightblack /topblack 
+/alpha /beta /Gamma /pi /Sigma /sigma /mu /tau 
+/Phi /theta /Omega /delta /infinity /phi /element /intersection 
+/equivalence /plusminus /greaterequal /lessequal /integraltp /integralbt /divide /approxequal 
+/degree /bullet /dotmath /radical /eta /squared /block /blank 
+] def
+%%EndResource
+%%BeginResource: encoding HPRomanEncoding
+/HPRomanEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /tilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /Agrave /Acircumflex /Egrave /Ecircumflex /Edieresis /Icircumflex /Idieresis 
+/acute /grave /circumflex /dieresis /tilde /Ugrave /Ucircumflex /sterling 
+/macron /Yacute /yacute /degree /Ccedilla /ccedilla /Ntilde /ntilde 
+/exclamdown /questiondown /currency /sterling /yen /section /florin /cent 
+/acircumflex /ecircumflex /ocircumflex /ucircumflex /aacute /eacute /oacute /uacute 
+/agrave /egrave /ograve /ugrave /adieresis /edieresis /odieresis /udieresis 
+/Aring /icircumflex /Oslash /AE /aring /iacute /oslash /ae 
+/Adieresis /igrave /Odieresis /Udieresis /Eacute /idieresis /germandbls /Ocircumflex 
+/Aacute /Atilde /atilde /Eth /eth /Iacute /Igrave /Oacute 
+/Ograve /Otilde /otilde /Scaron /scaron /Uacute /Ydieresis /ydieresis 
+/Thorn /thorn /periodcentered /mu /paragraph /threequarters /emdash /onequarter 
+/onehalf /ordfeminine /ordmasculine /guillemotleft /filledbox /guillemotright /plusminus /.notdef 
+] def
+%%EndResource
+%%BeginResource: encoding MacintoshEncoding
+/MacintoshEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /tilde /.notdef 
+/Adieresis /Aring /Ccedilla /Eacute /Ntilde /Odieresis /Udieresis /aacute 
+/agrave /acircumflex /adieresis /atilde /aring /ccedilla /eacute /egrave 
+/ecircumflex /edieresis /iacute /igrave /icircumflex /idieresis /ntilde /oacute 
+/ograve /ocircumflex /odieresis /otilde /uacute /ugrave /ucircumflex /udieresis 
+/dagger /degree /cent /sterling /section /bullet /paragraph /germandbls 
+/registered /copyright /trademark /acute /dieresis /notequal /AE /Oslash 
+/infinity /plusminus /lessequal /greaterequal /yen /mu /partialdiff /Sigma 
+/product /pi /integral /ordfeminine /ordmasculine /Omega /ae /oslash 
+/questiondown /exclamdown /logicalnot /radical /florin /approxequal /Delta /guillemotleft 
+/guillemotright /ellipsis /space /Agrave /Atilde /Otilde /OE /oe 
+/endash /emdash /quotedblleft /quotedblright /quoteleft /quoteright /divide /lozenge 
+/ydieresis /Ydieresis /fraction /currency /guilsinglleft /guilsinglright /fi /fl 
+/daggerdbl /periodcentered /quotesinglbase /quotedblbase /perthousand /Acircumflex /Ecircumflex /Aacute 
+/Edieresis /Egrave /Iacute /Icircumflex /Idieresis /Igrave /Oacute /Ocircumflex 
+/.notdef /Ograve /Uacute /Ucircumflex /Ugrave /dotlessi /circumflex /tilde 
+/macron /breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron 
+] def
+%%EndResource
+%%BeginResource: font Courier-Bold-Ogonki
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding OgonkiEncoding
+/OgonkiEncoding [
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /quotesingle
+/quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl /endash /dagger
+/daggerdbl /periodcentered /paragraph /bullet /quotesinglbase /quotedblbase /quotedblright /guillemotright
+/ellipsis /perthousand /questiondown /grave /circumflex /tilde /macron /ring
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /emdash /AE /ordfeminine /Oslash /OE /ordmasculine /ae
+/dotlessi /oslash /oe /threesuperior /thorn /twosuperior /threequarters /Eth
+/trademark /registered /onequarter /Thorn /logicalnot /plusminus /minus /onesuperior
+/copyright /mu /eth /brokenbar /onehalf /dotlessj /Euro /.notdef
+/space /Aogonek /breve /Lslash /currency /Lcaron /Sacute /section
+/dieresis /Scaron /Scedilla /Tcaron /Zacute /hyphen /Zcaron /Zdotaccent
+/degree /aogonek /ogonek /lslash /acute /lcaron /sacute /caron
+/cedilla /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent
+% 300
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron
+/Eth /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent
+] def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding StandardEncoding
+/StandardEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /section
+/currency /quotesingle /quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl
+/.notdef /endash /dagger /daggerdbl /periodcentered /.notdef /paragraph /bullet
+/quotesinglbase /quotedblbase /quotedblright /guillemotright /ellipsis /perthousand /.notdef /questiondown
+% 300
+/.notdef /grave /acute /circumflex /tilde /macron /breve /dotaccent
+/dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron
+/emdash /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /AE /.notdef /ordfeminine /.notdef /.notdef /.notdef /.notdef
+/Lslash /Oslash /OE /ordmasculine /.notdef /.notdef /.notdef /.notdef
+/.notdef /ae /.notdef /.notdef /.notdef /dotlessi /.notdef /.notdef
+/lslash /oslash /oe /germandbls /.notdef /.notdef /.notdef /.notdef
+] def
+%%EndResource
+%!
+% Add composite (i.e. accented) characters to any font
+% By J. Chroboczek <jec@dcs.ed.ac.uk>
+%
+% -- code follows this line --
+%%BeginResource: procset compose 0.8 0
+% Copyright (c) 1996-1999 by J. Chroboczek
+% This code may be distributed under the terms of the 
+% GNU Public License, either version 3 of the license, or (at your
+% option) any later version.
+/makeCompositeDict 20 dict def
+makeCompositeDict begin
+/nameUnique {                           % name nameUnique namexxxxxx
+  dup length exch 1 index string cvs    % length (name)
+  1 index 12 add string dup             % length (name) (...) (...)
+  3 2 roll 0 exch putinterval           % length (name...)
+  dup 3 2 roll
+  rand 12 string cvs
+  putinterval
+} bind def
+
+/doMakeComposite
+{
+  /compositeChars exch def
+  /targetEncoding exch def
+  /baseEncoding exch def
+  /newfontname exch def
+  /oldfontname exch def
+  /oldfont oldfontname findfont def
+  /newfont 20 dict def
+  /oldFontMatrix oldfont /FontMatrix get def
+  /oldFontBBox oldfont /FontBBox get cvlit def
+  /oldfontcopy oldfont length dict def
+
+  newfont begin
+    /FontType 3 def
+    /PaintType 0 def      % not used
+    /FontMatrix [0.001 0 0 0.001 0 0] def
+    /FontBBox
+    [
+      oldFontBBox 0 get oldFontBBox 1 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+      oldFontBBox 2 get oldFontBBox 3 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+    ] cvx def
+
+    /StrokeWidth 0 def                  % not used
+
+    /Encoding targetEncoding def
+
+    /Decoding 256 dict def              % invert base encoding vector
+    Decoding begin
+      0 1 255
+      { dup baseEncoding exch get exch def } bind for
+    end
+
+    newfont /compositeChars compositeChars put
+
+    /FontName newfontname def
+
+% make a copy of the original font, reencoding it
+    oldfont
+    oldfontcopy begin
+      {1 index /FID ne
+        {def}
+        {pop pop} ifelse
+      } bind forall
+    end
+    oldfontcopy /Encoding baseEncoding put
+    oldfontname nameUnique oldfontcopy definefont
+    1000 scalefont /OriginalFont exch def
+
+    /BuildChar                          % newfont n BuildChar -
+    {
+      exch begin                        % n
+        /OriginalFont load setfont
+        /Encoding load exch get         % glyphName
+        /compositeChars load dup
+        2 index known                   % glyphName compositeChars known-p
+        { 1 index get                   % glyphName [ 65 x y 129 ]
+          dup 0 get ( ) dup             % glyphName [...] 65 ( ) ( )
+          0 3 index put                 % glyphName [...] 65 (A)
+          dup stringwidth setcharwidth
+          0 0 moveto
+          show pop                      % glyphName [...]
+          dup 1 get 1 index 2 get       % glyphName [...] x y
+          moveto                        % glyphName [...]
+          3 get ( ) dup 3 2 roll        % glyphName ( ) ( ) 129
+          0 exch put                    % glyphName (')
+          show                          % glyphName
+        }
+        { pop
+          /Decoding load                % glyphName Decoding
+          dup 2 index known             % glyphName Decoding known-p
+          { exch get }
+          { pop pop 0 } ifelse          % n'
+          ( ) dup 0 3 index put dup     % n' (A) (A)
+          stringwidth setcharwidth
+          0 0 moveto
+          show                          % n'
+        } ifelse
+        pop
+      end
+    } bind def
+  end                                   % newfont
+  newfontname newfont definefont pop
+} def                                   % doMakeComposite
+
+/fillEuro {                             % w h --
+  gsave exch 1000 div exch 1000 div scale
+  955.852 232.172 moveto
+  904.495 180.815 lineto
+  829.454 117.848 734.626 83.333 636.667 83.333 curveto
+  406.667 83.333 220 270 220 500 curveto
+  220 730 406.667 916.667 636.667 916.667 curveto
+  759.831 916.667 876.684 862.177 955.852 767.828 curveto
+  988.474 855.291 lineto
+  894.851 947.996 768.422 1000 636.667 1000 curveto
+  360.667 1000 136.667 776 136.667 500 curveto
+  136.667 224 360.667 0 636.667 0 curveto
+  753.23 0 866.13 40.725 955.852 115.135 curveto
+  closepath fill
+  
+  869.037 541.667 moveto
+  901.025 625 lineto
+  31.989 625 lineto
+  0 541.667 lineto
+  closepath fill
+  
+  805.059 375 moveto
+  837.048 458.333 lineto
+  31.989 458.333 lineto
+  0 375 lineto
+  closepath fill
+  grestore
+} bind def
+
+/makeEuroCharstring {                   % w h -- charstring
+  [ /pop cvx                            % w h mark pop
+    3 index 0 0 0                       % w h mark pop w 0 0 0
+    7 index 7 index /setcachedevice cvx 
+                                % w h mark pop w 0 0 0 w h setcachedevice
+    10 index 10 index /fillEuro load /exec cvx ] 
+  cvx bind 3 1 roll pop pop
+} def
+
+/doEurifyFont {                         % oldname newname --
+  exch
+  findfont dup dup                      % newname dict dict dict
+  /FontMatrix get matrix invertmatrix   % newname dict dict m
+  {} forall pop pop [ 5 1 roll 0 0] makefont setfont   % newnamedict
+  0 0 moveto
+  (5) stringwidth pop                     % newname dict w
+  (M) false charpath pathbbox 4 1 roll pop pop pop % newnamedict w h
+  3 2 roll                                % newname w h dict
+  
+  dup length dict dup 3 1 roll begin      % newname w h newdict
+    {1 index /FID ne {def} {pop pop} ifelse} forall
+    CharStrings dup length 1 add dict dup 3 1 roll begin % newnamew h newdict newdict'
+      {def} forall
+      /Euro                               % newname w h newdict newdict' /Euro
+      4 index 4 index makeEuroCharstring def
+    end                                   % newname w h newdict newdict'
+    /CharStrings exch def
+  end
+  3 1 roll pop pop                      % newname dict
+  definefont pop
+} bind def
+
+end                                     % makeCompositeDict
+
+% oldfontname newfontname baseEncoding targetEncoding compositeChars --
+/makeComposite
+{
+  makeCompositeDict begin doMakeComposite end
+} bind def
+
+% oldfontname newfontname
+/eurifyFont
+{
+  makeCompositeDict begin doEurifyFont end
+} bind def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: font Courier-Bold-Ogonki
+/Courier-Bold /Courier-Bold-Ogonki OgonkiEncoding StandardEncoding 111 dict
+dup /Agrave [65 -50 123 27] put
+dup /Aring [65 -10 123 31] put
+dup /Atilde [65 -30 123 29] put
+dup /Ecircumflex [69 0 123 28] put
+dup /Egrave [69 0 123 27] put
+dup /Gcaron [71 10 123 183] put
+dup /Idieresis [73 0 123 168] put
+dup /Igrave [73 0 123 27] put
+dup /Ntilde [78 0 123 29] put
+dup /Ograve [79 0 123 27] put
+dup /Otilde [79 0 123 29] put
+dup /Ucircumflex [85 0 123 28] put
+dup /Ugrave [85 -30 123 27] put
+dup /Ydieresis [89 0 123 168] put
+dup /agrave [97 -30 0 27] put
+dup /aring [97 0 0 31] put
+dup /atilde [97 0 0 29] put
+dup /ecircumflex [101 0 0 28] put
+dup /egrave [101 0 0 27] put
+dup /gcaron [103 -40 0 183] put
+dup /idieresis [136 -40 0 168] put
+dup /igrave [136 0 0 27] put
+dup /ntilde [110 0 0 29] put
+dup /ograve [111 0 0 27] put
+dup /otilde [111 0 0 29] put
+dup /ucircumflex [117 -20 0 28] put
+dup /ugrave [117 -30 0 27] put
+dup /ydieresis [121 10 0 168] put
+dup /abreve [97 0 0 162] put
+dup /Abreve [65 0 130 162] put
+dup /amacron [97 0 0 30] put
+dup /Amacron [65 0 130 30] put
+dup /Aogonek [65 200 0 178] put
+dup /aogonek [97 200 0 178] put
+dup /cacute [99 0 0 180] put
+dup /Cacute [67 0 130 180] put
+dup /ccaron [99 18 0 183] put
+dup /Ccaron [67 18 130 183] put
+dup /ccircumflex [99 18 0 28] put
+dup /Ccircumflex [67 18 130 28] put
+dup /cdotaccent [99 0 0 255] put
+dup /Cdotaccent [67 0 130 255] put
+dup /dbar [100 200 250 173] put
+dup /Dbar [208 0 0 160] put
+dup /Dcaron [68 0 130 183] put
+dup /dcaron [100 30 195 183] put
+dup /ecaron [101 0 0 183] put
+dup /Ecaron [69 0 130 183] put
+dup /edotaccent [101 0 0 255] put
+dup /Edotaccent [69 0 130 255] put
+dup /emacron [101 0 0 30] put
+dup /Emacron [69 0 130 30] put
+dup /Eogonek [69 0 0 178] put
+dup /eogonek [101 0 0 178] put
+dup /gacute [103 0 0 180] put
+dup /gbreve [103 0 0 162] put
+dup /Gbreve [71 18 130 162] put
+dup /gcircumflex [103 0 0 28] put
+dup /Gcircumflex [71 18 130 28] put
+dup /gdotaccent [103 0 0 255] put
+dup /Gdotaccent [71 18 130 255] put
+dup /hcircumflex [104 -20 195 28] put
+dup /Hcircumflex [72 0 130 28] put
+dup /Iogonek [73 20 0 178] put
+dup /iogonek [105 20 0 178] put
+dup /Idotaccent [73 0 130 255] put
+dup /imacron [136 0 0 30] put
+dup /Imacron [73 0 130 30] put
+dup /itilde [136 0 0 29] put
+dup /Itilde [73 0 130 29] put
+dup /Jcircumflex [74 85 130 28] put
+dup /Lacute [76 -100 130 180] put
+dup /lacute [108 -20 195 180] put
+dup /Lcaron [76 -100 130 183] put
+dup /lcaron [108 0 195 183] put
+dup /nacute [110 0 0 180] put
+dup /Nacute [78 0 130 180] put
+dup /ncaron [110 0 0 183] put
+dup /Ncaron [78 0 130 183] put
+dup /ohungarumlaut [111 0 0 189] put
+dup /Ohungarumlaut [79 0 130 189] put
+dup /omacron [111 0 0 30] put
+dup /Omacron [79 0 130 30] put
+dup /racute [114 0 0 180] put
+dup /Racute [82 0 130 180] put
+dup /rcaron [114 0 0 183] put
+dup /Rcaron [82 0 130 183] put
+dup /sacute [115 0 0 180] put
+dup /Sacute [83 0 130 180] put
+dup /scircumflex [115 0 0 28] put
+dup /Scircumflex [83 0 130 28] put
+dup /tcaron [116 0 107 183] put
+dup /Tcaron [84 0 130 183] put
+dup /Tcedilla [84 0 0 184] put
+dup /tcedilla [116 0 0 184] put
+dup /ubreve [117 0 0 162] put
+dup /Ubreve [85 0 130 162] put
+dup /uhungarumlaut [117 0 0 189] put
+dup /Uhungarumlaut [85 0 130 189] put
+dup /umacron [117 0 0 30] put
+dup /Umacron [85 0 130 30] put
+dup /uogonek [117 109 0 178] put
+dup /Uogonek [85 5 23 178] put
+dup /uring [117 0 0 31] put
+dup /Uring [85 0 130 31] put
+dup /utilde [117 0 0 29] put
+dup /Utilde [85 0 130 29] put
+dup /zacute [122 0 0 180] put
+dup /Zacute [90 0 130 180] put
+dup /zdotaccent [122 0 0 255] put
+dup /Zdotaccent [90 0 130 255] put
+makeComposite
+%%EndResource
+
+%%EndResource
+%%BeginResource: font Courier-Ogonki
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding OgonkiEncoding
+/OgonkiEncoding [
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /quotesingle
+/quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl /endash /dagger
+/daggerdbl /periodcentered /paragraph /bullet /quotesinglbase /quotedblbase /quotedblright /guillemotright
+/ellipsis /perthousand /questiondown /grave /circumflex /tilde /macron /ring
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /emdash /AE /ordfeminine /Oslash /OE /ordmasculine /ae
+/dotlessi /oslash /oe /threesuperior /thorn /twosuperior /threequarters /Eth
+/trademark /registered /onequarter /Thorn /logicalnot /plusminus /minus /onesuperior
+/copyright /mu /eth /brokenbar /onehalf /dotlessj /Euro /.notdef
+/space /Aogonek /breve /Lslash /currency /Lcaron /Sacute /section
+/dieresis /Scaron /Scedilla /Tcaron /Zacute /hyphen /Zcaron /Zdotaccent
+/degree /aogonek /ogonek /lslash /acute /lcaron /sacute /caron
+/cedilla /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent
+% 300
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron
+/Eth /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent
+] def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding StandardEncoding
+/StandardEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /section
+/currency /quotesingle /quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl
+/.notdef /endash /dagger /daggerdbl /periodcentered /.notdef /paragraph /bullet
+/quotesinglbase /quotedblbase /quotedblright /guillemotright /ellipsis /perthousand /.notdef /questiondown
+% 300
+/.notdef /grave /acute /circumflex /tilde /macron /breve /dotaccent
+/dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron
+/emdash /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /AE /.notdef /ordfeminine /.notdef /.notdef /.notdef /.notdef
+/Lslash /Oslash /OE /ordmasculine /.notdef /.notdef /.notdef /.notdef
+/.notdef /ae /.notdef /.notdef /.notdef /dotlessi /.notdef /.notdef
+/lslash /oslash /oe /germandbls /.notdef /.notdef /.notdef /.notdef
+] def
+%%EndResource
+%!
+% Add composite (i.e. accented) characters to any font
+% By J. Chroboczek <jec@dcs.ed.ac.uk>
+%
+% -- code follows this line --
+%%BeginResource: procset compose 0.8 0
+% Copyright (c) 1996-1999 by J. Chroboczek
+% This code may be distributed under the terms of the 
+% GNU Public License, either version 3 of the license, or (at your
+% option) any later version.
+/makeCompositeDict 20 dict def
+makeCompositeDict begin
+/nameUnique {                           % name nameUnique namexxxxxx
+  dup length exch 1 index string cvs    % length (name)
+  1 index 12 add string dup             % length (name) (...) (...)
+  3 2 roll 0 exch putinterval           % length (name...)
+  dup 3 2 roll
+  rand 12 string cvs
+  putinterval
+} bind def
+
+/doMakeComposite
+{
+  /compositeChars exch def
+  /targetEncoding exch def
+  /baseEncoding exch def
+  /newfontname exch def
+  /oldfontname exch def
+  /oldfont oldfontname findfont def
+  /newfont 20 dict def
+  /oldFontMatrix oldfont /FontMatrix get def
+  /oldFontBBox oldfont /FontBBox get cvlit def
+  /oldfontcopy oldfont length dict def
+
+  newfont begin
+    /FontType 3 def
+    /PaintType 0 def      % not used
+    /FontMatrix [0.001 0 0 0.001 0 0] def
+    /FontBBox
+    [
+      oldFontBBox 0 get oldFontBBox 1 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+      oldFontBBox 2 get oldFontBBox 3 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+    ] cvx def
+
+    /StrokeWidth 0 def                  % not used
+
+    /Encoding targetEncoding def
+
+    /Decoding 256 dict def              % invert base encoding vector
+    Decoding begin
+      0 1 255
+      { dup baseEncoding exch get exch def } bind for
+    end
+
+    newfont /compositeChars compositeChars put
+
+    /FontName newfontname def
+
+% make a copy of the original font, reencoding it
+    oldfont
+    oldfontcopy begin
+      {1 index /FID ne
+        {def}
+        {pop pop} ifelse
+      } bind forall
+    end
+    oldfontcopy /Encoding baseEncoding put
+    oldfontname nameUnique oldfontcopy definefont
+    1000 scalefont /OriginalFont exch def
+
+    /BuildChar                          % newfont n BuildChar -
+    {
+      exch begin                        % n
+        /OriginalFont load setfont
+        /Encoding load exch get         % glyphName
+        /compositeChars load dup
+        2 index known                   % glyphName compositeChars known-p
+        { 1 index get                   % glyphName [ 65 x y 129 ]
+          dup 0 get ( ) dup             % glyphName [...] 65 ( ) ( )
+          0 3 index put                 % glyphName [...] 65 (A)
+          dup stringwidth setcharwidth
+          0 0 moveto
+          show pop                      % glyphName [...]
+          dup 1 get 1 index 2 get       % glyphName [...] x y
+          moveto                        % glyphName [...]
+          3 get ( ) dup 3 2 roll        % glyphName ( ) ( ) 129
+          0 exch put                    % glyphName (')
+          show                          % glyphName
+        }
+        { pop
+          /Decoding load                % glyphName Decoding
+          dup 2 index known             % glyphName Decoding known-p
+          { exch get }
+          { pop pop 0 } ifelse          % n'
+          ( ) dup 0 3 index put dup     % n' (A) (A)
+          stringwidth setcharwidth
+          0 0 moveto
+          show                          % n'
+        } ifelse
+        pop
+      end
+    } bind def
+  end                                   % newfont
+  newfontname newfont definefont pop
+} def                                   % doMakeComposite
+
+/fillEuro {                             % w h --
+  gsave exch 1000 div exch 1000 div scale
+  955.852 232.172 moveto
+  904.495 180.815 lineto
+  829.454 117.848 734.626 83.333 636.667 83.333 curveto
+  406.667 83.333 220 270 220 500 curveto
+  220 730 406.667 916.667 636.667 916.667 curveto
+  759.831 916.667 876.684 862.177 955.852 767.828 curveto
+  988.474 855.291 lineto
+  894.851 947.996 768.422 1000 636.667 1000 curveto
+  360.667 1000 136.667 776 136.667 500 curveto
+  136.667 224 360.667 0 636.667 0 curveto
+  753.23 0 866.13 40.725 955.852 115.135 curveto
+  closepath fill
+  
+  869.037 541.667 moveto
+  901.025 625 lineto
+  31.989 625 lineto
+  0 541.667 lineto
+  closepath fill
+  
+  805.059 375 moveto
+  837.048 458.333 lineto
+  31.989 458.333 lineto
+  0 375 lineto
+  closepath fill
+  grestore
+} bind def
+
+/makeEuroCharstring {                   % w h -- charstring
+  [ /pop cvx                            % w h mark pop
+    3 index 0 0 0                       % w h mark pop w 0 0 0
+    7 index 7 index /setcachedevice cvx 
+                                % w h mark pop w 0 0 0 w h setcachedevice
+    10 index 10 index /fillEuro load /exec cvx ] 
+  cvx bind 3 1 roll pop pop
+} def
+
+/doEurifyFont {                         % oldname newname --
+  exch
+  findfont dup dup                      % newname dict dict dict
+  /FontMatrix get matrix invertmatrix   % newname dict dict m
+  {} forall pop pop [ 5 1 roll 0 0] makefont setfont   % newnamedict
+  0 0 moveto
+  (5) stringwidth pop                     % newname dict w
+  (M) false charpath pathbbox 4 1 roll pop pop pop % newnamedict w h
+  3 2 roll                                % newname w h dict
+  
+  dup length dict dup 3 1 roll begin      % newname w h newdict
+    {1 index /FID ne {def} {pop pop} ifelse} forall
+    CharStrings dup length 1 add dict dup 3 1 roll begin % newnamew h newdict newdict'
+      {def} forall
+      /Euro                               % newname w h newdict newdict' /Euro
+      4 index 4 index makeEuroCharstring def
+    end                                   % newname w h newdict newdict'
+    /CharStrings exch def
+  end
+  3 1 roll pop pop                      % newname dict
+  definefont pop
+} bind def
+
+end                                     % makeCompositeDict
+
+% oldfontname newfontname baseEncoding targetEncoding compositeChars --
+/makeComposite
+{
+  makeCompositeDict begin doMakeComposite end
+} bind def
+
+% oldfontname newfontname
+/eurifyFont
+{
+  makeCompositeDict begin doEurifyFont end
+} bind def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: font Courier-Ogonki
+/Courier /Courier-Ogonki OgonkiEncoding StandardEncoding 111 dict
+dup /Agrave [65 -30 121 27] put
+dup /Aring [65 -15 126 31] put
+dup /Atilde [65 0 126 29] put
+dup /Ecircumflex [69 0 121 28] put
+dup /Egrave [69 0 121 27] put
+dup /Gcaron [71 0 136 183] put
+dup /Idieresis [73 0 136 168] put
+dup /Igrave [73 0 121 27] put
+dup /Ntilde [78 0 126 29] put
+dup /Ograve [79 0 121 27] put
+dup /Otilde [79 0 126 29] put
+dup /Ucircumflex [85 0 121 28] put
+dup /Ugrave [85 -30 121 27] put
+dup /Ydieresis [89 0 136 168] put
+dup /agrave [97 0 0 27] put
+dup /aring [97 0 0 31] put
+dup /atilde [97 0 0 29] put
+dup /ecircumflex [101 0 0 28] put
+dup /egrave [101 0 0 27] put
+dup /gcaron [103 -30 0 183] put
+dup /idieresis [136 -30 0 168] put
+dup /igrave [136 -30 0 27] put
+dup /ntilde [110 0 0 29] put
+dup /ograve [111 0 0 27] put
+dup /otilde [111 0 0 29] put
+dup /ucircumflex [117 -10 0 28] put
+dup /ugrave [117 -30 0 27] put
+dup /ydieresis [121 -10 0 168] put
+dup /abreve [97 0 0 162] put
+dup /Abreve [65 0 133 162] put
+dup /amacron [97 0 0 30] put
+dup /Amacron [65 0 133 30] put
+dup /Aogonek [65 200 0 178] put
+dup /aogonek [97 200 0 178] put
+dup /cacute [99 17 0 180] put
+dup /Cacute [67 30 133 180] put
+dup /ccaron [99 17 0 183] put
+dup /Ccaron [67 30 133 183] put
+dup /ccircumflex [99 17 2 28] put
+dup /Ccircumflex [67 30 133 28] put
+dup /cdotaccent [99 0 0 255] put
+dup /Cdotaccent [67 30 133 255] put
+dup /dbar [100 200 250 173] put
+dup /Dbar [208 0 0 160] put
+dup /Dcaron [68 0 133 183] put
+dup /dcaron [100 17 156 183] put
+dup /ecaron [101 0 0 183] put
+dup /Ecaron [69 0 133 183] put
+dup /edotaccent [101 0 0 255] put
+dup /Edotaccent [69 0 133 255] put
+dup /Emacron [69 0 133 30] put
+dup /emacron [101 17 0 30] put
+dup /Eogonek [69 100 0 178] put
+dup /eogonek [101 100 0 178] put
+dup /gacute [103 0 0 180] put
+dup /gbreve [103 0 0 162] put
+dup /Gbreve [71 30 133 162] put
+dup /gcircumflex [103 0 0 28] put
+dup /Gcircumflex [71 30 133 28] put
+dup /gdotaccent [103 0 0 255] put
+dup /Gdotaccent [71 0 133 255] put
+dup /Hcircumflex [72 0 133 28] put
+dup /hcircumflex [104 0 164 28] put
+dup /Idotaccent [73 0 133 255] put
+dup /imacron [136 0 0 30] put
+dup /Imacron [73 0 133 30] put
+dup /iogonek [105 20 0 178] put
+dup /Iogonek [73 20 0 178] put
+dup /itilde [136 0 0 29] put
+dup /Itilde [73 0 133 29] put
+dup /Jcircumflex [74 100 133 28] put
+dup /Lacute [76 -100 133 180] put
+dup /lacute [108 -12 147 180] put
+dup /Lcaron [76 -100 133 183] put
+dup /lcaron [108 -12 144 183] put
+dup /nacute [110 0 0 180] put
+dup /Nacute [78 0 133 180] put
+dup /ncaron [110 0 0 183] put
+dup /Ncaron [78 0 133 183] put
+dup /ohungarumlaut [111 0 0 189] put
+dup /Ohungarumlaut [79 0 133 189] put
+dup /omacron [111 0 0 30] put
+dup /Omacron [79 0 133 30] put
+dup /racute [114 0 0 180] put
+dup /Racute [82 0 133 180] put
+dup /rcaron [114 0 0 183] put
+dup /Rcaron [82 0 133 183] put
+dup /sacute [115 0 0 180] put
+dup /Sacute [83 0 133 180] put
+dup /scircumflex [115 0 0 28] put
+dup /Scircumflex [83 0 133 28] put
+dup /tcaron [116 -77 92 183] put
+dup /Tcaron [84 0 133 183] put
+dup /Tcedilla [84 0 0 184] put
+dup /tcedilla [116 0 0 184] put
+dup /ubreve [117 0 0 162] put
+dup /Ubreve [85 0 133 162] put
+dup /uhungarumlaut [117 0 0 189] put
+dup /Uhungarumlaut [85 0 133 189] put
+dup /umacron [117 0 0 30] put
+dup /Umacron [85 0 133 30] put
+dup /uogonek [117 120 0 178] put
+dup /Uogonek [85 5 20 178] put
+dup /uring [117 0 0 31] put
+dup /Uring [85 0 133 31] put
+dup /utilde [117 0 0 29] put
+dup /Utilde [85 0 133 29] put
+dup /zacute [122 0 0 180] put
+dup /Zacute [90 0 133 180] put
+dup /zdotaccent [122 0 0 255] put
+dup /Zdotaccent [90 0 133 255] put
+makeComposite
+%%EndResource
+
+%%EndResource
+%%BeginResource: font Helvetica-Bold-Ogonki
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding OgonkiEncoding
+/OgonkiEncoding [
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /quotesingle
+/quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl /endash /dagger
+/daggerdbl /periodcentered /paragraph /bullet /quotesinglbase /quotedblbase /quotedblright /guillemotright
+/ellipsis /perthousand /questiondown /grave /circumflex /tilde /macron /ring
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /emdash /AE /ordfeminine /Oslash /OE /ordmasculine /ae
+/dotlessi /oslash /oe /threesuperior /thorn /twosuperior /threequarters /Eth
+/trademark /registered /onequarter /Thorn /logicalnot /plusminus /minus /onesuperior
+/copyright /mu /eth /brokenbar /onehalf /dotlessj /Euro /.notdef
+/space /Aogonek /breve /Lslash /currency /Lcaron /Sacute /section
+/dieresis /Scaron /Scedilla /Tcaron /Zacute /hyphen /Zcaron /Zdotaccent
+/degree /aogonek /ogonek /lslash /acute /lcaron /sacute /caron
+/cedilla /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent
+% 300
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron
+/Eth /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent
+] def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding StandardEncoding
+/StandardEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /section
+/currency /quotesingle /quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl
+/.notdef /endash /dagger /daggerdbl /periodcentered /.notdef /paragraph /bullet
+/quotesinglbase /quotedblbase /quotedblright /guillemotright /ellipsis /perthousand /.notdef /questiondown
+% 300
+/.notdef /grave /acute /circumflex /tilde /macron /breve /dotaccent
+/dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron
+/emdash /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /AE /.notdef /ordfeminine /.notdef /.notdef /.notdef /.notdef
+/Lslash /Oslash /OE /ordmasculine /.notdef /.notdef /.notdef /.notdef
+/.notdef /ae /.notdef /.notdef /.notdef /dotlessi /.notdef /.notdef
+/lslash /oslash /oe /germandbls /.notdef /.notdef /.notdef /.notdef
+] def
+%%EndResource
+%!
+% Add composite (i.e. accented) characters to any font
+% By J. Chroboczek <jec@dcs.ed.ac.uk>
+%
+% -- code follows this line --
+%%BeginResource: procset compose 0.8 0
+% Copyright (c) 1996-1999 by J. Chroboczek
+% This code may be distributed under the terms of the 
+% GNU Public License, either version 3 of the license, or (at your
+% option) any later version.
+/makeCompositeDict 20 dict def
+makeCompositeDict begin
+/nameUnique {                           % name nameUnique namexxxxxx
+  dup length exch 1 index string cvs    % length (name)
+  1 index 12 add string dup             % length (name) (...) (...)
+  3 2 roll 0 exch putinterval           % length (name...)
+  dup 3 2 roll
+  rand 12 string cvs
+  putinterval
+} bind def
+
+/doMakeComposite
+{
+  /compositeChars exch def
+  /targetEncoding exch def
+  /baseEncoding exch def
+  /newfontname exch def
+  /oldfontname exch def
+  /oldfont oldfontname findfont def
+  /newfont 20 dict def
+  /oldFontMatrix oldfont /FontMatrix get def
+  /oldFontBBox oldfont /FontBBox get cvlit def
+  /oldfontcopy oldfont length dict def
+
+  newfont begin
+    /FontType 3 def
+    /PaintType 0 def      % not used
+    /FontMatrix [0.001 0 0 0.001 0 0] def
+    /FontBBox
+    [
+      oldFontBBox 0 get oldFontBBox 1 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+      oldFontBBox 2 get oldFontBBox 3 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+    ] cvx def
+
+    /StrokeWidth 0 def                  % not used
+
+    /Encoding targetEncoding def
+
+    /Decoding 256 dict def              % invert base encoding vector
+    Decoding begin
+      0 1 255
+      { dup baseEncoding exch get exch def } bind for
+    end
+
+    newfont /compositeChars compositeChars put
+
+    /FontName newfontname def
+
+% make a copy of the original font, reencoding it
+    oldfont
+    oldfontcopy begin
+      {1 index /FID ne
+        {def}
+        {pop pop} ifelse
+      } bind forall
+    end
+    oldfontcopy /Encoding baseEncoding put
+    oldfontname nameUnique oldfontcopy definefont
+    1000 scalefont /OriginalFont exch def
+
+    /BuildChar                          % newfont n BuildChar -
+    {
+      exch begin                        % n
+        /OriginalFont load setfont
+        /Encoding load exch get         % glyphName
+        /compositeChars load dup
+        2 index known                   % glyphName compositeChars known-p
+        { 1 index get                   % glyphName [ 65 x y 129 ]
+          dup 0 get ( ) dup             % glyphName [...] 65 ( ) ( )
+          0 3 index put                 % glyphName [...] 65 (A)
+          dup stringwidth setcharwidth
+          0 0 moveto
+          show pop                      % glyphName [...]
+          dup 1 get 1 index 2 get       % glyphName [...] x y
+          moveto                        % glyphName [...]
+          3 get ( ) dup 3 2 roll        % glyphName ( ) ( ) 129
+          0 exch put                    % glyphName (')
+          show                          % glyphName
+        }
+        { pop
+          /Decoding load                % glyphName Decoding
+          dup 2 index known             % glyphName Decoding known-p
+          { exch get }
+          { pop pop 0 } ifelse          % n'
+          ( ) dup 0 3 index put dup     % n' (A) (A)
+          stringwidth setcharwidth
+          0 0 moveto
+          show                          % n'
+        } ifelse
+        pop
+      end
+    } bind def
+  end                                   % newfont
+  newfontname newfont definefont pop
+} def                                   % doMakeComposite
+
+/fillEuro {                             % w h --
+  gsave exch 1000 div exch 1000 div scale
+  955.852 232.172 moveto
+  904.495 180.815 lineto
+  829.454 117.848 734.626 83.333 636.667 83.333 curveto
+  406.667 83.333 220 270 220 500 curveto
+  220 730 406.667 916.667 636.667 916.667 curveto
+  759.831 916.667 876.684 862.177 955.852 767.828 curveto
+  988.474 855.291 lineto
+  894.851 947.996 768.422 1000 636.667 1000 curveto
+  360.667 1000 136.667 776 136.667 500 curveto
+  136.667 224 360.667 0 636.667 0 curveto
+  753.23 0 866.13 40.725 955.852 115.135 curveto
+  closepath fill
+  
+  869.037 541.667 moveto
+  901.025 625 lineto
+  31.989 625 lineto
+  0 541.667 lineto
+  closepath fill
+  
+  805.059 375 moveto
+  837.048 458.333 lineto
+  31.989 458.333 lineto
+  0 375 lineto
+  closepath fill
+  grestore
+} bind def
+
+/makeEuroCharstring {                   % w h -- charstring
+  [ /pop cvx                            % w h mark pop
+    3 index 0 0 0                       % w h mark pop w 0 0 0
+    7 index 7 index /setcachedevice cvx 
+                                % w h mark pop w 0 0 0 w h setcachedevice
+    10 index 10 index /fillEuro load /exec cvx ] 
+  cvx bind 3 1 roll pop pop
+} def
+
+/doEurifyFont {                         % oldname newname --
+  exch
+  findfont dup dup                      % newname dict dict dict
+  /FontMatrix get matrix invertmatrix   % newname dict dict m
+  {} forall pop pop [ 5 1 roll 0 0] makefont setfont   % newnamedict
+  0 0 moveto
+  (5) stringwidth pop                     % newname dict w
+  (M) false charpath pathbbox 4 1 roll pop pop pop % newnamedict w h
+  3 2 roll                                % newname w h dict
+  
+  dup length dict dup 3 1 roll begin      % newname w h newdict
+    {1 index /FID ne {def} {pop pop} ifelse} forall
+    CharStrings dup length 1 add dict dup 3 1 roll begin % newnamew h newdict newdict'
+      {def} forall
+      /Euro                               % newname w h newdict newdict' /Euro
+      4 index 4 index makeEuroCharstring def
+    end                                   % newname w h newdict newdict'
+    /CharStrings exch def
+  end
+  3 1 roll pop pop                      % newname dict
+  definefont pop
+} bind def
+
+end                                     % makeCompositeDict
+
+% oldfontname newfontname baseEncoding targetEncoding compositeChars --
+/makeComposite
+{
+  makeCompositeDict begin doMakeComposite end
+} bind def
+
+% oldfontname newfontname
+/eurifyFont
+{
+  makeCompositeDict begin doEurifyFont end
+} bind def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: font Helvetica-Bold-Ogonki
+/Helvetica-Bold /Helvetica-Bold-Ogonki OgonkiEncoding StandardEncoding 83 dict
+dup /Ydieresis [89 167 191 168] put
+dup /ydieresis [121 111 0 168] put
+dup /Ucircumflex [85 197 191 28] put
+dup /Ugrave [85 197 191 27] put
+dup /ucircumflex [117 139 0 28] put
+dup /ugrave [117 139 0 27] put
+dup /Idieresis [73 -27 191 168] put
+dup /Igrave [73 -27 191 27] put
+dup /idieresis [136 -27 0 168] put
+dup /igrave [136 -27 0 27] put
+dup /Ecircumflex [69 188 191 28] put
+dup /Egrave [69 188 191 27] put
+dup /ecircumflex [101 111 0 28] put
+dup /egrave [101 111 0 27] put
+dup /Agrave [65 197 191 27] put
+dup /agrave [97 111 0 27] put
+dup /Ograve [79 222 191 27] put
+dup /ograve [111 139 0 27] put
+dup /Atilde [65 197 191 29] put
+dup /atilde [97 111 0 29] put
+dup /Ntilde [78 200 191 29] put
+dup /ntilde [110 146 0 29] put
+dup /Otilde [79 222 191 29] put
+dup /otilde [111 139 0 29] put
+dup /Aring [65 197 191 31] put
+dup /aring [97 111 0 31] put
+dup /abreve [97 111 0 162] put
+dup /Abreve [65 194 202 162] put
+dup /aogonek [97 270 0 178] put
+dup /Aogonek [65 444 0 178] put
+dup /cacute [99 111 0 180] put
+dup /Cacute [67 194 193 180] put
+dup /ccaron [99 122 0 183] put
+dup /Ccaron [67 210 191 183] put
+dup /dbar [100 302 298 173] put
+dup /Dbar [208 0 0 160] put
+dup /dcaron [100 493 73 39] put
+dup /Dcaron [68 194 190 183] put
+dup /ecaron [101 111 0 183] put
+dup /Ecaron [69 167 190 183] put
+dup /edotaccent [101 103 0 255] put
+dup /Edotaccent [69 188 191 255] put
+dup /eogonek [101 150 0 178] put
+dup /Eogonek [69 290 0 178] put
+dup /gbreve [103 139 0 162] put
+dup /Gbreve [71 222 191 162] put
+dup /Idotaccent [73 -27 191 255] put
+dup /iogonek [105 -39 0 178] put
+dup /Iogonek [73 -30 0 178] put
+dup /lacute [108 -7 193 180] put
+dup /Lacute [76 139 193 180] put
+dup /lcaron [108 155 73 39] put
+dup /Lcaron [76 161 73 39] put
+dup /nacute [110 159 0 180] put
+dup /Nacute [78 231 193 180] put
+dup /ncaron [110 111 0 183] put
+dup /Ncaron [78 194 215 183] put
+dup /ohungarumlaut [111 139 0 189] put
+dup /Ohungarumlaut [79 222 191 189] put
+dup /racute [114 48 0 180] put
+dup /Racute [82 231 193 180] put
+dup /rcaron [114 28 0 183] put
+dup /Rcaron [82 194 190 183] put
+dup /sacute [115 111 0 180] put
+dup /Sacute [83 167 193 180] put
+dup /scedilla [115 111 0 184] put
+dup /Scedilla [83 167 0 184] put
+dup /tcaron [116 249 0 39] put
+dup /Tcaron [84 139 190 183] put
+dup /tcedilla [116 86 0 184] put
+dup /Tcedilla [84 197 0 184] put
+dup /uhungarumlaut [117 139 0 189] put
+dup /Uhungarumlaut [85 197 191 189] put
+dup /uring [117 139 0 31] put
+dup /Uring [85 194 190 31] put
+dup /umacron [117 139 0 30] put
+dup /Umacron [85 199 191 30] put
+dup /uogonek [117 286 0 178] put
+dup /Uogonek [85 260 0 178] put
+dup /zacute [122 103 0 180] put
+dup /Zacute [90 139 193 180] put
+dup /zdotaccent [122 83 0 255] put
+dup /Zdotaccent [90 139 206 255] put
+makeComposite
+%%EndResource
+
+%%EndResource
+%%BeginResource: font PCFont
+%!PS-AdobeFont-1.0  -*- PostScript -*-
+%%Copyright: (c) 1996 Johannes Goldynia <Johannes.Goldynia@pdts.at>
+
+% pcfont.pfa - Type 3 font providing support for line drawing PC encoding
+%
+% Copyright (c) 1996 Johannes Goldynia <Johannes.Goldynia@pdts.at>
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful, but
+% WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+% General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+23 dict dup begin
+  /FontMatrix [.001 0 0 .00112 0 0] def
+  /FontType 3 def
+  /FontBBox [0 -200 600 800] def
+  /Notice (PCfont 1991) def
+  /FullName (PCfont) def
+  /FontName /PCfont def
+  /isFixedPitch true def
+  /Encoding 
+  [
+    /null /Wsmiley /Bsmiley /heart /diamond /club /spade /Bbullet
+    /Wbullet /Bcircle /Wcircle /male /female /quarternote /sixteenthnote
+    /sun /pointerright /pointerleft /Varrowboth /exclamdbl /paragraph
+    /section /cursorblock /floor /arrowup /arrowdown /arrowright
+    /arrowleft /smallLLsingle /arrowboth /pointerup /pointerdown /blank
+    /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+    /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+    /zero /one /two /three /four /five /six /seven /eight /nine /colon
+    /semicolon /less /equal /greater /question /at /A /B /C /D /E /F /G /H
+    /I /J /K /L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft
+    /backslash /bracketright /asciicircum /underscore /quoteleft /a /b /c
+    /d /e /f /g /h /i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z
+    /braceleft /brokenbar /braceright /asciitilde /Delta /Ccedilla
+    /udieresis /eacute /acircumflex /adieresis /agrave /aring /ccedilla
+    /ecircumflex /edieresis /egrave /idieresis /icircumflex /igrave
+    /Adieresis /Aring /Eacute /ae /AE /ocircumflex /odieresis /ograve
+    /ucircumflex /ugrave /ydieresis /Odieresis /Udieresis /cent /sterling
+    /yen /point /integral /aacute /iacute /oacute /uacute /ntilde /Ntilde
+    /aunder /ounder /questiondown /smallULsingle /smallURsingle /half
+    /quarter /exclamdown /lessdbl /greaterdbl /lightbox /mediumbox
+    /darkbox /Vsingle /VsingleTleftsingle /VsingleTleftdbl
+    /VdblTleftsingle /VdblURsingle /VsingleURdbl /VdblTleftdbl /Vdbl
+    /VdblURdbl /VdblLRdbl /VdblLRsingle /VsingleLRdbl /VsingleURsingle
+    /VsingleLLsingle /HsingleTupsingle /HsingleTdownsingle
+    /VsingleTrightsingle /Hsingle /VsingleXsingle /VsingleTrightdbl
+    /VdblTrightsingle /VdblLLdbl /VdblULdbl /HdblTupdbl /HdblTdowndbl
+    /VdblTrightdbl /Hdbl /VdblXdbl /HdblTupsingle /HsingleTupdbl
+    /HdblTdownsingle /HsingleTdowndbl /VdblLLsingle /VsingleLLdbl
+    /VsingleULdbl /VdblULsingle /VdblXsingle /VsingleXdbl /VsingleLRsingle
+    /VsingleULsingle /allblack /botblack /leftblack /rightblack /topblack
+    /alpha /beta /Gamma /pi /Sigma /sigma /mu /tau /Phi /theta /Omega
+    /delta /infinity /phi /element /intersection /equivalence /plusminus
+    /greaterequal /lessequal /integraltp /integralbt /divide /approxequal
+    /degree /bullet /dotmath /radical /eta /squared /block /blank
+  ]
+  def % /Encoding
+  /_uC { 0 0 moveto /Courier findfont 1000 scalefont setfont show } def
+  /_uS { 0 0 moveto /Symbol findfont 1000 scalefont setfont show } def
+  /dotless_i { newpath 110 20 moveto 490 20 lineto 300 20 moveto 300 400 lineto 150 400 lineto 22 setlinewidth 1 setlinecap stroke } def
+  /squash { 1 dict begin /cr exch def save 1 .75 scale cr _uC restore end } def
+  /lt {lineto} def
+  /mt {moveto} def
+  /a {arc} def
+  /an {arcn} def
+  /cp {closepath} def
+  /slw {setlinewidth} def
+  /slc {setlinecap} def
+  /CharacterDefs 255 dict def
+  CharacterDefs begin
+    /null { 0 598 mt 230 598 lt 184 460 lt 0 460 lt cp 92 0 mt 92 184 lt 230 184 lt 368 598 lt 598 598 lt 598 460 lt 377.2 460 lt 230 0 lt cp fill } def
+    /Wsmiley { 300 300 275 0 360 a 370 230 mt 300 300 100 315 225 an 20 slw 1 slc stroke 230 370 25 0 360 a fill 370 370 25 0 360 a fill } def
+    /Bsmiley { 300 300 275 0 360 a 352.5 247.5 mt 370 230 25 135 315 an 300 300 125 315 225 an 230 230 25 225 45 an 300 300 75 225 315 a 230 335 mt 230 370 50 270 -90 an 370 370 50 270 -90 an eofill } def
+    /heart {(\251) _uS} def
+    /diamond {(\250) _uS} def
+    /club {(\247) _uS} def
+    /spade {(\252) _uS} def
+    /Bbullet { (\267) _uC } def
+    /Wbullet { 0 -200 mt 600 -200 lt 600 800 lt 0 800 lt 0 -200 lt 300 300 100 225 585 a eofill } def
+    /Bcircle { 300 300 100 225 585 a 20 slw stroke } def
+    /Wcircle { 0 -200 mt 600 -200 lt 600 800 lt 0 800 lt 0 -200 lt 300 300 125 225 585 a 300 300 75 225 585 a eofill } def
+    /male { newpath 300 200 200 70 -290 arcn 575 625 lineto 575 500 moveto 575 625 lineto 450 625 lineto 20 slw 1 setlinecap stroke } def
+    /female { newpath 300 400 200 270 -90 arcn 300 0 lineto 150 100 moveto 450 100 lineto 20 slw 1 setlinecap stroke } def
+    /quarternote { save 1 .5 scale 200 400 100 0 360 arc fill restore 290 200 moveto 290 658 lineto 430 840 230 235 270 arc 20 slw 0 setlinecap 290 610 lineto gsave fill grestore stroke } def
+    /sixteenthnote { save 1 .5 scale 200 400 100 0 360 arc 330 200 moveto 340 200 100 0 360 arc fill restore
+      290 200 moveto 290 658 lineto 430 840 230 235 270 arc 430 610 moveto 430 790 230 270 235 arcn 430 610 moveto 430 100 lineto 20 slw 1 setlinecap stroke } def
+    /sun { newpath 300 300 150 270 -90 arcn 300 0 lineto 180 180 moveto 100 100 lineto 150 300 moveto 25 300 lineto 180 420 moveto 100 500 lineto 300 450 moveto 300 600 lineto 420 420 moveto 500 500 lineto 450 300 moveto 575 300 lineto 420 180 moveto 500 100 lineto 20 slw 1 setlinecap stroke } def
+    /pointerright { 600 750 450 270 210 an 600 -150 450 150 90 an fill } def
+    /pointerleft { 150 750 450 330 270 an 150 -150 450 90 30 an fill } def
+    /Varrowboth { 300 700 mt 550 500 lt 350 500 lt 350 200 lt 550 200 lt 300 0 lt 50 200 lt 250 200 lt 250 500 lt 50 500 lt cp fill } def
+    /exclamdbl { save -100 0 translate (!) _uC 200 0 translate (!) _uC restore } def
+    /paragraph { (\266) _uC }
+    def
+    /section { (\247) _uC } def
+    /cursorblock { 50 -100 mt 550 -100 lt 550 200 lt 50 200 lt cp fill } def
+    /floor { 300 700 mt 550 500 lt 350 500 lt 350 200 lt 550 200 lt 300 0 lt 50 200 lt 250 200 lt 250 500 lt 50 500 lt cp fill 0 0 mt 600 0 lt 20 slw stroke } def
+    /arrowup { 300 700 mt 550 500 lt 350 500 lt 350 0 lt 250 0 lt 250 500 lt 50 500 lt cp fill } def
+    /arrowdown { 300 0 mt 550 200 lt 350 200 lt 350 700 lt 250 700 lt 250 200 lt 50 200 lt cp fill } def
+    /arrowright { 50 300 mt 550 300 lt 300 400 lt 550 300 mt 300 200 lt 1 slc 25 slw stroke } def
+    /arrowleft { 550 300 mt 50 300 lt 300 400 lt 50 300 mt 300 200 lt 1 slc 25 slw stroke } def
+    /smallLLsingle { 100 400 mt 100 275 lt 500 275 lt 20 slw stroke } def
+    /arrowboth { 550 300 mt 50 300 lt 200 400 lt 50 300 mt 200 200 lt 550 300 mt 400 400 lt 550 300 mt 400 200 lt 1 slc 20 slw stroke } def
+    /pointerup { 50 50 mt 300 600 lt 550 50 lt cp fill } def
+    /pointerdown { 0 550 mt 300 50 lt 550 550 lt cp fill } def
+    /blank {} def
+    /exclam { (!) _uC } def
+    /quotedbl { (") _uC } def
+    /numbersign { (#) _uC } def
+    /dollar { ($) _uC } def
+    /percent { (%) _uC } def
+    /ampersand {(&) _uC} def
+    /quotesingle {(') _uC} def
+    /parenleft { (\050) _uC } def
+    /parenright { (\051) _uC } def
+    /asterisk { (*) _uC } def
+    /plus { (+) _uC } def
+    /comma { (,) _uC } def
+    /hyphen { (-) _uC } def
+    /period { (.) _uC } def
+    /slash { (/) _uC } def
+    /zero { (0) _uC } def
+    /one { (1) _uC } def
+    /two { (2) _uC } def
+    /three { (3) _uC } def
+    /four { (4) _uC } def
+    /five { (5) _uC } def
+    /six { (6) _uC } def
+    /seven { (7) _uC } def
+    /eight { (8) _uC } def
+    /nine { (9) _uC } def
+    /colon { (:) _uC } def
+    /semicolon { (;) _uC } def
+    /less { (<) _uC } def
+    /equal { (=) _uC } def
+    /greater { (>) _uC } def
+    /question { (?) _uC } def
+    /at { (@) _uC } def
+    /A { (A) _uC } def
+    /B { (B) _uC } def
+    /C { (C) _uC } def
+    /D { (D) _uC } def
+    /E { (E) _uC } def
+    /F { (F) _uC } def
+    /G { (G) _uC } def
+    /H { (H) _uC } def
+    /I { (I) _uC } def
+    /J { (J) _uC } def
+    /K { (K) _uC } def
+    /L { (L) _uC } def
+    /M { (M) _uC } def
+    /N { (N) _uC } def
+    /O { (O) _uC } def
+    /P { (P) _uC } def
+    /Q { (Q) _uC } def
+    /R { (R) _uC } def
+    /S { (S) _uC } def
+    /T { (T) _uC } def
+    /U { (U) _uC } def
+    /V { (V) _uC } def
+    /W { (W) _uC } def
+    /X { (X) _uC } def
+    /Y { (Y) _uC } def
+    /Z { (Z) _uC } def
+    /bracketleft { ([) _uC } def
+    /backslash { (\\) _uC } def
+    /bracketright { (]) _uC } def
+    /asciicircum { (^) _uC } def
+    /underscore { 0 -200 mt 600 -200 lt 20 slw stroke } def
+    /quoteleft { (`) _uC } def
+    /a { (a) _uC } def
+    /b { (b) _uC } def
+    /c { (c) _uC } def
+    /d { (d) _uC } def
+    /e { (e) _uC } def
+    /f { (f) _uC } def
+    /g { (g) _uC } def
+    /h { (h) _uC } def
+    /i { (i) _uC } def
+    /j { (j) _uC } def
+    /k { (k) _uC } def
+    /l { (l) _uC } def
+    /m { (m) _uC } def
+    /n { (n) _uC } def
+    /o { (o) _uC } def
+    /p { (p) _uC } def
+    /q { (q) _uC } def
+    /r { (r) _uC } def
+    /s { (s) _uC } def
+    /t { (t) _uC } def
+    /u { (u) _uC } def
+    /v { (v) _uC } def
+    /w { (w) _uC } def
+    /x { (x) _uC } def
+    /y { (y) _uC } def
+    /z { (z) _uC } def
+    /braceleft { ({) _uC } def
+    /brokenbar { (|) _uC } def
+    /braceright { (}) _uC } def
+    /asciitilde { (~) _uC } def
+    /Delta { 50 0 mt 50 200 lt 300 500 lt 550 200 lt 550 0 lt cp 0 setlinejoin 20 slw stroke } def
+    /Ccedilla { (C) _uC (\313) _uC } def
+    /udieresis { (u) _uC (\310) _uC } def
+    /eacute { (e) _uC (\302) _uC } def
+    /acircumflex { (a) _uC (\303) _uC } def
+    /adieresis { (a) _uC (\310) _uC } def
+    /agrave { (a) _uC (\301) _uC } def
+    /aring { (a) _uC (\312) _uC } def
+    /ccedilla { (c) _uC (\313) _uC } def
+    /ecircumflex { (e) _uC (\303) _uC } def
+    /edieresis { (e) _uC (\310) _uC } def
+    /egrave { (e) _uC (\301) _uC } def
+    /idieresis { dotless_i (\310) _uC } def
+    /icircumflex { dotless_i (\303) _uC } def
+    /igrave { dotless_i (\301) _uC } def
+    /Adieresis { (A) squash (\310) _uC } def
+    /Aring { (A) squash (\312) _uC } def
+    /Eacute { (E) squash (\302) _uC } def
+    /ae { save .6 1 scale -75 0 translate (a) _uC 360 0 translate (e) _uC restore } def
+    /AE { 120 540 moveto 480 540 lineto 480 420 lineto 300 540 moveto 300 20 lineto 250 20 moveto 500 20 lineto 500 160 lineto 250 540 moveto 80 20 lineto 30 20 moveto 180 20 lineto 170 280 moveto 400 280 lineto 400 240 moveto 400 320 lineto 20 slw 1 setlinecap stroke } def
+    /ocircumflex { (o) _uC (\303) _uC } def
+    /odieresis { (o) _uC (\310) _uC } def
+    /ograve { (o) _uC (\301) _uC } def
+    /ucircumflex { (u) _uC (\303) _uC } def
+    /ugrave { (u) _uC (\301) _uC } def
+    /ydieresis { (y) _uC (\310) _uC } def
+    /Odieresis { (O) squash (\310) _uC } def
+    /Udieresis { (U) squash (\310) _uC } def
+    /cent { (\242) _uC } def
+    /sterling { (\243) _uC } def
+    /yen { (\245) _uC } def
+    /point { save .6 1 scale (P) _uC .5 .5 scale 1000 0 translate (t) _uC restore } def
+    /integral { save 1 .75 scale (\362) _uS restore } def
+    /aacute { (a) _uC (\302) _uC } def
+    /iacute { dotless_i (\302) _uC } def
+    /oacute { (o) _uC (\302) _uC } def
+    /uacute { (u) _uC (\302) _uC } def
+    /ntilde { (n) _uC (\304) _uC } def
+    /Ntilde { (N) squash (\304) _uC } def
+    /aunder { save 175 200 translate .6 .6 scale (a) _uC 100 -200 mt 500 -200 lt 20 slw stroke restore } def
+    /ounder { save 175 200 translate .6 .6 scale (o) _uC 100 -200 mt 500 -200 lt 20 slw stroke restore } def
+    /questiondown { (\277) _uC } def
+    /smallULsingle { 25 100 mt 25 300 lt 575 300 lt 20 slw stroke } def
+    /smallURsingle { 25 300 mt 575 300 lt 575 100 lt 20 slw stroke } def
+    /half { save .5 .5 scale 0 600 translate (1) _uC
+      500 -600 translate (2) _uC restore 50 0 moveto 500 600 lineto 10 slw 1 setlinecap stroke } def
+    /quarter { save .5 .5 scale 0 600 translate (1) _uC 500 -600 translate (4) _uC restore 50 0 moveto 500 600 lineto
+      10 slw 1 setlinecap stroke } def
+    /exclamdown { (\241) _uC } def
+    /lessdbl { (\253) _uC } def
+    /greaterdbl { (\273) _uC } def
+    /lightbox { 2 dict begin 50 85 600 { /col exch def -150 71 800 { /row exch def col row 5 0 360 arc fill } for } for end } def
+    /mediumbox { 2 dict begin 50 85 600 { /col exch def -150 71 800 { /row exch def col row 15 0 360 arc fill } for } for end } def
+    /darkbox { 2 dict begin 50 85 600 { /col exch def -150 71 800 { /row exch def col row 25 0 360 arc fill } for } for end } def
+    /Vsingle { 300 -205 mt 300 805 lt 20 slw stroke } def
+    /VsingleTleftsingle { 300 -205 mt 300 805 lt 0 300 mt 300 300 lt 20 slw stroke } def
+    /VsingleTleftdbl { 300 -205 mt 300 805 lt 0 400 mt 300 400 lt 0 200 mt 300 200 lt 20 slw stroke } def
+    /VdblTleftsingle { 200 -205 mt 200 805 lt 400 -205 mt 400 805 lt 0 300 mt 200 300 lt 20 slw stroke } def
+    /VdblURsingle { 0 300 mt 400 300 lt 400 -205 lt 200 300 mt 200 -205 lt 20 slw stroke } def
+    /VsingleURdbl { 300 -205 mt 300 400 lt 0 400 lt 0 200 mt 300 200 lt 20 slw stroke } def
+    /VdblTleftdbl { 400 -205 mt 400 805 lt 200 -205 mt 200 200 lt 0 200 lt 0 400 mt 200 400 lt 200 805 lt 20 slw stroke } def
+    /Vdbl { 400 -205 mt 400 805 lt 200 -205 mt 200 805 lt 20 slw stroke } def
+    /VdblURdbl { 400 -205 mt 400 400 lt 0 400 lt 0 200 mt 200 200 lt 200 -205 lt 20 slw stroke } def
+    /VdblLRdbl { 200 805 mt 200 400 lt 0 400 lt 400 805 mt 400 200 lt 0 200 lt 20 slw stroke } def
+    /VdblLRsingle { 200 805 mt 200 300 lt 400 805 mt 400 300 lt 0 300 lt 20 slw stroke } def
+    /VsingleLRdbl { 300 805 mt 300 200 lt 0 200 lt 0 400 mt 300 400 lt 20 slw stroke } def
+    /VsingleURsingle { 300 -205 mt 300 300 lt 0 300 lt 20 slw stroke } def
+    /VsingleLLsingle { 300 805 mt 300 300 lt 600 300 lt 20 slw stroke } def
+    /HsingleTupsingle { 0 300 mt 600 300 lt 300 300 mt 300 805 lt 20 slw stroke } def
+    /HsingleTdownsingle { 0 300 mt 600 300 lt 300 300 mt 300 -205 lt 20 slw stroke } def
+    /VsingleTrightsingle { 300 -205 mt 300 805 lt 300 300 mt 600 300 lt 20 slw stroke } def
+    /Hsingle { 0 300 mt 600 300 lt 20 slw stroke } def
+    /VsingleXsingle { 300 -205 mt 300 805 lt 0 300 mt 600 300 lt 20 slw stroke } def
+    /VsingleTrightdbl { 300 -205 mt 300 805 lt 300 200 mt 600 200 lt 300 400 mt 600 400 lt 20 slw stroke } def
+    /VdblTrightsingle { 400 -205 mt 400 805 lt 200 -205 mt 200 805 lt 400 300 mt 600 300 lt 20 slw stroke } def
+    /VdblLLdbl { 400 805 mt 400 400 lt 600 400 lt 200 805 mt 200 200 lt 600 200 lt 20 slw stroke } def
+    /VdblULdbl { 400 -205 mt 400 200 lt 600 200 lt 200 -205 mt 200 400 lt 600 400 lt 20 slw stroke } def
+    /HdblTupdbl { 0 200 mt 600 200 lt 0 400 mt 200 400 lt 200 805 lt 400 805 mt 400 400 lt 600 400 lt 20 slw stroke } def
+    /HdblTdowndbl { 0 400 mt 600 400 lt 0 200 mt 200 200 lt 200 -205 lt 400 -205 mt 400 200 lt 600 200 lt 20 slw stroke } def
+    /VdblTrightdbl { 200 -205 mt 200 805 lt 400 -205 mt 400 200 lt 600 200 lt 600 400 mt
+      400 400 lt 400 805 lt 20 slw stroke } def
+    /Hdbl { 0 200 mt 600 200 lt 0 400 mt 600 400 lt 20 slw stroke } def
+    /VdblXdbl { 400 -205 mt 400 200 lt 600 200 lt 600 400 mt 400 400 lt 400 805 lt 200 -205 mt 200 200 lt 0 200 lt
+      0 400 mt 200 400 lt 200 805 lt 20 slw stroke } def
+    /HdblTupsingle { 0 200 mt 600 200 lt 0 400 mt 600 400 lt 300 400 mt 300 805 lt 20 slw stroke } def
+    /HsingleTupdbl { 0 300 mt 600 300 lt 200 300 mt 200 805 lt
+      400 300 mt 400 805 lt 20 slw stroke } def
+    /HdblTdownsingle { 0 200 mt 600 200 lt 0 400 mt 600 400 lt 300 200 mt 300 -205 lt 20 slw stroke } def
+    /HsingleTdowndbl { 0 300 mt 600 300 lt 200 300 mt 200 -205 lt
+      400 300 mt 400 -205 lt 20 slw stroke } def
+    /VdblLLsingle { 200 805 mt 200 300 lt 600 300 lt 400 805 mt 400 300 lt 20 slw stroke } def
+    /VsingleLLdbl { 300 805 mt 300 200 lt 600 200 lt 300 400 mt 600 400 lt 20 slw stroke } def
+    /VsingleULdbl { 300 -205 mt 300 400 lt 600 400 lt 300 200 mt 600 200 lt 20 slw stroke } def
+    /VdblULsingle { 200 -205 mt 200 300 lt 600 300 lt 400 -205 mt 400 300 lt 20 slw stroke } def
+    /VdblXsingle { 400 -205 mt 400 805 lt 200 -205 mt 200 805 lt 0 300 mt 600 300 lt 20 slw stroke } def
+    /VsingleXdbl { 300 -205 mt 300 805 lt 0 200 mt 600 200 lt 0 400 mt 600 400 lt 20 slw stroke } def
+    /VsingleLRsingle { 0 300 mt 300 300 lt 300 805 lt 20 slw stroke } def
+    /VsingleULsingle { 300 -205 mt 300 300 lt 600 300 lt 20 slw stroke } def
+    /allblack { 0 -205 mt 600 -205 lt 600 805 lt 0 805 lt cp fill } def
+    /botblack { 0 -205 mt 600 -205 lt 600 300 lt 0 300 lt cp fill } def
+    /leftblack { 0 -205 mt 300 -205 lt 300 805 lt 0 805 lt cp fill } def
+    /rightblack { 300 -205 mt 600 -205 lt 600 805 lt 300 805 lt cp fill } def
+    /topblack { 0 300 mt 600 300 lt 600 805 lt 0 805 lt cp fill } def
+    /alpha { save .8 .8 scale (\141) _uS restore } def
+    /beta { save .9 1 scale  (\373) _uC restore } def
+    /Gamma { save .8 .8 scale (\107) _uS restore } def
+    /pi { save .8 .8 scale (\160) _uS restore } def
+    /Sigma { save .8 .8 scale (\123) _uS restore } def
+    /sigma { save .8 .8 scale (\163) _uS restore } def
+    /mu { save .8 .8 scale (\155) _uS restore } def
+    /tau { save .8 .8 scale (\164) _uS restore } def
+    /Phi { save .75 1 scale (\106) _uS restore } def
+    /theta { save .8 .8 scale (\161) _uS restore } def
+    /Omega { save .6 .9 scale (\127) _uS restore } def
+    /delta { save .8 .8 scale (\144) _uS restore } def
+    /infinity { save .75 1 scale (\245) _uS restore } def
+    /phi { save .8 .7 scale (\146) _uS restore } def
+    /element { save .8 .8 scale (\316) _uS restore } def
+    /intersection { save .5 .8 scale (\307) _uS restore } def
+    /equivalence {(\272) _uS} def
+    /plusminus {(\261) _uS} def
+    /greaterequal {(\263) _uS} def
+    /lessequal {(\243) _uS} def
+    /integraltp { save .75 .75 scale (\363) _uS restore } def
+    /integralbt { save .75 .75 scale (\365) _uS restore } def
+    /divide {(\270) _uS} def
+    /approxequal {(\273) _uS} def
+    /degree {(\260) _uS} def
+    /bullet {(\267) _uS} def
+    /dotmath {(\327) _uS} def
+    /radical { 100 300 mt 150 350 lt 350 0 lt 550 600 lt 25 slw stroke } def
+    /eta { save .8 .8 scale (\150) _uS restore } def
+    /squared { save 100 350 translate
+      .45 .45 scale (2) _uC restore } def
+    /block { 50 0 mt 50 400 lt 550 400 lt 550 0 lt fill } def
+    /blank {} def
+  end 
+
+  /BuildChar { 
+    600 0 
+    0 -200 600 800
+    setcachedevice
+    exch begin
+      Encoding exch get
+      CharacterDefs exch get
+      exec 
+    end
+  } def
+
+  /UniqueID 847667 def
+end 
+/PCFont exch definefont pop
+%%EndResource
+%%BeginResource: font Times-Roman-Ogonki
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding OgonkiEncoding
+/OgonkiEncoding [
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /quotesingle
+/quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl /endash /dagger
+/daggerdbl /periodcentered /paragraph /bullet /quotesinglbase /quotedblbase /quotedblright /guillemotright
+/ellipsis /perthousand /questiondown /grave /circumflex /tilde /macron /ring
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /emdash /AE /ordfeminine /Oslash /OE /ordmasculine /ae
+/dotlessi /oslash /oe /threesuperior /thorn /twosuperior /threequarters /Eth
+/trademark /registered /onequarter /Thorn /logicalnot /plusminus /minus /onesuperior
+/copyright /mu /eth /brokenbar /onehalf /dotlessj /Euro /.notdef
+/space /Aogonek /breve /Lslash /currency /Lcaron /Sacute /section
+/dieresis /Scaron /Scedilla /Tcaron /Zacute /hyphen /Zcaron /Zdotaccent
+/degree /aogonek /ogonek /lslash /acute /lcaron /sacute /caron
+/cedilla /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent
+% 300
+/Racute /Aacute /Acircumflex /Abreve /Adieresis /Lacute /Cacute /Ccedilla
+/Ccaron /Eacute /Eogonek /Edieresis /Ecaron /Iacute /Icircumflex /Dcaron
+/Eth /Nacute /Ncaron /Oacute /Ocircumflex /Ohungarumlaut /Odieresis /multiply
+/Rcaron /Uring /Uacute /Uhungarumlaut /Udieresis /Yacute /Tcedilla /germandbls
+/racute /aacute /acircumflex /abreve /adieresis /lacute /cacute /ccedilla
+/ccaron /eacute /eogonek /edieresis /ecaron /iacute /icircumflex /dcaron
+/dbar /nacute /ncaron /oacute /ocircumflex /ohungarumlaut /odieresis /divide
+/rcaron /uring /uacute /uhungarumlaut /udieresis /yacute /tcedilla /dotaccent
+] def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: encoding StandardEncoding
+/StandardEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright
+/parenleft /parenright /asterisk /plus /comma /hyphen /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+% 100
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/quoteleft /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+% 200
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /exclamdown /cent /sterling /fraction /yen /florin /section
+/currency /quotesingle /quotedblleft /guillemotleft /guilsinglleft /guilsinglright /fi /fl
+/.notdef /endash /dagger /daggerdbl /periodcentered /.notdef /paragraph /bullet
+/quotesinglbase /quotedblbase /quotedblright /guillemotright /ellipsis /perthousand /.notdef /questiondown
+% 300
+/.notdef /grave /acute /circumflex /tilde /macron /breve /dotaccent
+/dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron
+/emdash /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /AE /.notdef /ordfeminine /.notdef /.notdef /.notdef /.notdef
+/Lslash /Oslash /OE /ordmasculine /.notdef /.notdef /.notdef /.notdef
+/.notdef /ae /.notdef /.notdef /.notdef /dotlessi /.notdef /.notdef
+/lslash /oslash /oe /germandbls /.notdef /.notdef /.notdef /.notdef
+] def
+%%EndResource
+%!
+% Add composite (i.e. accented) characters to any font
+% By J. Chroboczek <jec@dcs.ed.ac.uk>
+%
+% -- code follows this line --
+%%BeginResource: procset compose 0.8 0
+% Copyright (c) 1996-1999 by J. Chroboczek
+% This code may be distributed under the terms of the 
+% GNU Public License, either version 3 of the license, or (at your
+% option) any later version.
+/makeCompositeDict 20 dict def
+makeCompositeDict begin
+/nameUnique {                           % name nameUnique namexxxxxx
+  dup length exch 1 index string cvs    % length (name)
+  1 index 12 add string dup             % length (name) (...) (...)
+  3 2 roll 0 exch putinterval           % length (name...)
+  dup 3 2 roll
+  rand 12 string cvs
+  putinterval
+} bind def
+
+/doMakeComposite
+{
+  /compositeChars exch def
+  /targetEncoding exch def
+  /baseEncoding exch def
+  /newfontname exch def
+  /oldfontname exch def
+  /oldfont oldfontname findfont def
+  /newfont 20 dict def
+  /oldFontMatrix oldfont /FontMatrix get def
+  /oldFontBBox oldfont /FontBBox get cvlit def
+  /oldfontcopy oldfont length dict def
+
+  newfont begin
+    /FontType 3 def
+    /PaintType 0 def      % not used
+    /FontMatrix [0.001 0 0 0.001 0 0] def
+    /FontBBox
+    [
+      oldFontBBox 0 get oldFontBBox 1 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+      oldFontBBox 2 get oldFontBBox 3 get
+      oldFontMatrix transform
+      [1000 0 0 1000 0 0] transform
+    ] cvx def
+
+    /StrokeWidth 0 def                  % not used
+
+    /Encoding targetEncoding def
+
+    /Decoding 256 dict def              % invert base encoding vector
+    Decoding begin
+      0 1 255
+      { dup baseEncoding exch get exch def } bind for
+    end
+
+    newfont /compositeChars compositeChars put
+
+    /FontName newfontname def
+
+% make a copy of the original font, reencoding it
+    oldfont
+    oldfontcopy begin
+      {1 index /FID ne
+        {def}
+        {pop pop} ifelse
+      } bind forall
+    end
+    oldfontcopy /Encoding baseEncoding put
+    oldfontname nameUnique oldfontcopy definefont
+    1000 scalefont /OriginalFont exch def
+
+    /BuildChar                          % newfont n BuildChar -
+    {
+      exch begin                        % n
+        /OriginalFont load setfont
+        /Encoding load exch get         % glyphName
+        /compositeChars load dup
+        2 index known                   % glyphName compositeChars known-p
+        { 1 index get                   % glyphName [ 65 x y 129 ]
+          dup 0 get ( ) dup             % glyphName [...] 65 ( ) ( )
+          0 3 index put                 % glyphName [...] 65 (A)
+          dup stringwidth setcharwidth
+          0 0 moveto
+          show pop                      % glyphName [...]
+          dup 1 get 1 index 2 get       % glyphName [...] x y
+          moveto                        % glyphName [...]
+          3 get ( ) dup 3 2 roll        % glyphName ( ) ( ) 129
+          0 exch put                    % glyphName (')
+          show                          % glyphName
+        }
+        { pop
+          /Decoding load                % glyphName Decoding
+          dup 2 index known             % glyphName Decoding known-p
+          { exch get }
+          { pop pop 0 } ifelse          % n'
+          ( ) dup 0 3 index put dup     % n' (A) (A)
+          stringwidth setcharwidth
+          0 0 moveto
+          show                          % n'
+        } ifelse
+        pop
+      end
+    } bind def
+  end                                   % newfont
+  newfontname newfont definefont pop
+} def                                   % doMakeComposite
+
+/fillEuro {                             % w h --
+  gsave exch 1000 div exch 1000 div scale
+  955.852 232.172 moveto
+  904.495 180.815 lineto
+  829.454 117.848 734.626 83.333 636.667 83.333 curveto
+  406.667 83.333 220 270 220 500 curveto
+  220 730 406.667 916.667 636.667 916.667 curveto
+  759.831 916.667 876.684 862.177 955.852 767.828 curveto
+  988.474 855.291 lineto
+  894.851 947.996 768.422 1000 636.667 1000 curveto
+  360.667 1000 136.667 776 136.667 500 curveto
+  136.667 224 360.667 0 636.667 0 curveto
+  753.23 0 866.13 40.725 955.852 115.135 curveto
+  closepath fill
+  
+  869.037 541.667 moveto
+  901.025 625 lineto
+  31.989 625 lineto
+  0 541.667 lineto
+  closepath fill
+  
+  805.059 375 moveto
+  837.048 458.333 lineto
+  31.989 458.333 lineto
+  0 375 lineto
+  closepath fill
+  grestore
+} bind def
+
+/makeEuroCharstring {                   % w h -- charstring
+  [ /pop cvx                            % w h mark pop
+    3 index 0 0 0                       % w h mark pop w 0 0 0
+    7 index 7 index /setcachedevice cvx 
+                                % w h mark pop w 0 0 0 w h setcachedevice
+    10 index 10 index /fillEuro load /exec cvx ] 
+  cvx bind 3 1 roll pop pop
+} def
+
+/doEurifyFont {                         % oldname newname --
+  exch
+  findfont dup dup                      % newname dict dict dict
+  /FontMatrix get matrix invertmatrix   % newname dict dict m
+  {} forall pop pop [ 5 1 roll 0 0] makefont setfont   % newnamedict
+  0 0 moveto
+  (5) stringwidth pop                     % newname dict w
+  (M) false charpath pathbbox 4 1 roll pop pop pop % newnamedict w h
+  3 2 roll                                % newname w h dict
+  
+  dup length dict dup 3 1 roll begin      % newname w h newdict
+    {1 index /FID ne {def} {pop pop} ifelse} forall
+    CharStrings dup length 1 add dict dup 3 1 roll begin % newnamew h newdict newdict'
+      {def} forall
+      /Euro                               % newname w h newdict newdict' /Euro
+      4 index 4 index makeEuroCharstring def
+    end                                   % newname w h newdict newdict'
+    /CharStrings exch def
+  end
+  3 1 roll pop pop                      % newname dict
+  definefont pop
+} bind def
+
+end                                     % makeCompositeDict
+
+% oldfontname newfontname baseEncoding targetEncoding compositeChars --
+/makeComposite
+{
+  makeCompositeDict begin doMakeComposite end
+} bind def
+
+% oldfontname newfontname
+/eurifyFont
+{
+  makeCompositeDict begin doEurifyFont end
+} bind def
+%%EndResource
+%!
+% Automatically generated by the Ogonkify package
+% Do not modify
+% -- code follows this line --
+%%BeginResource: font Times-Roman-Ogonki
+/Times-Roman /Times-Roman-Ogonki OgonkiEncoding StandardEncoding 83 dict
+dup /Agrave [65 195 212 27] put
+dup /Aring [65 185 187 31] put
+dup /Atilde [65 195 212 29] put
+dup /Ecircumflex [69 139 212 28] put
+dup /Egrave [69 139 212 27] put
+dup /Idieresis [73 0 212 168] put
+dup /Igrave [73 0 212 27] put
+dup /Ntilde [78 195 212 29] put
+dup /Ograve [79 195 212 27] put
+dup /Otilde [79 195 212 29] put
+dup /Ucircumflex [85 195 212 28] put
+dup /Ugrave [85 195 212 27] put
+dup /Ydieresis [89 195 212 168] put
+dup /agrave [97 56 0 27] put
+dup /aring [97 56 0 31] put
+dup /atilde [97 56 0 29] put
+dup /ecircumflex [101 56 0 28] put
+dup /egrave [101 56 0 27] put
+dup /idieresis [136 -27 0 168] put
+dup /igrave [136 -27 0 27] put
+dup /ntilde [110 84 0 29] put
+dup /ograve [111 84 0 27] put
+dup /otilde [111 84 0 29] put
+dup /ucircumflex [117 84 0 28] put
+dup /ugrave [117 84 0 27] put
+dup /ydieresis [121 84 0 168] put
+dup /abreve [97 55 0 162] put
+dup /Abreve [65 194 223 162] put
+dup /aogonek [97 209 0 178] put
+dup /Aogonek [65 465 0 178] put
+dup /cacute [99 70 0 180] put
+dup /Cacute [67 212 212 180] put
+dup /ccaron [99 69 0 183] put
+dup /Ccaron [67 196 212 183] put
+dup /dbar [100 200 300 173] put
+dup /Dbar [208 0 0 160] put
+dup /dcaron [100 426 75 39] put
+dup /Dcaron [68 194 216 183] put
+dup /ecaron [101 55 0 183] put
+dup /Ecaron [69 139 214 183] put
+dup /edotaccent [101 61 0 255] put
+dup /Edotaccent [69 154 212 255] put
+dup /eogonek [101 142 9 178] put
+dup /Eogonek [69 320 0 178] put
+dup /gbreve [103 84 0 162] put
+dup /Gbreve [71 195 212 162] put
+dup /Idotaccent [73 0 212 255] put
+dup /iogonek [105 12 0 178] put
+dup /Iogonek [73 67 0 178] put
+dup /lacute [108 -5 216 180] put
+dup /Lacute [76 139 216 180] put
+dup /lcaron [108 192 75 39] put
+dup /Lcaron [76 250 52 39] put
+dup /nacute [110 90 0 180] put
+dup /Nacute [78 190 212 180] put
+dup /ncaron [110 83 0 183] put
+dup /Ncaron [78 194 214 183] put
+dup /ohungarumlaut [111 83 0 189] put
+dup /Ohungarumlaut [79 194 214 189] put
+dup /racute [114 22 0 180] put
+dup /Racute [82 210 216 180] put
+dup /rcaron [114 0 0 183] put
+dup /Rcaron [82 167 216 183] put
+dup /sacute [115 20 0 180] put
+dup /Sacute [83 100 212 180] put
+dup /scedilla [115 28 0 184] put
+dup /Scedilla [83 112 0 184] put
+dup /tcedilla [116 53 0 184] put
+dup /Tcedilla [84 197 0 184] put
+dup /tcaron [116 214 0 39] put
+dup /Tcaron [84 139 216 183] put
+dup /uhungarumlaut [117 83 0 189] put
+dup /Uhungarumlaut [85 194 214 189] put
+dup /umacron [117 81 0 30] put
+dup /Umacron [85 205 212 30] put
+dup /uogonek [117 236 5 178] put
+dup /Uogonek [85 287 5 178] put
+dup /uring [117 83 0 31] put
+dup /Uring [85 194 179 31] put
+dup /zacute [122 60 0 180] put
+dup /Zacute [90 120 212 180] put
+dup /zdotaccent [122 50 0 255] put
+dup /Zdotaccent [90 140 212 255] put
+makeComposite
+%%EndResource
+
+%%EndResource
+% Initialize page description variables.
+/sh 595 def
+/sw 842 def
+/llx 24 def
+/urx 818 def
+/ury 571 def
+/lly 24 def
+/#copies 1 def
+/th 15.000000 def
+/fnfs 11 def
+/bfs 7.542439 def
+/cw 4.525463 def
+
+% Dictionary for ASCII support
+/asciidict 4 dict begin
+  /fCourier ASCIIEncoding /Courier reencode_font
+  /fCourier-Bold ASCIIEncoding /Courier-Bold reencode_font
+  /fHelvetica-Bold ASCIIEncoding /Helvetica-Bold reencode_font
+  /fTimes-Roman ASCIIEncoding /Times-Roman reencode_font
+currentdict end def
+% Dictionary for HPRoman support
+/hpdict 4 dict begin
+  /fCourier HPRomanEncoding /Courier reencode_font
+  /fCourier-Bold HPRomanEncoding /Courier-Bold reencode_font
+  /fHelvetica-Bold HPRomanEncoding /Helvetica-Bold reencode_font
+  /fTimes-Roman HPRomanEncoding /Times-Roman reencode_font
+currentdict end def
+% Dictionary for IBM-CP437 support
+/ibm-cp437dict 4 dict begin
+  /fCourier IBM-CP437Encoding /PCFont reencode_font
+  /fCourier-Bold IBM-CP437Encoding /PCFont reencode_font
+  /fHelvetica-Bold IBM-CP437Encoding /PCFont reencode_font
+  /fTimes-Roman IBM-CP437Encoding /PCFont reencode_font
+currentdict end def
+% Dictionary for IBM-CP850 support
+/ibm-cp850dict 4 dict begin
+  /fCourier IBM-CP850Encoding /Courier reencode_font
+  /fCourier-Bold IBM-CP850Encoding /Courier-Bold reencode_font
+  /fHelvetica-Bold IBM-CP850Encoding /Helvetica-Bold reencode_font
+  /fTimes-Roman IBM-CP850Encoding /Times-Roman reencode_font
+currentdict end def
+% Dictionary for ISO-8859-1 support
+/iso1dict 6 dict begin
+  /fCourier ISO-8859-1Encoding /Courier reencode_font
+  /fCourier-Bold ISO-8859-1Encoding /Courier-Bold reencode_font
+  /fHelvetica ISO-8859-1Encoding /Helvetica reencode_font
+  /fHelvetica-Bold ISO-8859-1Encoding /Helvetica-Bold reencode_font
+  /fTimes-Bold ISO-8859-1Encoding /Times-Bold reencode_font
+  /fTimes-Roman ISO-8859-1Encoding /Times-Roman reencode_font
+currentdict end def
+% Dictionary for ISO-8859-10 support
+/iso10dict 4 dict begin
+  /fCourier ISO-8859-10Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold ISO-8859-10Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold ISO-8859-10Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman ISO-8859-10Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+% Dictionary for ISO-8859-2 support
+/iso2dict 4 dict begin
+  /fCourier ISO-8859-2Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold ISO-8859-2Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold ISO-8859-2Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman ISO-8859-2Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+% Dictionary for ISO-8859-3 support
+/iso3dict 4 dict begin
+  /fCourier ISO-8859-3Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold ISO-8859-3Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold ISO-8859-3Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman ISO-8859-3Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+% Dictionary for ISO-8859-4 support
+/iso4dict 4 dict begin
+  /fCourier ISO-8859-4Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold ISO-8859-4Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold ISO-8859-4Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman ISO-8859-4Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+% Dictionary for ISO-8859-9 support
+/iso9dict 4 dict begin
+  /fCourier ISO-8859-9Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold ISO-8859-9Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold ISO-8859-9Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman ISO-8859-9Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+% Dictionary for Macintosh support
+/macdict 4 dict begin
+  /fCourier MacintoshEncoding /Courier reencode_font
+  /fCourier-Bold MacintoshEncoding /Courier-Bold reencode_font
+  /fHelvetica-Bold MacintoshEncoding /Helvetica-Bold reencode_font
+  /fTimes-Roman MacintoshEncoding /Times-Roman reencode_font
+currentdict end def
+% Dictionary for MS-CP1250 support
+/ms-cp1250dict 4 dict begin
+  /fCourier MS-CP1250Encoding /Courier-Ogonki reencode_font
+  /fCourier-Bold MS-CP1250Encoding /Courier-Bold-Ogonki reencode_font
+  /fHelvetica-Bold MS-CP1250Encoding /Helvetica-Bold-Ogonki reencode_font
+  /fTimes-Roman MS-CP1250Encoding /Times-Roman-Ogonki reencode_font
+currentdict end def
+/bgcolor [ 0 0 0 ] def
+/bg false def
+/ul false def
+/bx false def
+% The font for line numbering
+/f# /Helvetica findfont bfs .6 mul scalefont def
+/fSymbol /Symbol findfont def
+/hm fnfs 0.25 mul def
+/pw
+   cw 86.400000 mul
+def
+/ph
+   503.080648 th add
+def
+/pmw urx llx sub pw 2 mul sub 1 div def
+/pmh 0 def
+/v 0 def
+/x [
+  0
+  dup pmw add pw add
+] def
+/y [
+  pmh ph add 0 mul ph add
+  dup
+] def
+/scx sw 2 div def
+/scy sh 2 div def
+/snx urx def
+/sny lly 2 add def
+/dx llx def
+/dy sny def
+/fnx scx def
+/fny dy def
+/lx snx def
+/ly ury fnfs 0.8 mul sub def
+/sx 5 def
+/tab 8 def
+/x0 0 def
+/y0 0 def
+%%EndSetup
+
+%%Page: (1-2) 1
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.167824 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (ascii) L n
+end % of iso1dict
+asciidict begin
+0 T () L
+(This is a pure ASCII file, written to test the ASCII encoding) p n
+0 T (in a2ps.  Character with the high bit set, \(such as M-i, M-`, M-t, M-o\)) N
+(5) # (are not printable, and are escaped.) N
+0 T () N
+0 T () S
+(latin1) L n
+end % of asciidict
+iso1dict begin
+0 T () L
+(Ceci est un texte en fran\347ais accentu\351, comme dans ao\373t, ou) p n
+(10) # (d\351cembre, et non pas ao\371t et d\350cembre...) N
+0 T () N
+0 T () S
+(latin2) L n
+end % of iso1dict
+iso2dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+(15) # (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T () S
+(DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) K n
+0 T () S
+(KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) p n
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+(20) # (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+0 T () N
+0 T () S
+(latin3) L n
+end % of iso2dict
+iso3dict begin
+(25) # () L
+(dokM-1d DOKM-!D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+0 T (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wskaM-<nik WSKA\254NIK mo\277na MO\257NA dokM-1d) N
+0 T (DOKM-!D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) N
+0 T () S
+(KI\246\306 mr\363wka MR\323WKA wskaM-<nik WSKA\254NIK mo\277na MO\257NA dokM-1d DOKM-!D pami\352tasz) k n
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+(30) # () S
+(MR\323WKA wskaM-<nik WSKA\254NIK mo\277na MO\257NA dokM-1d DOKM-!D pami\352tasz PAMI\312TASZ) p n
+0 T (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wskaM-<nik WSKA\254NIK mo\277na MO\257NA) N
+0 T () N
+0 T () S
+(latin4) L n
+end % of iso3dict
+iso4dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie) p n
+0 T (GAM-&NIE kiM-6\346 KIM-&\306 mrM-swka MRM-SWKA wskaM-<nik WSKAM-,NIK moM-?na MO\257NA dok) N
+0 T (\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346) N
+0 T (KIM-&\306 mrM-swka MRM-SWKA wskaM-<nik WSKAM-,NIK moM-?na MO\257NA dok\261d DOK\241D pami\352ta) N
+0 T (sz) N
+(40) # (PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346 KIM-&\306 mrM-swka) N
+0 T (MRM-SWKA wskaM-<nik WSKAM-,NIK moM-?na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346 KIM-&\306 mrM-swka MRM-SWKA) N
+0 T (wskaM-<nik WSKAM-,NIK moM-?na MO\257NA) N
+0 T () N
+(45) # () S
+(latin5) L n
+end % of iso4dict
+iso9dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+0 T (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) N
+(50) # (KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) N
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+(55) # () N
+0 T () S
+(latin6) L n
+end % of iso9dict
+iso10dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie) p n
+0 T (GAM-&NIE kiM-6\346 KIM-&\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK moM-?na MOM-/NA dok\261d) N
+(60) # (DOK\241D pami\352tasz PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346) N
+0 T (KIM-&\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK moM-?na MOM-/NA dok\261d DOK\241D pami\352tasz) N
+0 T (PAMI\312TASZ M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346 KIM-&\306 mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK moM-?na MOM-/NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (M-3awka M-#AWKA na\346pa\346 NA\306PA\306 gaM-6nie GAM-&NIE kiM-6\346 KIM-&\306 mr\363wka MR\323WKA) N
+(65) # (wska\274nik WSKA\254NIK moM-?na MOM-/NA) N
+0 T () N
+end % of iso10dict
+iso1dict begin
+(encoding.pre) (right) (1) title
+end % of iso1dict
+iso10dict begin
+border
+/v 1 store
+/x0 x v get 3.167824 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T () p n
+end % of iso10dict
+iso1dict begin
+(encoding.pre) (right) (1) title
+end % of iso1dict
+iso10dict begin
+border
+grestore
+end % of iso10dict
+iso1dict begin
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3-4) 2
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+end % of iso1dict
+iso10dict begin
+/v 0 store
+/x0 x v get 3.167824 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(90) # (CP1250) L n
+end % of iso10dict
+ms-cp1250dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+0 T (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) N
+(95) # (KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) N
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+(100) # () N
+0 T () S
+(ibmpc) L n
+end % of ms-cp1250dict
+ibm-cp850dict begin
+0 T () L
+(dokM-1d DOK\241D pamiM-jtasz PAMIM-JTASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie) p n
+0 T (GA\246NIE kiM-6\346 KI\246M-F mrM-swka MRM-SWKA wskaM-<nik WSKA\254NIK moM-?na MO\257NA dokM-1d) N
+(105) # (DOK\241D pamiM-jtasz PAMIM-JTASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE ki) N
+0 T (M-6\346) N
+0 T (KI\246M-F mrM-swka MRM-SWKA wskaM-<nik WSKA\254NIK moM-?na MO\257NA dokM-1d DOK\241D pamiM-j) N
+0 T (tasz) N
+0 T (PAMIM-JTASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE kiM-6\346 KI\246M-F mrM-sw) N
+0 T (ka) N
+0 T (MRM-SWKA wskaM-<nik WSKA\254NIK moM-?na MO\257NA dokM-1d DOK\241D pamiM-jtasz PAMIM-JTASZ) N
+0 T (M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE kiM-6\346 KI\246M-F mrM-swka MRM-SWKA) N
+(110) # (wskaM-<nik WSKA\254NIK moM-?na MO\257NA) N
+0 T () N
+0 T () S
+(pcg) L n
+end % of ibm-cp850dict
+ibm-cp437dict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+(115) # (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) N
+0 T (KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) N
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+(120) # (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+0 T () N
+end % of ibm-cp437dict
+iso1dict begin
+(encoding.pre) (right) (2) title
+end % of iso1dict
+ibm-cp437dict begin
+border
+/v 1 store
+/x0 x v get 3.167824 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (Hp) L n
+end % of ibm-cp437dict
+hpdict begin
+(125) # () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie) p n
+0 T (GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346) N
+0 T (KI\246\306 mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) N
+0 T (PAMI\312TASZ \263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka) N
+(130) # (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (\263awka \243AWKA na\346pa\346 NA\306PA\306 ga\266nie GA\246NIE ki\266\346 KI\246\306 mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+0 T () N
+0 T () S
+(Mac) L n
+end % of hpdict
+macdict begin
+0 T () L
+(dok\261d DOK\241D pami\352tasz PAMI\312TASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie) p n
+0 T (GA\246NIE kiM-6\346 KI\246M-F mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d) N
+0 T (DOK\241D pami\352tasz PAMI\312TASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE kiM-6\346) N
+0 T (KI\246M-F mr\363wka MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz) N
+(140) # (PAMI\312TASZ M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE kiM-6\346 KI\246M-F mr\363wka) N
+0 T (MR\323WKA wska\274nik WSKA\254NIK mo\277na MO\257NA dok\261d DOK\241D pami\352tasz PAMI\312TASZ) N
+0 T (M-3awka \243AWKA na\346pa\346 NAM-FPAM-F gaM-6nie GA\246NIE kiM-6\346 KI\246M-F mr\363wka MR\323WKA) N
+0 T (wska\274nik WSKA\254NIK mo\277na MO\257NA) N
+0 T () N
+end % of macdict
+iso1dict begin
+(encoding.pre) (right) (2) title
+end % of iso1dict
+macdict begin
+border
+grestore
+end % of macdict
+iso1dict begin
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

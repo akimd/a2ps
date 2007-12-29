@@ -1,0 +1,3005 @@
+2007-12-29  Masayuki Hatta  <mhatta@gnu.org>
+
+	* Released 4.14.
+	* ANNOUNCE: Updated.
+	* AUTHORS: Updated.
+	* README: Updated.
+	* po/nl.po: Updated.
+	* sheets/perl.ssh: Updated.
+	* GNU a2ps is now licensed under GPLv3 or later.
+
+2007-09-20  Masayuki Hatta  <mhatta@gnu.org>
+
+	* afm/*.afm, afm/MustRead.html: Replaced license-wise vague AFMs
+	with newer ones with explicit permission by Adobe (found in
+	Adobe-Core35_AFMs-314.tar.gz, obtained from
+	http://www.ctan.org/tex-archive/fonts/adobe/afm/).  See
+	afm/MustRead.html for detail.  Thanks for Matthias Kilian from
+	OpenBSD and Karl Berry for pointing this out.
+	* afm/fontsmap: Updated.
+	* tests/gps-ref/Converter.ps, tests/ps-ref/Converter.ps: Removed
+	since they are non-free.  Thanks for Matthias Kilian for pointing
+	this out.
+	* tests/gps-ref/fasttrig.ps, tests/ps-ref/fasttrig.ps: ditto.
+
+2007-05-02  Masayuki Hatta  <mhatta@gnu.org>
+
+	* ANNOUNCE: Updated for 4.14.
+	* NEWS: Updated for 4.14.
+	* configure.in: Updated for 4.14.
+	* doc/contributors.txt: Updated for 4.14.
+	* doc/make-authors.pl: Updated for 4.14.
+	* doc/a2ps.texi: Chenged URL of a2ps homepage.
+
+2007-05-01  Masayuki Hatta  <mhatta@gnu.org>
+
+	* ps/base.ps: Rewrote reencode procedure for use with Adobe Distiller.
+	  See http://article.gmane.org/gmane.comp.printing.a2ps.bugs/2583 for detail.
+	* man/psset.x: Fixed a typo (psmandup -> psset).
+
+2007-04-26  Masayuki Hatta  <mhatta@gnu.org>
+
+	* src/main.c: Added #include <locale.h>.
+	* lib/jobs.c: ditto.
+	* src/main.c* Removed _GNU_SOURCE related codes.
+
+2007-04-22  Masayuki Hatta  <mhatta@gnu.org>
+
+	* tests/tstfiles/*: Removed/Replaced non-commercial only test files
+	* tests/defs.in: ditto.
+	* contrib/*.m4: Fixed insecure temporary directory usage.
+	  See http://bugs.debian.org/286385 and
+	      http://bugs.debian.org/286387 for detail.
+	  See also CVE-2004-1377.
+	* contrib/texi2dvi4a2ps: ditto.
+	* sheets/sheets.map: Commented the rule for SCCS out.
+	  See http://bugs.debian.org/280671 for detail.
+	* sheets/mail.ssh: Now correctly handle some Received: lines.
+	  See http://bugs.debian.org/330665 for detail.
+
+2007-04-08  Masayuki Hatta  <mhatta@gnu.org>
+
+	* lib/verify.h: Added, derived from gnulib.
+
+2007-04-05  Masayuki Hatta  <mhatta@gnu.org>
+
+	* configure.in: Use AC_PROG_GPERF.
+	* lib/path-concat.c: Casting malloc to char (for SGI IRIX with C89).
+	* m4/Makefile.am: Added gperf-check.m4, derived from GNOME.
+	* m4/gperf-check.m4: Added.
+	* m4/protos.m4: Killed underquote warnings.
+	* m4/perl.m4: ditto.
+	* m4/malloc.m4: ditto.
+	* m4/lpr.m4: ditto.
+	* m4/termos.m4: ditto.
+	* m4/libpaper.m4: ditto.
+	* m4/lex.m4: ditto.
+	* m4/fp_echo.m4: ditto.
+	* m4/a2_psutils.m4: ditto.
+	* m4/tterm.m4: ditto.
+	* m4/winsz.m4: ditto.
+	* ogonkify/m4/perl.m4: ditto.
+	* src/main.c: Changed URL of the GNU a2ps web site.
+
+2007-04-04  Masayuki Hatta  <mhatta@gnu.org>
+
+	* .prev-version: Updated.
+	* lib/strtoimax.c: Added, derived from gnulib.
+	* doc/make-authors.pl: Revised for actual use.
+	* doc/contributors.txt: Updated.
+	* doc/translators.txt: ditto.
+	* THANKS: Updated.
+
+2007-04-03  Masayuki Hatta  <mhatta@gnu.org>
+
+	* sheets/Makefile.am: Added ruby.ssh to minor_sheets.
+	* sheets/sheets.map: Added Ruby support.
+	* sheets/ruby.ssh: Added.
+	  http://www.terpnet.nl/ruby.ssh
+	* encoding/encoding.map: Added CP1251 support.
+	  See http://bugs.debian.org/286571 for detail.
+	* encoding/ms-cp1251.edf: Added.
+	* po/POTFILES.in: Added lib/parseppd.c.
+	* AUTHORS: Updated.
+	
+2007-02-12  Masayuki Hatta  <mhatta@gnu.org>
+
+	* contrib/emacs/a2ps.el: Don't load non-existent make-regexp.el.
+	* etc/a2ps_cfg.in: Give correct option to newer GV.
+	  See http://bugs.debian.org/291749 for detail.
+	* configure.in: Added ja to ALL_LINGUAS.
+	* po/ja.po: Added.
+	* ogonkify/ogonkify.in:  Added GNUPLOT support for Ogonkify.
+	  See http://bugs.debian.org/194464 for detail.
+	* ogonkify/doc/ogonkify.1: Fixed a typo.
+	* sheets/Makefile.am:  Added php.ssh to minor_sheets.
+	* sheets/php.ssh: Added.
+	  http://www.aperiodic.net/phil/configs/a2ps/php.ssh
+	* sheets/sheets.map: Added PHP support.
+	* contrib/pdiff.m4: Use sh mode instead of ksh mode in Emacs.
+	* contrib/pdiff.m4: Now pdiff can accept standard input.
+	* contrib/psset.m4: Only escape leading speaces, not all leading characters.
+	  See http://bugs.debian.org/259210 for detail.
+	* sheets/Makefile.am: Added rd.ssh, s.ssh and st.ssh to minor_sheets.
+	* sheets/sheets.map: Added S & GNU R support.
+	* sheets/rd.ssh: Added.
+	* sheets/s.ssh: ditto.
+	* sheets/st.ssh: ditto.
+	* AUTHORS: Updated.
+	* THANKS: Updated.
+	* NEWS: Updated.
+	
+2007-02-11  Masayuki Hatta  <mhatta@gnu.org>
+
+	* lib/path-concat.c: Commented out "char *malloc();" (fix for building with gcc 3.4 or later).
+	* ps/diffcolor.pro: Added diffcolor.pro (for diffs).
+	* ps/Makefile.am: Included diffcolor.pro.
+	* sheets/udiff.ssh: Improved highlighting for diffs.
+	  See http://bugs.debian.org/132044 for detail.
+	* src/sheets-map.l: Fixed ``too many includes'' bug.
+	  See http://lists.gnu.org/archive/html/bug-a2ps/2002-01/msg00005.html for detail.
+	* lib/printlen.c: Fixed va_list misuses which cause segfaults on powerpc and amd64.
+	  See http://bugs.debian.org/294905 for detail.
+	* lib/title.c: ditto.
+	* src/main.c: More user-friendly description on the default output and the -d option.
+	  See http://bugs.debian.org/193530 for detail.
+	* src/select.c: Quote arguments to file(1).
+	  See http://bugs.debian.org/202673 for detail.
+	  See also http://www.debian.org/security/2004/dsa-612.
+
+2006-11-15  Masayuki Hatta  <mhatta@gnu.org>
+
+	* etc/a2ps_cfg.in: Fixed wrong default values for deskjet printers.
+	  See http://bugs.debian.org/185775 for detail.
+	
+2006-11-10  Masayuki Hatta  <mhatta@gnu.org>
+
+	* src/main.c: Applied a build fix for IA64.
+	  See http://bugs.debian.org/125996 for detail.
+	
+2003-01-15  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* doc/a2ps.texi: Add a FAQ entry "Why do you not use mozilla".
+
+2003-01-10  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* THANKS: Completed.
+
+2003-01-01  Alix Lourme / Axel  <lourme_a@epita.fr>
+
+	* sheets/sheets.map: Change the stratego binary rule :  
+	/*.str/ in /*.r/
+	
+2002-12-29  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* README-cvs: Update with Autoconf 2.57.
+
+2002-12-28  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* configure.in: Require Autoconf 2.57.
+	Run AC_CHECK_DECLS([sys_siglist]) instead of AC_DECL_SYS_SIGLIST.
+	* lib/signame.c: Require Autoconf 2.57.
+	Use HAVE_DECL_SYS_SIGLIST instead of SYS_SIGLIST_DECLARED.
+
+2002-12-27  Lourme Alix / Axel  <lourme_a@epita.fr>
+
+	* sheets/stratego.ssh : Add new style for Stratego.
+	From Nicolas Tisserand <tisser_n@lrde.epita.fr>
+	* sheets/sheets.map : Add binary rule str for Stratego
+
+2002-11-24  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* sheets/sheets.map: Change the binary rule /*tar*/ in /*.tar.*/
+
+2002-10-03  Franck Lombardi  <kcnarf@all-3rd.net>
+
+	* src/main.c: Fixe SEGV when use one delegated job and one
+	or more failled jobs.
+
+2002-10-03  Franck Lombardi  <lombar_f@epita.fr>
+
+	* sheets/matlab4.ssh: Add old style sheet for Matlab.
+
+2002-09-26  Alix Lourme  <lourme_a@epita.fr>
+
+	* sheets/matlab4.ssh: Removing old style sheet for Matlab.
+	* sheets/matlab.ssh: Add new style sheet for Matlab.
+	From Joakim Lubeck
+
+2002-09-24  Alix Lourme  <lourme_a@epita.fr>
+
+	* sheets/small.ssh: Add new style sheet for Small language.
+	From Christophe Continente <contin_c@epita.fr>.
+
+2002-09-19  Alix Lourme  <lourme_a@epita.fr>
+
+	* sheets/pic16f84.ssh: Add new style sheet for PIC16F84 ASM language.
+	From Aleksandar Veselinovic.
+
+2002-09-19  Franck Lombardi  <lombar_f@epita.fr>
+
+	* sheets/nasm.ssh: Add new style sheet for NASM language.
+	From Aleksandar Veselinovic.
+
+2002-09-19  Franck Lombardi  <lombar_f@epita.fr>
+
+	* sheets/csharp.ssh: Add new style sheet for C# language.
+	From Karen Christenson.
+
+2002-09-18  Franck Lombardi  <lombar_f@epita.fr>
+
+	* sheets/specc.ssh: Add new style sheet for SpecC language.
+	From Hideaki Yokota
+
+2002-09-18  Franck Lombardi  <lombar_f@epita.fr>
+
+	* etc/a2ps_cfg.in: Add html2ps delegation if netscape don't run.
+	* configure.in: Check if netscape and html2ps is installed and
+	check if netscape support remote-command.
+
+2002-09-16  Franck Lombardi  <lombar_f@epita.fr>
+
+	* po/fr.po: Revision of french translation.
+
+2002-09-04  Akim Demaille  <akim@epita.fr>
+
+	* lib/Makefile.am (confg.c): Fail if gperf cannot be run.
+	Reported by Ed Arthur.
+
+2002-09-04  Akim Demaille  <akim@epita.fr>
+
+	* m4: Remove the files no longer used when not shipping intl/.
+
+2002-09-04  Franck Lombardi  <lombar_f@epita.fr>
+
+	* doc/a2ps.texi: Remove space in -E option.
+
+2002-09-04  Franck Lombardi  <lombar_f@epita.fr>
+
+	* src/parsessh.y: Remove parse error with bison 1.49b
+
+2002-09-04  Franck Lombardi  <lombar_f@epita.fr>
+
+	* lib/options.c: If `-SFeature' then remove Feature
+	Reported by Daniel Jonsson.
+
+2002-09-03  Akim Demaille  <akim@epita.fr>
+
+	* mbrtowc.m4, mbstate_t.m4, prereq.m4: New.
+	* configure.in: Forbid `^jm_[A-Z]'.
+
+2002-09-02  Akim Demaille  <akim@epita.fr>
+
+	Gettext 0.11.5.
+
+	* configure.in (AM_GNU_GETTEXT_VERSION): New macro, replacing
+	GETTEXT_VERSION var.
+	Bump version to 0.11.5.
+	(AM_GNU_GETTEXT): Use external gettext.
+	(AC_OUTPUT): Remove intl/Makefile.
+	(AC_CHECK_FUNCS): Add setlocale.
+	* Makefile.am (AUTOMAKE_OPTIONS): 1.6.3.
+	(SUBDIRS): Remove intl.
+
+2002-07-19  Akim Demaille  <akim@epita.fr>
+
+	* etc/Makefile.am (uninstall-local): Fix.
+	* m4/Makefile.am (EXTRA_DIST): Ship intdiv0.m4.
+
+2002-07-19  Akim Demaille  <akim@epita.fr>
+
+	* m4/file.m4: Pass -f to rm.
+	* configure.in: Require Gettext 0.11.3 and Autoconf 2.53b.
+	Run AM_INIT_AUTOMAKE before AC_CONFIG_HEADERS.
+	* Makefile.am (AUTOMAKE_OPTIONS): Require 1.6.2.
+	* bootstrap: Fix `contrib' setup.
+	* m4/gettext-version.m4: New, to work around a Gettext 0.11.3 bug.
+	* m4/c-bs-a.m4: Remove, now in Autoconf.
+
+2002-04-18  Akim Demaille  <akim@epita.fr>
+
+	* bootstrap, README-cvs: New.
+	* ogonkify: Fix the PERL look up.
+	Adjust to Autoconf 2.53.
+
+2002-03-25  Akim Demaille  <akim@epita.fr>
+
+	Gettext 0.11.1.
+
+	* lib/Makefile.am (noinst_HEADERS): Add gettext.h.
+	* lib/system.h: Use lib/gettext.h.
+	* src/Makefile.am, contrib/sample/Makefile.am: @LIBINTL@ instead
+	of @INTLLIBS@.
+
+2002-03-25  Akim Demaille  <akim@epita.fr>
+
+	* contrib/texi2dvi4a2ps: Update form Texinfo 4.1c.
+
+2002-03-25  Akim Demaille  <akim@epita.fr>
+
+	* src/lexps.l: Don't use option yylineno, as (i), we don't read
+	it, and (ii), for unknown reasons (a bug IMHO), this causes Flex
+	to use fixed size buffers, causing the weird `input buffer
+	overflow, can't enlarge buffer because scanner uses REJECT'
+	messages.
+	Fixes Debian #81684.
+
+2002-03-25  Akim Demaille  <akim@epita.fr>
+
+	* doc/a2ps.texi (a2ps Mailing Lists): Update.
+
+2002-03-22  Akim Demaille  <akim@epita.fr>
+
+	* doc/a2ps.texi: s/^(\@node[^,]*),.*/$1/.
+
+2002-03-22  Akim Demaille  <akim@epita.fr>
+
+	* configure.in: Bump to 4.13c.
+
+2002-03-22  Akim Demaille  <akim@epita.fr>
+
+	* Makefile.am: Automake 1.6.
+	* configure.ac: Autoconf 2.53.
+
+2002-03-07  Akim Demaille  <akim@epita.fr>
+
+	* tests/inline.tst: lib/confg.c's inline is OK.
+
+2002-03-05  Akim Demaille  <akim@epita.fr>
+
+	* tests/tstfiles/ehandler, tests/tstfiles/eplv_chkr.v,
+	* tests/tstfiles/ex1.asn1, tests/tstfiles/s-garnam.adb,
+	* tests/tstfiles/sqlinit.ora, tests/tstfiles/vrcaml.ml: Don't rely
+	on RCS keywords, as it causes spurious differences.
+
+2002-03-03  Akim Demaille  <akim@epita.fr>
+
+	* tests/ps-ref/sunproc.ps, tests/ps-ref/temp.ps,
+	* tests/gps-ref/sunproc.ps, tests/gps-ref/temp.ps: Remove, as the
+	corresponding test files are no longer used.
+
+2002-03-02  Akim Demaille  <akim@epita.fr>
+
+	Have distcheck work.
+
+	* afm/Makefile.am (fonts.map): Don't copy fonts.map.new, rename
+	it.
+	* doc/Makefile.am (CLEANFILES): Add a2ps.tmp and a2ps.tps.
+	* ogonkify/Makefile.am (CLEANFILES): Add $(bin_SCRIPTS).
+
+2002-03-02  Akim Demaille  <akim@epita.fr>
+
+	Start adjusting the newer GNU Build System.
+
+	* configure.in: s/AM_FUNC_ERROR_AT_LINE/AC_FUNC_ERROR_AT_LINE/.
+	s/AM_FUNC_OBSTACKS/AC_FUNC_OBSTACKS/.
+	Adjust AC_CHECK_DECLS invocation.
+	* Makefile.am (ACLOCAL_AMFLAGS): Pass `-I m4', as now we are using a
+	regular aclocal.m4.
+	* m4/atexit.m4, m4/malloc.m4, m4/strcasecmp.m4, m4/fullpath.m4,
+	* m4/realloc.m4, m4/strftim.m4: Update to newer Autoconf.
+	* src/ccstdc.m4, src/cond.m4, src/depend.m4, src/depout.m4,
+	* src/error.m4, src/gettext.m4, src/header.m4, src/init.m4,
+	* src/lcmessage.m4, src/libtool.m4, src/lispdir.m4, src/missing.m4,
+	* src/obstack.m4, src/progtest.m4, src/sanity.m4: Remove, obsolete.
+	* m4/m4.m4: New, from CVS Autoconf.
+
+2000-02-08  Akim Demaille  <akim@epita.fr>
+
+	* src/lexps.l: Don't smash blank lines.
+	* contrib/fixps.m4: Version 1.6.
+	Don't try to smash blank lines, it can break some valid PostScript
+	code.
+	Reported by...
+
+	* sheets/for77kwds.ssh (0.60): Remove `.' from alphabets.  Moved
+	`.these.' from keywords to operators.
+	From Manfred Schwarb and Alexander Mai.
+
+2000-02-06  Akim Demaille  <akim@epita.fr>
+
+	* contrib/texi2dvi4a2ps (usage): Follow the fp-standards.
+	Start sentence in lower case, no final period.
+	Split paragraphs of options.
+	Document --output.
+	(oname): New variable.
+	(--output): New option.
+	(prologue): Check that `--output' is used only when there is a
+	single argument.
+	(epiloque): Honor oname.
+	* etc/a2ps_cfg.in (Delegations Texinfo, LaTeX): Use texi2dvi4a2ps'
+	--output.  This fixes a bug: if you had `foo.dvi' and used `a2ps
+	foo.tex', a2ps removed `foo.dvi'
+	Reported by Flavien Astraud.
+
+2000-02-04  Akim Demaille  <akim@epita.fr>
+
+	* src/sheets-map.l ({key}): Add `-' so that one can use
+	`foo-bar' in sheets.map.
+	From Ilya Beylin.
+
+	* arch/os2/README: Updated from Alexander.
+	* arch/os2/config.h.os2: Likewise.
+	* arch/os2/Makefile.os2: Likewise.
+
+	* sheets/c.ssh (1.6): Handle `case' as an optional operator so
+	that we never go further than the current line.
+	Insert `case' as a plain Keyword_strong.
+
+	* contrib/Makefile.am (.m4.in): Remove a trailing space in the sed
+	which causes some `sed' to die.
+	From Graham.
+
+	* configure.in: Bump to 4.12l.
+
+	* sheets/lout.ssh: New file.
+	From Jean-Baptiste Nivoit.
+	* sheets/mly.ssh: Likewise.
+	* sheets/pov.ssh: Likewise.
+
+	* sheets/haskell.ssh: New file.
+	From Ilya Beylin.
+
+	* sheets/sheets.map: Adjusted.
+
+2000-02-04  Akim Demaille  <akim@epita.fr>
+
+	* configure.in (ad_REPLACE_FUNC_RENAME): Not ad_CHECK_FUNC_RENAME!
+	From Alexander.
+	* m4/rename.m4: Fixed the cache variable name.
+
+2000-01-27  Akim Demaille  <akim@epita.fr>
+
+	* sheets/cxx.ssh: Added `export'.
+	From Alexander Mai.
+
+	* configure.in: Bump to 4.12k.
+	* THANKS: Updated.
+	* TODO: Updated.
+
+	* contrib/card.m4: Don't forget to break out of the loops when
+	success=:.
+	From Alexander Mai.
+
+	* a2ps.texi: Replaced @pack with @pack{} (newer texinfo.tex eat
+	the space after @pack).
+	Use @noindent at a few critical places.
+	Beware the TeX wrapping.
+	Updated at various places.
+
+	* sheets/autoconf.ssh: Document.
+
+	* src/main.c: We're in 2000 now.
+
+2000-01-19  Paul Eggert  <eggert@twinsun.com>
+
+	Quote multibyte characters correctly.
+
+	* lib/quotearg.c (ISGRAPH): Remove.
+	(ISPRINT): New macro.
+	(<wchar.h>): Include if HAVE_MBRTOWC && HAVE_WCHAR_H.
+	(isprint, mbrtowc, mbsinit, mbstate_t): New macros,
+	defined if ! (HAVE_MBRTOWC && HAVE_WCHAR_H).
+	(quotearg_buffer_restyled): New function, with most of the old
+	quotearg_buffer's contents.
+	Major rewrite to support multibyte characters.
+	(quotearg_buffer): Now just calls quotearg_buffer_restyled.
+
+	* m4/c-bs-a.m4: New file.
+
+	* m4/prereq.m4 (jm_PREREQ_QUOTEARG): New macro.
+	(jm_PREREQ): Use it.
+
+2000-01-19  Akim Demaille  <akim@epita.fr>
+
+	Update to libtool 1.3.4.
+
+	* auxdir/config.guess: Updated.
+	* auxdir/config.sub: Updated.
+	* auxdir/ltconfig: Updated.
+	* auxdir/ltmain.sh: Updated.
+
+2000-01-19  Akim Demaille  <akim@epita.fr>
+
+	Update OS/2 files.  From Alexander Mai.
+
+	* arch/os2/Makefile.os2: Updated.
+	* arch/os2/README: Updated.
+	* arch/os2/config.h.os2: Updated.
+
+2000-01-16  Akim Demaille  <akim@epita.fr>
+
+	* configure.in: Check for distill and pdf2ps.
+	Bump to 4.12j.
+
+	* etc/a2ps_cfg.in (s1, simplex): New user options.
+
+	* contrib/card.m4: Work around netscape's failure (it exits 255
+	when given -help).
+
+2000-01-16  Akim Demaille  <akim@epita.fr>
+
+	Apply a patch written by Scott Pakin to display the number of
+	lines which were wrapped.
+
+	* lib/jobs.h (a2ps_job): Added lines_folded.
+	* lib/jobs.c (a2ps_job_new): Initalize lines_folded to 0.
+	* lib/psgen.c (fold_line): Update lines_folded.
+	* src/generate.c (msg_job_pages_printed): Display the number of
+	lines which were wrapped.
+
+2000-01-13  Akim Demaille  <akim@epita.fr>
+
+	* ps/ul.pro: New file.
+	* ps/fixed.pro: New file.
+	* ps/Makefile.am (prologues): Added ul.pro and fixed.pro.
+	* src/read.c (plain_getc): Support `x;\b;_' underlining.
+
+1999-12-04  Akim Demaille  <akim@epita.fr>
+
+	* sheets/for77kwds.ssh: A comma was missing after atan2.
+	From Sturle.
+
+	* contrib/card.m4: Create the tmp dir under strict rights.
+	From Dirk Eddelbuettel.
+	* sheets/sheets.map (tex): Don't shadow DVI files.
+	From Dirk too.
+	* ogonkify/Makefile.am (DISTCLEANFILES): Add  $(CREATED_PFAS).
+	From Dirk again :)
+
+1999-11-30  Akim Demaille  <akim@epita.fr>
+
+	Version 4.12h.
+
+	* sheets/ocaml.ssh: New sheet.
+	* sheets/caml.ssh: Emptied.  Inherit from ocaml.
+
+1999-11-25  Akim Demaille  <akim@epita.fr>
+
+	* sheets/cxx.ssh (1.4): Remove some non C++ keywords: all, dynamic,
+	except, exception, overload, raise, raises, reraises.
+	Reported by Falk Hueffner <falk.hueffner@student.uni-tuebingen.de>.
+
+	* sheets/c.ssh (1.6): Include typeof too.
+
+	* sheets/xs.ssh: New sheet.
+	From Kestutis Kupciunas.
+	* sheets/js.ssh: New sheet.
+	From Scott Pakin <pakin@uiuc.edu>.
+	Updated to current syntax.
+	* sheets/Makefile.am (minor_sheets): Added js.ssh, and xs.ssh.
+
+	* src/sheets-map.l (obstack_hexa_grow, obstack_octal_grow): New
+	functions, to factorize scanning.
+
+	* src/select.c (struct pattern_rule): Added an `insensitive_p'
+	flag.  All dependencies changed.
+
+	* sheets/sheets.map: Added the `i' tag to several rules.
+
+1999-11-21  Akim Demaille  <akim@epita.fr>
+
+	Revamp the file sheets.map.
+
+	* doc/a2ps.texi: Document.
+	* sheets/sheets.map: Rewrite.
+
+	* configure.in: Check for acroread 4.
+	* etc/a2ps_cfg.in: Use it.
+
+	* configure.in: Define DIRECTORY_SEPARATOR and PATH_SEPARATOR
+	instead of DIR_SEP and PATH_SEP.  All callers changed.
+
+	* lib/xalloc.h: Prototype xstrndup.
+	* src/xstrdup.c: Implement xstrndup.
+
+	* m4/a2_psutils.m4: Fixed various bugs.
+	* m4/fullpath.m4: Updated.
+
+1999-10-25  Akim Demaille  <akim@epita.fr>
+
+	Version 4.12g.
+
+	* sheets/sed.ssh: New file.
+	* sheets/sheets.map: Add sed entry.
+
+1999-10-21  Akim Demaille  <akim@epita.fr>
+
+	* contrib/shell.m4: The quote are now [ and ] as in Ad'HoC and in
+	Autoconf, no longer [[ and ]], though it *was* smarter.
+
+	* contrib/pdiff.m4: Change the a2ps options handling: they now
+	have to be given after `--'.
+	* contrib/card.m4 (arg_sep): Likewise.
+	Reported by Joachim Backes, Jim Meyering, and Alexander Mai.
+
+1999-10-12  Akim Demaille  <akim@epita.fr>
+
+	* configure.in: Version 4.12d.
+
+1999-10-01  Akim Demaille  <akim@epita.fr>
+
+	* etc/a2ps_cfg.in: Changed the occurences of $f by '$f', so that
+ 	we handle cleanly files with active shells characters or spaces in
+ 	their names.
+	Reported by FIXME: who?
+
+	* doc/a2ps.texi (Guide Line for Delegations): Document the need
+	for '$f'.
+
+1999-09-25  Akim Demaille  <akim@epita.fr>
+
+	* etc/a2ps_cfg.in (UserOption): Added display.
+
+	* sheets/sheets.map: Added rules for PDF via file(1).
+
+	* src/select.c (get_command): Do a case insensitive globbing.
+	Reported by Théo.
+
+	* contrib/fixnt.l: Undefine malloc and realloc.
+	Reported by Mike Keenan.
+
+	* arch/os2: Updated.  From Alexander Mai.
+
+1999-09-22  Akim Demaille  <akim@epita.fr>
+
+	* configure.in: Call jm_AC_TYPE_UINTMAX_T.
+	* lib/message.c (msg_verbosity_argmatch): Initialize res.
+	* lib/confg.gperf (keyword_e): Remove Temporary directory.
+	* lib/lister.c: Include more headers.
+	And various other fixes suggested by Alexandre Mai.
+
+1999-09-22  Akim Demaille  <akim@epita.fr>
+
+	Version 4.12b.
+
+1999-09-19  Akim Demaille  <akim@epita.fr>
+
+	* Renamed check/ as tests/, since that's the usual name.
+	All dependancies changed.
+
+1999-09-18  Akim Demaille  <akim@epita.fr>
+
+	a2ps was handling the temporary directory by itself.  Now it uses
+	the system's default.  Should help portability to micros.
+
+	* lib/routines.h (tempname_ensure): Let arg1 of tempnam be NULL.
+	All callers changed.
+	* lib/common.h (struct a2ps_common_s): No longer include a member
+	`tmpdir'.  All callers changed.
+
+1999-09-07  Akim Demaille  <akim@epita.fr>
+
+	* sheets/sml.ssh: Merged in parts of sml.ssh from Daniel Wang.
+
+	* configure.in (PostScriptum): Display a more friendly message.
+	People are afraid of reading a configuration file.
+
+1999-09-02  Akim Demaille  <akim@epita.fr>
+
+	* contrib/psset.m4: When quiet, pass -q to fixps.
+	* contrib/psmandup.m4: Likewise.
+	Reported by Christopher K. Davis.
+
+1999-08-31  Akim Demaille  <akim@epita.fr>
+
+	* lib/userdata.c (userdata_free): New function.
+	* lib/jobs.c (a2ps_job_register_user): Use it.
+
+1999-08-31  Akim Demaille  <akim@epita.fr>
+
+	* configure.in: Bump to 4.12b.
+	* src/xmalloc.h: Remove, use Jim's xalloc.h only.
+	All callers changed.
+	* src/xstrdup.h: Removed.
+	* src/version_etc: Allow for a different copyright owner.
+
+	* lib/malloc.c: Imported from fileutils.c.
+	* lib/realloc.c: Likewise.
+	* lib/strtoull.c: Likewise.
+	* lib/strtoumax.c: Likewise.
+	* m4/Makefile.am.in: Likewise.
+	* m4/README: Likewise.
+	* m4/uintmax_t.m4: Likewise.
+	* m4/ulonglong.m4: Likewise.
+	* m4/xstrtoumax.m4: Likewise.
+	* configure.in: Call jm_AC_PREREQ_XSTRTOUMAX.
+	Reported by Alexander Mai.
+
+1999-08-31  Akim Demaille  <akim@epita.fr>
+
+	Version 4.12a.
+
+	* lib/userdata.c: New file, encapsulates getpwuid (getuid ()).
+	* lib/jobs.c (a2ps_job_register_user): Use it.
+
+1999-08-28  Akim Demaille  <akim@epita.fr>
+
+	* lib/message.c (msg_verbosity_argmatch): Return the result.
+	Reported by Joachim Backes.
+
+	* contrib/fixps.m4: Support option --dry-run, and -no-fix.
+	* doc/a2ps.texi (Invoking fixps): Document them.
+
+	* contrib/Makefile.am (EXTRA_DIST): Removed report.c which is no
+	longer distributed.
+
+	* sheets/sheets.map: Check gzip before roff to type correctly
+ 	.../man/man1/a2ps.1.gz
+
+1999-08-17  Akim Demaille  <akim@lrde.epita.fr>
+
+	* src/main.c (usage): Provide a few sample uses.
+	Reported by Karl.
+
+1999-08-16  Akim Demaille  <akim@lrde.epita.fr>
+
+	* contrib/fixnt.l: Updated from Holger.
+
+1999-08-10  Akim Demaille  <akim@epita.fr>
+
+	* src/main.c (main): Implemented support for --list=which and
+ 	glob.
+	(usage): Reflect these news options.
+
+	* src/main.c (usage): Undocument -V for --version, and -h for
+ 	--help: short options are too precious.  In the future there
+ 	support may be dropped..
+
+	* lib/filtdir.c (filterdir): More generic.
+	(filterdir_pattern): Removed.
+
+	* man/Makefile.am (texi2dvi4a2ps.1): New file.
+
+1999-08-09  Akim Demaille  <akim@lrde.epita.fr>
+
+	* src/main.c: Implemented support for --list=expand, but it is
+ 	left undocumented for the time being.
+
+1999-08-09  Akim Demaille  <akim@lrde.epita.fr>
+
+	* src/Makefile.am: -I$(srcdir) is needed for files with #line.
+
+1999-08-09  Akim Demaille  <akim@lrde.epita.fr>
+
+	* src/ssheet.c (keyword_rule_new): Grouping operator must not be
+ 	backslashed.
+
+1999-08-08  Akim Demaille  <akim@epita.fr>
+
+	* src/main.c (RE_SYNTAX_A2PS): Change to a simpler form.
+	* doc/a2ps.texi (Syntax for the P-Rules): Reflect this change.
+
+	* sheets/cpproc.ssh: Implements CPP.
+	* sheets/c.ssh: Inherit cpproc.
+	* sheets/asm.ssh: Likewise.
+	* sheets/*.ssh: Adapt to the new syntax of regular expressions.
+
+1999-06-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/fixps.m4 (version): Check needed DSC comments depending
+ 	upon PS or EPS.
+  	Reported by Sven Grundmann.
+
+1999-05-31  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (style_sheet_html_print_signature): Print correctly
+ 	the separators of the ancestors list.
+
+1999-05-29  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (rule_new_internal_regexp): Don't use quotearg when
+ 	reporting an error on regex: it obfuscates.
+	(rule_new): Report filename and line when a regex fails to compile.
+	All callers and callees changed.
+	* lib/system.h: Extended and cleaned up.  Removed several small
+	auxialiary header files.
+
+1999-05-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/b.ssh: New file, from Philippe Coucaud.
+	* sheets/asn1.ssh: Likewise.
+	* sheets/sheets.map: Added ASN.1 and B.
+
+1999-05-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* configure.in: Check stdbool.h.
+	* lib/a2ps.h: Don't define bool.
+	* lib/system.h: Use fileutils' definition of booleans.
+	* lib/xunistd.h: Removed.  All callers changed.
+	* lib/xsystypes.h: Likewise.
+	* lib/xsysstat.h: Likewise.
+	* lib/xstdlib.h: Likewise.
+	* lib/xstdarg.h: Likewise.
+
+1999-05-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am (libitsources): Added closeout.c from
+ 	fileutils.
+	* src/version-etc.c: Stolen from fileutils 4.0h.
+	* src/version-etc.h: Likewise.
+	* src/long-options.h: Likewise.
+	* src/long-options.c: Likewise.
+
+1999-05-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/for77kwds.ssh: Updated from Alex.
+	* sheets/for90kwds.ssh: Likewise.
+
+	* doc/a2ps.texi (Page Device Options): Update the reference to
+ 	PLRM 3rd edition.
+	From Philippe Ferrucci <ferrucci@amitel.fr>.
+
+1999-05-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/: Updated from fileutils.
+
+	* lib/argmatch.h: Don't include.
+	* lib/argmatch.c: Include more.
+	* lib/backupfile.h: Likewise.
+	* lib/backupfile.c: Likewise.
+
+	* ogonkify/configure.in: Fixed looking for Perl.  Reported by
+ 	Harry Katz <harry.katz@wcom.com>.
+
+	* encoding/iso15.edf (Default): Adapted to use Ogonkify's Euro.
+
+	* ogonkify/doc/Makefile.am (EXTRA_DIST): Removed ogonkify.man,
+ 	makedoc and clean.
+
+	* ogonkify: Updated from Juliusz.
+
+1999-05-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (usage): Gnitsize the web page from version to usage
+ 	message.
+	* po/*.po: Tried to automate the move to the new layout of --help
+ 	and --version.
+
+1999-05-14  Akim Demaille  <demaille@inf.enst.fr>
+
+	* ogonkify: Updated from Juliusz.
+	* ogonkify/Makefile.am: Added latin7.
+	* encoding/iso13.edf: New file, built out of Ogonkify
+	* encoding/encoding.map: Added iso13.
+
+1999-05-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/tiger.ssh: New style sheet.
+
+1999-05-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/scheme.ssh: More keywords.
+	Reported by Greg Badros <gjb@cs.washington.edu>.
+
+1999-04-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/printers.tst: Check that a2ps does not dump core when no
+ 	cmd is defined for -d.
+
+	* lib/printers.c (a2ps_printers_command_get): Report properly an
+ 	error when there is no command for default/unknown printer.
+	Fixes printers.tst.
+
+	* sheets/sheets.map: New file rule for zsh.
+	Reported by Philip J Hollenback.
+
+	* configure.in: Updated for latest Automake and libtool 1.3.
+
+	* check/styles.tst: Remove empty diff files.
+
+1999-04-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/getnum.c (get_float_in_range): Be user friendly when
+ 	given non numeric argument.
+	Reported by Zdenek.
+
+1999-04-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/psset.m4: New option, --simplex.
+	Insert before %%EndSetup instead of after %%BeginSetup so that
+	the last settings win.
+	(sedscript): No longer try to make the script look nice thanks to
+ 	indentation: Solaris' /usr/bin/sed does not remove the leading
+ 	spaces of an insertation (even if later there is a protecting \).
+	I.e.:
+	i\
+	  \foo
+	inserts "  foo", not "foo" as with most other seds.
+
+1999-04-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c: Force recognition of `yes' and `no' by gettext.
+
+	* contrib/psset.m4: Append `;' instead of prepending when building
+ 	a list: some shell then give an empty argument when looping.
+  	Reported by Roderich Schupp.
+
+1999-04-07  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/fixps.m4: When extracting PS, be ready to receive
+	non Unix end of lines.
+
+1999-04-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/Makefile.am (install-data-local): a2ps-site.cfg is to be
+ 	found in build tree, not src tree.
+
+1999-03-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/perl2.ssh: Support of more tr/// variants.
+
+1999-03-26  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/sheets.map: Move `** data' up so that it hides no rules
+ 	such as bzip2's.
+
+1999-03-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/perl.ssh: Fixed handling of s|||.
+	Reported by Ben Pavon.
+
+1999-03-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/zsh.ssh: Inherit sh.ssh.
+	* sheets/sh.ssh: Inherit shell.ssh.
+	* sheets/csh.ssh: Inherit shell.ssh.
+	* sheets/shell.ssh: New sheet.
+
+1999-03-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/options.c (a2ps_handle_options): Read correctly the value
+ 	for --truncate.
+	Reported by Hao Li.
+
+1999-03-14  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/sml.ssh: New file.  Contributed by Franklin Chen.
+	* sheets/Makefile.am (minor_sheets): Added sml.ssh
+
+1999-03-12  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/Makefile.am (EXTRA_DIST): Don't include a2ps_cfg.in, nor
+ 	a2ps-site.cfg.
+	Reported by Steven Michael Robbins.
+
+1999-03-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/sheets.map: Type *.cgi as html.
+	Reported by Karl.
+	Added javascripts.  Fixed *.java (not *java).
+	Reported by Christian Borup.
+
+	* Lots of warnings avoided thanks to Zdenek.
+
+1999-03-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi: Fixed capitalization of Ghostview and
+ 	Ghostscript.
+	Reported by Karl.
+
+1999-03-05  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi (Top): Give the version number.
+	Reported by Karl Berry.
+
+	* sheets/perl.ssh: Handle `..` as strings.
+	Reported by Larry Virden.
+
+1999-03-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* encoding/iso9.edf (Vector): Replace dotlessi with onesuperior.
+
+	* contrib/fixnt.l (reassemble): Declare xx as an int, not a char.
+
+1999-03-01  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi: Fixed many typos.
+	Reported by Joachim Backes.
+
+1999-02-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/fixps.in (maxlen_awk): Don't use `?:'.
+	Reported by Stephen Dowdy.
+
+1999-02-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/for77kwds.ssh: Update from Alex Mai.
+	Added `elseif'.  Reported by Shem Ogadhoh.
+
+	* sheets/for90kwds.ssh: Likewise.
+
+	* etc/Makefile.am (README): Use s!!!, not s/// since date's output
+	may include `/'.
+	Reported by Pavel Roskin.
+	* lib/Makefile.am (libitsources): Don't include lister.[ch] twice.
+	Reported by Pavel Roskin.
+
+1999-02-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* configure.in: Bump to 4.12.
+
+1999-02-09  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/buffer.c (eol_types): Rectify correspondance between "pc"
+ 	and eol_rn.
+
+1999-01-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/lexppd.l: Implement "*Include:" support.
+
+1999-01-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/contrib.tst: New test to track stupid syntax errors in shell
+ 	scripts.
+
+1999-01-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* texi2dvi4a2ps (Options): Restore --batch.  Implied by --quiet.
+
+1999-01-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.h (a2ps_job): file_align replaces compact_mode.
+
+1999-01-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Reverted to use `' around quotearg.
+	* etc/a2ps-local.cfg: New file.
+
+1999-01-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* texi2dvi4a2ps: Use $program instead of $0 for messages.
+	Include new envvar in --help.
+	Don't exit 1 from the trap, trap will anyway exit with the status
+ 	it was called with.
+
+1999-01-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* options-check/3.tst: New test checking interaction between options and
+ 	user options and files.
+
+1999-01-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/options.c (a2ps_handle_option): Remember optind as res before
+ 	processing the options.
+
+1998-12-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/system.h (PARAM_UNUSED): Replaces ATTRIBUTE_UNUSED.  Not to be
+ 	used before gcc lib/2.8.
+
+1998-12-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* afm/make_fonts_map.sh (shortname): Add the missing '.
+
+1998-12-26  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/routines.h (tempname_ensure): Don't strdup it since tempnam
+ 	mallocs.
+
+1998-12-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/confg.gperf: Parse the configuration files with gperf.
+
+1998-12-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (list_options): Improve output.
+
+1998-12-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (style_sheet_mixed_new): Implement mixed style sheets.
+
+1998-12-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (handle_a2ps_option): No longer override the handling
+ 	of 'v' by liba2ps.
+	(main): No longer handle the defaults for message_verbosity.
+  	Handled by the lib.
+
+1998-12-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/make.ssh: Don't output false errors.
+	Reported by Alexander Mai.
+
+1998-12-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.c (a2ps_job_new): Handle the envvar A2PS_VERBOSITY.
+	* lib/options.c (a2ps_handle_option): Use message_verbosity_argmatch.
+	* lib/message.c (message_verbosity_argmatch): Remove from src/lib/main.c,
+ 	put this here.
+
+1998-12-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/fixps.in: Handle Windows 95's showpage definition.
+
+1998-12-07  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/Makefile.am (minor_sheets): Add sheets/tcsh.ssh.
+
+1998-12-07  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi (Predefined Variables): New node.  Document user.*
+ 	variables.
+
+1998-12-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.h: No longer use user_info.  Now, user data are stored as
+ 	variables.
+
+1998-12-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/fonts.l (dump_fonts): Allow for gsf font files.
+
+1998-12-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (main)[__EMX__]: Wildcard expansion.
+	Reindent correctly.
+
+1998-11-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/pathwalk.c (pw_glob): Use strverscmp instead of strcoll.
+
+1998-11-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/texi2dvi4a2ps: Updated.
+	* sheets/perl.ssh: Better handling of perl's regexps.
+	* lib/lister.c: Use specific functions for length computation and
+ 	printing.  All callers changed.
+
+1998-11-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/printers.c (a2ps_open_output_stream): Enable backups also for
+ 	printers!
+
+1998-11-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* texi2dvi4a2ps: Update from Karl Berry.
+
+1998-11-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/mail.ssh: Cleaned up some of the Strong_comment in order
+ 	to have a better support of --strip-level=1.
+	* src/ssheets.c: Use var expansion for html output.
+	* lib/.gethostname.c: Include string.h.
+
+1998-11-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am (libitsources): Add lib/quotearg.c.
+	(mylibitsources): Add lib/lister.c.
+
+1998-10-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* texi2dvi4a2ps: Updated from Karl Berry.
+
+1998-10-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/gethostname.c: Include lib/string.h for os/2.
+
+1998-10-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (list_style_sheets_html): Use variables to avoid
+ 	polluting the binary.  See sheets/.a2psrc for values of these
+ 	variables.
+
+1998-10-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/options.c (a2ps_handle_string_options): Use a smarter function
+ 	to build the argv out of a string.
+
+1998-10-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/options2.tst: Test that the user options work correctly.
+
+1998-10-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* auxdir/ansi2knr.c: Move it...
+	* lib/ansi2knr.c: Here.
+	* auxdir/ansi2knr.1: likewise.
+
+1998-10-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* m4/ogonkify.m4: Be robust to jm_PERL with can set PERL to
+ 	"missing perl".
+
+1998-10-12  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/sheets.map: *.prn for ps.
+
+1998-09-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* m4/Makefile.am: New file.  Move all the m4 macros from auxdir/
+ 	to m4/.
+
+1998-09-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* arch/os2/Makefile.am (EXTRA_DIST): Renamed config.h as
+ 	config.h.os2.
+
+1998-09-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/encoding.c (char_WX): Synchronize with ps_escape_char.
+	* lib/psgen.c (ps_print_char): No longer use string_WX.
+	Reported by Rudolf Cejka.
+
+1998-09-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* auxdir/help2man.PL: Updated.
+
+	* doc/Makefile.am: No longer generate man pages.
+
+	* man/Makefile.am (a2ps.1): Set LC_ALL to C.
+	(psmandup.1): Likewise.
+	(fixps.1): Likewise.
+	(pdiff.1): Likewise.
+	(card.1): Likewise.
+	Reported by Joachim Backes.
+
+	* man: New directory, modeled after that of the fileutils.
+
+1998-09-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/xbackupfile.c (create_file_for_backup): New function contributed
+ 	by Paul Eggert, but disabled, coz' I couldn't use it correctly :(.
+
+1998-09-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* configure.in: No longer make special case for getopt.
+
+1998-09-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/obstack.c: Update from fileutils.
+	* lib/obstack.h: Likewise.
+
+1998-09-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/xsysstat.h: Update from fileutils.
+	* lib/routines.c (xfind_backup_file_name): Backup_type is now an arg.
+	(xbackup_file) Ditto.
+	Move them:
+	* lib/xbackupfile.c: here. New file.
+	* lib/Makefile.am (libitsources): Added lib/addext.c and lib/basename.c from
+ 	fileutils lib/3.16x.
+
+	* lib/backupfile.c: Update from fileutils lib/3.16.x
+	* lib/backupfile.h: Ditto.
+
+1998-09-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/backup.tst: New file, in charge of testing the backup system.
+
+1998-03-06  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Release 4.9.10.  Yupee!
+
+1998-03-06  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/Makefile.am (book): New target.
+
+1998-03-05  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/generate.c (print): Test against delegate_p, not delegate!
+
+1998-03-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/darray.c (da_merge): Don't da_remove when no FREE_FUNC is given.
+
+1998-03-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/darray.c (_da_free_content): Don't free if FREE_FUNC is NULL.
+  	All callers changed.
+
+1998-03-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9k.
+
+1998-03-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/versions.c (version_length): Safer inline use.
+
+1998-03-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/darray.c (_da_free_content): Safer inline use.
+	* lib/faces.c (_face_to_string): Ditto.
+	* lib/pair_ht.c (pair_table_map): Ditto.
+	* lib/routines.c (xwpopen): Ditto.
+	* lib/stream.c (stream_wopen): Ditto.
+
+1998-03-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/psfix.in: New file.  Calls the psutils in order to fix common PS
+ 	problems.
+	* contrib/psmandup.in: Calls psfix instead of fixing itself.
+
+1998-03-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9j.
+
+1998-03-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* texi2dvi4a2ps: Updated according to texinfo release.
+
+1998-03-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/routines.h (strsuffix): New macro.
+
+1998-03-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9i.
+
+1998-02-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Added support for spread regex.
+
+1998-02-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/message.c: Made message be a macro.  There are so many
+	messages that I think it's a win.
+
+1998-02-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/psmandup.in: New file.
+1998-02-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9f.
+
+1998-02-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/Makefile.am (doc/a2ps.1): Make it with help2man.
+	(doc/card.1) Likewise.
+
+1998-02-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/select.c (get_command): Take a boolean which says whether to
+ 	call or not file(1).
+
+1998-02-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/title.c (title): New function, as printf, but underlines.
+
+1998-02-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/ppd.c (_a2ps_ppd_get): Moved here from lib/printer.c
+	(_a2ps_ppd_list_short): Idem.
+	(_a2ps_ppd_list_long): Idem.
+
+1998-02-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9e.
+
+1998-02-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/options.c (long_options): Removed --list-html-style-sheets,
+ 	--list-texinfo-style-sheets and --list-macro-meta-sequences from
+ 	the list of options.  Now done through argument of --list.
+
+1998-02-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (main): Support --list=ppd.  Report PPD in
+ 	--list=features too.
+
+1998-02-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/ppd.c (ppd_list_short): New function.
+	(ppd_list_short): Idem.
+
+1998-02-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Use "\n" as closer when the closers is not
+ 	specified, instead of /$/.  It helps killing white lines when
+ 	stripping.  It may not be the best solution :(.
+
+1998-02-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Alpha release 4.9.9d.
+
+1998-02-13  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/stdinout.tst (nlines): Do not use `[ \t]*' in the sed script,
+ 	coz it loses SunOS' sed.
+
+1998-02-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c (words_merge_clauses_unique): Erase the NEW
+ 	strcuture * src/parsessh.c: no longer call words_erase itself.
+
+1998-02-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/prolog.c (prologues_list_texinfo): New.  Called upon
+ 	--list=pro-texi.
+
+1998-02-11  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* Released 4.9.9c.
+
+1998-02-11  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/metaseq.c (macro_meta_sequence_add): Make it check that the
+ 	macro identifier is valid.
+	* lib/metaseq.c (grow_user_string_obstack): $E and %E: use long form
+ 	for the years.  Reported by Joachim Backes.
+
+1998-02-11  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/stdinout.tst: New test, because a2ps sometimes had the bad
+	idea to dump core when printing stdin with -E.
+
+1998-02-10  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/generate.c (input_new): Don't run file(1) upon
+ 	stdin. Reported by Joachim Backes.
+
+1998-02-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Added support for
+	${param:-word} and ${param:+word}.  Likewise for #{}.
+
+1998-02-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/options.c (a2ps_handle_option): Fixed handling of
+ 	--print-anyway. Reported by Joachim Backes.
+
+1998-02-02  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/sshread.c (match_keyword): Now strings have precedence over
+ 	regex.  * src/sshread.c (match_operator): Likewise.
+
+1998-01-31  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/printers.c: Cleaned up.  Ready for ppd.
+
+1998-01-30  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (behavior_args): New function that allow easier to
+ 	read/write --verbose arguments.
+
+1998-01-30  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/printers.c (struct printer): We can't use pair_table any longer
+ 	since we need to keep the ppd type too.
+
+1998-01-30  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/options.c (handle_option): Now the application is asked
+	the handle the options before the lib.
+
+1998-01-29  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/msg.h: Less bits are used.
+
+1998-01-29  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* configure.in: use ad_FUNC_GNU_GETOPT.
+
+1998-01-28  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/parsessh.y: No difference between tSTRING and tSYMBOL. The
+ 	latter disappears.
+
+1998-01-28  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/faces.h (enum face_t): Removed the special faces.  There is
+	no longer a typedef ---use enum.
+
+1998-01-27  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ffaces.c: New file, in charge of fface_t which mixes plain
+ 	face_t as used in liba2ps, and sepcial flags ---Invisible etc.
+
+1998-01-21  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c (style_sheet_self_print): Report when alphabets are
+ 	undefined.
+
+1998-01-19  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/prolog.c (prologue_print_signature): New function, used
+	to document the prologues.
+
+1998-01-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (get_behavior): In charge to `understand' TOPIC in
+ 	--list=TOPIC.
+	(usage): Adapted to --list=TOPIC.
+
+1998-01-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/options.c (long_options): Removed many of the --list-topic
+	to be replaced by --list=TOPIC.
+
+1998-01-15  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (copyright): New function, do display the short GPL.
+
+1998-01-14  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/hashtab.c (hash_free_items): Added as parameter the free
+	function to be used.
+	(hash_free): Use it.
+
+1998-01-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/prange.c (a2ps_page_range_set_string): Check that there is no
+ 	junk afer intervals such as "1-4d".
+
+1998-01-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/pages.test: Check ill defined page ranges.
+	Use test_files/check/formfeed.txt instead of check/report.pre.
+
+1998-01-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/cut.test (IN_NAME): Use check/tabulation.pre instead of check/report.pre.
+
+1998-01-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c (load_style_sheet): New function allowing loading
+ 	of a style sheet thanks to its key, or its path.
+
+	* src/parsessh.y (parse_style_sheet): Now return the parsed style
+ 	sheet instead of accessing itself to the hash tab.
+
+	* src/main.c (handle_a2ps_option): Define a strip_mask together
+ 	with the handling of --strip.
+
+	* src/sshread.c (ssh_print_postscript): Processing of INVISIBLE
+ 	and stripping of comments goes through a mask.
+
+1998-01-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* sheets/symbols.ssh: New file, defining latex-like symbols.
+	* sheets/pre.ssh: Made it inherit from sheets/symbols.ssh.
+
+1998-01-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/confg.c (a2_read_config): Made parsing of Printer's command more
+ 	robust.
+
+1997-11-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/delegate.test: New file.
+
+1997-10-31  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/styles.test: Use no functions.  Idem for other test files.
+
+1997-10-27  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/psgen.c (begin_page): Don't FREE page_label since it is not
+ 	malloc'd.  From Mark Burton <markb@lib/ordern.com>.
+
+1997-10-20  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/parsessh.y (const): Made prototypes use the same const as
+ 	bison.
+
+1997-10-13  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/options.c (get_symbolic_value): Improved error report.
+
+1997-10-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c: Changed the version numbers from string to int[4].
+
+1997-10-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* doc/Makefile.am (EXTRA_DIST): removed doc/a2ps.dvi and doc/regex.dvi.
+
+1997-09-30  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/printers.c: Removed local implementation of hash table: now uses
+ 	hashstr.[ch].
+
+1997-09-26  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/jobaux.c (user_options_table_new): The hash functions about user
+ 	options are now using hashstr.[ch] functions.
+
+1997-09-25  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/psgen.c (dump_prolog_comments): The prologue contains a copy of
+ 	the command line call when --debug.
+
+1997-09-25  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Added $[arg] and #!$.
+
+1997-09-24  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/delegate.c (subcontract): Added an awful kludge [a temp file
+ 	in which stdin is copied] so that delegations can be used even
+ 	when a2ps is called on stdin.
+
+1997-09-22  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c: Changed the --help and --list-option: the topics are
+ 	no longer part of the same string [sorry for translators], to get
+ 	easier changes of appearance.
+
+1997-09-22  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encoding.c (encoding_output_ps_vector): New function.
+	* lib/encoding.c (load_encoding_description_file): Changed `Endoding:'
+ 	to `Named:'.
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* ps/base.ps (reencode_font): Was from reencode_font_good.
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* ps/base.ps (currentfontsize): New function, used in boxing and
+ 	backgrounding of a string.
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/output.c (output_file): Added add_required_font in the case
+ 	%Font, so that fonts used in headers get registered too.
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/Makefile.am: Updated to the most recent version of fnmatch
+ 	[found in GNU make lib/3.76].
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/fonts.l (dump_fonts): Fixed the name of the resource [before
+ 	alias, not after!], made it depend on the DSC storage instead of
+ 	the encodinds.
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/dsc.h, lib/dsc.c: new files, that extract the handling of the PS
+ 	resources from psstat.[ch].
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/dsc.c: Rewrote and simplify the handling of the resources.  Now
+ 	it goes by two layers of hash tables [one for the type, say
+ 	"font"; and the other for the value, say "Courier"].
+
+1997-09-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* configure.in: Added AC_FUNC_STRCOLL, which will be used by
+ 	glob.[ch].
+
+1997-09-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/jobaux.c (interval_to_buffer): Opened interval on the left
+ 	prints 1 [lib/i.e., no longer -pp-10, but -pp1-10].
+
+1997-09-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c (style_sheet_print_signature): Made it look better.
+
+1997-09-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/ssheet.c (list_html_style_sheets): Ordered by name, not key.
+	(list_texinfo_style_sheets): Id.
+	(list_style_sheets_long): Id.
+
+1997-09-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/jobaux.c (da_get_lib_files_by_suffix): New function, which
+ 	fatorizes a job implemented in several places.
+
+1997-09-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encoding.c (encoding_entry_print_signature): Made it look better.
+
+1997-09-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/darray.c (da_qsort_with_arg): New function.
+
+1997-09-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/Makefile.am (libpath): Move pkgdatadir (/share/a2ps) at the end
+ 	of the path, so that users who did not remove a2ps lib/4.8.* stuff
+ 	don't get problems.
+
+1997-09-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/jobs.c (a2ps_job_finalize): New function that groups what has to
+ 	be done once the lib path is done, lib/i.e., after having read the
+ 	lib/a2ps.cfg
+
+	* lib/pathwalk.c (pw_append_dir_to_path): New function.
+	* lib/pathwalk.c (pw_prepend_dir_to_path): New function.
+
+1997-09-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* configure.in: Modification of a2ps.cfg is handled in etc/Makefile.
+
+1997-09-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* ogonkify/Makefile.am: Original AFM are no longer installed.
+
+1997-09-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encoding.c (list_encodings_long): New function, answering to
+ 	--list-encodings.
+
+1997-09-03  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/routines.h (astrdup): Fixed the too short len allocated [+1 !!!]
+
+1997-09-02  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* ogonkify/Makefile.am: Updated what gets installed, and what gets
+ 	distributed.
+
+1997-08-29  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* afm/Makefile.am (afm_DATA): Added may afm files, and afm/make_fonts_map.sh
+
+1997-08-20  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/fonts.l (binary_font_dump_segment): New function for download of
+ 	binary encoded fonts.
+
+1997-08-18  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/psgen.c (ps_end_encoding): Fixed a bug occuring when a change of
+ 	encoding was done on a blank sheet, before any real output.
+
+	* lib/lexafm.l: First sketch of AFM parsing [actually, no need to
+ 	parse, lexical is widely enough].
+
+	* lib/output.c (output_file): Made the parsing more robust [checks for
+ 	the missing arguments instead of crashing!].
+
+1997-08-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/Makefile.am (liba2pssources): Got rid of the AFC files,
+	and of fonts.[ch].
+
+1997-08-15  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/generate.c (print): Made it create itself the input buffer
+ 	that it passes to read of sshread.  Therefore the input buffer can
+ 	now be a string stream.
+
+1997-08-15  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Added padding,
+ 	lib/e.g. `$+.20n' to get the name of the file in 20 chars completed
+ 	with dots.
+
+1997-08-15  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* check/toc.test: New test, replaces check/all.test
+
+	* .a2psrc: Defined the UnknownPrinter: entry which sed's
+	  away some annoying DSC differences (date etc.)
+	* check/cut.test: Use it.
+	* check/toc.test: Use it.
+	* check/pages.test: Use it.
+	* check/styles.test: Use it.
+
+1997-08-14  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/buffer.c (buffer_get): No longer use getline nor getdelim,
+ 	but obstacks.
+	(buffer_stream_get_line): Added support for various eol encodings.
+
+1997-08-14  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encoding.h: An encoding no longer encloses is eol.
+
+	* lib/Makefile.am: getline.[ch] is no longer used.
+
+1997-08-13  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encoding.c (load_encodings_map): Now it is used, so that aliases
+ 	for encodings do function.
+
+1997-08-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* etc/base.ps: Added wrapping functions for PS and EPS inclusion.
+
+1997-08-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/psgen.c (ps_init): Made it set the encoding (can cause a SEGV if
+ 	page 1 is not in --pages).
+
+	* lib/jobaux.c (add_pages_interval_string): Implemented page selection.
+
+1997-08-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/Makefile.am: Added a test for --pages.
+
+1997-08-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/faces.h: Added the face Error.
+
+1997-08-05  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/parsessh.y: Implemented multiple expansions of symbols.
+  	Factorized a bit.
+
+	* src/ssheet.c (destinations_new): Started the modifications of
+ 	several files to allow multiple expansion of mached strings.
+
+1997-08-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/lexssh.l: Fixed a bug in handling of hexa escapes.
+
+1997-08-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/psgen.c (begin_sheet): Page labels are delayed, so that we know
+ 	the files printed in the current sheet.
+
+1997-07-31  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Added #!s.
+
+1997-07-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Profound revision
+	of meta sequences related to lines, pages and sheets.
+	* lib/metaseq.c (grow_user_string_obstack): #? uses SPLIT too.
+
+1997-07-29  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/metaseq.c: Added the hash table functions for macro MS.
+	(grow_user_string_obstack): Added '\' for usal characters,
+	especially `\n'.
+
+	* lib/metaseq.c (grow_user_string_obstack): Expand the macro meta
+ 	sequences (#(macro)).
+
+	* hashstr.[ch]: New file, factorising the various hash tables with
+ 	a char * key, and a char * value.
+
+	* lib/xmalloc.h: Fixed prototype of free.  Include stdlib.
+
+1997-07-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (handle_a2ps_option): New, in charge of handling the
+ 	options of the program (not the library).
+
+	* src/sshread.c (ssh_print_postscript): Removed the breaking
+ 	free_token.
+
+1997-07-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/options.c: New file in charge of the options only.
+	* lib/confg.c: Removed option related routines.
+
+1997-07-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.1: Mini doc is included.
+
+1997-07-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/metaseq.c (grow_user_string_obstack): Implemented #!f.
+	(grow_user_string_obstack): Added #!F.
+
+	* lib/psgen.c (dump_prolog_comments): New function, globally delayed,
+ 	instead of several delayed functions in output_prolog.
+
+1997-07-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* config.h.in: Removed the now unecessary #define for PARAMS and
+ 	___P.
+
+1997-07-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (style_sheet_finalize): Inheritance of the
+ 	alphabets.
+	(check_style_sheet): Now checks keywords, sequences, and
+ 	operators, even with regexp.
+	(style_sheet_finalize): Inheritance of case sensitivity.
+
+1997-07-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (get_style_sheet): Add update of re_syntax_table
+ 	which could cause a BUS error.
+
+	* src/parsessh.y: Cleaned the trash was was still here from
+ 	previous handling scheme of the symbols.
+
+	* src/sshread.c (match_symbols_array): New function, replaces
+ 	match_exception, and match_sequence_end.
+
+1997-07-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* delegate.[ch]: New names of subcont.[ch] to reflect the
+ 	terminology chosen for the interface.
+
+1997-07-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/emacs/a2ps.el: new name of contrib/emacs/ssh.el, because there is yet
+	  an contrib/emacs/ssh.el for `ssh(1)'.
+
+1997-07-21  Jim Meyering <meyering@eng.ascend.com>
+
+	* check/check/Makefile.am (TESTS_ENVIRONMENT): Set it so SRCDIR gets
+	passed to each test script.
+	* check/check/cut.test (SRCDIR): Use it.
+	* check/check/guess.test (SRCDIR): Use it.
+	* check/check/prologues.test (SRCDIR): Use it.
+	* check/check/styles.test (SRCDIR): Use it.
+	* check/check/ps.test (SRCDIR): Use it.
+	* check/check/Makefile.am (CLEANFILES): Add defs.
+
+1997-07-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Solved shift/reduce conflicts by inlining.
+
+1997-07-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/psgen.c (begin_page): Merged ps_skip_page in.
+
+1997-07-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/subcont.c (subcontract): Better error messages.
+
+1997-07-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/metaseq.c (format_user_string): Moved %o, %O as #o, #O.
+	(expand_user_string): Replaces format_user_string.  It has
+	now no arbitrary limitation on the size of the expanded
+	string, thanks to obstacks.
+
+	* metaseq.[ch]: New files, in charge of the meta sequences
+	  handling.
+
+1997-07-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.h: Now the struxt words encodes the address of the
+ 	first and last possible matches, not there index in the array.
+
+1997-07-17  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/liba2ps.h: Changed the name of something important
+	  functions (such as new_print_job etc.) so that everything
+	  is prefixed by a2_.
+
+1997-07-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (style_sheet_texinfo_print_signature): I know this
+ 	is bad, but I couldn't help it...
+
+1997-07-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/stpncpy.c (stpncpy): Fixed a nasty bug.
+
+1997-07-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi (Known languages): Made it depend on a file
+	  generated by a2ps to describe the languages.
+
+1997-07-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/encoding.c (load_encodings_map): New function, in charge
+	  of reading the lib/encoding.map files.
+
+1997-07-15  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/Makefile.am (ps_DATA): All files have a lower case name.
+
+1997-07-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am (libitsources): Removed regex.[ch] from here,
+	  so that it does not polute lib/liba2ps.h with its undefined
+	  symbols.
+
+1997-07-09  Akim Demaille  <demaille@inf.enst.fr>
+
+	* all: Standardized the error messages (in particular, "cannot do
+ 	something", no longer "couldn't do" nor "unable to", nor "could
+ 	not do").
+
+1997-07-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: The handling of closing alternatives is now
+ 	handled by the parser, instead of a post processing.
+
+1997-07-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/psstat.c (ps_status_free): Quite all the memory malloc'ed
+	  is now freed.
+
+1997-07-07  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/confg.c (read_sys_config): Fixed the behavior when
+	sysconfdir does not hold lib/a2ps.cfg.
+
+1997-07-06  Akim Demaille  <demaille@inf.enst.fr>
+
+	* subcont.[ch]: New file in charge of the subcontractors.
+
+1997-07-06  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.c (new_file_job): It is no longer the library
+	  that opens the files...
+
+	* lib/output.c (output_dump): Make it accept any FILE as output
+	  stream.  This is to avoid closing stdout in a near future.
+	  (That was _bad_ when using the library).
+
+1997-07-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.h (struct style sheet): New field: ancestors.
+  	Parsing etc. are revisited to take these ancestors into account.
+  	NOTE: no checking for infinite recursion is currently done.
+
+	* src/ssheet.c: Simplified handling of the style sheets hash
+ 	table.  The style sheets by themselves did not require an extra
+ 	embedding structure.
+
+1997-07-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/objc.ssh: Made it inherit from sheets/c.ssh.
+
+1997-07-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/routines.c (format_user_string): Made it depend
+	  upon a file_job, so that it will be usable for
+	  indexes and toc.
+
+	* lib/darray.c (da_prefix): New function which prefixes
+	  the content of the first arr, by the content of the
+	  second (kind of converse of concat).
+
+1997-07-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* configure.in: REPLACE_FUNC strtoul, absent on SunOS cc.
+
+1997-07-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/lexssh.l: Now uses obstacks for scanning strings.  Flex
+ 	power is exploited (exclusive states).
+
+1997-07-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* caret.[ch]: New files, in charge of escape unprintables.
+
+	* lib/a2ps.h: Got rid of ustring and const_ustring.
+	  Redesigned the access to system headers (it relies
+	  now more on lib/xstring.h etc. which take care by themselves
+	  of multiple inclusions).
+
+1997-07-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* *.*: Has remarked by Turgut Uyar, media is yet plurial!  Changed
+ 	everywhere.
+
+1997-07-01  Akim Demaille  <demaille@inf.enst.fr>
+
+	* psstat.[ch]: New files, to split the very big structure
+	  that is print_job in smaller, quasi-independent elements.
+
+1997-06-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/printers.c: New file, which is responsible of printers
+	  management.  (printers are in fact any kind of output).
+
+1997-06-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/styles.test: Presentation is much better.
+
+1997-06-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/vrml.ssh: New.
+
+1997-06-18  Akim Demaille  <demaille@inf.enst.fr>
+
+	* ogonkify.m4: New macros to check if ogonkify can be installed
+ 	(depends on perl), and is desired.
+
+	* configure.in: More robust tests for portability.
+
+1997-06-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Added support for version requirement in style
+ 	sheets.
+
+1997-06-13  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/a2ps.h: More robust wrt errno.
+
+1997-06-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/confg.c (get_symbolic_value): New function to have clearer
+	  error messages for argument mismatches.
+
+1997-06-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* styles.*: removed.
+
+1997-06-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/pathwalk.c (path_walk): Now the whole file uses pre
+	  separated components of the path (string_to_path).
+
+1997-06-09  Akim Demaille  <demaille@inf.enst.fr>
+
+	* All files: put the copyright notice.
+
+1997-06-06  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.c (new_user_info): New function, due to new structure of
+ 	  struct print_job.
+
+1997-06-05  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/medias.c (list_medias_short): New function.
+	* lib/config.c: "Media: " entries.
+
+1997-06-04  Akim Demaille  <demaille@inf.enst.fr>
+
+	* contrib/emacs/ssh.el: New file, built by modification of contrib/emacs/m4.el by
+	  Drew Csillag <drew@contrib/emacs/staff.prodigy.com>.
+
+	* make-contrib/emacs/regexp.el: Included because some day there will be
+	  support for regexp in a2ps.
+1997-06-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Removed "end comment".
+
+1997-06-02  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am: Build lib/liba2ps.h from source files.
+
+1997-05-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/parsessh.y: Add support for version and author of a style
+ 	sheet.
+
+1997-05-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/darray.c (da_qsort): New implementation.  Comparison
+	  functions in darrays no longer need to have a void **
+	  as argument.
+
+1997-05-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/liba2ps.h.in: New file which is a precursor of the
+	  a2ps library header.
+
+1997-05-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.h: Jobs are now under darray.
+
+	* lib/jobs.c (print_job_free): New function.
+
+	* lib/dstring.c (ds_vsprintf, ds_cat_vsprintf...): New
+	  functions.
+	* lib/output.c: Globally cleaned up, using dstring.
+
+1997-05-24  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/output.c: Globally cleaned, using darrays.
+
+1997-05-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/Makefile.am (sheets_DATA): Renamed sheets/perl.ssh as sheets/Perl.ssh
+
+1997-05-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.h: Added backup support (versioning).
+
+	* lib/dstring.c (ds_report): New function.
+
+1997-05-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/dstring.c: extended so that it is darray-like.
+
+1997-05-22  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/Makefile.am: Renamed black+etc/white.pro as etc/bw.pro, *.enc
+	  to .ps, removed style-def.
+	  Renamed the ps library dir (former postscript) as ps.
+
+1997-05-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* ogonkify/Makefile.am: Fixed a bug in handling of @LIBDIR@.
+
+1997-05-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am (libitheaders): Added backupfile.[ch] for
+	  version control, lib/getversion.c for get version
+	  control settings, and argmatch.[ch] as support for
+	  lib/getversion.c
+
+	* lib/Makefile.am: new files dstring.[ch] that will replace
+	  portions of output.[ch]
+
+1997-05-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/ChangeLog.ssh: Added.
+
+1997-05-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* doc/a2ps.texi (Writing new style sheets): Added a
+	tutorial on ChangeLogs.
+
+1997-05-09  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/guess.test: Tests only what file says.  Guesses depend
+	  far too much from what people wrote in check/sheets.map
+
+1997-05-08  Akim Demaille  <demaille@inf.enst.fr>
+
+	* check/ps.test (XPS_DIR): New test, that tries to find what
+	  can break a level 1 PS interpreter.
+1997-05-07  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/darray.c (da_remove_at, da_merge_unique): New functions.
+
+1997-05-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.h: Removed the global exceptions (former verbatims),
+ 	since they can easily be included as an alternative closer in the
+ 	sequences.
+
+	* src/styles04.m4 (and others): Tuned for easy convertion to new
+ 	style of style sheets.
+
+	* src/read.c: New file to speed up plain printing.
+
+	* src/sshread.c: New file for style sheet pretty printing reading
+ 	of files to print.
+
+	* src/buffer.c: Replaced by the two files above.
+
+	* src/parsessh.y, src/lexssh.l: new names of src/sshparse.y and
+ 	src/lexer.l
+
+1997-05-03  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/Makefile.am: Changed hash.[ch] to hasshtab.[ch] to
+	  avoid conflict with other libit sources.
+	  Changed xfnmatch.[ch] to Fnmatch for the same
+	  reason.
+
+1997-04-30  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/Makefile.am (sheets_DATA): Added sheets/ObjectiveC.ssh.
+
+1997-04-28  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/select.c (load_sheets_map): `***' to read another
+ 	src/sheets.map file.
+
+1997-04-27  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/main.c (main): libefence cannot be used because of &^% Sun's
+ 	str* functions.
+
+	* src/select.c (load_sheets_map): Able to match on file(1) result.
+
+1997-04-27  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/sheets.map: Added `**' special pattern to specify
+	  matching against result of file(1).
+
+1997-04-27  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/base.ps: Merged in etc/color.ps, since now a lot is
+	  common [added box and underline features].
+
+1997-04-25  Akim Demaille  <demaille@inf.enst.fr>
+
+	* etc/color.ps: Added box and underline routines.
+
+1997-04-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c (load_style_sheet): New functions.
+	  (get_style_sheet): New function.  Style sheets are stored in a
+ 	hash table.
+
+1997-04-23  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/confg.c (long_options): Changed --column-per-page
+	  to --chars-per-line which is less confusing.
+
+1997-04-21  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/buffer.c (mygetstring): Started adaptation to src/ssheet.c.
+
+1997-04-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/select.c (read_sheets_map): New function, that reads the
+ 	src/sheets.map files.
+
+1997-04-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* sheets/Makefile.am: New file.  All the style sheets belong
+	  to this directory.
+
+1997-04-20  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.c (new_a2ps_status): Removed the pattern rules:
+	  they are no longer part of .a2psrc files.
+
+	* jobaux.[ch]: new files to make jobs.[ch] only handle
+	  the job structure, not the asides.
+
+1997-04-19  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.h: Unified implementation of keywords, symbols and
+ 	operators.
+
+	* ss-src/parser.y: Extended to verbatims, escapes, and comment.
+
+	* src/ssheet.c (match_keyword, match_symbol, match_operator): New
+ 	functions
+
+1997-04-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* Makefile.am (SUBDIRS): Changed the order so that painful info
+ 	problems at install can be easily avoided.
+
+1997-04-16  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/output.c (output_file): Restructured, so that only
+	  used fonts are built.
+
+	* lib/encodings.c: Fix the ISO names.
+
+1997-04-12  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/postscript.c (output_prolog): In debug mode, download
+	  a ps error handler.
+
+1997-04-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c: More jobs done (should replace style-src/utils.c).
+
+	* ss-src/parser.y: Reads the sequences.
+
+	* src/lexer.l: Extented the base alphabet to the maximum.
+
+	* src/lexer.l: Included the LaTeX equivalent for the symbols and
+ 	operators.
+
+1997-04-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* NEWS: Release of 4.8.
+
+1997-04-11  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/jobs.h: Changed major to Major, because of a sys macro
+	  on SunOS CC.
+
+1997-04-10  Larry Jones  <larry.jones@sdrc.com>
+
+	* src/report.c, style-src/utils.c (sort_keywords, sort_regulars,
+ 	sort_specials, sort_symbols): make min and max optional to avoid
+ 	unneeded work and prevent referencing uninitialized variables.  *
+ 	style-src/utils.c (guess_language): free file_command when done,
+ 	fclose ptr all the time (not pclose!), check for sscanf failure.
+
+1997-04-10  Larry Jones  <larry.jones@sdrc.com>
+
+	* lib/faces.c, lib/faces.h (check_face_to_font, init_face_to_font):
+	  correct argument type.
+
+	* lib/jobs.c (initialize_ps_status): intialize wx and last_line_num
+	  since they can be referenced before they're otherwise set.
+
+	* lib/jobs.c (new_print_job): get name to capitalize from
+	  res->pw_name instead of passwd->pw_name since passwd might be
+	  NULL.
+
+	* lib/output.c (output_file): add 1 for trailing NUL when allocating
+	  filename.
+
+	* lib/postscript.c (clean_up): when printing blank 2nd page for
+	  rectoverso, leave job->virtual alone so that paging logic
+	  works correctly.
+
+	* lib/postscript.c (ps_init): set title_font_size even when not
+	  printing titles since it's still referenced.
+
+1997-04-10  Larry Jones  <larry.jones@sdrc.com>
+
+	* lib/faces.c, lib/faces.h (check_face_to_font, init_face_to_font):
+	  correct argument type.
+	* lib/jobs.c (initialize_ps_status): intialize wx and last_line_num
+	  since they can be referenced before they're otherwise set.
+	* lib/jobs.c (new_print_job): get name to capitalize from
+	  res->pw_name instead of passwd->pw_name since passwd might be
+	  NULL.
+	* lib/output.c (output_file): add 1 for trailing NUL when allocating
+	  filename.
+	* lib/postscript.c (clean_up): when printing blank 2nd page for
+	  rectoverso, leave job->virtual alone so that paging logic
+	  works correctly.
+	* lib/postscript.c (ps_init): set title_font_size even when not
+	  printing titles since it's still referenced.
+
+1997-04-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* src/ssheet.c: New file, in charge of handling the new scheme for
+ 	style sheets.
+
+1997-04-10  Akim Demaille  <demaille@inf.enst.fr>
+
+	* lib/faces.h: Changed COURIER to PLAIN.
+
+1997-04-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* ss-src/parser.y: New file, for reading dynamically the style
+ 	sheets.
+
+	* src/lexer.l: New file, used for all the parsers in a2ps.
+
+1997-04-07  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* lib/confg.c (read_sysconfig): Made it able to read in the lib path
+	  so that it is easier for micro ports.
+
+1997-04-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* style-src/utils.c (guess_language): Adapted to the new
+ 	structure, and fixed a bug related to a bad space in file_link.
+
+	* src/main.c: Configuration related functions have moved in
+ 	lib/src/confg.c.
+
+1997-04-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/jobs.h: New structure (a2ps_status) to store what
+	  belongs to the program, and not the lib.
+
+	* lib/confg.c: new file with all the necessary to read
+	  configuration at run time (from config files to
+	  command line options).
+
+1997-04-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* file.m4: Fixed a bug which caused an extra blank in the file
+ 	command, which could break the call to file.
+
+1997-04-03  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/Makefile.am: Added support for Helvetica's
+
+1997-03-28  Akim Demaille  <demaille@folcoche.enst.fr>
+
+	* lib/postscript.c (begin_document): added support for
+	  -major
+
+1997-03-27  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* lib/postscript.c (ps_end_file): Moved the test here, instead
+	  of page per page.  It now cancels the whole job.
+
+1997-03-26  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* lib/postscript.c (begin_document): added a test to make sure
+	  faces are known.
+
+1997-03-25  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (long_options): Changed --font into --font-size,
+ 	because the prologues are the good place to change the base font.
+
+	* style-src/utils.c (guess_with_rules): Fixed a problem on the
+ 	definition of success for fnmatch.  Now more portable.
+
+1997-03-23  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/xstrrpl.c (xvstrrpl): new function, that takes vargars
+	  intead of an array.
+
+	* lib/xstrrpl.c: destructive counterparts are added.
+
+1997-03-22  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/postscript.c (ps_print_char): Now there is a ps function
+	  to print line numbers.
+
+1997-03-18  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/postscript.c (ps_font): Got rid of the hard coded fonts:
+	  now only Keyword, Comment, and such.
+
+	* lib/afm.c: Moved more responsibility to Ogonkify.
+
+1997-03-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/buffer.c (mygetstring): Deeply modified to support the very
+ 	strange nroff sequences that may include ^H.  Now I can get rid of
+ 	CourierBack, which was not portable to built char sets such as
+ 	those of Ogonkify.
+
+1997-03-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/postscript.c (ps_print_char): case '\b' removed.
+
+1997-03-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* etc/base.ps: Got rid of CourierBack and reencoded_backspace_font.
+	  Now the C has to handle this by itself.
+
+1997-03-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (read_config): Use getshline_numbered, so that long
+ 	lines continued by a `\' at eol are considered.
+
+1997-03-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/pathwalk.c: new file, now reusable
+
+	* lib/getshline.c (main): new file, with functions specialized
+	  in reading configuration files with lines continued by a '\'
+
+1997-03-14  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/encodings.c (expand_wx): fixed a bug: order between times
+	  and Symbol.
+
+	* lib/postscript.c (FOLD_LINE): Fixed a bug in printing line-numbers
+	  when not in Courier.
+
+1997-03-12  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/message.c: New file.  Function removed from lib/routines.c
+	  as the other varargs functions.
+
+1997-03-10  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* src/styles05.m4: Included the Octave/MATLAB style, provided by
+ 	Craig P. Earls <cpearls@src/mit.edu>.
+
+1997-03-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (guess_language): Now file is used only if a2ps
+ 	didn't guess anything.  This speeds up, and avoids some of the
+ 	common mistakes of file.
+
+1997-03-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/xfnmatch.h: Changed the name to xfnmatch, so that there could
+	  never be interferences between the system's lib/fnmatch.h, and
+	  the provided fnmatch.
+1997-03-01  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/jobs.c (ps_set_encoding, ps_end_encoding,
+ 	ps_switch_encoding): new functions.
+
+	* src/jobs.c (output_file): grabs the setup parts of ps files, so
+ 	that they are put in the %%DocumentSetup.
+
+1997-03-01  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* *.enc: they build their own dictionaries, to ease multi
+	  lingual documents.
+
+
+1997-02-28  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/jobs.c (new_job): Put default value of startpage to TRUE,
+ 	and then simplified beginning of printing a document.
+
+1997-02-25  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/job.h (print_job): now has a field NeededResources.
+	* src/output.c (output_file): now recognises the NeededResources.
+	* src/postscript.c (begin_document): NeededResources are delayed
+	  through a hash table in print_job.
+
+1997-02-24  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* src/jobs.c (new_print_job): Better handling of strange
+	  configurations (no HOME var env, no passwd etc.)
+
+1997-02-23  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c: changed handling of line, font and columns
+ 	requested, so that big size are better treated.
+
+1997-02-13  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/: better support of non ANSI platforms.
+	* src/: less globals.
+	* src/medias.h, src/medias.c: new files.
+
+1997-02-09  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/main.c (add_fn_rule): New function.
+
+	* src/main.c (read_config): `Pattern:' is new in the config. files.
+1997-02-08  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/styles??.m4: Use of $ are the symbol for eol, instead
+	  of hard-coded \n (bad with Mac which closes with \r).
+
+1997-02-07  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/styles.c.in: split in several files.
+	* src/postscript.c (print_file): handling of cut by the main loop.
+
+1997-02-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/report.c: fixed report wrt to new font schemes.
+
+	* src/buffer.c (mygetc): Moved grabbing of tags in here.
+	* src/postscript.c (print_file) No more dealing with font
+	  and "true font".  Everything is handled by buffer.c
+
+1997-02-01  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/style-utils.c (sort_keywords): precalculate the arrays
+	  min and max which correspond to the first and last keyword
+	  in the array that begin with the char which is the index of
+	  the array.
+	* src/style-utils.c (sort_regulars): Idem.
+	* src/style-utils.c (sort_specials): Idem.
+
+	* src/buffer.c: simplified thanks to the six above arrays.
+
+1997-01-31  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/style-util.c: Different handling of alternatives
+	  in the sequences.
+	* src/buffer.c (is_sequence_begin): Now in the sequences,
+	  close_font is attached to its closer.
+
+	* src/styles.c.in: removed old syntax of closing alternatives.
+
+1997-01-28  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/routines.c (list_suffixp): New function.
+	* src/main.c (list_features): Lists the prologues.
+
+	* src/postscript.c (start_sheet): job->margin handled.
+
+	* src/main.c (guess_language): Use of readpipe for speed
+	  improvement.
+
+1997-01-26  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* postscript.c: job->strip handled, but not enough.
+
+1997-01-21  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/jobs.[ch], src/postscript.c (job->statusdict,
+ 	job->pagedevice): new variable.
+	* src/main.c: support of the two previous through -D and -S.
+
+1997-01-19  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c (print_file): introduced true_font to
+	  avoid bugs because of "virtual information" in fonts,
+	  such as TAG1 etc.
+
+	* src/main.c: news options --margin, --strip-comments
+	* src/postscript.c, routines.c, styles.c: changed handling
+	  of tags to something more uniform.
+	* src/jobs.c, jobs.h: more rigorous handling of the
+	  information related to files/print job.
+	* output.c, output.h: new files, in charge with the second
+	  pass.
+	* doc/mika.texi: updated.
+	* doc/mika.1, doc/prescript.1: no longer distributed.
+
+1997-01-05  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c, misc/a2ps.pro: redesigned the definition
+	of the fonts (to be more flexible).
+	* misc/pcg.enc: now fully supported.
+
+	* misc/a2ps.pro: prepared for color.
+	* misc/gray.pro: prolog with gray shades.
+
+1997-01-04  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c, misc/a2ps.pro: uniformization of the variable
+ 	names.
+	* src/postscript.c: fixed problems with counting of pages/sheets.
+
+1997-01-03  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c: now a2ps respects the drawing area.
+	* src/a2ps.c (handle_options): more predefined layouts.
+
+1997-01-02  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c: moved more definitions in the document Setup.
+	* src/postscript.c: in the ps, orientation is invisible (i.e.,
+	  the sheet width is the paper height in landscape etc.).
+	* src/a2ps.c (handle_options): new options --columns, --rows.
+
+1996-12-31  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c: More than two virtual pages may be used.
+	* src/postscript.c (clean_up): fixed.
+
+	* configure.in: got closer to GNU directories.  Used libit.
+	* src/routines.c (xgethostname): replaces get_host.
+	* src/a2ps.c: $HOME is used for .a2psrc, instead of id->pwdir.
+
+1996-12-29  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/postscript.c: Fixed DSC compliance.
+	* lib/a2ps.pro: DSC compliance.
+
+1996-12-21  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* src/routines.c (format_usr_string): introduced `%?'.
+
+1996-12-19  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* buffer.c (is_sequence_open, is_sequence_close): implemented a
+ 	more general scheme for sequences.
+	* styles.c.in (fortran_mode, mail_mode): use of '^' specificator.
+
+1996-12-18  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* buffer.c: prepared the matching sequences
+
+1996-12-18  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* buffer.c: improved management of alphabets.
+	* configure.in: fixed a problem when no${prefix} is given.
+
+1996-12-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* buffer.c: used getline instead of "sliding buffers".  It should
+ 	make Fortran comments easier.
+
+1996-12-15  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* libc/: added getline.
+
+1996-12-14  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* lib/a2ps.pro (cfshow): new function.
+	* lib/a2ps.pro (hp): position and size of center title fixed.
+	* src/postscript.c (print_sheet_prologue): simplified.
+
+1996-12-11  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* postscript.c: fixed prefix_size.
+
+	* postscript.c: fixed handling of twinfiles.
+
+	* postscript.c: fixed handling of wx of escaped strings.
+	* a2ps.c (handle_options): fixed handling of --non-printable.
+
+1996-12-08  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* postscript.c (print_sheet_prologue) fixed the handling of water
+ 	  marks.
+	* a2ps.texi: added chapter on pretty printing.
+
+1996-12-06  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* a2ps.c, postscript.c: dynamic headers are fixed.
+	* a2ps.c: orientation may be implied by number of pages
+	  per sheet (unless specified).
+
+1996-12-06  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* a2ps.c (main): made full use of library path.
+
+1996-12-03  Akim Demaille  <demaille@folcoche.enst.fr>
+
+	* a2ps.c: handling of the headers (hanlde_options) is now finished
+ 	---I hope.
+	* src/postscript.c, lib/a2ps.pro: water is given the angle to
+ 	follow.
+	* routines.h (IS_EMPTY): fixed a problem.
+
+1996-12-02  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* src/a2ps.c (handle_option): use of GNU getopt.
+
+	* src/a2ps.c (list_options): separated from --version.
+
+	* src/afm.c: handling of WX's goes through a table, to improve
+ 	speed.
+
+1996-11-29  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* postscript.c (print_prologue): now the media used is specified
+	  in the PS prologue.
+
+	* afm.c: added mac and latin2 encodings.  PS support is needed
+	  in order to use them --to do.
+
+	* configure.in: added tests on "uchar", supposed to be unsigned
+	  char, unless char is unsigned.  Most src's are adapted to uchar.
+
+1996-11-27  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* everyfile: the handling of the various options is no longer
+	  dynamic, hence many "new_" variables were killed.
+
+	* postscript.c: better PostScript prologue.  Most variables
+	  in common with a2ps.c is shared through the struct print_job.
+
+	* a2ps.pro: less variables, more stack management.
+
+1996-11-24  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* everyfile: Used a more general scheme for the handling of
+	date, footers etc.
+
+1996-11-21  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* a2ps.c: (main) reading a2psrc files (system's, home's, and
+	./'s).
+	* routines.c: (path_walk, paste_file, xstrdup, xmalloc, xfree,
+	message, file_lookup, file_existsp) new functions, stolen
+	from GNU enscript.
+	* report.c: uses library files instead of big printfs.
+	* postscript.c: uses library files.
+	* configure.in: configuration time options are useless, since
+	a2psrc is --at last-- born.
+
+1996-11-18  Akim Demaille  <demaille@quasimodo.enst.fr>
+
+	* xmalloc.c: new file. Stollen from GNU enscript.
+
+	* routines.c (fatal, error): new functions. Every error msg has
+ 	been check and uses errno when possible.
+
+	* po/, intl/: updated to GNU gettext-0.10.24
+
+1996-11-17  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* postscript.c, main.c: Dates are I16ed.
+
+1996-11-16  Akim Demaille  <demaille@gargantua.enst.fr>
+
+	* postscript.c Header and footer better suported (parenthesis
+ 	etc.).
+	* styles.c.in (prescript_tyle) Added support for \footer and
+ 	\header.
+	* report.c (report, report_language) Defined dynamic header and
+ 	footer).
+
+	* configure.in Fixed bug with --enable-print-default
+
+1996-11-15  Akim Demaille  <demaille@candide.enst.fr>
+
+	* postscript.c Introduced new font modifiers: HEADER and FOOTER
+ 	that allows to define footer and header on-the-fly, from the file.
+  	* styles.c.in (mail_style) Added HEADER and FOOTER to sequences on
+ 	Subject and From.
+
+1996-11-15  Akim Demaille  <demaille@candide.enst.fr>
+
+	* po/it.po. Added Italian support with Daniele Ghiotti.
+
+1996-11-13  Akim Demaille  <demaille@esmeralda.enst.fr>
+
+	* NLS supported with GNU gettext.
+
+	* Keywords, Symbols are now sorted.
+
+	* Changed the encoding of the fonts in the style sheet base.
+
+	* (routines.c, a2ps.c) When style is mailfolder, use subject and
+	sender as header and footer.
+
+Edit history:
+
+ 1) Derived of shell program written by evan@csli (Evan Kirshenbaum).
+    Written in C for improve speed execution and portability. Many
+    improvements have been added.
+
+ Fixes by Oscar Nierstrasz @ cui.uucp:
+ 2) Fixed incorrect handling of stdin (removed error if no file names)
+ 3) Added start_page variable to eliminate blank pages printed for
+	files that are exactly multiples of 132 lines (e.g., man pages)
+
+ Modified by santana@imag.fr:
+ 4) Added new options at installation : sheet format (height/width in
+    inches), page format (number of columns per line and of lines per
+    page).
+
+ Modified by santana@imag.fr:
+ 5) Added new option to print n copies of a same document.
+ 6) Cut long filenames if don't fit in the page header.
+
+ Modified by Tim Clark (T.Clark@warwick.ac.uk):
+ 7) Two additional modes of printing (portrait and wide format modes)
+ 8) Fixed to cope with filenames which contain a character which must
+    be escaped in a PostScript string.
+
+ Modified by santana@imag.fr to
+ 9) Added new option to suppress heading printing.
+ 10) Added new option to suppress page surrounding border printing.
+ 11) Added new option to change font size. Lines and columns are
+     automatically adjusted, depending on font size and printing mode
+ 12) Minor changes (best layout, usage message, etc).
+
+ Modified by tullemans@apolloway.prl.philips.nl
+ 13) Backspaces (^H) are now handled correctly.
+
+ Modified by Johan Vromans (jv@mh.nl) to
+ 14) Added new option to give a header title that replaces use of
+     filename.
+
+ Modified by craig.r.stevenson@att.com to
+ 15) Print last modification date/time in header
+ 16) Printing current date/time on left side of footer (optional)
+
+ Modified by erikt@cs.umu.se:
+ 17) Added lpr support for the BSD version
+ 18) Added som output of pages printed.
+
+ Modified by wstahw@lso.win.tue.nl:
+ 19) Added option to allowing the printing of 2 files in one sheet
+
+ Modified by mai@wolfen.cc.uow.oz
+ 20) Added an option to set the lines per page to a specified value.
+ 21) Added support for printing nroff manuals
+
+ Modified by santana@imag.fr
+ 22) Integration of changes.
+ 23) No more standard header file (printed directly by a2ps).
+ 24) New format for command options.
+ 25) Other minor changes.
+
+ Modified by Johan Garpendahl (garp@isy.liu.se) and santana@imag.fr:
+ 26) Added 8-bit characters printing as ISO-latin 1 chars
+
+ Modified by John Interrante (interran@uluru.stanford.edu) and
+ santana@imag.fr:
+ 27) Two pages per physical page in portrait mode
+
+ Modified by santana@imag.fr:
+ 28) New option for two-sided printing
+ 29) Several fixes
+
+ Modified by Chris Adamo (adamo@ll.mit.edu) and
+     Larry Barbieri (lbarbieri@ll.mit.edu) 3/12/93
+ 30) Output format enhancements.
+ 31) Added login_id flag (for SYSV and BSD only) for printing user's
+     login ID at top of page.  Added command line parameter (-nL) to
+     suppress this feature.
+ 33) Added filename_footer flag for printing file name at bottom
+     of page.  Added command line parameter (-nu) to suppress this
+     feature.
+ 34) Added -B (-nB) options to enable (disable) bold font
+
+ Modified by santana@imag.fr:
+ 35) Adapted to respect Adobe conventions for page independence. A2ps
+     output can be now used by other Postscript processors.
+ 36) Names of most postscript variables have been coded in order to
+     reduce the size of the output.
+ 37) Ansi C compilers are now automatically taken into account.
+ 38) Enhanced routine for cutting long filenames
+ 39) Added -q option to print files in quiet mode (no summary)
+ 40) Fixed some little bugs (counters, modification time for stdin,
+     character separator when printing line numbers and cutting a
+     line).
+ 41) Some minor changes (new preprocessing variables, formatting)
+
+ Modified by Emmanuel Briot (Emmanuel.Briot@enst-bretagne.fr)
+ 42) Made keyword Highligting mode
+
+ Modified by Akim Demaille (demaille@inf.enst.fr)
+ 43) Fixed line numbering, folding, managing of strings and escapes
+ 44) Added alphabet, case sensitiveness, symbol translation (-t, -nt)
+ 45) Added -L, -nk, -u<txt>, and made -k, -nH, -i, -ni positionnnal
+ 46) Sequences now have three fonts (open, in, close)
+ 47) Changed handling of exceptions (e.g. \", \\, etc.)
+ 48) Small fix to allow print without LPR_OPT and with LPR_DEST_OPT
+ 49) Introduced options -V, -a, -o, -W, -G and -k(none)
+ 50) Added a "window" to the buffer to ensure that keywords, even at
+     the edge of the buffer, are recognized
+ 51) Manage the real length (WX field in afms) of chars
+ 52) fread is used instead of fgets: \0 no longer ends the line
+ 53) tabs in ps are "absolute": they always correspond to Courier
+ 54) text footer now is `relative' (i.e. it is affected by MARGIN)
+ 55) Change the architecture: behavior
+ 56) Introduced a general scheme for various char encodings
+   * Tried as hard as I could to have the shortest number possible
+   	of warnings with a strict compiler.
+
+	* Form feed handeling changed so that
+	- the line numbering is exactely the same as Emacs or
+	  others would have done (i.e. number of previous \n plus one)
+	- a form feed immediately followed by a new line won't appear
+	  as a blank line at the beginning of the next page
+	- every formfeed is correctly handled (even if there two
+	  adjacent \f).

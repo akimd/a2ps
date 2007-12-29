@@ -1,0 +1,1195 @@
+# PREVOD SPOROCIL PROGRAMSKEGA PAKETA A2PS
+# Copyright (C) 1999 Free Software Foundation, Inc.
+# Igor Furlan <IgorF@ix.netcom.com>, 1999
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: a2ps 4.12c\n"
+"POT-Creation-Date: 2002-10-03 19:05+0200\n"
+"PO-Revision-Date: 1999-02-19 16:59+01:00\n"
+"Last-Translator: Igor Furlan <IgorF@ix.netcom.com>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/buffer.c:68
+msgid "any type"
+msgstr "kakrsenkoli tip"
+
+#: src/delegate.c:137 lib/confg.c:268 lib/encoding.c:530 lib/encoding.c:576
+#: lib/encoding.c:616 lib/output.c:302 lib/pair_ht.c:296 lib/prolog.c:146
+#, c-format
+msgid "missing argument for `%s'"
+msgstr "manjka argument za `%s'"
+
+#: src/delegate.c:260 lib/routines.c:160 lib/xbackupfile.c:248
+#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
+#, c-format
+msgid "cannot create file `%s'"
+msgstr "ne morem ustvariti fajla `%s'"
+
+#: src/delegate.c:269 src/select.c:159 lib/routines.c:190 lib/routines.c:196
+#, c-format
+msgid "cannot open a pipe on `%s'"
+msgstr "ne morem vzpostaviti povezave na `%s'"
+
+#: src/delegate.c:389
+#, c-format
+msgid "Delegation `%s', from %s to %s\n"
+msgstr "Prenos izvrsitve `%s', iz %s na  %s\n"
+
+#: src/delegate.c:408 src/delegate.c:430
+msgid "Applications configured for delegation"
+msgstr "Aplikacije prirejene za prenos izvrsbe "
+
+#: src/generate.c:88
+#, c-format
+msgid "`%s' is a directory"
+msgstr "`%s' je imenik"
+
+#: src/generate.c:96 src/main.c:558 src/main.c:580 lib/confg.c:292
+#: lib/confg.c:455 lib/routines.c:154
+#, c-format
+msgid "cannot open file `%s'"
+msgstr "ne morem odpreti fajla `%s'"
+
+#: src/generate.c:101 lib/xbackupfile.c:224
+#, c-format
+msgid "cannot get informations on file `%s'"
+msgstr "ne najdem podatkov o fajlu `%s'"
+
+#: src/generate.c:168
+#, c-format
+msgid "[%s (%s): 1 page on 1 sheet]\n"
+msgstr "[%s (%s): ena stran na listu]\n"
+
+#: src/generate.c:174
+#, c-format
+msgid "[%s (%s): %d pages on 1 sheet]\n"
+msgstr "[%s (%s): %d strani na enemu listu]\n"
+
+#: src/generate.c:181
+#, c-format
+msgid "[%s (%s): %d pages on %d sheets]\n"
+msgstr "[%s (%s): %d strani na %d listih]\n"
+
+#: src/generate.c:208
+#, c-format
+msgid "[Total: 1 page on 1 sheet] %s\n"
+msgstr "[Skupaj: ena stran na enemu listu] %s\n"
+
+#: src/generate.c:212
+#, c-format
+msgid "[Total: %d pages on 1 sheet] %s\n"
+msgstr "[Skupaj: %d strani na enemu listu] %s\n"
+
+#: src/generate.c:217
+#, c-format
+msgid "[Total: %d pages on %d sheets] %s\n"
+msgstr "[Skupaj: %d strani na %d listih] %s\n"
+
+#: src/generate.c:226
+msgid "[1 line wrapped]\n"
+msgstr ""
+
+#: src/generate.c:229
+#, fuzzy, c-format
+msgid "[%d lines wrapped]\n"
+msgstr "%d vrstic na stran"
+
+#: src/generate.c:242
+msgid "[No output produced]\n"
+msgstr "[Nic nismo dobili na izhod]\n"
+
+#: src/generate.c:314
+#, c-format
+msgid "%s, delegated to %s"
+msgstr "%s, pooblascen na %s"
+
+#: src/generate.c:322
+#, c-format
+msgid "[%s (%s): failed.  Ignored]\n"
+msgstr "[%s (%s): napaka. Ukaz ne bo izvrsen]\n"
+
+#: src/generate.c:330
+#, c-format
+msgid "[%s (unprintable): ignored]\n"
+msgstr "[%s (ni mozno natisniti): Ukaz ne bo izvrsen]\n"
+
+#: src/generate.c:339
+#, c-format
+msgid "[%s (binary): ignored]\n"
+msgstr "[%s (binarna oblika): Ukaz ne bo izvrsen]\n"
+
+#: src/generate.c:360
+msgid "plain"
+msgstr "osnovni oziroma obicajen"
+
+#: lexssh.l:348
+msgid "end-of-line in string constant"
+msgstr "znak-za-konec-vrstice v znakovni konstanti"
+
+#: lexssh.l:415 src/sheets-map.l:152 src/sheets-map.l:191
+#, fuzzy, c-format
+msgid "end of line inside a %s"
+msgstr "znak-za-konec-vrstice v znakovni konstanti"
+
+#: src/main.c:201
+#, c-format
+msgid "received signal %d: %s"
+msgstr "prejeti signal %d: %s"
+
+#: src/main.c:240
+msgid "heavy"
+msgstr "povdarjeno"
+
+#: src/main.c:244
+msgid "normal"
+msgstr "normalno"
+
+#: src/main.c:248
+msgid "none"
+msgstr "nicesar"
+
+#: src/main.c:322 src/main.c:326
+msgid "yes"
+msgstr ""
+
+#: src/main.c:323 src/main.c:326 src/main.c:367
+msgid "no"
+msgstr "ne"
+
+#: src/main.c:333
+#, c-format
+msgid "Configuration status of %s %s\n"
+msgstr "Trenutno stanje nastavitev  %s %s\n"
+
+#: src/main.c:337 src/main.c:694
+msgid "Sheets:\n"
+msgstr "Listov:\n"
+
+#: src/main.c:338
+#, c-format
+msgid ""
+"  medium          = %s%s, %s\n"
+"  page layout     = %d x %d, %s\n"
+"  borders         = %s\n"
+"  file alignment  = %s\n"
+"  interior margin = %d\n"
+msgstr ""
+"  medij            = %s%s, %s\n"
+"  oblika strani    = %d x %d, %s\n"
+"  robniki          = %s\n"
+"  poravnava        = %s\n"
+"  notranji rob     = %d\n"
+
+#: src/main.c:347
+msgid "portrait"
+msgstr "pokoncno"
+
+#: src/main.c:347
+msgid "landscape"
+msgstr "lezece"
+
+#: src/main.c:356
+#, c-format
+msgid "%d characters per line"
+msgstr "%d znakov v vrstici"
+
+#: src/main.c:359
+#, c-format
+msgid "%d lines per page"
+msgstr "%d vrstic na stran"
+
+#: src/main.c:362
+#, c-format
+msgid "font size is %gpt"
+msgstr "velikost znaka/crke je  %gpt"
+
+#: src/main.c:371
+msgid "each line"
+msgstr "vsaka vrstica"
+
+#: src/main.c:375
+#, c-format
+msgid "each %d lines"
+msgstr "vsakih %d vrstic"
+
+#: src/main.c:378 src/main.c:715
+msgid "Virtual pages:\n"
+msgstr "Navidezne strani:\n"
+
+#: src/main.c:379
+#, c-format
+msgid ""
+"  number lines         = %s\n"
+"  format               = %s\n"
+"  tabulation size      = %d\n"
+"  non printable format = %s\n"
+msgstr ""
+"  stevilo vrstic                = %s\n"
+"  oblika                        = %s\n"
+"  dolzina tabularija            = %d\n"
+"  oblika nenatiskljivih znakov  = %s\n"
+
+#: src/main.c:390
+msgid "Headers:\n"
+msgstr "Glave strani:\n"
+
+#: src/main.c:391
+#, c-format
+msgid ""
+"  header       = %s\n"
+"  left footer  = %s\n"
+"  footer       = %s\n"
+"  right footer = %s\n"
+"  left title   = %s\n"
+"  center title = %s\n"
+"  right title  = %s\n"
+"  under lay    = %s\n"
+msgstr ""
+"  glava                  = %s\n"
+"  levi zaznamek          = %s\n"
+"  zaznamek na dnu strani = %s\n"
+"  desni zaznamek         = %s\n"
+"  levi naslov            = %s\n"
+"  osrednji naslov        = %s\n"
+"  desni naslov           = %s\n"
+"  predloga               = %s\n"
+
+#: src/main.c:410 src/main.c:744
+msgid "Input:\n"
+msgstr "Vhod:\n"
+
+#: src/main.c:411
+#, c-format
+msgid ""
+"  truncate lines = %s\n"
+"  interpret      = %s\n"
+"  end of line    = %s\n"
+"  encoding       = %s\n"
+"  document title = %s\n"
+"  prologue       = %s\n"
+"  print anyway   = %s\n"
+"  delegating     = %s\n"
+msgstr ""
+"  skrajsane vrstice         = %s\n"
+"  prevedi                   = %s\n"
+"  konec vrstice             = %s\n"
+"  kodiranje                 = %s\n"
+"  ime dokumenta             = %s\n"
+"  predznaki                 = %s\n"
+"  vseeno natisni            = %s\n"
+"  izvrsitev ukaza prenesena = %s\n"
+
+#: src/main.c:436 src/main.c:502
+msgid "selected automatically"
+msgstr "avtomaticni izbor"
+
+#: src/main.c:439 src/main.c:763
+msgid "Pretty-printing:\n"
+msgstr "Prijeten natis:\n"
+
+#: src/main.c:440
+#, c-format
+msgid ""
+"  style sheet     = %s\n"
+"  highlight level = %s\n"
+"  strip level     = %d\n"
+msgstr ""
+"  stil lista      = %s\n"
+"  nivo povdarjanja = %s\n"
+"  nivo zadrzevanja = %d\n"
+
+#: src/main.c:460
+msgid "never make backups"
+msgstr "nikoli ne naredi varnostne kopije"
+
+#: src/main.c:464
+msgid "simple backups of every file"
+msgstr "preprosta varnostna kopija vsakega fajla"
+
+#: src/main.c:469
+msgid ""
+"numbered backups of files already numbered,\n"
+"                            and simple of others"
+msgstr ""
+"ostevilcene varnostne kopije fajlov , ki ze imajo stevilko,\n"
+"                                   in preprosta varnostna kopija za ostale"
+
+#: src/main.c:474
+msgid "numbered backups of every file"
+msgstr "ostevilcene varnostne kopije za vsak fajl"
+
+#: src/main.c:478 src/main.c:772
+msgid "Output:\n"
+msgstr "Izhod:\n"
+
+#: src/main.c:479
+#, c-format
+msgid ""
+"  destination     = %s\n"
+"  version control = %s\n"
+"  backup suffix   = %s\n"
+msgstr ""
+"  koncni cilj                      = %s\n"
+"  preverjanje razlicice            = %s\n"
+"  podaljsek imena varnostne kopije = %s\n"
+
+#: src/main.c:492 src/main.c:782
+msgid "PostScript:\n"
+msgstr "Postscript:\n"
+
+#: src/main.c:493
+#, c-format
+msgid ""
+"  magic number              = %s\n"
+"  Printer Description (PPD) = %s\n"
+"  default PPD               = %s\n"
+"  page label format         = %s\n"
+"  number of copies          = %d\n"
+"  sides per sheet           = %s\n"
+"  page device definitions   = "
+msgstr ""
+"  carobna stevilka          = %s\n"
+"  Opis tiskalnika (PPD)     = %s\n"
+"  Vnaprej pripravljen PPD   = %s\n"
+"  oblika nalepke            = %s\n"
+"  stevilo kopij             = %d\n"
+"  stevilo strani na listu   = %s\n"
+"  opis strani               = "
+
+#: src/main.c:513
+msgid "  statusdict definitions    = "
+msgstr "  opis statusdict"
+
+#: src/main.c:516
+#, c-format
+msgid "  page prefeed              = %s\n"
+msgstr " vnaprejsnji premik strani = %s\n"
+
+#: src/main.c:525
+msgid "Internals:\n"
+msgstr "Notranje spremenljivke:\n"
+
+#: src/main.c:526
+#, fuzzy, c-format
+msgid ""
+"  verbosity level     = %d\n"
+"  file command        = %s\n"
+"  library path        = \n"
+msgstr ""
+"  gostobesednostni nivo  = %d\n"
+"  ukazni fajl            = %s\n"
+"  zacasni imenik         = %s\n"
+"  pot do knjiznic        = \n"
+
+#: src/main.c:651
+#, fuzzy, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"\n"
+"Convert FILE(s) or standard input to PostScript.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Long options marked with * require a yes/no argument, corresponding\n"
+"short options stand for `yes'.\n"
+msgstr ""
+"Uporaba: %s [IZBIRA]... FAJLI...\n"
+" ali pa: %s [IZBIRA]... \n"
+"Natisk FAJLOV, oziroma tiskanje na standardno vhodno enoto.\n"
+"Argument je obvezen za dolgi izbor in je ravnotako obvezen za kratek izbor.\n"
+"Dolgi izbor oznacen z * pricakuje kot argument yes/no, njegova kratka "
+"izpeljanka pa privzema `yes'.\n"
+
+#: src/main.c:665
+msgid "Tasks:\n"
+msgstr ""
+
+#: src/main.c:666
+#, fuzzy
+msgid ""
+"  --version        display version\n"
+"  --help           display this help\n"
+"  --guess          report guessed types of FILES\n"
+"  --which          report the full path of library files named FILES\n"
+"  --glob           report the full path of library files matching FILES\n"
+"  --list=defaults  display default settings and parameters\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, style-"
+"sheets,\n"
+"                   user-options)\n"
+msgstr ""
+"  -V, --version                     prikazi programsko razlicico\n"
+"  --help                            prikazi to sporocilo za pomoc\n"
+"  --copyright                       prikazi kdo je lastnik programa in "
+"kopirne pogoje\n"
+"  --guess                           prikazi kaksna je zvrst FAJLA kot ga je "
+"program razumel\n"
+"  --list=KATEGORIJA                 nastej znane podatke o KATEGORIJI\n"
+"\n"
+"KATEGORIJA je katerakoli nedvoumna okrajsava za:\n"
+" * `defaults': vnaprej dolocene nastavitve in parametri,\n"
+" * `features': kratek seznam podpiranih prenosnih sredstev, kodiranja, "
+"razlicnih stilov itd.\n"
+" * `delegations', `encodings', `variables', `media',\n"
+"   `ppd', `printers', `prologues', `style-sheets', `user-options': \n"
+" razsirjen seznam.\n"
+
+#: src/main.c:677
+msgid ""
+"After having performed the task, exit successfully.  Detailed lists may\n"
+"provide additional help on specific features.\n"
+msgstr ""
+
+#: src/main.c:685
+msgid "Global:\n"
+msgstr "Globalno:\n"
+
+#: src/main.c:686
+msgid ""
+"  -q, --quiet, --silent      be really quiet\n"
+"  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
+"  -=, --user-option=OPTION   use the user defined shortcut OPTION\n"
+"      --debug                enable debugging features\n"
+"  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
+msgstr ""
+"  -q, --quiet, --silent          progrem bo izvrsen brez mnogo sporocil za\n"
+"                                 uporabnika na ekranu\n"
+"  -v, --verbose[=NIVO]           program bo prikazoval vec ali manj "
+"sporocil\n"
+"                                 med delovanjem na ekran. Kolicina je "
+"odvisna\n"
+"                                 od nastavitve NIVO-ja\n"
+"  -=  --user-option=IZBOR        program bo uporabil okrajsavo za IZBOR \n"
+"                                 doloceno s streni uporabnika\n"
+"      --debug                    program bo aktiviral razhroscevalne "
+"lastnosti\n"
+"  -D, --define=TIPKA[:VREDNOST]  dodana oziroma odvzeta bo VREDNOST za "
+"TIPKO\n"
+
+#: src/main.c:695
+#, fuzzy
+msgid ""
+"  -M, --medium=NAME      use output medium NAME\n"
+"  -r, --landscape        print in landscape mode\n"
+"  -R, --portrait         print in portrait mode\n"
+"      --columns=NUM      number of columns per sheet\n"
+"      --rows=NUM         number of rows per sheet\n"
+"      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
+"  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
+"                         page, sheet, or a number)\n"
+"  -j, --borders*         print borders around columns\n"
+"      --margin[=NUM]     define an interior margin of size NUM\n"
+msgstr ""
+"  -M, --medium=IME         uporabi kot izhodno sredstvo IME\n"
+"  -r, --landscape          tiskaj v lezeci obliki\n"
+"  -R, --portrait           tiskaj v pokoncni obliki\n"
+"      --columns=STEVILO    STEVILO stolpcev na listu (STEVILO > 0)\n"
+"      --rows=STEVILO       STEVILO vrstic na list (STEVILO > 0)\n"
+"      --major=SMER         najprej napolni (SMER=) rows, ali columns\n"
+"  -1, -2, ..., -9          vnaprej dolocena velikost znakov in razporeditev "
+"na navideznih listih 1.. 9  -A, --file-allign=NACIN  poravnaj pozamezne "
+"fajle v skladu z NACIN (fill, rank\n"
+"                           page, sheet, or a number)\n"
+"  -j, --borders*           dodaj okvir okrog stolpcev\n"
+"      --margin[=STEVILO]   dodaj notranji razmik velikosti STEVILO\n"
+
+#: src/main.c:708
+msgid ""
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
+"layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
+"options (`--columns', `--font-size' etc.).\n"
+msgstr ""
+
+#: src/main.c:716
+msgid ""
+"      --line-numbers=NUM     precede each NUM lines with its line number\n"
+"  -C                         alias for --line-numbers=5\n"
+"  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
+"  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
+"  -m, --catman               process FILE as a man page (same as -L66)\n"
+"  -T, --tabsize=NUM          set tabulator size to NUM\n"
+"  --non-printable-format=FMT specify how non-printable chars are printed\n"
+msgstr ""
+"      --line-numbers=STEVILO    vsakih STEVILO vrstic zapisi stevilko "
+"vrstice\n"
+"  -C                            okrajsava za --line-numbers=5\n"
+"  -f, --font-size=VELIKOST      uporabi VELIKOST znaka za tekst\n"
+"  -L, --lines-per-page=STEVILO  priredi velikost znakov tako, da bo "
+"natisnjeno STEVILO vrstic na list\n"
+"  -l, --chars-per-line=STEVILO  priredi velikost znakov tako, da bo "
+"natisnjeno STEVILO stolpcev na list\n"
+"  -m, --catman                  predelaj FAJL tako, da bo uporaben za man "
+"page (isto kot -L66)\n"
+"  -T, --tabsize=STEVILO         nastavi velikost tabulatorja na STEVILO\n"
+"  --non-printable-format=FMT    doloci kako naj bodo nenatisljivi znaki "
+"natiskani\n"
+
+#: src/main.c:727
+msgid "Headings:\n"
+msgstr "Glava:\n"
+
+#: src/main.c:729
+#, fuzzy, no-c-format
+msgid ""
+"  -B, --no-header        no page headers at all\n"
+"  -b, --header[=TEXT]    set page header\n"
+"  -u, --underlay[=TEXT]  print TEXT under every page\n"
+"  --center-title[=TEXT]  set page title to TITLE\n"
+"  --left-title[=TEXT]    set left and right page title to TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]   set sheet footers to TEXT\n"
+"  --footer[=TEXT]\n"
+"  --right-footer[=TEXT]\n"
+msgstr ""
+"  -B, --no-header            strani bodo brez glave\n"
+"  -b, --header[=TEXT]        stran bo imela glavo TEXT \n"
+"  -u, --underlay[=TEXT]      natisni TEXT na koncu vsake strani\n"
+"  --center-title[=TITLE]     stran ima naslov TITLE\n"
+"  --left-title[=TEXT]        nastavi levi in desni naslov strani na TEXT\n"
+"  --right-title[=TEXT]\n"
+"  --left-footer[=TEXT]       nastavi komentar na dnu lista na TEXT\n"
+"  --footer[=TEXT]            TEXT lahko vsebuje ubezne sekvence $ in %\n"
+
+#: src/main.c:740
+msgid "The TEXTs may use special escapes.\n"
+msgstr ""
+
+#: src/main.c:745
+msgid ""
+"  -a, --pages[=RANGE]        select the pages to print\n"
+"  -c, --truncate-lines*      cut long lines\n"
+"  -i, --interpret*           interpret tab, bs and ff chars\n"
+"      --end-of-line=TYPE     specify the eol char (TYPE: r, n, nr, rn, any)\n"
+"  -X, --encoding=NAME        use input encoding NAME\n"
+"  -t, --title=NAME           set the name of the job\n"
+"      --stdin=NAME           set the name of the input file stdin\n"
+"      --print-anyway*        force binary printing\n"
+"  -Z, --delegate*            delegate files to another application\n"
+"      --toc[=TEXT]           generate a table of content\n"
+msgstr ""
+"  -a, --pages[=OBMOCJE]      izberi strani za tiskanje\n"
+"  -c, --truncate-lines*      skrajsaj dolge vrstice\n"
+"  -i, --interpret*           prevedi znake tab, bs and ff (tabularij, premik "
+"za presledek nazaj, naslednja stran\n"
+"      --end-of-line=TYPE     doloci znak za konec vrstice (TYPE: r, n, nr, "
+"rn, any)\n"
+"  -X, --encoding=IME         uporabi vhodno kodiranje IME\n"
+"  -t, --title=NAME           doloci ime opravila\n"
+"      --stdin=NAME           doloci ime za standardni vhodni fajl stdin\n"
+"      --print-anyway*        natisni fajl ne glede na obliko\n"
+"  -Z, --delegate*            prenesi fajle v izvrsbo drugemu programu\n"
+"      --toc[=TEXT]           ustvari Tabelo vsebine\n"
+
+#: src/main.c:757
+msgid ""
+"When delegations are enabled, a2ps may use other applications to handle the\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
+"PostScript, PDF etc.\n"
+msgstr ""
+
+#: src/main.c:764
+msgid ""
+"  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
+"  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
+"                             LEVEL can be none, normal or heavy\n"
+"  -g                         alias for --highlight-level=heavy\n"
+"  --strip-level=NUM          level of comments stripping\n"
+msgstr ""
+"  -E, --pretty-print[=JEZIK]  aktiviraj pretty-printing ( stil je definiran "
+"z JEZIK)\n"
+"  --highlight-level=NIVO      doloci jakost povdarkov z NIVO\n"
+"                              NIVO je lahko none(brez povdarjanja),\n"
+"                                            normal(obicajni povdarek),\n"
+"                                            heavy(mocno povdarjeno),\n"
+"  -g                          okrajsava za --highlight-level=heavy\n"
+"  --strip-level=NUM           odstrani NUM nivojev za komentar\n"
+
+#: src/main.c:773
+msgid ""
+"  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
+"                             leave output to stdout.\n"
+"  --version-control=WORD     override the usual version control\n"
+"  --suffix=SUFFIX            override the usual backup suffix\n"
+"  -P, --printer=NAME         send output to printer NAME\n"
+"  -d                         send output to the default printer\n"
+msgstr ""
+"  -o, --output=FAJL          vpisuj v fajl FAJL. Ce je pred FAJLom `-',\n"
+"                             zapisuj na standardno izhodno napravo \n"
+"                             (najverjetneje ekran).\n"
+"  --version-control=BESEDA   razvrscaj razlicice glede na BESEDO\n"
+"  --suffix=KONCNICA          uporabljena bo KONCNICA kot podaljsek imena "
+"FAJLa\n"
+"  -P, --printer=IME          izpisuj na tiskalnik IME\n"
+"  -d                         izpisuj na vnaprej dolocen tiskalnik\n"
+
+#: src/main.c:783
+msgid ""
+"      --prologue=FILE        include FILE.pro as PostScript prologue\n"
+"      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
+"  -n, --copies=NUM           print NUM copies of each page\n"
+"  -s, --sides=MODE           set the duplex MODE (`1' or `simplex',\n"
+"                             `2' or `duplex', `tumble')\n"
+"  -S, --setpagedevice=K[:V]  pass a page device definition to output\n"
+"      --statusdict=K[:[:]V]  pass a statusdict definition to the output\n"
+"  -k, --page-prefeed         enable page prefeed\n"
+"  -K, --no-page-prefeed      disable page prefeed\n"
+msgstr ""
+"      --prologue=FAJL        uporabi FAJL.pro kot PostScript prologue\n"
+"      --ppd[=TIPKA]          uporabi avtomaticno izbran PPD oziroma ga "
+"pripni na TIPKO\n"
+"  -n, --copies=STEVILO       natiskaj STEVILO kopij vsake strani\n"
+"  -s, --sides=NACIN          nastavi NACIN tiskanja (`1' ali `simplex'  "
+"enostransko,\n"
+"                                                     `2' ali `duplex'   "
+"dvostransko,\n"
+"                                                     `tumble')\n"
+"  -S, --setpagedevice=K[:V]  vstavi definicijo za stran v izhod\n"
+"      --statusdict=K[:[:]V]  vstavi definicijo za statusdict v izhod\n"
+"  -k, --page-prefeed         avtomatski zamik strani\n"
+"  -K, --no-page-prefeed      deaktiviraj avtomatski zamik strani\n"
+
+#: src/main.c:797
+msgid ""
+"By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
+"result to the printer `lw',\n"
+"\n"
+"    $ a2ps -P lw --toc src/*\n"
+"\n"
+"To process the files `sample.ps' and `sample.html' and display the result,\n"
+"\n"
+"    $ a2ps -P display sample.ps sample.html\n"
+"\n"
+"To process a mailbox in 4 up,\n"
+"\n"
+"    $ a2ps -=mail -4 mailbox\n"
+"\n"
+"To print as a booklet on the default printer, which is Duplex capable,\n"
+"\n"
+"    $ a2ps -=book paper.dvi.gz -d\n"
+msgstr ""
+
+#: src/main.c:818
+#, fuzzy
+msgid ""
+"News, updates and documentation: visit http://www.inf.enst.fr/~demaille/"
+"a2ps/.\n"
+msgstr ""
+"Novosti, izboljsane razlicice programa in dokumentacija: http://www.inf.enst."
+"fr/~demaille/a2ps/\n"
+
+#: src/main.c:820
+#, fuzzy
+msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
+msgstr ""
+"Sporoci programske hrosce na <bug-a2ps@gnu.org>\n"
+"Prosim, ce posljes komentar o prevodu na  E-naslov IgorF@ix.netcom.com\n"
+"Se najbolj bi pa bil vesel PREDLOGOV, ki bi izboljsali prevod. Seveda "
+"sprejemam \n"
+"tudi ostro in manj ostro kritiko. To , kar berete, je razlicica 0.1 \n"
+
+#: src/main.c:938
+#, fuzzy
+msgid ""
+"Copyright (c) 1988-1993 Miguel Santana\n"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+msgstr ""
+"\n"
+"Vse pravice pridrzane (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+"Vse pravice pridrzane (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel "
+"Santana\n"
+
+#: src/main.c:1168
+msgid "Table of Content"
+msgstr "Tabela vsebine"
+
+#: src/parsessh.y:236
+#, c-format
+msgid "cannot process `%s' which requires a2ps version %s"
+msgstr "ne morem izvrsiti `%s' , ki je vsebovan v  a2ps razlicica %s"
+
+#: src/sheets-map.l:110
+#, c-format
+msgid "unexpected character `%c'"
+msgstr ""
+
+#: src/sheets-map.l:210 lexppd.l:211
+msgid "too many includes"
+msgstr ""
+
+#: src/sheets-map.l:292 src/sheets-map.l:299
+#, fuzzy, c-format
+msgid "no key defined for `%s'"
+msgstr "ne morem najti fajla `%s'"
+
+#: src/select.c:122 src/ssheet.c:866 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:328 lib/pathwalk.c:414
+#, c-format
+msgid "cannot find file `%s'"
+msgstr "ne morem najti fajla `%s'"
+
+#: src/select.c:124
+msgid "automatic style selection cancelled"
+msgstr "samodejna izbira stila je izbrisana"
+
+#: src/ssheet.c:295
+#, c-format
+msgid "cannot compile regular expression `%s': %s"
+msgstr "ne morem prevesti stavka `%s': %s"
+
+#: src/ssheet.c:974 src/ssheet.c:995
+msgid "Known Style Sheets"
+msgstr "Pripoznani stili za liste"
+
+#: src/ssheet.c:1461
+#, c-format
+msgid "cannot find style sheet `%s': using plain style"
+msgstr "ne najdem stilni list `%s': uporabil bom osnovni stil"
+
+#: src/sshread.c:453
+#, c-format
+msgid "unknown encoding `%s', ignored"
+msgstr "Neznano kodiranje `%s' ni uporabljeno"
+
+#: src/version-etc.c:38
+msgid "Copyright (C) 1999 Free Software Foundation, Inc."
+msgstr ""
+
+#: src/version-etc.c:60
+#, fuzzy, c-format
+msgid "Written by %s.\n"
+msgstr "Natiskano z %s"
+
+#: src/version-etc.c:66
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: src/versions.c:133
+#, c-format
+msgid "invalid version number `%s'"
+msgstr "`%s' neznana oznaka razlicice"
+
+#: lib/caret.c:43
+msgid "space (i.e., ` ')"
+msgstr "presledek (npr., ` ')"
+
+#: lib/caret.c:45
+msgid "octal (i.e., `\\001' etc.)"
+msgstr "oktalno stevilo (npr., `\\001' itd.)"
+
+#: lib/caret.c:47
+msgid "hexadecimal (i.e., `\\x0a' etc.)"
+msgstr "hexadecimalno stevilo (npr., `\\x0a' itd"
+
+#: lib/caret.c:49
+msgid "caret (i.e., `^C', `M-^C' etc.)"
+msgstr "caret (npr., `^C', `M-^C' itd.)"
+
+#: lib/caret.c:51
+msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
+msgstr "emacs (npr., `C-c', `M-C-c' itd.)"
+
+#: lib/caret.c:53
+msgid "question-mark (i.e., `?')"
+msgstr "vprasaj (npr., `?')"
+
+#: lib/closeout.c:71 lib/closeout.c:73
+msgid "write error"
+msgstr ""
+
+#: lib/confg.c:257 lib/encoding.c:638
+#, c-format
+msgid "invalid option `%s'"
+msgstr "neveljaven izbor `%s'"
+
+#: lib/confg.c:324 lib/confg.c:331 lib/confg.c:338
+#, c-format
+msgid "invalid definition for printer `%s': %s"
+msgstr "neveljavna definicija za tiskalnik `%s': %s"
+
+#: lib/confg.c:329 lib/confg.c:332 lib/printers.c:47
+msgid "Unknown Printer"
+msgstr "Neznani tiskalnik"
+
+#: lib/confg.c:336 lib/confg.c:339 lib/printers.c:46
+msgid "Default Printer"
+msgstr "Osnovni/primarni tiskalnik"
+
+#: lib/confg.c:392 lib/options.c:697
+#, c-format
+msgid "invalid variable identifier `%s'"
+msgstr "neveljavni oznacevalec `%s za spremenljivko"
+
+#: lib/confg.c:421
+#, c-format
+msgid "obsolete `%s' entry.  Ignored"
+msgstr "nepotrebni vnos `%s'. Ni upostevan"
+
+#: lib/encoding.c:1114 lib/encoding.c:1135
+msgid "Known Encodings"
+msgstr "Znano kodiranje"
+
+#: lib/faces.c:156
+msgid "incomplete knowledge of faces"
+msgstr "nezadostno poznavanje faces"
+
+#: lib/filtdir.c:113
+#, c-format
+msgid "cannot close directory `%s'"
+msgstr "ne morem zapreti imenik `%s'"
+
+#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#, c-format
+msgid "invalid argument `%s' for `%s'"
+msgstr "neveljaven argument `%s' za `%s'"
+
+#: lib/getnum.c:123
+#, c-format
+msgid "Valid arguments are integers n such that: %s\n"
+msgstr "Veljavni argumenti so cela stevila n tako da: %s\n"
+
+#: lib/getnum.c:223
+#, c-format
+msgid "Valid arguments are floats f such that: %s\n"
+msgstr "Veljavni so argumenti z plavajoco vejico f , tako da: %s\n"
+
+#: lib/jobs.c:307
+#, c-format
+msgid "unknown encoding `%s'"
+msgstr "neznano kodiranje `%s'"
+
+#: lib/madir.c:59
+msgid "rows first"
+msgstr "najprej vrstice"
+
+#: lib/madir.c:62
+msgid "columns first"
+msgstr "najprej stolpci"
+
+#: lib/media.c:173
+#, c-format
+msgid "unknown medium `%s'"
+msgstr "neznano prenosno sredstvo `%s'"
+
+#: lib/media.c:208 lib/media.c:237
+msgid "Known Media"
+msgstr "Znano prenosno sredstvo"
+
+#: lib/media.c:211
+msgid "Name"
+msgstr "Ime"
+
+#: lib/media.c:212
+msgid "dimensions"
+msgstr "mere"
+
+#: lib/metaseq.c:104 lib/metaseq.c:113
+msgid "Known Variables"
+msgstr "Znane spremenljivke"
+
+#: lib/metaseq.c:162 lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608
+#: lib/metaseq.c:951 lib/metaseq.c:972
+#, c-format
+msgid "%s: missing `%c' for %s%c escape"
+msgstr "%s: manjka `%c' za ubezno sekvenco %s%c"
+
+#: lib/metaseq.c:288 lib/metaseq.c:300
+#, c-format
+msgid "Printed by %s"
+msgstr "Natiskano z %s"
+
+#: lib/metaseq.c:298
+#, c-format
+msgid "Printed by %s from %s"
+msgstr "Natiskano z %s iz %s"
+
+#: lib/metaseq.c:308 lib/metaseq.c:327
+msgid "cannot get current working directory"
+msgstr "delovni imenik mi ni dostopen"
+
+#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
+#: lib/metaseq.c:954 lib/metaseq.c:987
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr "%s: predolg argument za ubezno sekvenco %s"
+
+#: lib/metaseq.c:364 lib/metaseq.c:675
+msgid "%b %d, %y"
+msgstr "%b %d, %y"
+
+#: lib/metaseq.c:373 lib/metaseq.c:684
+msgid "%A %B %d, %Y"
+msgstr "%A %B %d, %Y"
+
+#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
+#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
+#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr "%s: neznana `%s' ubezna sekvenca `%c' (%d)"
+
+#: lib/metaseq.c:426 lib/metaseq.c:815
+#, c-format
+msgid "Page %d"
+msgstr "Stran %d"
+
+#: lib/metaseq.c:431 lib/metaseq.c:826
+#, c-format
+msgid "Page %d/%c"
+msgstr "Stran %d/%c"
+
+#: lib/metaseq.c:593 lib/metaseq.c:1021
+#, c-format
+msgid "%s: invalid separator `%s%c' for `%s' escape"
+msgstr "%s: neveljaven locevalni znak `%s%c' za ubezno sekvenco `%s'"
+
+#: lib/metaseq.c:601 lib/metaseq.c:611
+#, c-format
+msgid "%s: invalid argument for %s%c escape"
+msgstr "%s: neveljaven argument za ubezno sekvenco %s%c"
+
+#: lib/metaseq.c:822
+#, c-format
+msgid "Page %d/%d"
+msgstr "Stran %d/%d"
+
+#: lib/metaseq.c:1266
+msgid "output command"
+msgstr "izhodni ukaz"
+
+#: lib/options.c:302
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Poskusi z `%s --help' dobiti vec informacij.\n"
+
+#: lib/output.c:466
+#, c-format
+msgid "invalid face `%s'"
+msgstr "neveljavna oblika `%s'"
+
+#: lib/output.c:538
+#, c-format
+msgid "`%s' with no matching `%s'"
+msgstr "`%s' brez vsebovanega `%s'"
+
+#: lib/ppd.c:108
+msgid "Known Fonts"
+msgstr "Znane oblike crk"
+
+#: lib/ppd.c:111
+msgid ""
+"\n"
+"  None.\n"
+msgstr ""
+"\n"
+" ne obstaja.\n"
+
+#: lib/ppd.c:149 lib/ppd.c:165
+msgid "Known PostScript Printer Descriptions"
+msgstr "Znani opisi PostScript tiskalnikov "
+
+#: lib/prange.c:305 lib/prange.c:323
+#, c-format
+msgid "invalid interval `%s'"
+msgstr "neveljaven interval `%s'"
+
+#: lib/printers.c:396 lib/printers.c:413
+#, fuzzy, c-format
+msgid "no command for the `%s' (%s%s)"
+msgstr "ne obstaja v naprej pripravljen ukaz za neznani tiskalnik `%s'"
+
+#: lib/printers.c:429
+msgid "sent to the standard output"
+msgstr "poslano na standardni izhod"
+
+#: lib/printers.c:430
+msgid "sent to the default printer"
+msgstr "poslano na primarni tiskalnik"
+
+#: lib/printers.c:435
+#, c-format
+msgid "saved into the file `%s'"
+msgstr "shranjeno v fajl `%s'"
+
+#: lib/printers.c:436
+#, c-format
+msgid "sent to the printer `%s'"
+msgstr "`%s' poslan v tiskanje"
+
+#: lib/printers.c:613 lib/printers.c:621
+msgid "Known Outputs (Printers, etc.)"
+msgstr "Znane izhodne enote (Tiskalniki, itd.)"
+
+#: lib/prolog.c:98 lib/prolog.c:181
+msgid "Known Prologues"
+msgstr ""
+"Znan Prologues ( ja, vem, prevod je zelo napacen. Prosim sporocite mi "
+"PRAVILNEGA. Hvala )"
+
+#: lib/prolog.c:579
+#, c-format
+msgid "font %f too big"
+msgstr "zvrst znaka %f je prevelika"
+
+#: lib/psgen.c:662
+#, c-format
+msgid "`%s' is a binary file, printing aborted"
+msgstr "`%s' je binarni fajl, tiskanje je prekinjeno"
+
+#: lib/quotearg.c:200
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:203
+msgid "'"
+msgstr ""
+
+#: lib/userdata.c:129
+msgid "user"
+msgstr "uporabnik"
+
+#: lib/userdata.c:130
+msgid "Unknown User"
+msgstr "Neznani Uporabnik"
+
+#: lib/useropt.c:75
+#, c-format
+msgid "unknown user option `%s'"
+msgstr "neznan uporabniski izbor `%s'"
+
+#: lib/useropt.c:86 lib/useropt.c:97
+msgid "Known User Options"
+msgstr "Pripoznane moznosti"
+
+#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+msgid "Memory exhausted"
+msgstr "Spomin je izcrpan"
+
+#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#, c-format
+msgid "cannot rename file `%s' as `%s'"
+msgstr "ne morem preimenovati fajla `%s' v `%s'"
+
+#: lib/xbackupfile.c:255
+#, c-format
+msgid "restored file `%s'"
+msgstr "obujen fajl `%s'"
+
+#: lib/argmatch.c:159
+#, fuzzy, c-format
+msgid "invalid argument %s for `%s'"
+msgstr "neveljaven argument `%s' za `%s'"
+
+#: lib/argmatch.c:160
+#, fuzzy, c-format
+msgid "ambiguous argument %s for `%s'"
+msgstr "dvoumen argument `%s' za `%s'"
+
+#: lib/argmatch.c:178
+msgid "Valid arguments are:"
+msgstr "Pripoznane moznosti so"
+
+#: lib/error.c:102
+msgid "Unknown system error"
+msgstr "Neprepoznana sistemska napaka"
+
+#: lib/getopt.c:675
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: izbira `%s' je dvoumna\n"
+
+#: lib/getopt.c:700
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: izbor `--%s' ne dovoljuje argumenta\n"
+
+#: lib/getopt.c:705
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: izbor `%c%s' ne dovoljuje argumenta\n"
+
+#: lib/getopt.c:723 lib/getopt.c:896
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: izbor `%s' pricakuje argument\n"
+
+#: lib/getopt.c:752
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: ne prepoznam izbora `--%s'\n"
+
+#: lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: ne prepoznam izbora `%c%s'\n"
+
+#: lib/getopt.c:782
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: neveljaven izbor -- %c\n"
+
+#: lib/getopt.c:785
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: neustrezen izbor -- %c\n"
+
+#: lib/getopt.c:815 lib/getopt.c:945
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: izbor pricakuje argument -- %c\n"
+
+#: lib/getopt.c:862
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: izbira `-W %s' je dvoumna\n"
+
+#: lib/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: izbira `-W %s' ne dopusca oziroma sprejema argumenta \n"
+
+#~ msgid "end-of-line in regular expression"
+#~ msgstr "znak-za-konec-vrstice v normalnem stavku"
+
+#, fuzzy
+#~ msgid ""
+#~ "Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana"
+#~ msgstr ""
+#~ "\n"
+#~ "Vse pravice pridrzane (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Vse pravice pridrzane (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel "
+#~ "Santana\n"
+
+#~ msgid "Tasks (exit successfully):\n"
+#~ msgstr "Naloga uspecno opravljena:\n"
+
+#~ msgid ""
+#~ "Written by <Akim.Demaille@inf.enst.fr> and <Miguel.Santana@st.com>.\n"
+#~ msgstr ""
+#~ "Program sta napisala  <Akim.Demaille@inf.enst.fr> in  <Miguel.Santana@st."
+#~ "com>\n"
+#~ "S prevodom se je trudil Igor Furlan <IgorF@ix.netcom.com>.\n"
+
+#~ msgid "no default command for option `-d'"
+#~ msgstr "ni vnaprej pripravljenega ukaza za izbor `-d'"
+
+#~ msgid " Report translation problems to <IgorF@ix.netcom.com>\n"
+#~ msgstr ""
+#~ "Sporoci neustrezne oziroma nevsecne prevode na naslov <IgorF@ix.netcom."
+#~ "com>\n"

@@ -1,0 +1,63 @@
+@item
+Daniele Ghiotti (Italian) 
+
+@item
+Tomek Burdziak (Polish) 
+
+@item
+@email{mvaro@@dlsi.ua.es, Miguel A. Varo} (Maintains Spanish and Catalan) 
+
+@item
+@email{mw@@miwie.in-berlin.de, Michael Wiedmann} (Maintains German) 
+
+@item
+@email{ck@@held.mind.de, Christian Kirsch} (German) 
+
+@item
+@email{bamse@@gmx.de, Erwin Dieterich} (German) 
+
+@item
+@email{jec@@dcs.ed.ac.uk, Juliusz Chroboczek} (Polish) He is also the author of @code{Ogonkify} (@pxref{top,,Overview,ogonkify,Ogonkify manual}).
+
+@item
+@email{Marcel.van.der.Laan@@home.ict.nl, Marcel van der Laan} (Dutch) 
+
+@item
+@email{lorenzo@@argon.roma2.infn.it, Lorenzo M. Catucci} (Maintains Italian) 
+
+@item
+@email{junker@@jazz.snu.ac.kr, Choi Jun Ho} (Korean) 
+
+@item
+@email{uyar@@cs.itu.edu.tr, Turgut Uyar} (Turkish) 
+
+@item
+@email{pavlovsk@@ff.cuni.cz, Jiri Pavlovsky} (Maintains Czech) 
+
+@item
+@email{pnidv96@@student.hv.se, Peter Nilsson} (Maintains Swedish) 
+
+@item
+@email{pmmm@@camoes.rnl.ist.utl.pt, Pedro Miguel Marques Morais} (Maintains Portugese) 
+
+@item
+@email{voldemarus@@geocities.com, Vladimir Vodolazkiy} (Russian) has a @href{http://come.to/vodolaz, home page}.
+
+@item
+@email{pjsm@@students.fct.unl.pt, Paulo Matos} (Portugese) 
+
+@item
+@email{jonr@@sdata.no, Jon Ross} (Maintains Norwegian) 
+
+@item
+@email{IgorF@@ix.netcom.com, Igor Furlan} (Maintains Slovenian) 
+
+@item
+@email{qrczak@@knm.org.pl, Marcin 'Qrczak' Kowalczyk} (Polish) 
+
+@item
+@email{smoke@@casema.net, Tijs van Bakel} (Maintains Dutch) 
+
+@item
+@email{dima@@Chg.RU, Dmitry S. Sivachenko} (Maintains Russian) 
+

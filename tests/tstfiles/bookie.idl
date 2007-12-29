@@ -1,0 +1,97 @@
+/* ########################################################################
+
+			       Bookie.idl
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
+   (c) Copyright 1999 Bob Phillips
+
+   ######################################################################## */
+
+#include <IncludedIdl.idl>
+
+#define FIVE_BUCKS 5.00
+
+module Bookie {
+
+// For now, we will cheat on the date, time,
+// and location. Eventually, we want to make
+// these real objects.
+typedef string Date;
+typedef string Time;
+typedef string Location;
+
+exception NoBet {};
+exception EmptyBetList{};
+
+	# pragma MindlessJunk
+
+// PointSpread is a bit of a hack.  We need to be able to express the
+// 1/2 point push-eliminator What we will do is create an object that
+// can be initialized with a float/double.  Any non-zero part of the
+// fraction will be rounded (up or down) to 1/2 -- the implementation
+// will probably represent it as a short int (16-bit, so, allowing 1
+// bit to serve as the 1/2 fraction and 1 to serve as a sign, we have
+// 14 bit spreads.  Even in basketball, that isn't going to happen
+// anytime soon :^)
+
+   interface PointSpread {
+	// Attributes would be the logical way to
+        // do this, but the example is short on
+        // methods... So we need to have some methods.
+	void SetSpread(in float spread);
+	float GetSpread(void);
+   };
+
+// Same sort of thing with currency.  We want a Fixed representation
+// So we allow any float in.  We output a Float for other purposes.
+// We can later add all sorts of operations.
+
+   interface Currency {
+	attribute float amount;
+   };
+
+
+const float NICKEL_BET FIVE_BUCKS;
+const float DIME_BET  10.00;
+
+   interface Team {
+      readonly attribute string name; // No need to change this
+      attribute unsigned long wins;
+      attribute unsigned long losses;
+   };
+
+   interface Game {
+     attribute Date date;
+     attribute Time time;
+     attribute Location location;
+   }
+
+   interface Bet {
+	// If an attribute ever changes, we need to create a new Bet.
+	// This allows for record keeping if we integrate persistent
+	// storage -- we have a record of every bet ever made.
+	readonly attribute Game game;
+	readonly attribute Team team;
+	readonly attribute Currency amount;
+   };
+
+typedef sequence<Bet> BetList;
+
+   interface Customer {
+     readonly attribute string name;
+     attribute boolean PaidUp;
+     void AddToBetList (in Bet bet);
+     void DelFromBetList (in Bet bet)
+	raises (NoBet);
+     void SetBetlist (in BetList list);
+     oneway void ClearBetList (void);
+     void FindBet(inout Bet bet) // Need to show an inout...
+	raises(NoBet);
+     void GetBetList(out BetList list) // Need to show an out param...
+	raises (EmptyBetList);
+   };
+};

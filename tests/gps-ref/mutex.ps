@@ -1,0 +1,163 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (# Mutual exclusion -- for use with module sched) c n
+0 T () N
+0 T (# A mutex has two pieces of state -- a 'locked' bit and a queue.) N
+0 T (# When the mutex is not locked, the queue is empty.) N
+(5) # (# Otherwise, the queue contains 0 or more \(function, argument\) pairs) N
+0 T (# representing functions \(or methods\) waiting to acquire the lock.) N
+0 T (# When the mutex is unlocked while the queue is not empty,) N
+0 T (# the first queue entry is removed and its function\(argument\) pair called,) N
+0 T (# implying it now has the lock.) N
+(10) # (#) N
+0 T (# Of course, no multi-threading is implied -- hence the funny interface) N
+0 T (# for lock, where a function is called once the lock is aquired.) N
+0 T (#) N
+0 T () S
+(class) K
+( mutex:) p n
+(15) # () S 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(# Create a new mutex -- initially unlocked) c n
+0 T () S
+() p 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(def) K
+( __init__\(self\):) p n
+0 T () S 8 T () S 16 T (self.locked = 0) N
+(20) # () S 8 T () S 16 T (self.queue = []) N
+0 T () S 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(# Test the locked bit of the mutex) c n
+0 T () S
+() p 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(def) K
+( test\(self\):) p n
+(25) # () S 8 T () S 16 T () S
+(return) K
+( self.locked) p n
+0 T () S 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(# Atomic test-and-set -- grab the lock if it is not set,) c n
+0 T () S
+() p 8 T () S
+(# return true if it succeeded) c n
+0 T () S
+() p 8 T () S
+(#) c n
+(30) # () S
+() p 8 T () S
+(def) K
+( testandset\(self\):) p n
+0 T () S 8 T () S 16 T () S
+(if) K
+( ) p
+(\330) sy
+( self.locked:) p n
+0 T () S 8 T () S 16 T () S 24 T (self.locked = 1) N
+0 T () S 8 T () S 16 T () S 24 T () S
+(return) K
+( 1) p n
+0 T () S 8 T () S 16 T () S
+(else) K
+(:) p n
+(35) # () S 8 T () S 16 T () S 24 T () S
+(return) K
+( 0) p n
+0 T () S 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(# Lock a mutex, call the function with supplied argument) c n
+0 T () S
+() p 8 T () S
+(# when it is acquired.) c n
+0 T () S
+() p 8 T () S
+(# If the mutex is already locked, place function and argument) c n
+(40) # () S
+() p 8 T () S
+(# in the queue.) c n
+0 T () S
+() p 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(def) K
+( lock\(self, function, argument\):) p n
+0 T () S 8 T () S 16 T (""") S
+(Take it.) str
+(""") p n
+0 T () S 8 T () S 16 T () S
+(if) K
+( self.testandset\(\):) p n
+(45) # () S 8 T () S 16 T () S 24 T (function\(argument\)) N
+0 T () S 8 T () S 16 T () S
+(else) K
+(:) p n
+0 T () S 8 T () S 16 T () S 24 T (self.queue.append\(\(function, argument\)\)) N
+0 T () S 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(# Unlock a mutex.  If the queue is not empty, call the next) c n
+(50) # () S
+() p 8 T () S
+(# function with its argument.) c n
+0 T () S
+() p 8 T () S
+(#) c n
+0 T () S
+() p 8 T () S
+(def) K
+( unlock\(self\):) p n
+0 T () S 8 T () S 16 T (""") S
+(Release.) str
+(""") p n
+0 T () S 8 T () S 16 T () S
+(if) K
+( self.queue:) p n
+(55) # () S 8 T () S 16 T () S 24 T (function, argument = self.queue[0]) N
+0 T () S 8 T () S 16 T () S 24 T () S
+(del) K
+( self.queue[0]) p n
+0 T () S 8 T () S 16 T () S 24 T (function\(argument\)) N
+0 T () S 8 T () S 16 T () S
+(else) K
+(:) p n
+0 T () S 8 T () S 16 T () S 24 T (self.locked = 0) N
+(60) # () S 8 T () S
+(#) c n
+(mutex.py) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

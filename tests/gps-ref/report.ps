@@ -1,0 +1,658 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(5) # () p n
+0 T () N
+0 T () S
+(This is the automatic report about styles of a2ps, version 4.8.2) K n
+0 T () N
+0 T () N
+0 T () N
+0 T () N
+(75) # () S
+(Style definitions) L n
+0 T () S
+(The reader should first note that a2ps is _not_ a powerful syntactical pretty-printer: it just handles lexical structures, i.e) str n
+0 T (., if in your language) S
+( IF IF == THEN THEN ELSE := IF ELSE ELSE := THEN ) p
+(is legal, then a2ps is not t) str n
+0 T (he tool you need.  It is for the same reason that you can't expect a2ps to highlight the function definitions in C.) N
+0 T (In the following is described how the style sheets are defined.  You can skip this section if you don't care how a2ps doe) N
+0 T (s this, and if you don't expect to implement new styles.) N
+0 T () N
+0 T () S
+(Consistancy) L n
+(80) # () S
+(There are no found problems in the styles.) str n
+0 T () N
+0 T () N
+0 T () S
+(Known languages) L n
+0 T () N
+(85) # () S
+( 1) p
+(\267) sy
+( ada) p n
+0 T ( 2) S
+(\267) sy
+( c) p n
+0 T ( 3) S
+(\267) sy
+( c++) p n
+0 T ( 4) S
+(\267) sy
+( caml) p n
+0 T ( 5) S
+(\267) sy
+( claire) p n
+(90) # ( 6) S
+(\267) sy
+( coq-vernacular) p n
+0 T (37) S
+(\267) sy
+( Unity) p n
+0 T (38) S
+(\267) sy
+( VERILOG) p n
+0 T (39) S
+(\267) sy
+( VHDL) p n
+0 T (40) S
+(\267) sy
+( zsh) p n
+(95) # () N
+0 T () N
+0 T () N
+0 T () N
+0 T () S
+(Description of the language styles) L n
+(100) # () S
+(1) K
+( ) p
+(ada style) l n
+0 T () N
+0 T () S
+(\267) sy
+( ) p
+(the abbreviation are:) str
+( adb, ads.) p n
+0 T () S
+(\267) sy
+( ) p
+(first alphabet is:) str n
+(105) # () S
+('ABCDEFGHIJKLMNOPQRSTUVWXYZ'\(65-90\), 'abcdefghijklmnopqrstuvwxyz'\(97-122\), '_'\(9) p n
+0 T (5\), '\)'\(41\).) N
+0 T () S
+(\267) sy
+( ) p
+(second alphabet is:) str n
+0 T () S
+('0123456789'\(48-57\), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'\(65-90\), 'abcdefghijklmnopqrstu) p n
+0 T (vwxyz'\(97-122\), '_'\(95\), '''\(39\).) N
+0 T () S
+(\267) sy
+( ) p
+(keywords, symbols and sequences recognition is case insensitive.) str n
+0 T () S
+(\267) sy
+( ) p
+(the keywords are:) str n
+(110) # () S
+(abort) K
+(, ) p
+(abs) K
+(, ) p
+(abstract) K
+(, ) p
+(accept) K
+(, ) p
+(access) K
+(, ) p
+(access function) K
+(, ) p
+(access procedure) K
+(, ) p
+(aliased) K
+() p n
+0 T (, ) S
+(all) K
+(, ) p
+(and) K
+(, ) p
+(array) K
+(, ) p
+(at) K
+(, ) p
+(begin) K
+(, ) p
+(body) K
+(, ) p
+(case) K
+(, ) p
+(constant) K
+(, ) p
+(declare) K
+(, ) p
+(delay) K
+(, ) p
+(delta) K
+(, ) p
+(digit) K n
+0 T (s) S
+(, ) p
+(do) K
+(, ) p
+(else) K
+(, ) p
+(elsif) K
+(, ) p
+(end) K
+(, ) p
+(entry) K
+(, ) p
+(exception) K
+(, ) p
+(exit) K
+(, ) p
+(for) K
+(, ) p
+(function) K
+(, ) p
+(generic) K
+(, ) p
+(goto) K
+(, ) p
+(i) K n
+0 T (f) S
+(, ) p
+(in) K
+(, ) p
+(is) K
+(, ) p
+(limited) K
+(, ) p
+(loop) K
+(, ) p
+(mod) K
+(, ) p
+(new) K
+(, ) p
+(not) K
+(, ) p
+(null) K
+(, ) p
+(of) K
+(, ) p
+(or) K
+(, ) p
+(others) K
+(, ) p
+(out) K
+(, ) p
+(package) K
+(, ) p
+(pra) K n
+0 T (gma) S
+(, ) p
+(private) K
+(, ) p
+(procedure) K
+(, ) p
+(protected) K
+(, ) p
+(raise) K
+(, ) p
+(range) K
+(, ) p
+(record) K
+(, ) p
+(rem) K
+(, ) p
+(renames) K
+(, ) p
+(requeue) K
+(,) p n
+0 T ( ) S
+(return) K
+(, ) p
+(reverse) K
+(, ) p
+(select) K
+(, ) p
+(separate) K
+(, ) p
+(subtype) K
+(, ) p
+(tagged) K
+(, ) p
+(task) K
+(, ) p
+(terminate) K
+(, ) p
+(then) K
+(, ) p
+(type) K
+() p n
+0 T (, ) S
+(until) K
+(, ) p
+(use) K
+(, ) p
+(when) K
+(, ) p
+(while) K
+(, ) p
+(with) K
+(, ) p
+(xor) K
+(.) p n
+0 T () S
+(\267) sy
+( ) p
+(the regular symbols are:) str n
+(130) # () S
+(\267) sy
+( ) p
+(the special symbols are:) str n
+0 T () S
+(!= ) p
+(\256) sy
+( ) p
+(\271) sy
+(, == ) p
+(\256) sy
+( ) p
+(\272) sy
+(, <= ) p
+(\256) sy
+( ) p
+(\243) sy
+(, >= ) p
+(\256) sy
+( ) p
+(\263) sy
+(, => ) p
+(\256) sy
+( ) p
+(\336) sy
+(.) p n
+0 T () S
+(\267) sy
+( ) p
+(the sequences are:) str n
+(135) # () S
+(--inside$ ) p
+(\256) sy
+( ) p
+(--inside) c
+($, "inside" ) p
+(\256) sy
+( ") p
+(inside) str
+(", 'inside' ) p
+(\256) sy
+( ') p
+(inside) str
+(', package body insi) p n
+0 T (de is ) S
+(\256) sy
+( ) p
+(package body ) K
+(inside) L
+( is) K
+(, package inside is ) p
+(\256) sy
+( ) p
+(package ) K
+(inside) L
+( is) K
+(, package) p n
+0 T ( inside renames ) S
+(\256) sy
+( ) p
+(package ) K
+(inside) L
+( renames) K
+(, procedure inside renames ) p
+(\256) sy
+( ) p
+(procedure) K n
+0 T ( ) S
+(inside) l
+( renames) K
+(, procedure inside is ) p
+(\256) sy
+( ) p
+(procedure ) K
+(inside) l
+( is) K
+(, procedure inside \( ) p
+() sy n
+0 T (\256) S
+( ) p
+(procedure ) K
+(inside) l
+( \(, procedure inside\( ) p
+(\256) sy
+( ) p
+(procedure ) K
+(inside) l
+(\(, procedure inside$) p n
+0 T ( ) S
+(\256) sy
+( ) p
+(procedure ) K
+(inside) l
+($, procedure inside; ) p
+(\256) sy
+( ) p
+(procedure ) K
+(inside) l
+(;, function inside r) p n
+0 T (enames ) S
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+( renames) K
+(, function inside is ) p
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+( is) K
+(, fun) p n
+0 T (ction inside \( ) S
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+( \(, function inside\( ) p
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+(\(, funct) p n
+0 T (ion inside$ ) S
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+($, function inside; ) p
+(\256) sy
+( ) p
+(function ) K
+(inside) l
+(;.) p n
+0 T () S
+(\267) sy
+( ) p
+(the verbatims are:) str n
+0 T () S
+("'''".) p n
+(155) # () S
+(\267) sy
+( ) p
+(the escapes are:) str n
+0 T () S
+("""", "\\\\", "\\'".) p n
+(ada style) (Style sheets of a2ps version 4.8.2) () title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T () p n
+0 T () N
+0 T () N
+(160) # () S
+(25) K
+( ) p
+(PreScript style) l n
+0 T () N
+0 T () S
+(\267) sy
+( This is prescript, a language of description of textual pages. It provides by ) p n
+0 T (the use of LaTeX like commands, a way to describe the pages that this program sh) N
+0 T (ould produce. It can be a very good choice of destination language for people wh) N
+0 T (o want to produce text to print \(e.g. pretty-printing, automating documentation ) N
+0 T (etc.\) but who definitely do not want to learn postscript, nor to require the use) N
+0 T ( of LaTeX.) N
+0 T (It is also known as BifTeX \(Basic Instruction From LaTeX\), of ptf \(Poor Text For) N
+0 T (mat\).) N
+(165) # (Symbol translation is always enabled in this mode.) N
+0 T () S
+(\267) sy
+( ) p
+(the abbreviation are:) str
+( prescript, biftex, bif, pre, ptf.) p n
+0 T () S
+(\267) sy
+( ) p
+(first alphabet is:) str n
+0 T () S
+('ABCDEFGHIJKLMNOPQRSTUVWXYZ'\(65-90\), 'abcdefghijklmnopqrstuvwxyz'\(97-122\), '\\'\(9) p n
+0 T (2\), '_'\(95\).) N
+0 T () S
+(\267) sy
+( ) p
+(second alphabet is:) str n
+(170) # () S
+('ABCDEFGHIJKLMNOPQRSTUVWXYZ'\(65-90\), 'abcdefghijklmnopqrstuvwxyz'\(97-122\), '_'\(9) p n
+0 T (5\).) N
+0 T () S
+(\267) sy
+( ) p
+(keywords, symbols and sequences recognition is case sensitive.) str n
+0 T () S
+(\267) sy
+( ) p
+(there are no keywords.) str n
+0 T () S
+(\267) sy
+( ) p
+(there are no regular symbols.) str n
+0 T () S
+(\267) sy
+( ) p
+(the special symbols are:) str n
+(175) # () S
+(\\$ ) p
+(\256) sy
+( $, $ ) p
+(\256) sy
+( , \\_ ) p
+(\256) sy
+( _, \\% ) p
+(\256) sy
+( %, \\& ) p
+(\256) sy
+( &, \\# ) p
+(\256) sy
+( #, \\\( ) p
+(\256) sy
+( \(, \\\) ) p
+(\256) sy
+( \), \\[ ) p
+(\256) sy
+( [, \\] ) p
+() sy n
+0 T (\256) S
+( ], \\{ ) p
+(\256) sy
+( {, \\| ) p
+(\256) sy
+( |, \\} ) p
+(\256) sy
+( }.) p n
+0 T () S
+(\267) sy
+( ) p
+(the sequences are:) str n
+0 T () S
+(\\\\encoding{inside} ) p
+(\256) sy
+( inside, %%prescript:skipinside%%prescript:piks$ ) p
+(\256) sy
+( , %insi) p n
+0 T (de$ ) S
+(\256) sy
+( , \\\\item[inside] ) p
+(\256) sy
+( ) p
+(inside) l
+(, \\\\section{inside} ) p
+(\256) sy
+( ) p
+(inside) L
+(, \\\\subsection{insi) p n
+0 T (de} ) S
+(\256) sy
+( ) p
+(inside) l
+(, \\\\subsubsection{inside} ) p
+(\256) sy
+( ) p
+(inside) l
+(, \\\\header{inside}$ ) p
+(\256) sy
+( inside, \\\\) p n
+0 T (footer{inside}$ ) S
+(\256) sy
+( inside, \\\\textbf{inside} ) p
+(\256) sy
+( ) p
+(inside) K
+(, \\\\textit{inside} ) p
+(\256) sy
+( ) p
+(inside) k
+() p n
+0 T (, \\\\textbi{inside} ) S
+(\256) sy
+( ) p
+(inside) K
+(, \\\\textrm{inside} ) p
+(\256) sy
+( ) p
+(inside) str
+(, \\\\textsy{inside} ) p
+(\256) sy
+( ) p
+(inside) sy
+() p n
+0 T (, \\\\texttt{inside} ) S
+(\256) sy
+( inside, \\\\keyword{inside} ) p
+(\256) sy
+( ) p
+(inside) k
+(, \\\\Keyword{inside} ) p
+(\256) sy
+( ) p
+(i) K n
+0 T (nside) S
+(, \\\\comment{inside} ) p
+(\256) sy
+( ) p
+(inside) c
+(, \\\\Comment{inside} ) p
+(\256) sy
+( ) p
+(inside) C
+(, \\\\label{inside}) p n
+0 T ( ) S
+(\256) sy
+( ) p
+(inside) l
+(, \\\\Label{inside} ) p
+(\256) sy
+( ) p
+(inside) L
+(, \\\\string{inside} ) p
+(\256) sy
+( ) p
+(inside) str
+(, \\\\magicbf{inside) p n
+0 T (} ) S
+(\256) sy
+( ) p
+(inside) K
+(, \\\\magicit{inside} ) p
+(\256) sy
+( ) p
+(inside) k
+(, \\\\magicbi{inside} ) p
+(\256) sy
+( ) p
+(inside) K
+(, \\\\magicrm{) p n
+0 T (inside} ) S
+(\256) sy
+( ) p
+(inside) str
+(, \\\\magicsy{inside} ) p
+(\256) sy
+( ) p
+(inside) sy
+(, \\\\magictt{inside} ) p
+(\256) sy
+( inside, \\\\verb+) p n
+0 T (inside+ ) S
+(\256) sy
+( inside, \\\\verb!inside! ) p
+(\256) sy
+( inside, \\\\verb|inside| ) p
+(\256) sy
+( inside, \\\\verb#ins) p n
+0 T (ide# ) S
+(\256) sy
+( inside, \\\\verb=inside= ) p
+(\256) sy
+( inside.) p n
+0 T () S
+(\267) sy
+( ) p
+(there are no verbatims.) str n
+0 T () S
+(\267) sy
+( ) p
+(there are no escapes.) str n
+0 T () N
+0 T () N
+(PreScript style) (Style sheets of a2ps version 4.8.2) () title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

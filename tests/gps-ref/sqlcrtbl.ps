@@ -1,0 +1,632 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (#) p 8 T (Skeleton script ) S
+(for) K
+( creating a ) p
+(table) K n
+0 T () S
+(#) p n
+0 T (#) S 8 T (Notes:) N
+0 T (#) S 8 T (- Script should be formatted exactly ) S
+(as) K
+( indicated) p n
+(5) # (#) S 8 T (- The primary key columns should always be the first columns indicated) N
+0 T (#) S 8 T (- ) S
+(All) K
+( SQL statements should be terminated ) p
+(with) K
+( a /) p n
+0 T (#) S 8 T (- Primary key, foreign key, ) S
+(and) K
+( ) p
+(unique) K
+( constraints are out-) p
+(of) K
+(-line.) p n
+0 T (#) S 8 T (- Multi-) S
+(column) K
+( constraints are out-) p
+(of) K
+(-line.) p n
+0 T (#) S 8 T (- ) S
+(All) K
+( other constraints are ) p
+(in) K
+(-line.) p n
+(10) # (#) S 8 T (- ) S
+(Remove all comments above the next line) c n
+0 T () S
+(#=============================================================================) p n
+0 T (# Name      :) N
+0 T (# Created ) S
+(On) K
+(:) p n
+0 T (# Created ) S
+(By) K
+(:) p n
+(15) # (# SCN No    :) N
+0 T (# Purpose   :) N
+0 T (#==============================================================================) N
+0 T () S
+(drop) K
+( ) p
+(table) K
+( owner.table_name) p n
+0 T (/) N
+(20) # () S
+(create) K
+( ) p
+(table) K
+( owner.table_name \() p n
+0 T () S 8 T (column_name) S 24 T () S
+(varchar2) K
+(\(4\)) p 40 T (constraint table_name_nn1 ) S
+(not) K
+( ) p
+(null) K
+(,) p n
+0 T () S 8 T (column_name) S 24 T () S
+(varchar2) K
+(\(10\),) p n
+0 T () S 8 T (column_name) S 24 T () S
+(number) K
+(\(8,2\) ) p 40 T (constraint ) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T () S 40 T (table_name_ck1 \( column_name > 0\),) N
+(25) # () S 8 T (column_name) S 24 T () S
+(number) K
+(\(4,2\)) p 40 T () S
+(default) K
+( 0,) p n
+0 T () S 8 T (column_name) S 24 T () S
+(date) K
+(,) p n
+0 T () S 8 T (.) N
+0 T () S 8 T (.) N
+0 T () S 8 T (.) N
+(30) # () S 8 T (constraint table_name_pk1) N
+0 T () S 8 T () S 16 T (primary key \(column_name, column_name, ...\)) N
+0 T (#) N
+0 T (# ) S
+(All) K
+( constraints that ) p
+(create) K
+( an ) p
+(index) K
+( must have a USING ) p
+(INDEX) K
+( clause) p n
+0 T (# ) S
+(To) K
+( calculate the ) p
+(initial) K
+( extent ) p
+(of) K
+( an ) p
+(index) K
+(, use the following \(assuming) p n
+(35) # (# a 4K block ) S
+(size) K
+(\):) p n
+0 T (# bytes = \(\(x*\(11+x+len\)\)/\(\(4096 - 90\)*\(1 - ) S
+(pctfree) K
+(/100\)\)\)*\(4096 * 1.1\)) p n
+0 T (# ) S
+(where) K n
+0 T () S
+(#) p 8 T (x ) S 16 T () S 24 T (= expected ) S
+(number) K
+( ) p
+(of) K
+( ) p
+(rows) K
+( after 6 months) p n
+0 T (#) S 8 T (z) S 16 T () S 24 T (= ) S
+(number) K
+( ) p
+(of) K
+( columns indexed) p n
+(40) # (#) S 8 T (len) S 16 T () S 24 T (= the average length ) S
+(of) K
+( the indexed ) p
+(column) K n
+0 T () S
+(#) p n
+0 T (# Alternatively, you may use one ) S
+(of) K
+( the following storage clauses:) p n
+0 T (#) N
+0 T (#) S 8 T (Small \(small indexes 20K ) S
+(to) K
+( 2560K\)) p n
+(45) # (#) N
+0 T (# storage \() S
+(initial) K
+( 20K  next 20K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T (#) S 8 T (Medium \(medium indexes 2560K ) S
+(to) K
+( 40960K\)) p n
+(50) # (#) N
+0 T (# storage \() S
+(initial) K
+( 2560K  next 20K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T (#) S 8 T (Large \(large indexes 40960K ) S
+(and) K
+( up\)) p n
+(55) # (#) N
+0 T (# storage \() S
+(initial) K
+( 40960K  next 320K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T () S 8 T () S 16 T (using ) S
+(index) K n
+(60) # () S
+() p 8 T () S 16 T () S 24 T (tablespace get_from_dba) N
+0 T () S 8 T () S 16 T () S 24 T () S
+(pctfree) K
+( 10) p n
+0 T () S 8 T () S 16 T () S 24 T (storage \() S
+(initial) K
+( 20K) p n
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  next 20K) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  minextents 1 ) N
+(65) # () S 8 T () S 16 T () S 24 T () S 32 T (  ) S
+(maxextents) K
+( 99) p n
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  pctincrease 100) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  freelists 1\)) N
+0 T () S 8 T (constraint table_name_fk1) N
+0 T () S 8 T () S 16 T (foreign key \(column_name\) references) N
+(70) # () S 8 T () S 16 T (table_name \(column_name\),) N
+(sqlcrtbl.sql) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T () p 8 T (constraint table_name_u1) N
+0 T () S 8 T () S 16 T () S
+(unique) K
+( \(column_name, column_name\)) p n
+0 T () S 8 T () S 16 T (using ) S
+(index) K n
+0 T () S
+() p 8 T () S 16 T () S 24 T (tablespace get_from_dba) N
+(75) # () S 8 T () S 16 T () S 24 T () S
+(pctfree) K
+( 10) p n
+0 T () S 8 T () S 16 T () S 24 T (storage \() S
+(initial) K
+( 20K) p n
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  next 20K) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  minextents 1 ) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  ) S
+(maxextents) K
+( 99) p n
+(80) # () S 8 T () S 16 T () S 24 T () S 32 T (  pctincrease 100) N
+0 T () S 8 T () S 16 T () S 24 T () S 32 T (  freelists 1\)) N
+0 T (# ) S
+(pctfree) K
+( should be ) p
+(set) K
+( ) p
+(to) K
+( 0 ) p
+(for) K
+( tables whose ) p
+(rows) K
+( are ) p
+(not) K
+( updated ) p n
+0 T (# \(e.g. validation tables, control tables, history tables, etc.\)) N
+0 T (# ) S
+(and) K
+( whose columsn will ) p
+(all) K
+( be complete \() p
+(not) K
+( ) p
+(null) K
+(\) upon first ) p
+(insert) K
+(.) p n
+(85) # (#) N
+0 T (# ) S
+(pctfree) K
+( should be ) p
+(set) K
+( higher than 10 ) p
+(for) K
+( those ) p
+(rows) K
+( ) p
+(where) K
+( many columns) p n
+0 T (# will initially be left ) S
+(null) K
+( upon the first ) p
+(insert) K
+(, but will be updated) p n
+0 T (# later) N
+0 T () S
+(pctfree) K
+( 10 pctused 40) p n
+(90) # (tablespace get_from_dba) N
+0 T (#) N
+0 T (# STORAGE CLAUSE) N
+0 T (#) N
+0 T (# ) S
+(Initial) K
+( Extent) p n
+(95) # (# ) S
+(Initial) K
+( extent storage should be ) p
+(set) K
+( ) p
+(to) K
+( the appropriate ) p
+(number) K
+( ) p
+(of) K
+( bytes) p n
+0 T (# \(rounded ) S
+(to) K
+( a multiple ) p
+(of) K
+( 20K bytes\) this ) p
+(table) K
+( ) p
+(is) K
+( expected ) p
+(to) K
+( grow ) p
+(to) K
+( ) p
+(in) K
+( ) p n
+0 T (# the first 6 months.) N
+0 T (# ) S
+(To) K
+( calculate the ) p
+(initial) K
+( extent, use the following \(assuming) p n
+0 T (# a 4K block ) S
+(size) K
+(\):) p n
+(100) # (# bytes = \(\(x*\(5+y*\(1+len\)\)\)/\(\(4096 - 90\)*\(1 - ) S
+(pctfree) K
+(/100\)\)\)*4096) p n
+0 T (# ) S
+(where) K n
+0 T () S
+(#) p 8 T (x ) S 16 T () S 24 T (= expected ) S
+(number) K
+( ) p
+(of) K
+( ) p
+(rows) K
+( after 6 months) p n
+0 T (#) S 8 T (y) S 16 T () S 24 T (= ) S
+(number) K
+( ) p
+(of) K
+( columns ) p
+(in) K
+( the ) p
+(table) K n
+0 T () S
+(#) p 8 T (len) S 16 T () S 24 T (= the average ) S
+(column) K
+( length) p n
+(105) # (#) S 8 T () S
+(pctfree) K
+() p 16 T () S 24 T (= obtained ) S
+(from) K
+( guidelines above) p n
+0 T (#) N
+0 T (# Round the ) S
+(initial) K
+( extent up ) p
+(to) K
+( one ) p
+(of) K
+( the ) p
+(values) K
+( ) p
+(in) K
+( the ) p
+(table) K
+( below.) p n
+0 T (# Determine the next extent ) S
+(from) K
+( the ) p
+(table) K
+( below \(again assuming 4K ) p n
+0 T (# block sizes\):) N
+(110) # (#) N
+0 T (#) S 8 T () S
+(Initial) K
+( Extent) p 24 T () S 32 T (Next Extent) N
+0 T (#) S 8 T (=============) S 24 T () S 32 T (===========) N
+0 T (#) S 8 T (     20K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (     40K) S 24 T () S 32 T (   20K) N
+(115) # (#) S 8 T (     80K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (    160K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (    320K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (    640K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (   1280K) S 24 T () S 32 T (   20K) N
+(120) # (#) S 8 T (   2560K) S 24 T () S 32 T (   20K) N
+0 T (#) S 8 T (   5120K) S 24 T () S 32 T (   40K) N
+0 T (#) S 8 T (  10240K) S 24 T () S 32 T (   80K) N
+0 T (#) S 8 T (  20480K) S 24 T () S 32 T (  160K) N
+0 T (#) S 8 T (  40960K) S 24 T () S 32 T (  320K) N
+(125) # (#) S 8 T (  81920K) S 24 T () S 32 T (  640K) N
+0 T (#) S 8 T ( 163840K) S 24 T () S 32 T ( 1280K) N
+0 T (#) S 8 T ( 327680K) S 24 T () S 32 T ( 2560K) N
+0 T (#) S 8 T ( 655360K) S 24 T () S 32 T ( 5120K) N
+0 T (#) S 8 T (1310720K) S 24 T () S 32 T (10240K) N
+(130) # (#) S 8 T (etc, ) S
+(with) K
+( each succeeding value twice the previous value.) p n
+0 T (#) N
+0 T (# Alternatively, you may use one ) S
+(of) K
+( the following storage clauses:) p n
+0 T (#) N
+0 T (#) S 8 T (Small \(small tables 20K ) S
+(to) K
+( 2560K\)) p n
+(135) # (#) N
+0 T (# storage \() S
+(initial) K
+( 20K  next 20K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T (#) S 8 T (Medium \(medium tables 2560K ) S
+(to) K
+( 40960K\)) p n
+(140) # (#) N
+(sqlcrtbl.sql) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (# storage \() p
+(initial) K
+( 2560K  next 20K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T (#) S 8 T (Large \(large tables 40960K ) S
+(and) K
+( up\)) p n
+(145) # (#) N
+0 T (# storage \() S
+(initial) K
+( 40960K  next 320K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+0 T (#) S 8 T () S 16 T (freelists 1\)) N
+0 T (#) N
+0 T (storage \() S
+(initial) K
+( 20K next 20K minextents 1 ) p
+(maxextents) K
+( 99 pctincrease 100) p n
+(150) # () S 8 T () S 16 T (freelists 1\)) N
+0 T (/) N
+0 T (#) N
+0 T (# Comments are required ) S
+(on) K
+( the ) p
+(table) K
+( ) p
+(and) K
+( ) p
+(all) K
+( columns.) p n
+0 T (# Comments should be ) S
+(in) K
+( upper ) p
+(and) K
+( lower case, should be terminated ) p
+(by) K
+( a) p n
+(155) # (# period, ) S
+(and) K
+( cannot be longer than 255 bytes.) p n
+0 T (#) N
+0 T () S
+(comment) K
+( ) p
+(on) K
+( ) p
+(table) K
+( table_name ) p
+(is) K n
+0 T () S
+(') p
+(Table Alias: XXXX.  Add more comment on the table, it can be up to 255 bytes long.) str
+(') p n
+0 T (/) N
+(160) # () S
+(comment) K
+( ) p
+(on) K
+( ) p
+(column) K
+( table_name.column_name ) p
+(is) K n
+0 T () S
+(') p
+(This is the comment on this column.  A column comment is required.) str
+(') p n
+0 T (/) N
+0 T () S
+(comment) K
+( ) p
+(on) K
+( ) p
+(column) K
+( table_name.column_name ) p
+(is) K n
+0 T () S
+(') p
+(This is another comment on this column.  A column comment is required.) str
+(') p n
+(165) # (/) N
+0 T (#) N
+0 T (# You may need ) S
+(to) K
+( ) p
+(create) K
+( other indexes ) p
+(for) K
+( performance reasons.) p n
+0 T (#) N
+0 T () S
+(create) K
+( ) p
+(index) K
+( table_name_n1 ) p
+(on) K
+( table_name \(column_name\)) p n
+(170) # (tablespace get_from_dba) N
+0 T () S
+(pctfree) K
+( 10) p n
+0 T (storage \() S
+(initial) K
+( 20K next 20K minextents 1 ) p
+(maxextents) K
+( 99) p n
+0 T () S 8 T (pctincrease 100 freelists 1\)) N
+0 T (/) N
+(175) # () S
+(create) K
+( ) p
+(index) K
+( table_name_n2 ) p
+(on) K
+( table_name \(column_name\)) p n
+0 T (tablespace get_from_dba) N
+0 T () S
+(pctfree) K
+( 10) p n
+0 T (storage \() S
+(initial) K
+( 20K next 20K minextents 1 ) p
+(maxextents) K
+( 99) p n
+0 T () S 8 T (pctincrease 100 freelists 1\)) N
+(180) # (/) N
+0 T (# ) N
+0 T (# if this ) S
+(table) K
+( requires a key assigned ) p
+(by) K
+( sequence, ) p
+(create) K
+( the sequence) p n
+0 T (#) N
+0 T () S
+(create) K
+( sequence table_name_pk_sq ) p
+(increment) K
+( ) p
+(by) K
+( 1 ) p
+(start) K
+( ) p
+(with) K
+( 1) p n
+(185) # (/) N
+0 T (# ) S
+(public) K
+( synonyms may be required) p n
+0 T (#) N
+0 T () S
+(create) K
+( ) p
+(public) K
+( ) p
+(synonym) K
+( table_name ) p
+(for) K
+( table_name) p n
+0 T (/) N
+(190) # () S
+(create) K
+( ) p
+(public) K
+( ) p
+(synonym) K
+( table_name_pk_sq ) p
+(for) K
+( table_name_pk_sq) p n
+0 T (/) N
+0 T (#) N
+(sqlcrtbl.sql) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

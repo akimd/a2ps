@@ -1,0 +1,107 @@
+# Flags for testing a2ps -*- Makefile -*-
+
+########################################################################
+# Environment for the tests
+########################################################################
+# The path to the files _in the package_, so that a2ps does _not_ read
+# the installed files.
+LibraryPath: @libpath@
+
+# Defined by sed
+FileCommand: @file_link@
+
+########################################################################
+# Options for the tests
+########################################################################
+# Medium used for the tests
+Medium: A4	 595     842
+Options: --medium=A4
+
+# Encoding is ISO Latin 1
+Options: --encoding=latin1
+
+# PostScript stuff
+Options: -1 --portrait --no-page-prefeed --sides=1
+
+# Output to stdout
+Options: --output=-
+
+# Be quiet
+Options: --quiet
+
+# No backups
+Options: --version-control=none
+
+# No delegations
+Options: --delegate=no
+
+# Set titles that cannot vary from path to path
+# Don't forget to check the tags (hence, use $t1 and $t2)
+Options: --left-title='#?2||%s.|'
+Options: --right-title='#?2|$t2|right|'
+Options: --center-title='#?1|$t1|$n|'
+Options: --footer='%A'
+Options: --left-footer=$s.
+Options: --right-footer=Right
+Options: --header='The room for the header'
+Options: --underlay='Test Files'
+
+# It's a weird idea to print the results of the test, so let's make it
+# easy for people displaying the results.
+Options: --prologue=color
+
+########################################################################
+# Variables for the tests
+########################################################################
+# A macro sequence for table of content
+Variable: toc_test \\Keyword{Table of Content}\n\
+#-1!f\
+|$2# \\keyword{$-.20n} sheets $3s< to $3s> ($2s#) pages $3p<-$3p> $4l# lines\n||\
+\\Keyword{End of toc}\n
+
+# Remove any information from the PS comments that may vary
+Variable: sedout \
+sed 's/^%%%%Creator.*/%%%%Creator: a version of a2ps/g;s/^%%%%CreationDate:.*/%%%%CreationDate: once upon a time/g;s!^/td (.*) def!/td (today) def!g'
+
+# Keep only the core of the document (not the prolog).  Send to stdout.
+Variable: awkout \
+awk "/^%%%%Page:/, /^%%%%EOF$$/"
+
+# Keep only the prolog of the document.  Send to stdout.
+Variable: awkin \
+awk "/^%%!/, /^%%%%EndSetup/"
+
+# Run the tests anynonously
+Variable: user.name Somebody
+Variable: user.host a machine
+
+########################################################################
+# Printers for the tests
+########################################################################
+# A printer that sed's away some details of the DSC which may
+# make look different identical PS programs.
+UnknownPrinter: | #{sedout} > #o
+
+Printer: prolog-only | #{awkin}
+Printer: awkin | #{awkin} | #{sedout}
+Printer: awkout | #{awkout}
+Printer: sedout | #{sedout}
+Printer: chk_dir | #{sedout} > ${CHK_DIR}/$N.ps
+Printer: void > /dev/null
+Printer: display | cat > #f0 && gv #f0
+Printer: bak > #{bak.file}
+
+########################################################################
+# Delegations for the tests
+########################################################################
+# A fake delegation for deleg*.tst
+Delegation: Testing test_delegation:ps echo OK
+
+########################################################################
+# UserOptions for the tests
+########################################################################
+# A simple user option
+UserOption: useroption-test --guess
+
+# The Page Label to use for the tests: the range of virtuals
+PageLabelFormat: #!s|$p-|,|

@@ -1,0 +1,22 @@
+#! /bin/sh
+
+gv=${GHOSTVIEW:-gv}
+
+file=`echo $1 | sed s/\\\\..*//g`
+
+# Some tests need a -4 prologue
+case $file in
+  al*) prologue=prolog-4.ps;;
+  *)   prologue=prolog-1.ps;;
+esac
+
+sed "s/Title:.*/Title: ref-$file/g" ps-ref/$prologue > /tmp/1.ps
+cat ps-ref/$file.ps >> /tmp/1.ps
+
+sed "s/Title:.*/Title: chk-$file/g" ps-ref/$prologue > /tmp/2.ps
+cat ps-chk/$file.ps >> /tmp/2.ps
+
+$gv /tmp/1.ps &
+$gv /tmp/2.ps
+
+/bin/rm /tmp/1.ps /tmp/2.ps

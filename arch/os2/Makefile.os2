@@ -1,0 +1,120 @@
+#
+# Makefile for ap2s under OS/2 using EMX
+# version 20000202
+#
+# Currently it produces
+# - a static version of the a2ps library
+# - the a2ps executable
+# - .cmd wrappers for the supplied shell scripts
+#
+#   Todo:
+#     - install - target ?
+#
+
+PACKAGE = a2ps
+VERSION = 4.12k
+
+CC      = gcc
+CFLAGS  = -Zmt -O2 -Wall -Wno-unused -I. -I..  -I../lib -DHAVE_CONFIG_H -DSYSCONFFILE=\".\a2ps.cfg\"
+LDFLAGS = -Zmt -L. -L../lib -s -Zcrtdll -Zsysv-signals
+LIBS    =
+AR      = ar rc
+CP      = cp
+RANLIB  = ar s
+RM      = rm -f
+
+ARCHDIR     = arch/os2
+SCRIPTS     = card fixps pdiff psmandup psset
+CONFIGFILES = etc/a2ps.cfg etc/a2ps-site.cfg afm/fonts.map
+MANPAGES    = man/a2ps.1 man/card.1 man/fixps.1 man/pdiff.1 man/psmandup.1 \
+              man/psset.1 man/texi2dvi4a2ps.1
+
+all: alex a2ps_exe $(SCRIPTS) $(CONFIGFILES)
+
+alex:
+	echo.exe PACKAGE = $(PACKAGE)
+	echo.exe VERSION = $(VERSION)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+config.h: arch/os2/config.h.os2
+#	'sed -e "s/@VERSION@/\\"$(VERSION)\\"/" -e "s/@PACKAGE@/\\"$(PACKAGE)\\"/"' <$< >$@
+	sed -e "s/@VERSION@/$(VERSION)/" -e "s/@PACKAGE@/$(PACKAGE)/" <$< >$@
+
+a2ps_lib: config.h
+	cd lib && make -f ../Makefile.os2 a2ps.a
+
+a2ps_exe: a2ps_lib
+	cd src && make -f ../Makefile.os2 a2ps.exe
+
+# "Local rules"
+
+LIBOBJS = \
+filtdir.o       lexppd.o        ppd.o           argmatch.o      fjobs.o       \
+media.o         prange.o        stream.o        printers.o      backupfile.o  \
+fonts.o         printlen.o      caret.o         gen.o           message.o     \
+prolog.o        common.o        gethostname.o   metaseq.o       psgen.o       \
+title.o         confg.o         psstat.o        useropt.o       darray.o      \
+obstack.o       xgetcwd.o       document.o      options.o       closeout.o\
+routines.o      xgethostname.o  dsc.o           getshline.o     output.o      \
+xmalloc.o       dstring.o       pair_ht.o       stpcpy.o        xstrrpl.o     \
+encoding.o      hashtab.o       parseppd.o      stpncpy.o       error.o       \
+isdir.o         str_ht.o        faces.o         jobs.o          path-concat.o \
+pathwalk.o      getnum.o        xbackupfile.o   basename.o      tterm.o       \
+addext.o        madir.o         getopt1.o       getopt.o        argv.o        \
+lister.o        strverscmp.o    quotearg.o      xstrtol.o       xstrdup.o     \
+dirname.o       signame.o       filalign.o      userdata.o      rename.o
+
+a2ps.a: $(LIBOBJS)
+	$(AR) $@ $^
+	$(RANLIB) $@
+
+MAINOBJS = \
+buffer.o        generate.o      parsessh.o      select.o        versions.o    \
+delegate.o      lexssh.o        read.o          ssheet.o        ffaces.o      \
+main.o          regex.o         sshread.o       lexps.o         version-etc.o \
+long-options.o  sheets-map.o
+
+
+a2ps.exe: $(MAINOBJS) ../lib/a2ps.a
+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
+
+# Rules for configuration files
+etc/a2ps.cfg: $(ARCHDIR)/a2ps_cfg.os2
+	$(CP) $< $@
+etc/a2ps-site.cfg: $(ARCHDIR)/a2ps-site.cfg.os2
+	$(CP) $< $@
+afm/fonts.map: afm/fontsmap
+	$(CP) $< $@
+
+GSSE = $(ARCHDIR)/gsse.cmd.os2
+
+# Rules how to process the contrib scripts
+
+SCRIPTWRAPPERS = $(patsubst %,%.cmd, $(SCRIPTS))
+
+%.cmd : % $(GSSE)
+	$(CP) $(GSSE) $@
+
+% : contrib/%.in
+	sed -e "s,/bin/,,"  <$< >$@
+
+texi2dvi4a2ps : contrib/texi2dvi4a2ps
+	sed -e "s,/bin/,,"  <$< >$@
+
+# Maintainance rules
+
+clean:
+	cd lib && make -f ../Makefile clean_lib
+	cd src && make -f ../Makefile clean_src
+
+realclean: clean
+	$(RM) config.h
+
+clean_lib:
+	$(RM) $(LIBOBJS) a2ps.a
+
+clean_src:
+	$(RM) $(MAINOBJS) a2ps.exe core
+

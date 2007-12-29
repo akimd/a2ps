@@ -1,0 +1,126 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (-- file: .../asn1specs/ex1.asn1) c n
+0 T (--) N
+0 T (--  This is an example ASN.1 module used in the documentation) N
+0 T (--) N
+(5) # (--  MS 92) N
+0 T (--) N
+0 T (-- Initial checkin.) N
+0 T (--) N
+0 T (-- Revision 1.2  1997/02/16 20:25:22  rj) N
+(10) # (-- check-in of a few cosmetic changes) N
+0 T (--) N
+0 T (-- Revision 1.1  1994/10/08  05:41:32  rj) N
+0 T (-- initial check-in.) N
+0 T (--) N
+(15) # () N
+0 T () S
+(EX1 ) p
+(DEFINITIONS) K
+( ::=) p n
+0 T () S
+(BEGIN) K n
+0 T () N
+0 T () S
+(anOidVal      ) p
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( ::= { ) p
+(joint-iso-ccitt) k
+( 40 foobar\(29\) }) p n
+(20) # (theSameOidVal ) S
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( ::= { 2 40 29 }) p n
+0 T (anIntVal      ) S
+(INTEGER) K
+( ::= 1) p n
+0 T (aBoolVal      ) S
+(BOOLEAN) K
+( ::= ) p
+(TRUE) K n
+0 T () N
+0 T () N
+(25) # (NULL) S
+( ::= identifier ) p
+(END) K n
+0 T () N
+0 T () S
+(T1 ::= ) p
+(SEQUENCE) K n
+0 T () S
+({) p n
+0 T (   ) S
+(INTEGER) K
+( ) p
+(OPTIONAL) K
+(,) p n
+(30) # (   ) S
+(OCTET) K
+( ) p
+(STRING) K
+( ) p
+(OPTIONAL) K
+(,) p n
+0 T (   ) S
+(ENUMERATED) K
+( { a\(0\), b\(1\), c\(2\) },) p n
+0 T (   ) S
+(SEQUENCE) K
+( ) p
+(OF) K
+( ) p
+(INTEGER) K
+(,) p n
+0 T (   ) S
+(SEQUENCE) K
+( { id ) p
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+(, value ) p
+(OCTET) K
+( ) p
+(STRING) K
+( },) p n
+0 T (   ) S
+(CHOICE) K
+( { ) p
+(INTEGER) K
+(, ) p
+(OBJECT) K
+( ) p
+(IDENTIFIER) K
+( }) p n
+(35) # (   DESCRIPTION ") S
+(This is a string with a quote "" in it.) str
+(") p n
+0 T (}) N
+0 T () N
+0 T () S
+(END) K n
+(ex1.asn1) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

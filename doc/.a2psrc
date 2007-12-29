@@ -1,0 +1,14 @@
+# Helpfull printers to produce the documentation in various forms
+Options: -2Z
+
+Printer: printer-doc\
+ | gzip -c > $d/doc-$N.ps.gz
+UserOption: make-doc -2ZPprinter-doc
+
+Printer: printer-book\
+ | psbook | psnup -2 | psset -nt | gzip -c > $d/book-$N.ps.gz
+UserOption: make-book -1Pprinter-book
+
+Printer: printer-cover\
+ | psselect 2,1 | psnup -2 | gzip -c > $d/cover-$N.ps.gz
+UserOption: make-cover -1Pprinter-cover -a1,2

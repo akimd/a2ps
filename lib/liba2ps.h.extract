@@ -1,0 +1,66 @@
+/* From faces.h */
+/* 
+ * Available faces.  No_face should never be given to liba2ps.
+ */
+enum face_e { 
+  No_face = -1,
+  First_face = 0,
+  Plain = 0,
+  Keyword = 1,
+  Keyword_strong = 2,
+  Label = 3,
+  Label_strong = 4,
+  String = 5,
+  Symbol = 6,
+  Error = 7,
+  Comment = 8,
+  Comment_strong = 9,
+  Last_face = 9
+};
+
+/* From gen.h */
+/* Print a single char C in FACE */
+void a2ps_print_char PARAMS ((struct a2ps_job * job, 
+			    int c, 
+			    enum face_e face));
+/* Print a C string (nul terminated) in FACE */
+void a2ps_print_string PARAMS ((struct a2ps_job * job, 
+			      const unsigned char * string, 
+			      enum face_e face)); 
+/* Print the N chars contained in BUFFER, in FACE */
+void a2ps_print_buffer PARAMS ((struct a2ps_job * job, 
+			      const unsigned char * buffer, 
+			      size_t start, size_t end,
+			      enum face_e face));
+/* Open/close the outer structure */
+void a2ps_open_output_session PARAMS ((struct a2ps_job * job));
+void a2ps_close_output_session PARAMS ((struct a2ps_job * job));
+
+/* Open/Close the section structure */
+void a2ps_open_input_session PARAMS ((struct a2ps_job * job, unsigned char * name));
+void a2ps_close_input_session PARAMS ((struct a2ps_job * job));
+
+
+/* From jobs.h */
+/* Return a newly allocated output session storage */
+struct a2ps_job * a2ps_job_new PARAMS ((void));
+
+/* Finalize it */
+void a2ps_job_finalize PARAMS ((struct a2ps_job * job));
+
+/* Free the memory used by JOB */
+void a2ps_job_free PARAMS ((struct a2ps_job * job));
+
+/* From confg.h */
+/*
+ * Read the configuration file
+ */
+int a2_read_config PARAMS ((struct a2ps_job * job,
+			 const char *path, const char *file));
+
+/*
+ * Read the system's configuration file
+ * (i.e., a2_read_config  (job, etc, a2ps.cfg))
+ */
+void a2_read_sys_config PARAMS ((struct a2ps_job * job));
+

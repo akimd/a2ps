@@ -1,0 +1,340 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(set options ") p
+(-I/inf/erebe/bdstag/sigbench/release/Schema/include) str
+(";) p n
+(set ) S
+(schema) K
+( sigrel;) p n
+(set ) S
+(base) K
+( sigrelb;) p n
+() N
+(set ) S
+(application ) K
+(Index_lineaire;) L n
+() p n
+(name) K
+( Nt_rem_oid:Tt_rem_oid;) p n
+(name) K
+( Ns_rem_oid:set \(Tt_rem_oid\);) p n
+(name) K
+( No_JS_feuilleA:C_Feuille;) p n
+(name) K
+( No_JS_feuilleB:C_Feuille;) p n
+(name) K
+( Ns_JS_jointure_cles:set \(tuple \(cleA:string, cleB:string\)\);) p n
+(function) K n
+(F_JS_big_theta \(Pt_a:Tt_rem_oid, Pt_b:Tt_rem_oid\):boolean;) p n
+(     ) S
+(function) K
+( ) p
+(body) K
+( F_JS_big_theta \(Pt_a:Tt_rem_oid, Pt_b:Tt_rem_oid\):boolean) p n
+({) N
+(/* test si "a intersecte b \(sens strict\)" */) c n
+(  ) p
+(return) K
+( \(\(Pt_a.Ai_xmin < Pt_b.Ai_xmax\)) p n
+() S 8 T (  && \(Pt_a.Ai_ymin < Pt_b.Ai_ymax\)) N
+() S 8 T (  && \(Pt_a.Ai_xmax > Pt_b.Ai_xmin\) && \(Pt_a.Ai_ymax > Pt_b.Ai_ymin\)\);) N
+(};) N
+(function) K n
+(F_JS_existe_cle \(Pc_cleA:string, Pc_cleB:string\):boolean;) p n
+(     ) S
+(function) K
+( ) p
+(body) K
+( F_JS_existe_cle \(Pc_cleA:string, Pc_cleB:string\):boolean) p n
+({) N
+(#include) K
+( ") p
+(varextbis.h) str
+(") p n
+() N
+(  Handle poign_root, poign_objet_final, *poign_cle;) N
+(  Scan *scan_index;) N
+(  Predicate *predicat;) N
+(  ) S
+(void) k
+( *index_id;) p n
+(  ) S
+(o2) K
+( string cle = ") p
+(index-racine) str
+(";) p n
+() N
+(/************** Fermeture du scan index et retour ******/) c n
+(  o2_col_scan_close \(scan_index\);) p n
+(/*printf\("sortie F_Lecture_index\\n"\);*/) c n
+(  printf \(") p
+( ===> feuille %s ok ...\\n) str
+(", Pc_cleA + Pc_cleB\);) p n
+(  ) S
+(return) K
+( true;) p n
+(};) N
+() N
+(function) K n
+(F_JS_get_quadrant \(Pc_cle:string, Pt_rem:Tt_rem_oid\):Tt_rem_oid;) p n
+(     ) S
+(function) K
+( ) p
+(body) K
+( F_JS_get_quadrant \(Pc_cle:string,) p n
+() S 8 T () S 16 T () S 24 T () S 32 T (      Pt_rem:Tt_rem_oid\):Tt_rem_oid) N
+({) N
+(  ) S
+(o2) K
+( integer dx = \(Pt_rem.Ai_xmax - Pt_rem.Ai_xmin\) / 2;) p n
+(  ) S
+(o2) K
+( integer dy = \(Pt_rem.Ai_ymax - Pt_rem.Ai_ymin\) / 2;) p n
+(  ) S
+(o2) K
+( integer i;) p n
+(  ) S
+(for) K
+( \(i = 0; i < count \(Pc_cle\); i++\)) p n
+(    {) N
+(      ) S
+(switch) K
+( \(Pc_cle[i]\)) p n
+() S 8 T ({) N
+() S 8 T () S
+(default) K
+(:) p n
+() S 8 T (  printf \(") S
+(Nom de feuille \(%s\) erronee !!!\\n) str
+(", Pc_cle\);) p n
+() S 8 T (}) N
+(      dx = dx / 2;) N
+(      dy = dy / 2;) N
+(    }) N
+(  ) S
+(return) K
+( \(Pt_rem\);) p n
+(};) N
+() N
+() N
+(function) K
+( F_JS_join_f \(Pc_cleA:string,) p n
+() S 8 T () S 16 T (      Pt_remA:Tt_rem_oid, Pc_cleB:string, Pt_remB:Tt_rem_oid\);) N
+(function) K
+( ) p
+(body) K n
+(F_JS_join_f \(Pc_cleA:string,) p n
+() S 8 T (     Pt_remA:Tt_rem_oid, Pc_cleB:string, Pt_remB:Tt_rem_oid\)) N
+(essai2.o2c) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+({) p n
+(#include) K
+( ") p
+(varextbis.h) str
+(") p 24 T () S 32 T () S
+(/* contexte general */) c n
+() p n
+(  printf \(") S
+(tente \(%s,%s\) ...) str
+(", Pc_cleA, Pc_cleB\);) p n
+(  ) S
+(if) K
+( \(F_JS_small_theta \(Pt_remA, Pt_remB\)\)) p n
+(    {) N
+(      printf \(") S
+(===> ok) str
+("\);) p n
+(    Ns_JS_jointure_cles += set \(tuple \(cleA: Pc_cleA, cleB:Pc_cleB\)\);) N
+(    }) N
+(  printf \(") S
+(\\n) str
+("\);) p n
+(  ) S
+(return) K
+(;) p n
+(};) N
+(;) N
+() N
+(program) K
+( private) p n
+(P_JS_Lance_jointure \(Pc_quad_linA:string, Pc_quad_linB:string\)) N
+(     ) S
+(in) K
+( ) p
+(application ) K
+(Index_lineaire;) L n
+(     ) p
+(transaction body ) K
+(P_JS_Lance_jointure \(Pc_quad_linA:string,) L n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T (   Pc_quad_linB:string\)) N
+(    ) S
+( in application ) K
+(Index_lineaire) L n
+(     {) p n
+(#include) K
+( ") p
+(varextbis.h) str
+(") p n
+() N
+(       ) S
+(o2) K
+( Tt_def_index t_def_idxA;) p n
+(       ) S
+(o2) K
+( Tt_def_index t_def_idxB;) p n
+(       ) S
+(o2) K
+( Tt_def_index def_idx;) p n
+() N
+(       ) S
+(o2) K
+( Tt_rem_oid t_remA;) p n
+(       ) S
+(o2) K
+( Tt_rem_oid t_remB;) p n
+() N
+(     };) N
+() N
+(program) K
+( ) p
+(public) K n
+(P_JS_select \(Pc_noeud:string\)) p n
+(     ) S
+(in) K
+( ) p
+(application ) K
+(Index_lineaire;) L n
+(     ) p
+(transaction body ) K
+(P_JS_select \(Pc_noeud:string\)) L n
+(    ) S
+( in application ) K
+(Index_lineaire) L n
+(     {) p n
+(       ) S
+(o2) K
+( set \(C_Feuille\) Tree = set \(\);) p n
+(       ) S
+(o2) K
+( C_Feuille f = nil;) p n
+(       ) S
+(o2) K
+( integer reso2q = 0;) p n
+(       ) S
+(o2) K
+( Tt_rem_oid rem, quadrant;) p n
+(       ) S
+(o2) K
+( set \(Tt_rem_oid\) Resultat = set \(\);) p n
+(       ) S
+(o2) K
+( Tt_rem_oid Po_objet = Nt_rem_oid;) p n
+(       ) S
+(o2) K
+( Tt_def_index Po_index, idx;) p n
+(       ) S
+(for) K
+( \(idx ) p
+(in) K
+( Nt_indexes.Al_def_index\)) p n
+() S 8 T ( ) S
+(if) K
+( \(idx.Ao_index == No_quad_lin01\)) p n
+() S 8 T (     Po_index = idx;) N
+() N
+(/* Recuperation des feuilles de l'arbre */) c n
+(         reso2q = ) p
+(o2query) K
+( \(Tree, ") p
+(select f from f in $1) str
+(", Po_index.Ao_index\);) p n
+(       ) S
+(if) K
+( \(reso2q\)) p n
+() S 8 T ( {) N
+() S 8 T (   printf \(") S
+(Index vide ou inexistant ...!!!) str
+("\);) p n
+(/* return set\(\);*/) c n
+() p 8 T (   ) S
+(abort) K
+(;) p n
+() S 8 T ( }) N
+() N
+(       ) S
+(for) K
+( \(f ) p
+(in) K
+( Tree\)) p n
+(         ) S
+(if) K
+( \(F_JS_small_theta \(Po_objet, rem\)) p n
+(           Resultat += set \(rem\);) N
+(       Ns_rem_oid = Resultat;) N
+(/*return Resultat;*/) c n
+(     };) p n
+() N
+(commit) K
+(;) p n
+(essai2.o2c) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(quit) K
+(;) p n
+(essai2.o2c) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

@@ -1,0 +1,1080 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(/* ) c n
+( * File Transfer Protocol ) N
+( * ) N
+( * Promela \(Protocol Meta Language\) ) N
+( * ) N
+( * J-Ph Cottin 12/96 \(inspired by Gerard J. Holzmann\) ) N
+( */) S
+( ) p n
+( ) N
+( ) N
+(/* ) c n
+( * Global Definitions ) N
+( */) S
+( ) p n
+( ) N
+(#define) K
+( LOSS           0    ) p
+(/* message loss   */) c
+( ) p n
+(#define) K
+( DUPS           0    ) p
+(/* duplicate msgs */) c
+(    ) p n
+(#define) K
+( QSZ            2    ) p
+(/* queue size */) c
+( ) p n
+( ) N
+(mtype) K
+( = { ) p n
+(  red, white, blue, ) N
+(  abort, ) S
+(accept) K
+(, ack, sync_ack, close, connect, ) p n
+(  create, data, eof, open, reject, sync, transfer,  ) N
+(  FATAL, NON_FATAL, COMPLETE ) N
+( } ) N
+( ) N
+( ) N
+(/*chan use_to_pres[2] = [QSZ] of {byte}; ) c n
+(chan pres_to_use[2] = [QSZ] of {byte}; ) N
+(chan pres_to_ses[2] = [QSZ] of {byte}; ) N
+( ) N
+(chan ses_to_pres[2] = [QSZ] of {byte,byte}; ) N
+(chan ses_to_flow[2] = [QSZ] of {byte,byte}; ) N
+(chan flow_to_ses[2] = [QSZ] of {byte,byte}; ) N
+(chan dll_to_flow[2] = [QSZ] of {byte,byte}; ) N
+(chan flow_to_dll[2] = [QSZ] of {byte,byte}; ) N
+( ) N
+(chan ses_to_fsrv[2] = [QSZ] of {byte}; ) N
+(chan fsrv_to_ses[2] = [QSZ] of {byte}; */) N
+( ) p n
+(chan) k
+( use_to_pres[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(}; ) p n
+(chan) k
+( pres_to_use[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(}; ) p n
+(chan) k
+( pres_to_ses[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(}; ) p n
+( ) N
+(chan) k
+( ses_to_pres[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(,) p
+(byte) k
+(}; ) p n
+(chan) k
+( ses_to_flow[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(,) p
+(byte) k
+(}; ) p n
+(chan) k
+( flow_to_ses[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(,) p
+(byte) k
+(}; ) p n
+(chan) k
+( dll_to_flow[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(,) p
+(byte) k
+(}; ) p n
+(chan) k
+( flow_to_dll[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(,) p
+(byte) k
+(}; ) p n
+( ) N
+(chan) k
+( ses_to_fsrv[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(}; ) p n
+(chan) k
+( fsrv_to_ses[2] = [QSZ] ) p
+(of) K
+( {) p
+(mtype) K
+(}; ) p n
+(  ) N
+(/* ) c n
+( * User Layer Validation Model ) N
+( */) S
+( ) p n
+( ) N
+(proctype) K
+( userprc \( ) p
+(bit) k
+( n\) ) p n
+({ ) N
+(  use_to_pres[n]!transfer; ) N
+(  ) S
+(if) K
+( ) p n
+(    :: pres_to_use[n]?) S
+(accept) K
+( -> ) p
+(goto) K
+( Done ) p n
+(    :: pres_to_use[n]?reject -> ) S
+(goto) K
+( Done ) p n
+(    :: use_to_pres[n]!abort  -> ) S
+(goto) K
+( Aborted ) p n
+(  ) S
+(fi) K
+(; ) p n
+(Aborted: ) N
+(  ) S
+(if) K
+( ) p n
+(    :: pres_to_use[n]?) S
+(accept) K
+( -> ) p
+(goto) K
+( Done ) p n
+(ftp2.pml) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(    :: pres_to_use[n]?reject -> ) p
+(goto) K
+( Done ) p n
+(  ) S
+(fi) K
+(; ) p n
+(Done: ) N
+(  ) S
+(skip) K
+( ) p n
+(    } ) N
+( ) N
+( ) N
+(/* ) c n
+( * Presentation Layer Validation Model ) N
+( */) S
+( ) p n
+( ) N
+(proctype) K
+( present\() p
+(bit) k
+( n\) ) p n
+({ ) N
+(  ) S
+(byte) k
+( status, uabort; ) p n
+( ) N
+(endIDLE: ) N
+(  ) S
+(do) K
+( ) p n
+(    :: use_to_pres[n]?transfer -> ) N
+(                   uabort = 0; ) N
+(                   ) S
+(break) K
+( ) p n
+(    ::  use_to_pres[n]?abort -> ) N
+(                   ) S
+(skip) K
+( ) p n
+(  ) S
+(od) K
+(; ) p n
+( ) N
+(TRANSFER: ) N
+(  pres_to_ses[n]!transfer; ) N
+(  ) S
+(do) K
+( ) p n
+(    :: use_to_pres[n]?abort -> ) N
+(         ) S
+(if) K
+( ) p n
+(        :: \(!uabort\) -> ) N
+(                   uabort = 1; ) N
+(                   pres_to_ses[n]!abort ) N
+(        :: \(uabort\) -> ) N
+(                   ) S
+(assert) K
+(\(1+1!=2\) ) p n
+(         ) S
+(fi) K
+( ) p n
+(    :: ses_to_pres[n]?) S
+(accept) K
+(,0 -> ) p n
+(         ) S
+(goto) K
+( DONE) p n
+(    :: ses_to_pres[n]?reject\(status\) ->) N
+(         ) S
+(if) K
+( ) p n
+(           :: \(status == FATAL || uabort\) -> ) N
+(                     ) S
+(goto) K
+( FAIL ) p n
+(           :: \(status == NON_FATAL && !uabort\) -> ) N
+(                     ) S
+(goto) K
+( TRANSFER ) p n
+(         ) S
+(fi) K
+( ) p n
+(  ) S
+(od) K
+( ;) p n
+( ) N
+(DONE: ) N
+(  pres_to_use[n]!) S
+(accept) K
+(; ) p n
+(  ) S
+(goto) K
+( endIDLE; ) p n
+(FAIL: ) N
+(  pres_to_use[n]!reject; ) N
+(  ) S
+(goto) K
+( endIDLE ) p n
+(    } ) N
+( ) N
+(/* ) c n
+( * Session Layer Validation Model ) N
+( */) S
+(    ) p n
+( ) N
+( ) N
+(proctype) K
+( session \() p
+(bit) k
+( n\)  ) p n
+({ ) N
+(    ) S
+(bit) k
+( toggle; ) p n
+(    ) S
+(byte) k
+( type, status; ) p n
+( ) N
+(endIDLE: ) N
+( ) S
+(do) K
+( ) p n
+(ftp2.pml) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(   :: pres_to_ses[n]?type -> ) p n
+(       ) S
+(if) K
+( ) p n
+(         :: \(type == transfer\) ->  ) N
+(                   ) S
+(goto) K
+( DATA_OUT ) p n
+(      :: \(type != transfer\)      ) S
+(/* ignore */) c
+( ) p n
+(       ) S
+(fi) K
+( ) p n
+(   :: flow_to_ses[n]?type, 0 -> ) N
+(       ) S
+(if) K
+( ) p n
+(         :: \(type == connect\) ->  ) N
+(                   ) S
+(goto) K
+( DATA_IN ) p n
+(      :: \(type != connect\)      ) S
+(/* ignore */) c
+( ) p n
+(       ) S
+(fi) K
+( ) p n
+( ) S
+(od) K
+(; ) p n
+( ) N
+(DATA_IN:          ) S
+(/* 1. prepare local file fsrver  */) c
+( ) p n
+(  ses_to_fsrv[n]!create; ) N
+(  ) S
+(do) K
+( ) p n
+(    :: fsrv_to_ses[n]?reject -> ) N
+(             ses_to_flow[n]!reject,0; ) N
+(             ) S
+(goto) K
+( endIDLE ) p n
+(    :: fsrv_to_ses[n]?) S
+(accept) K
+( -> ) p n
+(             ses_to_flow[n]!) S
+(accept) K
+(,0; ) p n
+(             ) S
+(break) K
+( ) p n
+(  ) S
+(od) K
+(; ) p n
+(             ) S
+(/* 2. Receive the data, upto eof */) c
+( ) p n
+(  ) S
+(do) K
+( ) p n
+(    :: flow_to_ses[n]?data,0 -> ) N
+(             ses_to_fsrv[n]!data ) N
+(    :: flow_to_ses[n]?eof,0 -> ) N
+(             ses_to_fsrv[n]!eof; ) N
+(             ) S
+(break) K
+( ) p n
+(    :: pres_to_ses[n]?transfer -> ) N
+(             ses_to_pres[n]!reject\(NON_FATAL\) ) N
+(    :: flow_to_ses[n]?close,0 ->        ) S
+(/* remote user aborted */) c
+( ) p n
+(             ses_to_fsrv[n]!close; ) N
+(             ) S
+(break) K
+( ) p n
+(    :: ) S
+(timeout) K
+( ->                       ) p
+(/* got disconnect */) c
+( ) p n
+(             ses_to_fsrv[n]!close; ) N
+(             ) S
+(goto) K
+( endIDLE ) p n
+(  ) S
+(od) K
+(; ) p n
+(                          ) S
+(/* 3. Close the connection */) c
+( ) p n
+(  ses_to_flow[n]!close,0; ) N
+(  ) S
+(goto) K
+( endIDLE; ) p n
+( ) N
+(DATA_OUT:                  ) S
+(/* 1. prepare local file fsver */) c
+( ) p n
+(  ses_to_fsrv[n]!open; ) N
+(  ) S
+(if) K
+( ) p n
+(   :: fsrv_to_ses[n]?reject -> ) N
+(         ses_to_pres[n]!reject\(FATAL\); ) N
+(          ) S
+(goto) K
+( endIDLE ) p n
+(   :: fsrv_to_ses[n]?) S
+(accept) K
+( -> ) p n
+(        ) S
+(skip) K
+( ) p n
+( ) S
+(fi) K
+(; ) p n
+(                                      ) S
+(/* 2. Initialize flow control */) c
+( ) p n
+( ses_to_flow[n]!sync,toggle; ) N
+( ) S
+(do) K
+( ) p n
+(   :: ) S
+(atomic) K
+( { ) p n
+(           flow_to_ses[n]?sync_ack,type -> ) N
+(                 ) S
+(if) K
+( ) p n
+(                   :: \(type!= toggle\) ) N
+(                   :: \(type == toggle\) -> ) S
+(break) K
+( ) p n
+(                ) S
+(fi) K
+( ) p n
+(          } ) N
+( :: ) S
+(timeout) K
+( -> ) p n
+(            ses_to_fsrv[n]!close; ) N
+(            ses_to_pres[n]!reject\(FATAL\); ) N
+(ftp2.pml) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (4) 4
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(            ) p
+(goto) K
+( endIDLE ) p n
+(od) K
+(; ) p n
+( toggle = 1 - toggle; ) N
+(                                    ) S
+(/* 3. Prepare remote file fsrver */) c
+( ) p n
+( ses_to_flow[n]!connect,0; ) N
+( ) S
+(if) K
+(  ) p n
+(   :: flow_to_ses[n]?reject,0 -> ) N
+(         ses_to_fsrv[n]!close; ) N
+(         ses_to_pres[n]!reject\(FATAL\); ) N
+(       ) S
+(goto) K
+( endIDLE ) p n
+(   :: flow_to_ses[n]?connect,0 -> ) N
+(         ses_to_fsrv[n]!close; ) N
+(         ses_to_pres[n]!reject\(NON_FATAL\); ) N
+(       ) S
+(goto) K
+( endIDLE ) p n
+(   :: flow_to_ses[n]?) S
+(accept) K
+(,0 -> ) p n
+(        ) S
+(skip) K
+( ) p n
+(    :: ) S
+(timeout) K
+( -> ) p n
+(         ses_to_fsrv[n]!close; ) N
+(         ses_to_pres[n]!reject\(FATAL\); ) N
+(       ) S
+(goto) K
+( endIDLE  ) p n
+(fi) K
+(; ) p n
+(                       ) S
+(/* 4. Transmit the data, upto eof*/) c
+( ) p n
+(do) K
+( ) p n
+(  :: fsrv_to_ses[n]?data -> ) N
+(            ses_to_flow[n]!data,0 ) N
+(  :: fsrv_to_ses[n]?eof -> ) N
+(            ses_to_flow[n]!eof,0; ) N
+(            status = COMPLETE; ) N
+(            ) S
+(break) K
+( ) p n
+(  :: pres_to_ses[n]?abort ->          ) S
+(/* local user aborted  */) c n
+(               ses_to_fsrv[n]!close;) p n
+(               ses_to_flow[n]!close,0;) N
+(               status = FATAL;) N
+(               ) S
+(break) K n
+(od) S
+(; ) p n
+(                 ) S
+(/* 5. Close the connexion */) c
+( ) p n
+(do) K
+( ) p n
+(   :: pres_to_ses[n]?abort            ) S
+(/* ignore */) c
+( ) p n
+(   :: flow_to_ses[n]?close,0 -> ) N
+(              ) S
+(if) K
+( ) p n
+(                 :: \(status == COMPLETE\) ->  ) N
+(                          ses_to_pres[n]!) S
+(accept) K
+(,0       ) p n
+(                 :: \(status != COMPLETE\) -> ) N
+(                         ses_to_pres[n]!reject\(status\) ) N
+(             ) S
+(fi) K
+(; ) p n
+(           ) S
+(break) K
+( ) p n
+( :: ) S
+(timeout) K
+( -> ) p n
+(       ses_to_pres[n]!reject\(FATAL\); ) N
+(       ) S
+(break) K
+( ) p n
+( ) S
+(od) K
+(; ) p n
+( ) S
+(goto) K
+( endIDLE ) p n
+( ) N
+(} ) N
+( ) N
+(/* ) c n
+( * File Server Validation Model ) N
+( */) S
+( ) p n
+( ) N
+(proctype) K
+( fserver \() p
+(bit) k
+( n\) ) p n
+({ ) N
+( end: ) N
+(    ) S
+(do) K
+( ) p n
+(        :: ses_to_fsrv[n]?create ->     ) S
+(/* incoming */) c
+( ) p n
+(             ) S
+(if) K
+( ) p n
+(                :: fsrv_to_ses[n]!reject  ) N
+(               :: fsrv_to_ses[n]!) S
+(accept) K
+( -> ) p n
+(ftp2.pml) (right) (4) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (4) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (5) 5
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(            ) p
+(do) K
+( ) p n
+(                 :: ses_to_fsrv[n]?data ) N
+(                 :: ses_to_fsrv[n]?eof -> ) S
+(break) K
+( ) p n
+(                 :: ses_to_fsrv[n]?close -> ) S
+(break) K
+( ) p n
+(            ) S
+(od) K
+( ) p n
+(      ) S
+(fi) K
+(    ) p n
+(     :: ses_to_fsrv[n]?open ->     ) S
+(/* outgoing */) c
+( ) p n
+(             ) S
+(if) K
+( ) p n
+(               :: fsrv_to_ses[n]!reject  ) N
+(               :: fsrv_to_ses[n]!) S
+(accept) K
+( -> ) p n
+(            ) S
+(do) K
+( ) p n
+(                 :: fsrv_to_ses[n]!data ) N
+(                 :: fsrv_to_ses[n]!eof -> ) S
+(break) K
+( ) p n
+(                 :: ses_to_fsrv[n]?close -> ) S
+(break) K
+( ) p n
+(            ) S
+(od) K
+( ) p n
+(      ) S
+(fi) K
+( ) p n
+( ) S
+(od) K
+( ) p n
+(} ) N
+( ) N
+(/* ) c n
+( * Flow Control Laer Validation Model ) N
+( */) S
+( ) p n
+( ) N
+(#define) K
+( true    1 ) p n
+(#define) K
+( false   0 ) p n
+( ) N
+(#define) K
+( M       4   ) p
+(/* range sequence numbers */) c
+( ) p n
+(#define) K
+( W        2  ) p
+(/* window size : M/2   */) c
+( ) p n
+( ) N
+(proctype) K
+( fc\() p
+(bit) k
+( n\) ) p n
+({ ) N
+(     ) S
+(bool) k
+( busy[M];        ) p
+(/* outstanding messages     */) c
+(            ) p n
+(     ) S
+(byte) k
+( q;                   ) p
+(/* seq# oldest unacked msg */) c
+(  ) p n
+(     ) S
+(byte) k
+( m;                   ) p
+(/* seq# last msg received  */) c
+( ) p n
+(     ) S
+(byte) k
+( s;                   ) p
+(/* seq# next msg to send   */) c
+( ) p n
+(     ) S
+(byte) k
+( window;              ) p
+(/* nr of outstanding msgs  */) c
+( ) p n
+(     ) S
+(byte) k
+( type;                ) p
+(/* msg type                */) c
+( ) p n
+(     ) S
+(bit) k
+( received[M];    ) p
+(/* receiver housekeeping */) c
+( ) p n
+(     ) S
+(bit) k
+( x;                     ) p
+(/* scratch variable */) c
+( ) p n
+(     ) S
+(byte) k
+( p;                 ) p
+(/* seq# of last msg acked */) c
+( ) p n
+(    ) S
+(byte) k
+( I_buf[M], O_buf[M];   ) p
+(/* message buffers */) c
+( ) p n
+( ) N
+( ) S
+(/* sender part */) c
+( ) p n
+( end: ) N
+(      ) S
+(do) K
+( ) p n
+(          :: ) S
+(atomic) K
+( { ) p n
+(                \(window < W && ) S
+(len) K
+( \(ses_to_flow [n]\) > 0 ) p n
+(                        && ) S
+(len) K
+( \(flow_to_dll[n]\) < QSZ \) -> ) p n
+(                           ses_to_flow[n]?type,x; ) N
+(                          window = window +1; ) N
+(                          busy[s]= true; ) N
+(                         O_buf[s] = type; ) N
+(                         flow_to_dll[n]!type, s; ) N
+(                         ) S
+(if) K
+( ) p n
+(                            :: \(type != sync\) -> ) N
+(                                     s = \(s+1\) %M ) N
+(                            :: \(type == sync\) -> ) N
+(                                     window = 0; ) N
+(                                     s = M; ) N
+(                                    ) S
+(do) K
+( ) p n
+(                                       :: \(s > 0\) -> ) N
+(                                             s= s - 1; ) N
+(                                             busy[s] = false ) N
+(                                       :: \(s == 0\) -> ) S
+(break) K
+( ) p n
+(                                    ) S
+(od) K
+( ) p n
+(                         ) S
+(fi) K
+( ) p n
+(ftp2.pml) (right) (5) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (5) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (6) 6
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(                     } ) p n
+(       :: ) S
+(atomic) K
+( { ) p n
+(                       \(window > 0 && busy[q] == false\) -> ) N
+(                           window = window -1; ) N
+(                          q = \(q+1\) %M ) N
+(             } ) N
+(#if) K
+(  DUPS ) p n
+(       :: ) S
+(atomic) K
+( { ) p n
+(             \() S
+(len) K
+(\(flow_to_dll[n]\) < QSZ ) p n
+(                && window >0 && busy[q] == true\) -> ) N
+(                  flow_to_dll[n]! O_buf[q], q ) N
+(        } ) N
+(#endif) K
+( ) p n
+(       :: ) S
+(atomic) K
+( { ) p n
+(             \() S
+(timeout) K
+( && ) p
+(len) K
+(\(flow_to_dll[n]\) < QSZ ) p n
+(                && window >0 && busy[q] == true\) -> ) N
+(                  flow_to_dll[n]! O_buf[q], q ) N
+(        } ) N
+(/* receiver part */) c
+( ) p n
+(#if) K
+(  LOSS ) p n
+(       :: dll_to_flow[n]?type,m   ) S
+(/* lose any message */) c
+( ) p n
+(#endif) K
+( ) p n
+(       :: dll_to_flow[n]?type,m -> ) N
+(              ) S
+(if) K
+( ) p n
+(                 :: ) S
+(atomic) K
+({ ) p n
+(                        \(type == ack\) -> ) N
+(                           busy[m] = false ) N
+(                } ) N
+(                :: ) S
+(atomic) K
+({ ) p n
+(                        \(type == sync\) -> ) N
+(                           m = 0;) N
+(                           ) S
+(do) K n
+(                             :: \(m < M\) ->) p n
+(                                  received[m] = 0;) N
+(                                  m = m + 1) N
+() S 8 T () S 16 T () S 24 T (     :: \(m == M\) ->) N
+(                                  ) S
+(break) K n
+(                           ) p
+(od) K
+(  ) p n
+(                }; ) N
+(                  flow_to_dll[n]!sync_ack,0) N
+() S 8 T (   :: \(type == sync_ack\) ->) N
+(                  flow_to_ses[n]!sync_ack,0) N
+() S 8 T (   :: \(type != ack && type != sync && type != sync_ack\) ->) N
+(                  ) S
+(if) K n
+(                    :: ) p
+(atomic) K
+( {) p n
+(                       \(received[m] == true\) ->) N
+(                            x = \(\(0 < p-m  && p-m<= W\)) N
+() S 8 T () S 16 T () S 24 T () S 32 T ( || \(0 < p-m-M && p-m-M <=W\)\)};) N
+(                       ) S
+(if) K
+( ) p n
+(                         :: \(x\) -> flow_to_dll[n]!ack,m) N
+() S 8 T () S 16 T () S 24 T ( :: \(!x\) ) S
+(/* else skip */) c
+(   ) p n
+(                       ) S
+(fi) K n
+() p 8 T () S 16 T (   :: ) S
+(atomic) K
+( {) p n
+(                         \(received[m] == false\) ->) N
+(                              I_buf[m] = type;) N
+(                              received[m] = true;) N
+(                              received[\(m-W+M\)%M] = false) N
+() S 8 T () S 16 T () S 24 T () S 32 T (}) N
+(                 ) S
+(fi) K n
+(           ) p
+(fi) K n
+() p n
+(     :: \(received[p] == true && ) S
+(len) K
+(\(flow_to_ses[n]\)<QSZ) p n
+(                             && ) S
+(len) K
+(\(flow_to_dll[n]\)<QSZ \) ->) p n
+(                  flow_to_ses[n]!I_buf[p],0;) N
+(                  flow_to_dll[n]!ack,p;) N
+(                  p = \(p+1\) % M) N
+(ftp2.pml) (right) (6) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (6) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (7) 7
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(     ) p
+(od) K n
+( }) p n
+() N
+(/*) c n
+( * Datalink Layer Validation Model) N
+( */) N
+() p n
+(proctype) K
+( data_link \(\)) p n
+({) N
+(byte) k
+( type, seq;) p n
+() N
+(end:) N
+(        ) S
+(do) K n
+() p 8 T (  :: flow_to_dll[0]?type,seq ->) N
+(                 ) S
+(if) K n
+(                   :: dll_to_flow[1]!type,seq) p n
+() S 8 T () S 16 T (   :: ) S
+(skip) K
+( ) p
+(/* lose message */) c n
+(                 ) p
+(fi) K n
+(          :: flow_to_dll[1]?type,seq ->) p n
+(                 ) S
+(if) K n
+(                   :: dll_to_flow[0]!type,seq) p n
+() S 8 T () S 16 T (   :: ) S
+(skip) K
+( ) p
+(/* lose message */) c n
+(                 ) p
+(fi) K n
+(         ) p
+(od) K n
+(}) p n
+() N
+(/* ) c n
+( * Main Program ) N
+( */) S
+( ) p n
+( ) N
+(/*init ) c n
+(  { ) N
+(    atomic { ) N
+(      run userprc\(0\); run userprc\(1\); ) N
+(      run present\(0\); run present\(1\); ) N
+(      run session\(0\); run session\(1\); ) N
+(      run fserver\(0\); run fserver\(1\); ) N
+(      run fc\(0\);      run fc\(1\); ) N
+(      run data_link\(\) ) N
+(     } ) N
+(  } ) N
+( */) N
+() p n
+(init) K
+( ) p n
+(  { ) N
+(    ) S
+(atomic) K
+( { ) p n
+(      ) S
+(run) K
+( userprc\(0\); ) p n
+(      ) S
+(run) K
+( present\(0\); ) p n
+(      ) S
+(run) K
+( session\(0\); ) p n
+(      ) S
+(run) K
+( fserver\(0\); ) p n
+(      ) S
+(run) K
+( fc\(0\);      ) p n
+(      ) S
+(run) K
+( data_link\(\);) p n
+(      ) S
+(run) K
+( fc\(1\); ) p n
+(      ) S
+(run) K
+( fserver\(1\); ) p n
+(      ) S
+(run) K
+( session\(1\); ) p n
+(      ) S
+(run) K
+( present\(1\); ) p n
+(      ) S
+(run) K
+( userprc\(1\); ) p n
+(    } ) N
+(  }  ) N
+(ftp2.pml) (right) (7) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (7) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

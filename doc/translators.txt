@@ -1,0 +1,23 @@
+	Daniele Ghiotti	Italian
+	Tomek Burdziak	Polish
+mvaro@dlsi.ua.es	Miguel A. Varo	Maintains Spanish and Catalan
+mw@miwie.in-berlin.de	Michael Wiedmann	Maintains German
+ck@held.mind.de	Christian Kirsch	German
+bamse@gmx.de	Erwin Dieterich	German
+jec@dcs.ed.ac.uk	Juliusz Chroboczek	Polish	He is also the author of @code{Ogonkify} (@pxref{top,,Overview,ogonkify,Ogonkify manual}).
+Marcel.van.der.Laan@home.ict.nl	Marcel van der Laan	Dutch
+lorenzo@argon.roma2.infn.it	Lorenzo M. Catucci	Maintains Italian
+junker@jazz.snu.ac.kr	Choi Jun Ho	Korean
+uyar@cs.itu.edu.tr	Turgut Uyar	Turkish
+pavlovsk@ff.cuni.cz	Jiri Pavlovsky	Maintains Czech
+pnidv96@student.hv.se	Peter Nilsson	Maintains Swedish
+pmmm@camoes.rnl.ist.utl.pt	Pedro Miguel Marques Morais	Maintains Portugese
+voldemarus@geocities.com	Vladimir Vodolazkiy	Russian	has a @href{http://come.to/vodolaz, home page}.
+pjsm@students.fct.unl.pt	Paulo Matos	Portugese
+jonr@sdata.no	Jon Ross	Maintains Norwegian
+IgorF@ix.netcom.com	Igor Furlan	Maintains Slovenian
+qrczak@knm.org.pl	Marcin 'Qrczak' Kowalczyk	Polish
+smoke@casema.net	Tijs van Bakel	Maintains Dutch
+dima@Chg.RU	Dmitry S. Sivachenko	Maintains Russian
+furukawa@vinelinux.org	Yasuyuki Furukawa	Japanese
+mhatta@gnu.org	Masayuki Hatta	Maintains Japanese

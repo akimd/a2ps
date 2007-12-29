@@ -1,0 +1,144 @@
+\Label{ascii}
+\encoding{ascii}%
+This is a pure ASCII file, written to test the ASCII encoding
+in a2ps.  Character with the high bit set, (such as é, à, ô, ï)
+are not printable, and are escaped.
+
+\Label{latin1}
+\encoding{latin1}%
+Ceci est un texte en français accentué, comme dans août, ou
+décembre, et non pas aoùt et dècembre...
+
+\Label{latin2}
+\encoding{latin2}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+\Keyword{DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ}
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{latin3}
+\encoding{latin3}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+\keyword{KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka}
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{latin4}
+\encoding{latin4}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{latin5}
+\encoding{latin5}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{latin6}
+\encoding{latin6}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+% We no longer include Cyrillic fonts in the package.
+% \Label{iso5}
+% \encoding{iso5}%
+% dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+% GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+% DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+% KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+% PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+% MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+% ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+% wska¼nik WSKA¬NIK mo¿na MO¯NA
+% 
+% \Label{koi8}
+% \encoding{koi8}%
+% dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+% GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+% DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+% KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+% PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+% MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+% ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+% wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{CP1250}
+\encoding{CP1250}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{ibmpc}
+\encoding{ibmpc}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{pcg}
+\encoding{pcg}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{Hp}
+\encoding{Hp}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+
+\Label{Mac}
+\encoding{Mac}%
+dok±d DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie
+GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d
+DOK¡D pamiêtasz PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ
+KI¦Æ mrówka MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz
+PAMIÊTASZ ³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka
+MRÓWKA wska¼nik WSKA¬NIK mo¿na MO¯NA dok±d DOK¡D pamiêtasz PAMIÊTASZ
+³awka £AWKA naæpaæ NAÆPAÆ ga¶nie GA¦NIE ki¶æ KI¦Æ mrówka MRÓWKA
+wska¼nik WSKA¬NIK mo¿na MO¯NA
+

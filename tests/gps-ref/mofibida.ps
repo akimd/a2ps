@@ -1,0 +1,208 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (#!/usr/pd/bin/runhugs) C n
+0 T () S
+({- A sample Haskell file -}) c n
+0 T () S
+(module) K
+( Test) p n
+0 T () S
+(where) K n
+(5) # (import) S
+( ) p
+(qualified) K
+( Monad) p n
+0 T () S
+(import) K
+( Prelude ) p
+(hiding) K
+( \(zip3\)) p n
+0 T () N
+0 T () S
+({-#specialise qsort :: [String]->[String] #-}) C
+( ) p
+(-- a pragma) c n
+0 T () N
+(10) # (-- Quicksort) N
+0 T () S
+(qsort :: Ord a => [a] -> [a]     -- type annotation) C n
+0 T () S
+(qsort ) p
+([]) K
+(     = ) p
+([]) K n
+0 T () S
+(qsort \(x) p
+(:) K
+(xs\) = qsort elts_lt_x ++ ) p
+([) K
+(x) p
+(]) K
+( ++ qsort elts_greq_x) p n
+0 T (                 ) S
+(where) K n
+(15) # () S
+(                   elts_lt_x   = ) p
+([) K
+(y | y ) p
+(\254) sy
+( xs, y < x) p
+(]) K n
+0 T () S
+(                   elts_greq_x = ) p
+([) K
+(y | y ) p
+(\254) sy
+( xs, y ) p
+(\263) sy
+( x) p
+(]) K n
+0 T () N
+0 T () S
+(-- Fibbonacci sequence) c n
+0 T () S
+(fib             = 1 ) p
+(:) K
+( 1 ) p
+(:) K
+( ) p
+([) K
+( a+b | \(a,b\) ) p
+(\254) sy
+( zip fib \(tail fib\) ) p
+(]) K n
+(20) # () N
+0 T () S
+(-- Binary tree) c n
+0 T () S
+(data) K
+( Tree a = Branch \(Tree a\) \(Tree a\) | Leaf a) p n
+0 T () N
+0 T () S
+(-- State monad from "http://haskell.org/tutorial/monads.html") c n
+(25) # (-- note that ">>=" should not be prited as ">\\geq") N
+0 T () S
+(data) K
+( S = Tree String) p n
+0 T () S
+(data) K
+( SM a = SM \(S ) p
+(\256) sy
+( \(a,S\)\)  ) p
+(-- The monadic type) c n
+0 T () S
+(instance) K
+( Monad SM ) p
+(where) K n
+0 T () S
+(  ) p
+(-- defines state propagation) c n
+(30) # () S
+(  SM c1 >>= fc2         =  SM \(\\s0 ) p
+(\256) sy
+( ) p
+(let) K
+( \(r,s1\) = c1 s0) p n
+0 T (                                          SM c2 = fc2 r ) S
+(in) K n
+0 T () S
+(                                         c2 s1\)) p n
+0 T (  return k              =  SM \(\\s ) S
+(\256) sy
+( \(k,s\)\)) p n
+0 T () N
+(35) # (leap = \\n ) S
+(\256) sy
+( \( \(n ) p
+(`mod`) K
+( 4 == 0\)&&\(n ) p
+(`mod`) K
+( 100 > 0\) || \(n ) p
+(`mod`) K
+( 400 == 0\)\)) p n
+0 T () N
+0 T (a<->b = a ++ ") S
+(<->) str
+(" ++ b   ) p
+(-- <-> is a new binary operator) c n
+0 T () N
+0 T () S
+(infixr) K
+( 7 <->    ) p
+(-- infix declaration can be anywhere in the module) c n
+(40) # () N
+0 T (-- dark corners of Haskell syntax are not  pretty-printed correctly:) N
+0 T () S
+(if) K
+(\345' = True     ) p
+(-- characters outside ASCII are allowed,) c n
+0 T () S
+(\() p
+(\243) sy
+(\253\) ) p
+(\316) sy
+( String) p
+(\256) sy
+(String) p
+(\256) sy
+(String ) p
+(-- <=\253 is a valid operator name,) c n
+0 T () S
+(a ) p
+(\243) sy
+(\253 b = a++") p
+(<=<<) str
+("++b) p n
+(45) # (a |-- b = a++") S
+(|--) str
+("++b  ) p
+(-- operator names can even inlude double dash,) c n
+0 T () S
+(                       ) p
+(-- but many compilers will confuse it with a comment) c n
+0 T () S
+(data) K
+( Pair = String ) p
+(\316) sy
+(:) K
+( String  ) p
+(-- ::: is a valid constructor) c n
+0 T () S
+(\(x,) p
+(hiding) K
+(,) p
+(qualified) K
+(\) = \(0,0,0\)       ) p
+(-- not actually reserved words) c n
+0 T () S
+(string_with_gaps = ") p
+(Hel\\  \\lo,\\HTwo\\) str n
+(50) # (      \\rld) S
+("++) p
+([) K
+('\\33') p
+(]) K
+(                 ) p
+(-- the value is "Hello,\\tworld!") c n
+(mofibida.hs) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

@@ -1,0 +1,77 @@
+
+
+
+A2PS(1L)          Misc. Reference Manual Pages           A2PS(1L)
+
+
+
+NNNNAAAAMMMMEEEE
+     a2ps - formats an ascii file for printing  on  a  postscript
+     printer
+
+SSSSYYYYNNNNOOOOPPPPSSSSIIIISSSS
+     aaaa2222ppppssss [ gggglllloooobbbbaaaallll ooooppppttttiiiioooonnnnssss ] [ ppppoooossssiiiittttiiiioooonnnnaaaallll ooooppppttttiiiioooonnnnssss  ]  [  _f_i_l_e_1  [
+     ppppoooossssiiiittttiiiioooonnnnaaaallll ooooppppttttiiiioooonnnnssss ] ] _f_i_l_e_2 ... ] ]
+
+DDDDEEEESSSSCCCCRRRRIIIIPPPPTTTTIIIIOOOONNNN
+     _a_2_p_s formats each named file for printing  in  a  postscript
+     printer;  if  no file is given, _a_2_p_s reads from the standard
+     input. The output is sent to the printer or to stdout or  to
+     a  file.   The format used is nice and compact: normally two
+     pages on each  physical  page,  borders  surrounding  pages,
+     headers with useful information (page number, printing date,
+     file name  or  supplied  header),  line  numbering,  keyword
+     highlighting,  symbol substitution etc.  This is very useful
+     for making archive listings of programs.
+
+  GGGGlllloooobbbbaaaallll ooooppppttttiiiioooonnnnssss
+     Global options offered by _a_2_p_s are the following:
+
+     ----???? ----hhhh Print usage information.
+
+     ----aaaa    Use alternative paper size. In general defined  to  be
+           US letter. (see -V).
+
+     ----bbbb    Force printing binary files. By default, binary  files
+           printing  is  stopped  before  second  page  (see  -nb
+           option).
+
+     ----cccc    Compact mode for a  sequence  of  files.  This  option
+           allows  the printing of two files in the same physical
+           page: last page of the first file in the left (or  up)
+           side  and  first  page of the second file in the right
+           (or down) side. This option is valid only for twinpage
+           mode (two pages per physical page).
+
+     ----ffff    Fold lines too large to be printed inside the  borders
+           (default option).  Max line size depends on format and
+           font size used and whether  line  numbering  has  been
+           suppressed.
+
+     ----hhhh    Print usage information.
+
+     ----IIII_f_i_l_e
+           Use the specified file as the postscript prologue  for
+           a2ps.
+
+     ----iiii    Interpret TAB, BS and FF characters (default  option).
+           TAB  is  replaced  by  enough spaces to reach next tab
+           stop while BS and FF have their meanings.
+
+
+
+SunOS 5.5          Last change: 9 August 1996                   1
+
+Some weird characters that exists out there are:
+
+- O plus: o+ and +o
+
+- Copyright: cO
+
+- Plus or minus: +_
+
+- Greater than or equal to: ~>_
+
+- Less than or equal to: ~<_
+
+- Another form of u_n_d_e_r_l_i_n_i_n_g_._

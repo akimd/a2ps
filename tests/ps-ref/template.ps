@@ -1,0 +1,359 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(class) K
+( TEMPLATE2 ) p
+(inherit) K n
+() p n
+(   ARGUMENTS) N
+(      ) S
+(undefine) K n
+() p 8 T ( copy, consistent, is_equal, setup) N
+(      ) S
+(end) K n
+() p n
+(   TEMPLATE2_LEX) N
+(      ) S
+(redefine) K n
+() p 8 T ( store_analyzer,) N
+() S 8 T ( retrieve_analyzer) N
+(      ) S
+(end) K n
+() p n
+(creation) K n
+() p n
+(   make) N
+() N
+(feature) K n
+() p n
+(   root_line: TEMPLATE_CLAUSE;) N
+() N
+(   analyzer_file_name: ) S
+(STRING) k
+( ) p
+(is) K
+( ") p
+(/inf/nana/infthes/demaille/eiffel/template2/lexical/template2_analyz) str n
+(er) S
+(";) p n
+() N
+(   make ) S
+(is) K n
+(      ) p
+(local) K n
+() p 8 T ( text_name: ) S
+(STRING) k
+(;) p n
+() S 8 T ( analyzer_file: RAW_FILE;) N
+() S 8 T ( analyzer_needs_storing: ) S
+(BOOLEAN) k
+(;) p n
+() S 8 T ( text_file: PLAIN_TEXT_FILE;) N
+() S 8 T ( argument_position: ) S
+(INTEGER) k n
+(      ) p
+(do) K n
+() p 8 T ( ) S
+(if) K
+( argument_count = 0 ) p
+(then) K n
+() p 8 T (    io.putstring \(") S
+(Usage: template2 file_name%N) str
+("\);) p n
+() S 8 T ( ) S
+(else) K n
+() p 8 T (    !! root_line.make;) N
+() S 8 T (    io.putstring \(Separator_line_message\);) N
+() S 8 T (    io.putstring \(") S
+(TEMPLATE2) str
+("\);) p n
+() S 8 T (    io.putstring \(") S
+( \(Version 1.0\).) str 48 T ( \(C\)) S
+("\);) p n
+() S 8 T (    !! analyzer_file.make \(analyzer_file_name\);) N
+() S 8 T (    ) S
+(if) K
+( analyzer_file.exists ) p
+(then) K n
+() p 8 T (       io.putstring \(") S
+(%NRetrieving analyzer . . .) str
+("\);) p n
+() S 8 T (       retrieve_analyzer \(analyzer_file_name\);) N
+() S 8 T (       root_line.document.set_lexical \(analyzer\);) N
+() S 8 T (       io.putstring \(") S
+(DONE) str
+("\);) p n
+() S 8 T (    ) S
+(else) K n
+() p 8 T (       io.putstring \(") S
+(%NBuilding analyzer ... ) str
+("\);) p n
+() S 8 T (       build \(root_line.document\);) N
+() S 8 T (       analyzer_needs_storing := ) S
+(true) K n
+() p 8 T (       io.putstring \(") S
+(DONE) str
+("\);) p n
+() S 8 T (    ) S
+(end) K
+(;) p n
+() S 8 T (    ) N
+() S 8 T (    ) S
+(-- Test for left-recursion ?) c n
+() p 8 T (    ) S
+(-- test_left_recursion;) c n
+() p 8 T (    ) N
+() S 8 T (    text_name := argument \(1\);) N
+() S 8 T (    !! text_file.make \(text_name\);) N
+() S 8 T (    ) S
+(if) K
+( \() p
+(not) K
+( text_file.exists\) ) p
+(then) K n
+() p 8 T (       io.putstring \(text_name\);) N
+() S 8 T (       io.putstring \(") S
+(: No such file or directory%N) str
+("\);) p n
+() S 8 T (    ) S
+(else) K n
+() p 8 T (       root_line.document.set_input_file \(text_name\);) N
+() S 8 T (       root_line.document.get_token;) N
+() S 8 T (       io.putstring \(") S
+(%NParsing document in file: ) str
+("\)) p n
+() S 8 T (       io.putstring \(text_name\);) N
+() S 8 T (       io.putstring \(") S
+( ... ) str
+("\);) p n
+(template.e) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T (       root_line.parse;) N
+() S 8 T (       ) S
+(if) K
+( root_line.parsed ) p
+(then) K n
+() p 8 T () S 16 T (  io.putstring \(") S
+(DONE) str
+("\);) p n
+() S 8 T () S 16 T (  io.putstring \(") S
+(%NParse tree ... %N) str
+("\);) p n
+() S 8 T () S 16 T (  root_line.display \(io.output\);) N
+() S 8 T () S 16 T (  io.putstring \(") S
+(%NApplying semantics ... ) str
+("\);) p n
+() S 8 T () S 16 T (  root_line.semantics;) N
+() S 8 T () S 16 T (  io.putstring \(") S
+(DONE%N) str
+("\);) p n
+() S 8 T (       ) S
+(else) K n
+() p 8 T () S 16 T (  io.putstring \(") S
+(%NSyntax error with document) str
+("\);) p n
+() S 8 T (       ) S
+(end) K
+(;) p n
+() S 8 T (    ) S
+(end) K n
+() p 8 T (    ) S
+(if) K
+( analyzer_needs_storing ) p
+(then) K n
+() p 8 T (       io.putstring \(") S
+(%NStoring analyzer ... ) str
+("\);) p n
+() S 8 T (       ) S
+(-- store_analyzer \(analyzer_file_name\);) c n
+() p 8 T (       io.putstring \(") S
+(DONE%N) str
+("\);) p n
+() S 8 T (       io.putstring \(Separator_line_message\);) N
+() S 8 T (    ) S
+(end) K
+(;) p n
+() S 8 T (    io.new_line;) N
+() S 8 T ( ) S
+(end) K
+(;) p n
+(      ) S
+(end) K
+(; ) p
+(-- make) c n
+(   Separator_line_message: ) p
+(STRING) k
+( ) p
+(is) K
+( ") p
+(--------------------------------------------) str n
+(-------------------------------%N) S
+(";) p n
+() N
+(   test_left_recursion ) S
+(is) K n
+() p 8 T ( ) S
+(-- Test root_line for left recursion.) c n
+(      ) p
+(local) K n
+() p 8 T ( t_b: ) S
+(BOOLEAN) k
+(;) p n
+(      ) S
+(do) K n
+() p 8 T ( root_line.print_mode.put \() S
+(true) K
+(\);) p n
+() S 8 T ( root_line.expand_all;) N
+() S 8 T ( t_b := ) S
+(not) K
+( root_line.left_recursion;) p n
+() S 8 T ( root_line.check_recursion;) N
+() S 8 T ( ) S
+(if) K
+( ) p
+(not) K
+( root_line.left_recursion.item ) p
+(then) K n
+() p 8 T (    io.putstring \(") S
+(No left recursion detected%N) str
+("\);) p n
+() S 8 T ( ) S
+(else) K n
+() p 8 T (    io.putstring \(") S
+(Left recursive.%N) str
+("\);) p n
+() S 8 T ( ) S
+(end) K
+(;) p n
+() S 8 T ( ) N
+(      ) S
+(end) K
+(; ) p
+(-- test_left_recursion) c n
+() p n
+(   store_analyzer \(file_name: ) S
+(STRING) k
+(\) ) p
+(is) K n
+() p 8 T ( ) S
+(-- Store `analyzer' in file named `file_name'.) c n
+(      ) p
+(require) K
+( ) p
+(else) K n
+() p 8 T ( initialized: initialized) N
+(      ) S
+(local) K n
+() p 8 T ( store_file: RAW_FILE) N
+(      ) S
+(do) K n
+() p 8 T ( ) S
+(if) K
+( analyzer = ) p
+(Void) K
+( ) p
+(then) K n
+() p 8 T (    !! analyzer.make) N
+() S 8 T ( ) S
+(end) K
+(;) p n
+() S 8 T ( !! store_file.make_open_write \(file_name\);) N
+() S 8 T ( analyzer.basic_store \(store_file\);) N
+() S 8 T ( store_file.close;) N
+(      ) S
+(end) K
+(; ) p
+(-- store_analyzer) c n
+() p n
+(   retrieve_analyzer \(file_name: ) S
+(STRING) k
+(\) ) p
+(is) K n
+() p 8 T ( ) S
+(--  Retrieve `analyzer' from file named `file_name'.) c n
+(      ) p
+(local) K n
+() p 8 T ( retrieved_file: RAW_FILE) N
+(      ) S
+(do) K n
+() p 8 T ( ) S
+(if) K
+( analyzer = ) p
+(Void) K
+( ) p
+(then) K n
+() p 8 T (    !! analyzer.make) N
+() S 8 T ( ) S
+(end) K
+(;) p n
+() S 8 T ( !! retrieved_file.make_open_read \(file_name\);) N
+() S 8 T ( analyzer ?= analyzer.retrieved \(retrieved_file\);) N
+(template.e) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 3
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T ( retrieved_file.close;) N
+(      ) S
+(end) K
+(; ) p
+(-- store_analyzer_feature) c n
+() p n
+(end) K
+( ) p
+(-- class TEMPLATE2) c n
+(template.e) (right) (3) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (3) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

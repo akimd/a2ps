@@ -1,0 +1,295 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(/* ########################################################################) c n
+() N
+() S 8 T () S 16 T () S 24 T (       Bookie.idl) N
+() N
+(   This program is free software; you can redistribute it and/or modify) N
+(   it under the terms of the GNU General Public License as published by) N
+(   the Free Software Foundation; either version 3, or \(at your option\)) N
+(   any later version.) N
+() N
+(   \(c\) Copyright 1999 Bob Phillips) N
+() N
+(   ######################################################################## */) N
+() p n
+(#include) K
+( <IncludedIdl.idl>) p n
+() N
+(#define) K
+( FIVE_BUCKS 5.00) p n
+() N
+(module) K
+( Bookie {) p n
+() N
+(// For now, we will cheat on the date, time,) c n
+(// and location. Eventually, we want to make) N
+(// these real objects.) N
+(typedef) K
+( ) p
+(string) k
+( Date;) p n
+(typedef) K
+( ) p
+(string) k
+( Time;) p n
+(typedef) K
+( ) p
+(string) k
+( Location;) p n
+() N
+(exception) K
+( NoBet {};) p n
+(exception) K
+( EmptyBetList{};) p n
+() N
+() S 8 T () S
+(# pragma) K
+( MindlessJunk) p n
+() N
+(// PointSpread is a bit of a hack.  We need to be able to express the) c n
+(// 1/2 point push-eliminator What we will do is create an object that) N
+(// can be initialized with a float/double.  Any non-zero part of the) N
+(// fraction will be rounded \(up or down\) to 1/2 -- the implementation) N
+(// will probably represent it as a short int \(16-bit, so, allowing 1) N
+(// bit to serve as the 1/2 fraction and 1 to serve as a sign, we have) N
+(// 14 bit spreads.  Even in basketball, that isn't going to happen) N
+(// anytime soon :^\)) N
+() p n
+(   ) S
+(interface) K
+( PointSpread {) p n
+() S 8 T () S
+(// Attributes would be the logical way to) c n
+(        ) p
+(// do this, but the example is short on) c n
+(        ) p
+(// methods... So we need to have some methods.) c n
+() p 8 T () S
+(void) k
+( ) p
+(SetSpread) l
+(\() p
+(in) K
+( ) p
+(float) k
+( spread\);) p n
+() S 8 T () S
+(float) k
+( ) p
+(GetSpread) l
+(\() p
+(void) k
+(\);) p n
+(   };) N
+() N
+(// Same sort of thing with currency.  We want a Fixed representation) c n
+(// So we allow any float in.  We output a Float for other purposes.) N
+(// We can later add all sorts of operations.) N
+() p n
+(   ) S
+(interface) K
+( Currency {) p n
+() S 8 T () S
+(attribute) K
+( ) p
+(float) k
+( amount;) p n
+(   };) N
+() N
+() N
+(const) K
+( ) p
+(float) k
+( NICKEL_BET FIVE_BUCKS;) p n
+(const) K
+( ) p
+(float) k
+( DIME_BET  10.00;) p n
+() N
+(   ) S
+(interface) K
+( Team {) p n
+(      ) S
+(readonly) K
+( ) p
+(attribute) K
+( ) p
+(string) k
+( name; ) p
+(// No need to change this) c n
+(      ) p
+(attribute) K
+( ) p
+(unsigned) k
+( ) p
+(long) k
+( wins;) p n
+(      ) S
+(attribute) K
+( ) p
+(unsigned) k
+( ) p
+(long) k
+( losses;) p n
+(   };) N
+() N
+(bookie.idl) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(   ) p
+(interface) K
+( Game {) p n
+(     ) S
+(attribute) K
+( Date date;) p n
+(     ) S
+(attribute) K
+( Time time;) p n
+(     ) S
+(attribute) K
+( Location location;) p n
+(   }) N
+() N
+(   ) S
+(interface) K
+( Bet {) p n
+() S 8 T () S
+(// If an attribute ever changes, we need to create a new Bet.) c n
+() p 8 T () S
+(// This allows for record keeping if we integrate persistent) c n
+() p 8 T () S
+(// storage -- we have a record of every bet ever made.) c n
+() p 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Game game;) p n
+() S 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Team team;) p n
+() S 8 T () S
+(readonly) K
+( ) p
+(attribute) K
+( Currency amount;) p n
+(   };) N
+() N
+(typedef) K
+( ) p
+(sequence) k
+(<Bet> BetList;) p n
+() N
+(   ) S
+(interface) K
+( Customer {) p n
+(     ) S
+(readonly) K
+( ) p
+(attribute) K
+( ) p
+(string) k
+( name;) p n
+(     ) S
+(attribute) K
+( ) p
+(boolean) k
+( PaidUp;) p n
+(     ) S
+(void) k
+( ) p
+(AddToBetList) l
+( \() p
+(in) K
+( Bet bet\);) p n
+(     ) S
+(void) k
+( ) p
+(DelFromBetList) l
+( \() p
+(in) K
+( Bet bet\)) p n
+() S 8 T () S
+(raises) K
+( \(NoBet\);) p n
+(     ) S
+(void) k
+( ) p
+(SetBetlist) l
+( \() p
+(in) K
+( BetList list\);) p n
+(     ) S
+(oneway) K
+( ) p
+(void) k
+( ) p
+(ClearBetList) l
+( \() p
+(void) k
+(\);) p n
+(     ) S
+(void) k
+( ) p
+(FindBet) l
+(\() p
+(inout) K
+( Bet bet\) ) p
+(// Need to show an inout...) c n
+() p 8 T () S
+(raises) K
+(\(NoBet\);) p n
+(     ) S
+(void) k
+( ) p
+(GetBetList) l
+(\() p
+(out) K
+( BetList list\) ) p
+(// Need to show an out param...) c n
+() p 8 T () S
+(raises) K
+( \(EmptyBetList\);) p n
+(   };) N
+(};) N
+(bookie.idl) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

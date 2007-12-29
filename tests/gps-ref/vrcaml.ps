@@ -1,0 +1,454 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (\(**************************************************************************\)) c n
+0 T (\(* Creation and manipulation of VRML objects                              *\)) N
+0 T (\(**************************************************************************\)) N
+0 T () N
+(5) # () S
+(#) p
+(open) K
+( ") p
+(VRcaML) str
+(";;) p n
+0 T (#) S
+(open) K
+( ") p
+(default) str
+(";;) p n
+0 T (#) S
+(open) K
+( ") p
+(exceptions) str
+(";;) p n
+0 T (#) S
+(open) K
+( ") p
+(basic_types) str
+(";;) p n
+0 T (#) S
+(open) K
+( ") p
+(font) str
+(";;) p n
+(10) # (#) S
+(open) K
+( ") p
+(fonts) str
+(";;) p n
+0 T (#) S
+(open) K
+( ") p
+(colors) str
+(";;) p n
+0 T () N
+0 T () N
+0 T () N
+(15) # () N
+0 T () S
+(\(**************************************************************************\)) c n
+0 T (\(* Creation of VRML objects                                               *\)) N
+0 T (\(**************************************************************************\)) N
+0 T () N
+(20) # (\(* New empty referential **************************************************\)) N
+0 T () N
+0 T (\(* new_referential: vrml_object *\)) N
+0 T () S
+(let) K
+( new_referential = default_vrml_object ;;) p n
+0 T () N
+(25) # () N
+0 T () S
+(\(* New VRML object ********************************************************\)) c n
+0 T () N
+0 T (\(* new_vrml_object :) N
+0 T ( vrml_positionable list -> vrml_object list -> vect3D -> rotation) N
+(30) # (-> vect3D -> frame -> bool -> anchor -> billboard -> collision) N
+0 T (-> vrml_object *\)) N
+0 T () S
+(let) K
+( new_vrml_object objects children position rotation scale) p n
+0 T (                    frame unique anchor billboard collision =) N
+0 T (    { objects   = objects ;) N
+(35) # (      children  = children ;) N
+0 T (      position  = position ;) N
+0 T (      rotation  = rotation ;) N
+0 T (      scale     = scale ;) N
+0 T (      frame     = frame ;) N
+(40) # (      unique    = unique ;) N
+0 T (      anchor    = anchor ;) N
+0 T (      billboard = billboard ;) N
+0 T (      collision = collision }) N
+0 T (;;) N
+(45) # () N
+0 T () N
+0 T () S
+(\(**************************************************************************\)) c n
+0 T (\(* Setting fields                                                         *\)) N
+0 T (\(**************************************************************************\)) N
+(50) # () N
+0 T (\(* set_objects : vrml_object -> vrml_positionable list -> vrml_object *\)) N
+0 T () S
+(let) K
+( setf_objects ) p
+(object) K
+( objects =) p n
+0 T (    new_vrml_object objects ) S
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+(55) # (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(let) K
+( set_objects = setf_objects ;;) p n
+(60) # () N
+0 T () S
+(\(* set_children : vrml_object -> vrml_object list -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_children ) p
+(object) K
+( children =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+(65) # (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(let) K
+( set_children = setf_children ;;) p n
+(70) # () N
+(vrcaml.ml) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (\(* setf_position : vrml_object -> float -> float -> float -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_position ) p
+(object) K
+( position =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+(75) # (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(\(* setf_rotation :) c n
+(80) # (   vrml_object -> float -> float -> float -> float -> vrml_object *\)) N
+0 T () S
+(let) K
+( setf_rotation ) p
+(object) K
+( rotation =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    rotation ) S
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+0 T (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+(85) # (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(\(* setf_scale : vrml_object -> float -> float -> float -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_scale ) p
+(object) K
+( scale =) p n
+(90) # (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation scale ) p
+(object) K
+(.frame) p n
+0 T (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+(95) # () N
+0 T () S
+(\(* setf_frame : vrml_object -> frame -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_frame ) p
+(object) K
+( frame =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale frame) p n
+(100) # (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(let) K
+( set_frame = setf_frame ;;) p n
+(105) # () N
+0 T () S
+(\(* setf_unique : vrml_object -> bool -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_unique ) p
+(object) K
+( unique =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+(110) # (                    unique ) S
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(let) K
+( set_unique = setf_unique ;;) p n
+(115) # () N
+0 T () S
+(\(* setf_anchor : vrml_object -> anchor -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_anchor ) p
+(object) K
+( anchor =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+(120) # (                    ) S
+(object) K
+(.unique anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+0 T (;;) N
+0 T () N
+0 T () S
+(\(* setf_billboard : vrml_object -> billboard -> vrml_object *\)) c n
+(125) # () S
+(let) K
+( setf_billboard ) p
+(object) K
+( billboard =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+0 T (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+0 T (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor billboard) p n
+0 T (                    ) S
+(object) K
+(.collision) p n
+(130) # (;;) N
+0 T () N
+0 T () S
+(\(* setf_collision : vrml_object -> collision -> vrml_object *\)) c n
+0 T () S
+(let) K
+( setf_collision ) p
+(object) K
+( collision =) p n
+0 T (    new_vrml_object ) S
+(object) K
+(.objects ) p
+(object) K
+(.children ) p
+(object) K
+(.position) p n
+(135) # (                    ) S
+(object) K
+(.rotation ) p
+(object) K
+(.scale ) p
+(object) K
+(.frame) p n
+0 T (                    ) S
+(object) K
+(.unique ) p
+(object) K
+(.anchor ) p
+(object) K
+(.billboard) p n
+0 T (                    collision) N
+0 T (;;) N
+(vrcaml.ml) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

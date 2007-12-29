@@ -1,0 +1,44 @@
+/* presentation */
+company = "Sorep" ;
+designer = "Philippe LE VAN";
+
+/* alias communs */
+alias h history
+
+/* presentation generale */
+view_background = "black";
+set_layer pin_name_layer visible true
+set_layer pin_name_layer red 65535
+set_layer pin_name_layer green 0
+set_layer pin_name_layer blue 0
+
+/* nom des bus pour un "change_names" */
+bus_naming_style = "%s(%d)"
+
+/* definition des libraries */
+search_path={"/dtmref/ws/wskit/exploitation/erc32/V1.4.1/Global/SYNOPSYS/SYNOPSYS_1998.08"}
+library_fast =  {"SC2RTP_BASIC_fast_5p5v_m55c.db"}
+library_nom  =  {"SC2RTP_BASIC_nom_5p0v_25c.db"}
+library_slow =  {"SC2RTP_BASIC_slow_2p7v_145c.db"}
+link_library      =  {"*"} + library_slow
+target_library = library_slow
+symbol_library =  {"SC2RTP_BASIC.sdb"}
+
+/* ecriture d'une netliste vhdl */
+vhdlout_use_packages = {IEEE.std_logic_1164,sc2rtp_basic.basic_vcomponents.all}
+vhdlout_write_components = "FALSE"
+
+/* lecture de l'edif */
+edifin_ground_net_property_name  = "INIT"
+edifin_ground_net_property_value = "0SF"
+ 
+edifin_power_net_property_name  = "INIT"
+edifin_power_net_property_value = "1SF"
+
+/* ecriture de l'edif (pour qu'il ne retienne pas les info de schematic) */
+edifout_netlist_only = "TRUE"
+
+/* commande d'impression */
+plot_command = "lpr -Planteeq1"
+
+

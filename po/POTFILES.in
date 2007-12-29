@@ -1,0 +1,65 @@
+# List of files which containing translatable strings. -*- ksh -*-
+#
+# Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+# Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana
+
+# Package source files
+src/buffer.c
+src/delegate.c
+src/generate.c
+src/lexssh.c
+src/long-options.c
+src/main.c
+# src/parsessh.c
+src/parsessh.y
+# src/sheets-map.c
+src/sheets-map.l
+src/select.c
+src/ssheet.c
+src/sshread.c
+src/version-etc.c
+src/versions.c
+
+# a2ps own files
+lib/caret.c
+lib/closeout.c
+lib/confg.c
+#lib/darray.c
+#lib/dstring.c
+lib/encoding.c
+lib/faces.c
+lib/filtdir.c
+# Here we don't put fonts.l, because gettext dies on a pattern with "
+lib/fonts.c
+lib/getnum.c
+lib/jobs.c
+lib/lexppd.c
+lib/madir.c
+lib/media.c
+lib/metaseq.c
+lib/options.c
+lib/output.c
+lib/pair_ht.c
+lib/parseppd.c
+lib/pathwalk.c
+lib/ppd.c
+lib/prange.c
+lib/printers.c
+lib/prolog.c
+lib/psgen.c
+lib/quotearg.c
+lib/routines.c
+# lib/title.c uses __attribute__(Spec)
+lib/tterm.c
+lib/userdata.c
+lib/useropt.c
+lib/xbackupfile.c
+
+# These are GNU standard files
+lib/argmatch.c
+lib/error.c
+lib/getopt.c
+lib/hashtab.c
+# Uses L_(): lib/strtol.c
+# Doesn't use the same string as us: lib/obstack.c
+lib/xmalloc.c

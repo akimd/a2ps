@@ -1,0 +1,27 @@
+## usage mtvplot(input,titles,filename)
+##
+## Outpluts graphs in MTV 1.4.1 curve2d format.
+##
+##     input:    is a matrix with the ordinate in the first column,
+##               each successive column is a separate curve to plot
+##               on the SEPARATE axes.
+##     titles:   a list of string titles for each plot
+##     filename: the file to store the mtv file in
+
+function mtvplot(input,titles,filename)
+  file=fopen(filename,"w");
+
+
+  for g=(1:columns(input)-1)
+    fprintf(file,"%s\n","$DATA=Curve2d");
+    fprintf(file,"%s %s %s\n","%toplabel=\"",titles(g,:),"\"");
+    fprintf(file,"%s\n","% linetype=1");
+    for x=1:rows(input)
+      fprintf(file,"%f %f\n",input(x,1),input(x,g+1));
+    endfor
+  endfor
+  fclose(file)
+endfunction
+
+  
+  

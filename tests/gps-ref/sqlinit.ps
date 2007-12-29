@@ -1,0 +1,369 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (#) p n
+0 T (##############################################################################) N
+0 T (# Example INIT.ORA ) S
+(file) K n
+0 T () S
+(#) p n
+(5) # (# This ) S
+(file) K
+( ) p
+(is) K
+( provided ) p
+(by) K
+( Oracle Corporation ) p
+(to) K
+( help you customize) p n
+0 T (# your RDBMS installation ) S
+(for) K
+( your site.  Important ) p
+(system) K
+( parameters) p n
+0 T (# are discussed, ) S
+(and) K
+( example settings given.) p n
+0 T (#) N
+0 T (# ) S
+(Some) K
+( parameter settings are ) p
+(generic) K
+( ) p
+(to) K
+( ) p
+(any) K
+( ) p
+(size) K
+( installation.) p n
+(10) # (# ) S
+(For) K
+( parameters that require different ) p
+(values) K
+( ) p
+(in) K
+( different ) p
+(size) K n
+0 T () S
+(# installations, three scenarios have been provided: SMALL, MEDIUM) p n
+0 T (# ) S
+(and) K
+( LARGE.  ) p
+(Any) K
+( parameter that needs ) p
+(to) K
+( be tuned according ) p
+(to) K n
+0 T () S
+(# installation ) p
+(size) K
+( will have three settings, ) p
+(each) K
+( one commented) p n
+0 T (# according ) S
+(to) K
+( installation ) p
+(size) K
+(.) p n
+(15) # (#) N
+0 T (# ) S
+(Use) K
+( the following ) p
+(table) K
+( ) p
+(to) K
+( approximate the SGA ) p
+(size) K
+( needed ) p
+(for) K
+( the) p n
+0 T (# three scenarious provided ) S
+(in) K
+( this ) p
+(file) K
+(:) p n
+0 T (#) N
+0 T (#                     ) S
+(-------Installation/Database Size------) c n
+(20) # () S
+(#                      SMALL           MEDIUM           LARGE) p n
+0 T (#  ) S
+(Block) K
+(         2K    4500K            6800K           17000K) p n
+0 T (#  ) S
+(Size) K
+(          4K    5500K            8800K           21000K) p n
+0 T (#) N
+0 T (# ) S
+(To) K
+( ) p
+(set) K
+( up a ) p
+(database) K
+( that multiple instances will be ) p
+(using) K
+(, place) p n
+(25) # (# ) S
+(all) K
+( ) p
+(instance) K
+(-specific parameters ) p
+(in) K
+( one ) p
+(file) K
+(, ) p
+(and) K
+( ) p
+(then) K
+( have ) p
+(all) K n
+0 T () S
+(# ) p
+(of) K
+( these files point ) p
+(to) K
+( a master ) p
+(file) K
+( ) p
+(using) K
+( the IFILE command.) p n
+0 T (# This way, ) S
+(when) K
+( you ) p
+(change) K
+( a ) p
+(public) K n
+0 T () S
+(# parameter, it will automatically ) p
+(change) K
+( ) p
+(on) K
+( ) p
+(all) K
+( instances.  This ) p
+(is) K n
+0 T () S
+(# necessary, since ) p
+(all) K
+( instances must ) p
+(run) K
+( ) p
+(with) K
+( the same value ) p
+(for) K
+( many) p n
+(30) # (# parameters. ) S
+(For) K
+( example, ) p
+(if) K
+( you choose ) p
+(to) K
+( ) p
+(use) K
+( ) p
+(private) K
+( ) p
+(rollback) K
+( segments,) p n
+0 T (# these must be specified ) S
+(in) K
+( different files, but since ) p
+(all) K
+( gc_*) p n
+0 T (# parameters must be the same ) S
+(on) K
+( ) p
+(all) K
+( instances, they should be ) p
+(in) K
+( one ) p
+(file) K
+(.) p n
+0 T (#) N
+0 T (# INSTRUCTIONS: Edit this ) S
+(file) K
+( ) p
+(and) K
+( the other INIT files it calls ) p
+(for) K n
+(35) # () S
+(# your site, either ) p
+(by) K
+( ) p
+(using) K
+( the ) p
+(values) K
+( provided here ) p
+(or) K
+( ) p
+(by) K
+( providing) p n
+0 T (# your ) S
+(own) K
+(.  ) p
+(Then) K
+( place an IFILE= line ) p
+(into) K
+( ) p
+(each) K
+( ) p
+(instance) K
+(-specific) p n
+0 T (# INIT ) S
+(file) K
+( that points ) p
+(at) K
+( this ) p
+(file) K
+(.) p n
+0 T (###############################################################################) N
+0 T () N
+(40) # (db_name = oracle) N
+0 T (db_files = 20) N
+0 T (control_files = \(%RDBMS_FILES%\\ctl1orcl.ora\)) N
+0 T () N
+0 T (compatible = 7.3.0.0.0) N
+(45) # () N
+0 T (db_file_multiblock_read_count =  8) S 40 T () S 48 T () S 56 T () S 64 T (      # ) S
+(INITIAL) K n
+0 T () S
+(# db_file_multiblock_read_count = 8                                   # SMALL) p n
+0 T (# db_file_multiblock_read_count = 16                                  # MEDIUM) N
+0 T (# db_file_multiblock_read_count = 32                                  # LARGE) N
+(50) # () N
+0 T (db_block_buffers =  50) S 24 T () S 32 T () S 40 T (                              # ) S
+(INITIAL) K n
+0 T () S
+(# db_block_buffers = 200                                              # SMALL) p n
+0 T (# db_block_buffers = 550                                              # MEDIUM) N
+0 T (# db_block_buffers = 3200                                             # LARGE) N
+(55) # () N
+0 T (shared_pool_size =  500000                                           # ) S
+(INITIAL) K n
+0 T () S
+(# shared_pool_size = 3500000                                          # SMALL) p n
+0 T (# shared_pool_size = 6000000                                          # MEDIUM) N
+0 T (# shared_pool_size = 9000000                                          # LARGE) N
+(60) # () N
+0 T (log_checkpoint_interval = 10000) N
+0 T () N
+0 T (processes =  50                                                       # ) S
+(INITIAL) K n
+0 T () S
+(# processes = 50                                                      # SMALL) p n
+(65) # (# processes = 100                                                     # MEDIUM) N
+0 T (# processes = 200                                                     # LARGE) N
+0 T () N
+0 T (dml_locks =  100                                                      # ) S
+(INITIAL) K n
+0 T () S
+(# dml_locks = 100                                                     # SMALL) p n
+(70) # (# dml_locks = 200                                                     # MEDIUM) N
+(sqlinit.ora) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (2) 2
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (# dml_locks = 500                                                     # LARGE) p n
+0 T () N
+0 T (log_buffer =  1000                                                    # ) S
+(INITIAL) K n
+0 T () S
+(# log_buffer = 8192                                                   # SMALL) p n
+(75) # (# log_buffer = 32768                                                  # MEDIUM) N
+0 T (# log_buffer = 163840                                                 # LARGE) N
+0 T () N
+0 T (sequence_cache_entries =  10                                          # ) S
+(INITIAL) K n
+0 T () S
+(# sequence_cache_entries = 10                                         # SMALL) p n
+(80) # (# sequence_cache_entries = 30                                         # MEDIUM) N
+0 T (# sequence_cache_entries = 100                                        # LARGE) N
+0 T () N
+0 T (sequence_cache_hash_buckets =  10                                     # ) S
+(INITIAL) K n
+0 T () S
+(# sequence_cache_hash_buckets = 10                                    # SMALL) p n
+(85) # (# sequence_cache_hash_buckets = 23                                    # MEDIUM) N
+0 T (# sequence_cache_hash_buckets = 89                                    # LARGE) N
+0 T () N
+0 T (# audit_trail = ) S
+(true) K
+(            # ) p
+(if) K
+( you want auditing) p n
+0 T (# timed_statistics = ) S
+(true) K
+(       # ) p
+(if) K
+( you want timed ) p
+(statistics) K n
+(90) # () S
+(max_dump_file_size = 10240      # limit trace ) p
+(file) K
+( ) p
+(size) K
+( ) p
+(to) K
+( 5 Meg ) p
+(each) K n
+0 T () N
+0 T () S
+(# log_archive_start = ) p
+(true) K
+(      # ) p
+(if) K
+( you want automatic archiving) p n
+0 T () N
+0 T (# ) S
+(define) K
+( directories ) p
+(to) K
+( store trace ) p
+(and) K
+( alert files) p n
+(95) # (background_dump_dest=%RDBMS73%\\TRACE) N
+0 T (user_dump_dest=%RDBMS73%\\TRACE) N
+0 T () N
+0 T (db_block_size = 2048) N
+0 T () N
+(100) # (snapshot_refresh_processes = 0) N
+0 T () N
+0 T () S
+(remote_login_passwordfile = shared) c n
+(sqlinit.ora) (right) (2) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (2) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

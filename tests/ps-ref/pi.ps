@@ -1,0 +1,149 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(/*) c n
+(   This is a program to determine the distribution of digits in the) N
+(   fraction part of PI.   It will look at the first scale digits.) N
+() N
+(   The results are left in the global variable digits.) N
+(   digits[0] is the number of 0's in PI.) N
+() N
+(   This program requires the math library.) N
+(*/) N
+() p n
+(define) K
+( ) p
+(pi) L
+( \(\) {) p n
+(  ) S
+(auto) K
+( ix, pi, save_scale, work;) p n
+() N
+(  save_scale = ) S
+(scale) K
+(;) p n
+(  ) S
+(scale) K
+( += 5;) p n
+(  ) S
+(print) K
+( ") p
+(\\n\\nCalculating PI to ) str
+(",) p
+(scale) K
+(,") p
+( digits.  Please wait . . .) str
+(";) p n
+(  pi = 4*a\(1\);) N
+(  ) S
+(scale) K
+( -= 5;) p n
+(  work = pi;) N
+() N
+(  ) S
+(print) K
+( ") p
+(\\nCounting digits. . .) str
+(";) p n
+(  ) S
+(for) K
+( \(ix = 0; ix < 10; ix++\) digits[ix] = 0;) p n
+() N
+(  ) S
+(/* Extract the One's digit from pi. */) c n
+(  ) p
+(scale) K
+( = 0;) p n
+(  one_digit = work / 1;) N
+() N
+(  ) S
+(for) K
+( \(ix = save_scale; ix > 0; ix--\) {) p n
+() N
+(    ) S
+(/* Remove the One's digit and multiply by 10. */) c n
+(    ) p
+(scale) K
+( = ix;) p n
+(    work = \(work - one_digit\) / 1 * 10;) N
+() N
+(    ) S
+(/* Extract the One's digit. */) c n
+(    ) p
+(scale) K
+( = 0;) p n
+(    one_digit = work / 1;) N
+() N
+(    digits[one_digit] += 1;) N
+(  }) N
+() N
+(  ) S
+(/* Restore the scale. */) c n
+(  ) p
+(scale) K
+( = save_scale;) p n
+() N
+(  ) S
+(/* Report. */) c n
+(  ) p
+(print) K
+( ") p
+(\\n\\n) str
+(") p n
+(  ) S
+(print) K
+( ") p
+(PI to ) str
+(", ) p
+(scale) K
+(, ") p
+( digits is:\\n) str
+(", pi/1, ") p
+(\\n\\n) str
+(") p n
+(  ) S
+(print) K
+( ") p
+(The frequency of the digits are:\\n) str
+(") p n
+(  ) S
+(for) K
+( \(ix = 0; ix < 10; ix++\) {) p n
+(    ) S
+(print) K
+( ") p
+(    ) str
+(", ix, ") p
+( - ) str
+(", digits[ix], ") p
+( times\\n) str
+(") p n
+(  }) N
+() N
+(  ) S
+(print) K
+( ") p
+(\\n\\n) str
+(") p n
+(}) N
+(pi.b) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

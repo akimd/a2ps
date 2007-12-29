@@ -1,0 +1,113 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(// This module checks for BDVL deasserting when BEPVL is asserted.) c n
+() p n
+(module) K
+( epvl_chkr\(clk, bpvl, bepvl, bdvl, stop\);) p n
+(    ) S
+(input) K
+( clk;) p n
+(    ) S
+(input) K
+( bpvl;) p n
+(    ) S
+(input) K
+( bepvl;) p n
+(    ) S
+(input) K
+( bdvl;) p n
+(    ) S
+(input) K
+( stop;         ) p
+(// $stop \(or $finish if BATCH\) on error) c n
+() p n
+(`ifdef) k
+( JUST_COUNT_PACKETS) p n
+(    ) S
+(// Do nothing) c n
+(`else) k n
+(    ) p
+(integer) K
+( status;) p n
+(`endif) k
+( ) p
+(// ifdef JUST_COUNT_PACKETS) c n
+() p n
+(   ) S
+(always) K
+( @\() p
+(posedge) K
+( clk\) ) p
+(begin) K n
+(      ) p
+(if) K
+( \(!bpvl && bepvl && bdvl\) ) p
+(begin) K n
+(         $display\(") p
+(%%E-%M, %0t BDVL cannot be deasserted with BEPVL) str
+(",) p n
+(                  $time\);) N
+(         ) S
+(if) K
+( \(stop\) ) p
+(begin) K n
+(            #1000) p n
+(`ifdef) k
+( JUST_CHECK_COUNTS) p n
+(            ) S
+(// Do nothing) c n
+(`else) k n
+(            status = $check_counts;) p n
+(`endif) k
+( ) p
+(// !ifdef JUST_CHECK_COUNTS) c n
+(            $display\(") p
+(%%I-%M, %0t Stopping simulation on error!) str
+(", $time\);) p n
+(`ifdef) k
+( BATCH) p n
+(            $finish;) N
+(`else) k n
+(            $stop;) p n
+(`endif) k
+( ) p
+(// !ifdef BATCH) c n
+(         ) p
+(end) K
+( ) p
+(// if \(backplane.stop_on_error\)) c n
+() p n
+(      ) S
+(end) K
+( ) p
+(// if \(!bpvl && bepvl && bdvl\)) c n
+(   ) p
+(end) K
+( ) p
+(// always @ \(posedge clk\)) c n
+() p n
+(endmodule) K
+( ) p
+(// epvl_chkr) c n
+(eplv_chkr.v) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

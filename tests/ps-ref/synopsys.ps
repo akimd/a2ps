@@ -1,0 +1,106 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(/* presentation */) c n
+(company = ") p
+(Sorep) str
+(" ;) p n
+(designer = ") S
+(Philippe LE VAN) str
+(";) p n
+() N
+(/* alias communs */) c n
+(alias) K
+( h history) p n
+() N
+(/* presentation generale */) c n
+(view_background = ") p
+(black) str
+(";) p n
+(set_layer) K
+( pin_name_layer visible true) p n
+(set_layer) K
+( pin_name_layer red 65535) p n
+(set_layer) K
+( pin_name_layer green 0) p n
+(set_layer) K
+( pin_name_layer blue 0) p n
+() N
+(/* nom des bus pour un "change_names" */) c n
+(bus_naming_style = ") p
+(%s\(%d\)) str
+(") p n
+() N
+(/* definition des libraries */) c n
+(search_path={") p
+(/dtmref/ws/wskit/exploitation/erc32/V1.4.1/Global/SYNOPSYS/SYNOPSYS_1998.08) str
+("}) p n
+(library_fast =  {") S
+(SC2RTP_BASIC_fast_5p5v_m55c.db) str
+("}) p n
+(library_nom  =  {") S
+(SC2RTP_BASIC_nom_5p0v_25c.db) str
+("}) p n
+(library_slow =  {") S
+(SC2RTP_BASIC_slow_2p7v_145c.db) str
+("}) p n
+(link_library      =  {") S
+(*) str
+("} + library_slow) p n
+(target_library = library_slow) N
+(symbol_library =  {") S
+(SC2RTP_BASIC.sdb) str
+("}) p n
+() N
+(/* ecriture d'une netliste vhdl */) c n
+(vhdlout_use_packages = {IEEE.std_logic_1164,sc2rtp_basic.basic_vcomponents.all}) p n
+(vhdlout_write_components = ") S
+(FALSE) str
+(") p n
+() N
+(/* lecture de l'edif */) c n
+(edifin_ground_net_property_name  = ") p
+(INIT) str
+(") p n
+(edifin_ground_net_property_value = ") S
+(0SF) str
+(") p n
+( ) N
+(edifin_power_net_property_name  = ") S
+(INIT) str
+(") p n
+(edifin_power_net_property_value = ") S
+(1SF) str
+(") p n
+() N
+(/* ecriture de l'edif \(pour qu'il ne retienne pas les info de schematic\) */) c n
+(edifout_netlist_only = ") p
+(TRUE) str
+(") p n
+() N
+(/* commande d'impression */) c n
+(plot_command = ") p
+(lpr -Planteeq1) str
+(") p n
+() N
+(synopsys.setup) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

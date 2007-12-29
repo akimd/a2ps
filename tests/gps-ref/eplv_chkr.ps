@@ -1,0 +1,135 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.431713 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+0 T (// This module checks for BDVL deasserting when BEPVL is asserted.) c n
+0 T () N
+0 T () S
+(module) K
+( epvl_chkr\(clk, bpvl, bepvl, bdvl, stop\);) p n
+0 T (    ) S
+(input) K
+( clk;) p n
+(5) # (    ) S
+(input) K
+( bpvl;) p n
+0 T (    ) S
+(input) K
+( bepvl;) p n
+0 T (    ) S
+(input) K
+( bdvl;) p n
+0 T (    ) S
+(input) K
+( stop;         ) p
+(// $stop \(or $finish if BATCH\) on error) c n
+0 T () N
+(10) # () S
+(`ifdef) k
+( JUST_COUNT_PACKETS) p n
+0 T (    ) S
+(// Do nothing) c n
+0 T () S
+(`else) k n
+0 T () S
+(    ) p
+(integer) K
+( status;) p n
+0 T () S
+(`endif) k
+( ) p
+(// ifdef JUST_COUNT_PACKETS) c n
+(15) # () N
+0 T () S
+(   ) p
+(always) K
+( @\() p
+(posedge) K
+( clk\) ) p
+(begin) K n
+0 T () S
+(      ) p
+(if) K
+( \(!bpvl && bepvl && bdvl\) ) p
+(begin) K n
+0 T () S
+(         $display\(") p
+(%%E-%M, %0t BDVL cannot be deasserted with BEPVL) str
+(",) p n
+0 T (                  $time\);) N
+(20) # (         ) S
+(if) K
+( \(stop\) ) p
+(begin) K n
+0 T () S
+(            #1000) p n
+0 T () S
+(`ifdef) k
+( JUST_CHECK_COUNTS) p n
+0 T (            ) S
+(// Do nothing) c n
+0 T () S
+(`else) k n
+(25) # () S
+(            status = $check_counts;) p n
+0 T () S
+(`endif) k
+( ) p
+(// !ifdef JUST_CHECK_COUNTS) c n
+0 T () S
+(            $display\(") p
+(%%I-%M, %0t Stopping simulation on error!) str
+(", $time\);) p n
+0 T () S
+(`ifdef) k
+( BATCH) p n
+0 T (            $finish;) N
+(30) # () S
+(`else) k n
+0 T () S
+(            $stop;) p n
+0 T () S
+(`endif) k
+( ) p
+(// !ifdef BATCH) c n
+0 T () S
+(         ) p
+(end) K
+( ) p
+(// if \(backplane.stop_on_error\)) c n
+0 T () N
+(35) # () S
+(      ) p
+(end) K
+( ) p
+(// if \(!bpvl && bepvl && bdvl\)) c n
+0 T () S
+(   ) p
+(end) K
+( ) p
+(// always @ \(posedge clk\)) c n
+0 T () N
+0 T () S
+(endmodule) K
+( ) p
+(// epvl_chkr) c n
+(eplv_chkr.v) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

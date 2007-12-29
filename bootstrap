@@ -1,0 +1,30 @@
+#! /bin/sh
+set -e
+contrib_scripts="card fixps pdiff psmandup psset"
+
+echo "Bootstrapping a2ps..."
+
+# These are created by the Makefile, which is missing for the time
+# being.  They are needed by configure.
+for i in $contrib_scripts
+do
+  touch contrib/$i.in
+done
+
+# Autoconf, Automake, Gettext.
+autoreconf --force --install --verbose
+
+# Configure and make the missing guys.
+./configure
+
+# Configure was using card.in etc.  But they were probably fake ones.
+# Remove them, and let make do the rest.
+(
+  cd contrib
+  for i in $contrib_scripts
+  do
+    rm -f $i $i.in
+  done
+  make
+)
+make

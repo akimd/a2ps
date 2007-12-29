@@ -1,0 +1,103 @@
+%%Page: (1) 1
+%%BeginPageSetup
+/pagesave save def
+%%EndPageSetup
+iso1dict begin
+(Test Files) 35.25 water
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 4.703931 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p n
+() N
+(MODULE) K
+( Confirm ) p
+(EXPORTS) K
+( Main;) p n
+() N
+(IMPORT) K
+( Trestle, VBT, TextVBT, RigidVBT, ButtonVBT, BorderedVBT, HVSplit;) p n
+(IMPORT) K
+( PaintOp, Pixmap, Axis;) p n
+(IMPORT) K
+( ConfirmVBT;) p n
+() N
+(PROCEDURE) K
+( Yes \(self: ButtonVBT.T; ) p
+(READONLY) K
+( cd: VBT.MouseRec\) =) p n
+(  ) S
+(BEGIN) K n
+(    Trestle.Delete\(main\);) p n
+(  ) S
+(END) K
+( Yes;) p n
+() N
+(PROCEDURE) K
+( QuitAction \(self: ButtonVBT.T; ) p
+(READONLY) K
+( cd: VBT.MouseRec\) =) p n
+(  ) S
+(VAR) K n
+(    msg     := ") p
+(Do you really wish to quit?) str
+(";) p n
+(    confirm := ConfirmVBT.New\(msg, Yes\);) N
+(  ) S
+(BEGIN) K n
+(    Trestle.Install\(confirm\)) p n
+(  ) S
+(END) K
+( QuitAction;) p n
+() N
+(CONST) K n
+(  \(*) p
+( sizes for the RigidVBT ) c
+(*\)) p n
+(  horz = 30.0;) N
+(  vert = 10.0;                   \(*) S
+( size in millimeters ) c
+(*\)) p n
+(  \(*) S
+( border size for text and button ) c
+(*\)) p n
+(  bsize = 1.5;                   \(*) S
+( size in millimeters ) c
+(*\)) p n
+() N
+(VAR) K n
+(  blue  := PaintOp.FromRGB\(0.0, 0.0, 1.0\);) p n
+(  green := PaintOp.FromRGB\(0.0, 1.0, 0.0\);) N
+(  text  := RigidVBT.FromHV\(TextVBT.New\(") S
+(Confirm demo) str
+("\), horz, vert\);) p n
+(  top := BorderedVBT.New\() N
+(           text, size := bsize, op := blue, txt := Pixmap.Solid\);) N
+(  button := ButtonVBT.New\(TextVBT.New\(") S
+(Quit) str
+("\), QuitAction\);) p n
+(  bottom := BorderedVBT.New\() N
+(              button, size := bsize, op := green, txt := Pixmap.Gray\);) N
+(  main := HVSplit.Cons\(Axis.T.Ver, top, bottom\);) N
+() N
+(BEGIN) K n
+(  Trestle.Install\(main\);) p n
+(  Trestle.AwaitDelete\(main\)) N
+(END) K
+( Confirm.) p n
+() N
+() N
+(confirm.m3) (right) (1) title
+border
+grestore
+(The room for the header) rhead
+(Printed by Somebody from a machine) (Right) (1) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF
