@@ -1,14 +1,6 @@
-# -*- Makefile -*-
-# Makefile for a2ps' AFM library directory.
+# Process this file with automake to create Makefile.in
 #
-# Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
-# Copyright (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
-#
-# $Id: Makefile.am,v 1.1.1.1.2.2 2007/12/29 01:58:10 mhatta Exp $
-#
-
-#
-# This file is part of a2ps.
+# Copyright 1988-2017 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,9 +13,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program; see the file COPYING.  If not, write to
-# the Free Software Foundation, 59 Temple Place - Suite 330,
-# Boston, MA 02111-1307, USA.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 A2PS = $(top_builddir)/src/a2ps
