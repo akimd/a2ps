@@ -1,5 +1,5 @@
-/* memset.c -- set an area of memory to a given value
-   Copyright (C) 1991 Free Software Foundation, Inc.
+/* memset.c - set an area of memory to a given value
+   Copyright 1991-2017 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -12,8 +12,9 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
+   02110-1301, USA.  */
 
 char *
 memset (char *str, int c, unsigned int len)

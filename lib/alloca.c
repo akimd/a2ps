@@ -1,4 +1,4 @@
-/* alloca.c -- allocate automatically reclaimed memory
+/* alloca.c - allocate automatically reclaimed memory
    (Mostly) portable public-domain implementation -- D A Gwyn
 
    This implementation of the PWB library alloca function,
