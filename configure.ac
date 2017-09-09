@@ -331,13 +331,14 @@ AC_SUBST(LTALLOCA)
 AC_CONFIG_SUBDIRS(ogonkify)
 
 # Shell scripts
-AC_CONFIG_FILES(contrib/card, chmod +x contrib/card)
-AC_CONFIG_FILES(contrib/fixps, chmod +x contrib/fixps)
-AC_CONFIG_FILES(contrib/pdiff, chmod +x contrib/pdiff)
-AC_CONFIG_FILES(contrib/psmandup, chmod +x contrib/psmandup)
-AC_CONFIG_FILES(contrib/psset, chmod +x contrib/psset)
+AC_CONFIG_FILES([contrib/card], [chmod +x contrib/card])
+AC_CONFIG_FILES([contrib/fixps], [chmod +x contrib/fixps])
+AC_CONFIG_FILES([contrib/pdiff], [chmod +x contrib/pdiff])
+AC_CONFIG_FILES([contrib/psmandup], [chmod +x contrib/psmandup])
+AC_CONFIG_FILES([contrib/psset], [chmod +x contrib/psset])
 
-AC_CONFIG_FILES([Makefile
+AC_CONFIG_FILES([
+  Makefile
   src/Makefile
   doc/Makefile
   man/Makefile
@@ -355,7 +356,8 @@ AC_CONFIG_FILES([Makefile
   contrib/sample/Makefile
   contrib/emacs/Makefile
   fonts/Makefile
-  ppd/Makefile])
+  ppd/Makefile
+])
 AC_OUTPUT
 
 if test $MEDIUM = libpaper; then

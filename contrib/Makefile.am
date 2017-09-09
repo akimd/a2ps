@@ -23,16 +23,5 @@ bin_PROGRAMS = fixnt
 
 fixnt_SOURCES = fixnt.l
 
-BUILT_SOURCES = card fixps pdiff psmandup psset texi2dvi4a2ps
-
 EXTRA_DIST = \
-card.in fixps.in pdiff.in psmandup.in psset.in texi2dvi4a2ps \
-card.m4 fixps.m4 pdiff.m4 psmandup.m4 psset.m4 shell.m4
-
-M4 = @M4@
-SUFFIXES = .m4 .in
-
-.m4.in: shell.m4
-	$(M4) $*.m4 | \
-	  sed -e 's/@BKL@/[/g;s/@BKR@/]/g;s/@DLR@/$$/g;s/@PND@/#/g'>$@-tmp
-	mv $@-tmp $@
+	card.in fixps.in pdiff.in psmandup.in psset.in texi2dvi4a2ps
