@@ -80,7 +80,7 @@ void list_encodings_short PARAMS ((struct a2ps_job * job, FILE * stream));
 void list_encodings_long PARAMS ((struct a2ps_job * job, FILE * stream));
 void list_texinfo_encodings_long PARAMS ((struct a2ps_job * job,
 					  FILE * stream));
-
+
 /************************************************************************/
 /* Road map to the files defining the encodings				*/
 /************************************************************************/

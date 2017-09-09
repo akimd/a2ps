@@ -22,7 +22,7 @@
 #include "message.h"
 #include "quotearg.h"
 
-
+
 /*
  * Convert a list of string of valid chars to an yes/no array
  */
@@ -115,7 +115,7 @@ strsub (char * dest, const char * string, int start, int length)
   *end = '\0';
   return end;
 }
-
+
 /*
  * fopen, but exits on failure
  */

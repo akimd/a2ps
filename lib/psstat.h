@@ -27,7 +27,7 @@
 #include "gen.h"
 #include "hashtab.h"
 typedef struct hash_table_s hash_table;
-
+
 
 /* Types of duplexing. */
 enum duplex_e

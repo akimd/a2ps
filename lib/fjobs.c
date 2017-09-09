@@ -22,7 +22,7 @@
 #include "routines.h"
 
 typedef struct file_job fjob_t;
-
+
 /*
  * Creating/Removing a file_job named NAME, which is the NUM job,
  * which tmp file is in TMPDIR, and mod time is default to RUN_TM

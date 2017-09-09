@@ -30,7 +30,7 @@
 #include "jobs.h"
 #include "fjobs.h"
 #include "prange.h"
-
+
 #define PRINT_HEADER					\
 	(!IS_EMPTY(job->header))
 
@@ -56,7 +56,7 @@
 /* return the max of two >-comparable stuff */
 #define A2_MAX(X,Y)        (((X) > (Y)) ? (X) : (Y))
 
-
+
 /****************************************************************/
 /*		Formating help routines				*/
 /****************************************************************/
@@ -224,7 +224,7 @@ output_marker (a2ps_job * job, const char * kind, uchar * marker)
     }
   }
 }
-
+
 /****************************************************************/
 /*		Dealing with the encodings			*/
 /****************************************************************/
@@ -316,7 +316,7 @@ ps_pop_encoding (a2ps_job * job)
 {
   ps_internal_switch_encoding (job, job->saved_encoding);
 }
-
+
 /****************************************************************/
 /*		Printing a physical page			*/
 /****************************************************************/
@@ -464,7 +464,7 @@ page_end (a2ps_job * job)
 
   job->virtual = 0;
 }
-
+
 /****************************************************************/
 /*		Printing a virtual page				*/
 /****************************************************************/
@@ -627,7 +627,7 @@ require_fresh_page (a2ps_job * job)
     /* The clean up _must_ be done */
     page_flush (job);
 }
-
+
 /****************************************************************/
 /*		Service routines				*/
 /****************************************************************/
@@ -698,7 +698,7 @@ fold_line (struct a2ps_job * job, enum face_e new_face)
       job->status->face = new_face;
   }
 }
-
+
 /*
  * Print a char
  */
@@ -919,7 +919,7 @@ ps_print_buffer (a2ps_job * job,
   for (i = start ; i < end ; i++)
     ps_print_char (job, buffer [i], face);
 }
-
+
 /* Handling the input sessions in an output session, i.e., typically
    the files. */
 

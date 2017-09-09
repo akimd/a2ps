@@ -122,7 +122,7 @@ _a2ps_ppd_get (char * const * path, const char * key)
   free (ppd_filepath);
   return res;
 }
-
+
 /****************************************************************/
 /* Reporting the known PPD	   				*/
 /****************************************************************/

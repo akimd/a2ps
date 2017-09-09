@@ -16,7 +16,7 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-
+
 /************************************************************************/
 /*									*/
 /*			I n c l u d e   f i l e s			*/
@@ -50,7 +50,7 @@ extern const char *program_invocation_name;
  */
 option_hook handle_option_hook = NULL;
 
-
+
 
 static struct option const long_options[] =
 {
@@ -192,7 +192,7 @@ a2ps_get_bool (const char *option, const char *arg)
   ARGMATCH_ASSERT (bool_args, bool_types);
   return XARGCASEMATCH (option, arg, bool_args, bool_types);
 }
-
+
 
 /* --non-printable-format */
 static const char *const non_printable_args[] =
@@ -235,7 +235,7 @@ static const enum duplex_e duplex_types[] =
   tumble
 };
 
-
+
 /************************************************************************/
 /*	Handle the options						*/
 /************************************************************************/
@@ -756,7 +756,7 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 
   return res;
 }
-
+
 /* Process STRING as if it were given on the command line, i.e.  make
    it an argument vector, while respecting shell-escape and
    shell-grouping mechanics (" and '), and them run

@@ -84,7 +84,7 @@ medium_name_fputs (struct medium * medium, FILE * stream)
   fputs (medium->name, stream);
 }
 
-
+
 /*
  * Add a medium
  */

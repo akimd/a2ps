@@ -88,7 +88,7 @@ alphabet_self_print (char *a, FILE *s)
 }
 
 #define DEFAULT_SENSITIVENESS case_insensitive
-
+
 struct pattern *
 new_pattern (char * pattern, size_t len)
 {
@@ -141,7 +141,7 @@ faced_string_set_no_face (struct faced_string * str, struct fface_s face)
   if (fface_squ (str->face, No_fface))
     str->face = face;
 }
-
+
 /************************************************************************/
 /*	The version handling						*/
 /************************************************************************/
@@ -170,7 +170,7 @@ style_sheet_set_requirement (struct style_sheet * sheet,
 
   return true;
 }
-
+
 /************************************************************************/
 /*	Rhs darray						*/
 /************************************************************************/
@@ -237,7 +237,7 @@ rhs_self_print (struct darray * rhs, FILE * stream)
     faced_string_self_print ((struct faced_string *) rhs->content [i], stream);
   putc (')', stream);
 }
-
+
 /************************************************************************/
 /*	P-rules								*/
 /************************************************************************/
@@ -397,7 +397,7 @@ rules_set_no_faces (struct darray * arr, struct fface_s face)
     rule_set_no_face (((struct rule *) arr->content[i]), face);
 }
 
-
+
 /*
  * `words' are a specialization of darray, to capture the fact
  * that it is faster to look for a prefix of a string taking
@@ -522,7 +522,7 @@ words_finalize (struct words * list)
     list->max [content[i]->word[0]] = content + i;
   }
 }
-
+
 /************************************************************************/
 /*		Handling the ancestors of a style sheet 		*/
 /************************************************************************/
@@ -600,7 +600,7 @@ ancestors_finalize (struct style_sheet * sheet)
       da_prefix (sheet->sequences, ancestor->sequences);
     }
 }
-
+
 /************************************************************************/
 /*		Creating, loading a style sheet				*/
 /************************************************************************/
@@ -696,7 +696,7 @@ sequence_self_print (struct sequence * tmp, FILE * stream)
   words_self_print (tmp->exceptions, stream);
   words_self_print (tmp->close, stream);
 }
-
+
 /************************************************************************/
 /*		Creating, loading a style sheet				*/
 /************************************************************************/
@@ -867,7 +867,7 @@ load_style_sheet (const char * pseudo_key)
 
   return res;
 }
-
+
 /************************************************************************/
 /*		Reporting information about the style sheets		*/
 /************************************************************************/
@@ -993,7 +993,7 @@ list_style_sheets_long (FILE * stream)
     }
   da_free (entries, (da_map_func_t) free);
 }
-
+
 /************************************************************************/
 /*		Report in HTML format					*/
 /************************************************************************/
@@ -1154,7 +1154,7 @@ them all.  Its index (sum of the style sheets version number) is \
 
   da_free (entries, (da_map_func_t) free);
 }
-
+
 /************************************************************************/
 /*		Report in Texinfo format				*/
 /************************************************************************/
@@ -1243,7 +1243,7 @@ The current index (sum of all the style sheets version number) is ", stream);
 
   da_free (entries, (da_map_func_t) free);
 }
-
+
 /************************************************************************/
 /*		Perform some tests on the style sheets			*/
 /************************************************************************/
@@ -1384,7 +1384,7 @@ style_sheet_check (struct style_sheet * sheet)
 {
   return check_doubles (sheet) && check_sensitivity (sheet);
 }
-
+
 /************************************************************************/
 /*			Handling of the hash table of			*/
 /*				the style sheets			*/
@@ -1496,7 +1496,7 @@ get_style_sheet (const char * key)
 
   return item;
 }
-
+
 /*
  * Compute the total SUM of the all the versions of the
  * sheets which key is in KEYS

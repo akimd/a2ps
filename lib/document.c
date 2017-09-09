@@ -79,7 +79,7 @@
   ")url", "}",		\
   "@itemize",		"@itemize @minus",	\
   NULL
-
+
 
 /************************************************************************/
 /*      The authors list handling                                       */
@@ -158,7 +158,7 @@ authors_print_html (const uchar * authors, FILE * stream,
 		 "<a href=\"mailto:%2$s\">%1$s</a>", ", ",
 		 ".\n");
 }
-
+
 /*
  * Plain : nothing to change
  */

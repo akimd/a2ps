@@ -96,7 +96,7 @@ pair_key_fputs (struct pair * pair, FILE * stream)
 }
 
 
-
+
 /*
  * Create the structure that stores the list of pairs
  */

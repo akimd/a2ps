@@ -15,7 +15,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
-
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #else
@@ -90,7 +90,7 @@ getopt_long_only (argc, argv, options, long_options, opt_index)
 
 
 #endif	/* Not ELIDE_CODE.  */
-
+
 #ifdef TEST
 
 #include <stdio.h>

@@ -193,7 +193,7 @@ tterm_initialize (struct tterm *tterm, FILE *stream)
 	}
     }
 }
-
+
 /* Sample test of TinyTerm. */
 
 #ifdef TEST

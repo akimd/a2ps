@@ -84,7 +84,7 @@ void **hash_dump_select PARAMS((struct hash_table_s *ht, void **vector_0,
 extern void *hash_deleted_item;
 # define HASH_VACANT(item) ((item) == 0 || (void *) (item) == hash_deleted_item)
 
-
+
 /* hash and comparison macros for string keys. */
 
 # define STRING_HASH_1(_key_, _result_) do { \
@@ -167,7 +167,7 @@ extern void *hash_deleted_item;
   STRING_CASE_COMPARE (_x_, _y_, result); \
   return result; \
 } while (0)
-
+
 /* hash and comparison macros for integer keys. */
 
 # define INTEGER_HASH_1(_key_, _result_) do { \

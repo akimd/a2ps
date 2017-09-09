@@ -151,7 +151,7 @@ multivalued_entry_get_sub_item (struct hash_table_s * table,
     return NULL;
   return string_htable_get (sub_table, value);
 }
-
+
 struct hash_table_s *
 multivalued_table_new (void)
 {
@@ -340,7 +340,7 @@ dump_process_color (FILE * stream, a2ps_job * job)
       free (colors);
     }
 }
-
+
 /************************************************************************/
 /*	Handling the fonts						*/
 /************************************************************************/
@@ -384,7 +384,7 @@ required_fonts_get (a2ps_job * job)
     return (char **) string_htable_dump_sorted (font_table);
   return NULL;
 }
-
+
 /*
  * Dump the setup code read in the various prologue (.pro and .ps)
  * files.  The hard part is that we don't want to dump too

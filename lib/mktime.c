@@ -380,7 +380,7 @@ mktime (tp)
 #ifdef weak_alias
 weak_alias (mktime, timelocal)
 #endif
-
+
 #if DEBUG
 
 static int
@@ -518,7 +518,7 @@ main (argc, argv)
 }
 
 #endif /* DEBUG */
-
+
 /*
 Local Variables:
 compile-command: "gcc -DDEBUG -DHAVE_LIMITS_H -DSTDC_HEADERS -Wall -W -O -g mktime.c -o mktime"

@@ -33,7 +33,7 @@ int da_exit_error = 1;			/* exit value when encounters	*
      a->content [i] = a->content [j];	\
      a->content [j] = tmp ;		\
    } while (0)
-
+
 /*
  * Create a dynamic array
  */
@@ -183,7 +183,7 @@ da_grow (struct darray * arr)
   }
   arr->content = XREALLOC (arr->content, void *, arr->size);
 }
-
+
 /*
  * Make a clone
  */
@@ -195,7 +195,7 @@ da_clone (struct darray * array)
   res->content = CCLONE (array->content, array->len);
   return res;
 }
-
+
 
 /*
  * Is it sorted?
@@ -270,7 +270,7 @@ da_includes (struct darray * arr, const void * stuff)
 {
   return (da_where (arr, stuff) != -1);
 }
-
+
 /*
  * Append an element
  */
@@ -368,7 +368,7 @@ da_prefix (struct darray * arr, struct darray * arr2)
 
   arr->len += arr2->len;
 }
-
+
 /*
  * Implementation of QSORT as given by Sedgewick
  */
@@ -525,7 +525,7 @@ da_qsort_with_arg (struct darray * arr, da_cmp_arg_func_t cmp,
   }
   free (istack);
 }
-
+
 /*
  * Leave the first of each doubles
  */
@@ -641,7 +641,7 @@ da_maparg (struct darray * arr, da_maparg_func_t func, void * arg)
   for (i = 0 ; i < arr->len ; i++)
     (*func) (arr->content [i], arg);
 }
-
+
 /*
  * Some helping routines for special darray cases
  */

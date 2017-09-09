@@ -37,7 +37,7 @@
 #include "gen.h"
 #include "printers.h"
 #include "metaseq.h"
-
+
 /* Defined in main.c. */
 
 extern struct hash_table_s * files;
@@ -58,7 +58,7 @@ extern char *style_request;
 
 /* Type of eol. */
 extern enum eol_e end_of_line;
-
+
 /* Defined in generate.c. */
 
 /* The file in which samples of files are put. */

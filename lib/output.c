@@ -103,7 +103,7 @@ derivation_self_print (struct derivation * derivation, FILE * stream)
       break;
     }
 }
-
+
 /************************************************************************/
 /*		Output maintenance					*/
 /************************************************************************/
@@ -163,7 +163,7 @@ output_is_to_void (struct output * out)
 {
   return out->to_void;
 }
-
+
 /************************************************************************/
 /*		Putting stuff in the output				*/
 /************************************************************************/
@@ -282,7 +282,7 @@ output_delayed_string (struct output * out, uchar ** ptr)
   output_char (out, '\0');
   da_append (out->derivations, tmp);
 }
-
+
 /* FIXME: Must be robust to missing arguments */
 #define GET_TOKEN(from) (strtok ((from), " \t\n"))
 #define GET_LINE_TOKEN(from) (strtok ((from), "\n"))
@@ -532,7 +532,7 @@ output_file (struct output * out, a2ps_job * job,
   fclose (stream);
   free (filename);
 }
-
+
 /*
  * The derivation of a special kind will be emptied in STREAM
  */

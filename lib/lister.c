@@ -172,7 +172,7 @@ static size_t max_idx;
 
 /* The minimum width of a colum is 1 character for the name. */
 #define MIN_COLUMN_WIDTH	1
-
+
 
 /* Initialize the LISTER for the STREAM. */
 
@@ -277,7 +277,7 @@ lister_after_set (struct lister * lister, size_t size)
   return old;
 }
 
-
+
 static size_t
 lister_vertical_format (struct lister * l,
 			void **items, size_t item_number,
@@ -414,7 +414,7 @@ lister_print_vertical (struct lister *lister,
 			  l->width_fn, l->print_fn);
 }
 
-
+
 /* Listing in horizontal format.  Columns are built to minimize the
    number of needed rows.  For instance:
 
@@ -558,7 +558,7 @@ lister_print_horizontal (struct lister *lister,
 			   items, item_number,
 			   l->width_fn, l->print_fn);
 }
-
+
 /*
    Listing thing separated by spaces and strings.  For instance:
 
@@ -645,7 +645,7 @@ lister_print_separated (struct lister *lister,
 			   l->width_fn, l->print_fn);
 }
 
-
+
 #ifdef TEST
 
 const char * program_name = "lister";

@@ -34,7 +34,7 @@ extern char * style_request;
  */
 extern a2ps_job * job;
 extern struct darray * sheets_map;
-
+
 
 /*
  * The user has requested the style sheet him self.
@@ -123,7 +123,7 @@ sheets_map_load_main (void)
   free (file);
   return 1;
 }
-
+
 /* escapes the name of a file so that the shell groks it in 'single' q.marks.
    The resulting pointer has to be free()ed when not longer used. */
 char *
@@ -153,7 +153,7 @@ shell_escape(const char *fn)
 
   return retval;
 }
-
+
 /* What says file about the type of a file (result is malloc'd).  NULL
   if could not be run.  */
 

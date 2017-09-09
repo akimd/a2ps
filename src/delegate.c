@@ -108,7 +108,7 @@ delegation_table_free (struct hash_table_s *table)
   hash_free (table, (hash_map_func_t) delegate_free);
   free (table);
 }
-
+
 /************************************************************************/
 /*              Use of the subcontracts                                 */
 /************************************************************************/
@@ -360,7 +360,7 @@ subcontract (struct file_job *fjob, buffer_t * buffer,
   job->status->page_are_ordered = false;
   return true;
 }
-
+
 /************************************************************************/
 /*              "Visible" interface of the subcontracts                 */
 /************************************************************************/

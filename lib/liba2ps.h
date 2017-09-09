@@ -85,7 +85,7 @@ enum face_e {
   Comment_strong = 9,
   Last_face = 9
 };
-
+
 /* From gen.h */
 /* Print a single char C in FACE */
 void a2ps_print_char PARAMS ((struct a2ps_job * job, 
@@ -108,7 +108,7 @@ void a2ps_close_output_session PARAMS ((struct a2ps_job * job));
 void a2ps_open_input_session PARAMS ((struct a2ps_job * job, unsigned char * name));
 void a2ps_close_input_session PARAMS ((struct a2ps_job * job));
 
-
+
 /* From jobs.h */
 /* Return a newly allocated output session storage */
 struct a2ps_job * a2ps_job_new PARAMS ((void));
@@ -118,7 +118,7 @@ void a2ps_job_finalize PARAMS ((struct a2ps_job * job));
 
 /* Free the memory used by JOB */
 void a2ps_job_free PARAMS ((struct a2ps_job * job));
-
+
 /* From confg.h */
 /*
  * Read the configuration file
@@ -131,7 +131,7 @@ int a2_read_config PARAMS ((struct a2ps_job * job,
  * (i.e., a2_read_config  (job, etc, a2ps.cfg))
  */
 void a2_read_sys_config PARAMS ((struct a2ps_job * job));
-
+
 
 __END_DECLS
 

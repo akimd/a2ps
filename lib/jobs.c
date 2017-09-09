@@ -108,7 +108,7 @@ a2ps_job_unlink_tmpfiles (struct a2ps_job * job)
   /* That of the files */
   da_map (job->jobs, (da_map_func_t) file_job_unlink_tmpfile);
 }
-
+
 /*
  * Create a new a2ps_job (corresponding to a single file produced)
  * and return it initialized (but default values: config files are

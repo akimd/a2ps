@@ -139,7 +139,7 @@ input_end (buffer_t * buffer)
 
   a2ps_close_input_session (job);
 }
-
+
 /************************************************************************/
 /*			The producers					*/
 /************************************************************************/
@@ -234,7 +234,7 @@ msg_nothing_printed (void)
   message (msg_report1,
 	   (stderr, _("[No output produced]\n")));
 }
-
+
 void
 print_toc (const uchar * name, const uchar * value, int * native_jobs)
 {
@@ -258,7 +258,7 @@ print_toc (const uchar * name, const uchar * value, int * native_jobs)
 
   a2ps_close_input_session (job);
 }
-
+
 /*
  * Called by the main loop.
  * The file to print is the last of the darray job->jobs.
@@ -357,7 +357,7 @@ print (uchar * filename, int * native_jobs, int * delegated_jobs)
 
   input_end (input_buffer);
 }
-
+
 /*
  * Called by the main loop.
  * Almost like the above `PRINT' function, but just reports the guesses.

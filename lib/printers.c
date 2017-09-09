@@ -44,7 +44,7 @@
   2. struct a2ps_printers_s and functions.
   4. interface for struct a2ps_job
 */
-
+
 /************************************************************************
  * hash tables for the printers						*
  ************************************************************************/
@@ -159,7 +159,7 @@ printer_self_print (struct printer * printer, FILE * stream)
     fprintf (stream, "  %s\n", printer->command);
 }
 
-
+
 /************************************************************************/
 /* 2. Printer_table functions						*/
 /************************************************************************/
@@ -254,7 +254,7 @@ printer_table_self_print (struct printer_table * table, FILE * stream)
   hash_maparg (table, (hash_maparg_func_t) printer_self_print,
 	       stream, (qsort_cmp_t) printer_hash_qcmp);
 }
-
+
 /************************************************************************/
 /*	Handling the printers module					*/
 /************************************************************************/
@@ -407,7 +407,7 @@ a2ps_printers_command_get (struct a2ps_printers_s *printers,
     }
   return printers->unknown_printer.command;
 }
-
+
 /* Make a standard message upon the destination.  Mallocs the
    result.  If FILE_P, NAME is a file name, else a printer name. */
 static uchar*
@@ -595,7 +595,7 @@ a2ps_printers_font_known_p (struct a2ps_printers_s * printers,
 {
   return ppd_font_known_p (printers->ppd, name);
 }
-
+
 /*
  * Interface to job
  */

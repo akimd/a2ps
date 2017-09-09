@@ -29,7 +29,7 @@
 #include "argmatch.h"
 #include "buffer.h"
 #include <assert.h>
-
+
 /****************************************************************/
 /*		 	Handling of the various eol styles	*/
 /****************************************************************/
@@ -91,7 +91,7 @@ option_string_to_eol (const char *option,
   ARGMATCH_ASSERT (eol_args, eol_types);
   return XARGCASEMATCH (option, arg, eol_args, eol_types);
 }
-
+
 /****************************************************************/
 /*		 	buffer_t Service routines 		*/
 /****************************************************************/
@@ -192,7 +192,7 @@ buffer_set_lower_case (buffer_t * buffer, bool sensitive)
 {
   buffer->lower_case = sensitive;
 }
-
+
 /*
  * Get a line from BUFFER->STREAM.
  * Returns true  if a full line has been read,
@@ -284,7 +284,7 @@ buffer_stream_get_line (buffer_t * buffer)
      the last char was not an eol: report the line is not complete. */
   return false;
 }
-
+
 /*
  * Get a line from BUFFER->BUF
  *
@@ -381,7 +381,7 @@ buffer_string_get_line (buffer_t * buffer)
      the last char was not an eol: report the line is not complete. */
   return false;
 }
-
+
 
 /* buffer_get
  *   if the language is case insensitive,
@@ -440,7 +440,7 @@ buffer_get (buffer_t * buffer)
 
   buffer->curr = 0;
 }
-
+
 /* buffer_sample_get
  *   extract a piece of a BUFFER's stream into FILENAME
  *

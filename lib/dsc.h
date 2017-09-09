@@ -20,7 +20,7 @@
 #define _DSC_H_
 
 struct a2ps_job;
-
+
 /*
  * Handling the multivalued_entry hash tables
  */

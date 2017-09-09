@@ -16,7 +16,7 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-
+
 /************************************************************************/
 /*                                                                      */
 /*                      I n c l u d e   f i l e s                       */
@@ -52,7 +52,7 @@
 
 /* From basename.c */
 char *base_name PARAMS ((const char *path));
-
+
 /************************************************************************/
 /*                                                                      */
 /*                 G l o b a l   d e f i n i t i o n s                  */
@@ -170,7 +170,7 @@ int strip_level = 0;
  * interpret as end of line
  */
 enum eol_e end_of_line = eol_auto;
-
+
 /************************************************************************/
 /*                             Service routines                         */
 /************************************************************************/
@@ -296,7 +296,7 @@ static const enum behavior behavior_types[] =
   b_glob,
   b_ps
 };
-
+
 /************************************************************************/
 /*                              Interface                               */
 /************************************************************************/
@@ -816,7 +816,7 @@ News, updates and documentation: visit http://www.gnu.org/software/a2ps/.\n"));
 
   exit (status);
 }
-
+
 
 /*----------------------------------------------------------------.
 | Handle the options that a2ps understands (not liba2ps) Return 1 |

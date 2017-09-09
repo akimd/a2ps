@@ -122,7 +122,7 @@ interval_applies_above (struct interval * interval, int offset)
   */
   return true;
 }
-
+
 /************************************************************************/
 /*	Selecting the pages to print					*/
 /*	2. The page range						*/
@@ -240,7 +240,7 @@ page_range_applies_above (struct page_range * page_range, int offset)
 
   return true;
 }
-
+
 /************************************************************************/
 /*	Selecting the pages to print					*/
 /*	3. The interface with a2ps_job					*/

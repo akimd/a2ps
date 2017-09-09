@@ -44,7 +44,7 @@
         (*tmp1++) = DIRECTORY_SEPARATOR;		\
         stpcpy (tmp1, tmp2);				\
    } while (0)
-
+
 /************************************************************************/
 /*	Handling the path: an array, NULL terminated of char *		*/
 /************************************************************************/
@@ -202,7 +202,7 @@ pw_fprintf_path (FILE * stream, const char * format, char * const * path)
       path++;
     }
 }
-
+
 /*-------------------------------------------------------------------.
 | Return the index+1 in PATH of the directory that contains the file |
 | concat(NAME, SUFFIX).                                              |
@@ -355,7 +355,7 @@ xpw_find_included_file (char * const *path,
   /* Find in the library. */
   return xpw_find_file (path, name, suffix);
 }
-
+
 /*
  * Dump a library file content
  */

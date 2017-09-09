@@ -34,7 +34,7 @@
 #include "filalign.h"
 
 struct stream;
-
+
 /* All the information on the current print job */
 typedef struct a2ps_job
 {
@@ -141,7 +141,7 @@ typedef struct a2ps_job
   /* List of the jobs */
   struct darray * jobs;
 } a2ps_job;
-
+
 /* liba2ps.h:begin */
 /* Return a newly allocated output session storage */
 struct a2ps_job * a2ps_job_new PARAMS ((void));

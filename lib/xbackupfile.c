@@ -93,7 +93,7 @@ extern int errno;
 
 #define STREQ(s1, s2)            (strcmp ((s1), (s2)) == 0)
 
-
+
 /* Non failing call to find_backup_file_name */
 char *
 xfind_backup_file_name (const char * file, enum backup_type backup_type)
@@ -106,7 +106,7 @@ xfind_backup_file_name (const char * file, enum backup_type backup_type)
 
   return res;
 }
-
+
 /*
   The following approach has been suggested by Miles Bader and
   Paul Eggert.
@@ -189,7 +189,7 @@ create_file_for_backup (char const *file, int oflag, mode_t mode,
 
   return fd;
 }
-
+
 /* Since there were two different approaches, and one may fear
  * portability problems, the old version is here provided by disabled.
  * Follows the solution based on Miles Bader and Paul Eggert's

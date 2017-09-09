@@ -18,7 +18,7 @@
 
 #include "main.h"
 #include "buffer.h"
-
+
 
 /*-------------------------------------------------------.
 | Returns a single char (EOF for end-of-file).           |
@@ -182,7 +182,7 @@ plain_getc (buffer_t * buffer, enum face_e *face)
     }
   return c;
 }
-
+
 /*
  * Print a file to postscript (no style)
  */

@@ -117,7 +117,7 @@ get_integer_in_range (const char * option, const char * arg,
     }
   return res;
 }
-
+
 /*
  * Return a float in a given range, with a specified unit
  */
@@ -218,7 +218,7 @@ get_float_in_range (const char * option, const char * arg,
 
   return res;
 }
-
+
 /*
  * Return the ratio to inch
  */

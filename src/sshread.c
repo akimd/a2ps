@@ -39,7 +39,7 @@ extern struct a2ps_job *job;
    re_match (regex,						\
 	     (char *) buffer->value, buffer->len, buffer->curr,	\
 	     token->registers)
-
+
 /*
  * Structure in which is stored the result of a parsing
  */
@@ -98,7 +98,7 @@ static struct token *token = NULL;
   token->registers->end [token_dest(_i_)->reg_ref]
 
 static struct darray *plain_rhs = NULL;
-
+
 /****************************************************************/
 /*              pretty printing service routines                */
 /****************************************************************/
@@ -121,7 +121,7 @@ match_word (buffer_t * buffer, struct style_sheet *sheet)
   token->registers->start[0] = start;
   token->registers->end[0] = buffer->curr;
 }
-
+
 /****************************************************************/
 /*                      lexical analysis routines               */
 /****************************************************************/
@@ -281,7 +281,7 @@ match_sequence (buffer_t * buffer, struct style_sheet *sheet)
     }
   return NULL;
 }
-
+
 /*
  * Put in token the token recognized.
  * The number of token read, 0 if nothing left
@@ -379,7 +379,7 @@ ssh_get_token (buffer_t * buffer, struct style_sheet *sheet)
   token->registers->end[0] = buffer->curr;
   return 1;
 }
-
+
 #define GRAB_TAG(_tag_)					\
   do {							\
     ustrncat (_tag_,					\

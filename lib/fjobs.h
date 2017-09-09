@@ -20,7 +20,7 @@
 # define FJOBS_H_
 
 struct a2ps_job;
-
+
 /*
  * Relative to the current file
  */
@@ -54,7 +54,7 @@ struct file_job
   int top_page;			/* The first page appearing in curr sheet */
   int lines;			/* Current line number			*/
 };
-
+
 
 /* in the output session JOB, create a new input session NAME */
 struct file_job *

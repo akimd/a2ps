@@ -110,8 +110,8 @@ free_dict_entry_table (struct hash_table_s * table)
   hash_free (table, (hash_map_func_t) free_dict_entry);
   free (table);
 }
-
-
+
+
 /************************************************************************/
 /*	Dealing with the structure (creation etc.) that will be kept	*/
 /*	in JOB								*/
@@ -196,7 +196,7 @@ initialize_ps_status (struct ps_status * status)
   status->column = 0;
   status->wx = 0;
 }
-
+
 /************************************************************************/
 /*	Dealing with the various components of this structure		*/
 /************************************************************************/
@@ -375,7 +375,7 @@ list_pagedevice (a2ps_job * job, FILE * stream)
 {
   dict_entry_table_dump (job->status->pagedevice, stream);
 }
-
+
 /*
  * Used with the status dict definitions (-S)
  */

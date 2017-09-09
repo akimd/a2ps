@@ -441,7 +441,7 @@ noconv:
 
   return 0L;
 }
-
+
 /* External user entry point.  */
 
 #if _LIBC - 0 == 0

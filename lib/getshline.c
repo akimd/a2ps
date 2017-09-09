@@ -37,7 +37,7 @@
 
 /* Always add at least this many bytes when extending the buffer.  */
 #define MIN_CHUNK 64
-
+
 /* Read up to (and including) a TERMINATOR from STREAM into *LINEPTR
    + OFFSET (and null-terminate it). *LINEPTR is a pointer returned from
    malloc (or NULL), pointing to *N characters of space.  It is realloc'd
@@ -137,7 +137,7 @@ getshstr (int * firstline, int * lastline,
   ret = read_pos - (*lineptr + offset);
   return ret;
 }
-
+
 int
 getshline_numbered (int * firstline, int * lastline,
 		    char ** lineptr, size_t * n, FILE * stream)
@@ -174,7 +174,7 @@ getshdelim (char ** lineptr, size_t * n,
   return getshstr (&firstline, &lastline, lineptr, n, stream,
 		   delimiter, delimiter_quote, commentor, 0);
 }
-
+
 #ifdef TEST
 
 const char * program_name = "getsh";

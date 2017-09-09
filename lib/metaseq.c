@@ -100,7 +100,7 @@ macro_meta_sequences_list_long (struct a2ps_job * job,
   putc ('\n', stream);
   pair_table_list_long (job->macro_meta_sequences, stream);
 }
-
+
 /************************************************************************/
 /* Expansion of a user string						*/
 /************************************************************************/
@@ -170,7 +170,7 @@ macro_meta_sequences_list_long (struct a2ps_job * job,
 #define fjob(_array_,_num_)	\
 	((struct file_job *) _array_->content [_num_])
 
-
+
 /*
  * Using the data in JOB, and in the current FILE data descriptor,
  * expand the possilbity escaped STR in the current USER_STRING_STACK.

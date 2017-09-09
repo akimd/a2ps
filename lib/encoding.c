@@ -33,7 +33,7 @@
 /* Suffix of the Encoding Description Files */
 #define EDF_SUFFIX ".edf"
 
-
+
 /* FIXME: THe comment is no longer exact
   Dealing with the encodings is a long and painful work.
 
@@ -109,7 +109,7 @@
   because it is the most open solution.  Especially if the prologue
   makes use of some other faces (in the headers for instance).
 */
-
+
 /************************************************************************/
 /*			encoding.map handling				*/
 /************************************************************************/
@@ -175,7 +175,7 @@ load_main_encodings_map (struct a2ps_job * job)
   free (file);
   return 1;
 }
-
+
 /************************************************************************/
 /*		     	wx handling					*/
 /************************************************************************/
@@ -206,7 +206,7 @@ wx_self_print (unsigned int * wx, FILE * stream)
     fputs ("<No WX defined>\n", stream);
 }
 
-
+
 /************************************************************************/
 /*		     fonts entries handling				*/
 /************************************************************************/
@@ -291,7 +291,7 @@ font_entry_self_print (struct font_entry * entry, FILE * stream)
 	   entry->reencode ? "to share between encodings" : "reencode");
   wx_self_print (entry->wx, stream);
 }
-
+
 /************************************************************************/
 /*		     fonts entries hash table handling			*/
 /************************************************************************/
@@ -373,7 +373,7 @@ font_entry_set_used (struct hash_table_s * table, const char * name)
 {
   font_entry_get (table, name)->used = true;
 }
-
+
 /************************************************************************/
 /*		     encodings entries handling				*/
 /************************************************************************/
@@ -634,7 +634,7 @@ load_encoding_description_file (a2ps_job * job,
   free (buf);
   free (fname);
 }
-
+
 /*
  * Used by --list-encodings
  */
@@ -790,7 +790,7 @@ dump_encoding_setup (FILE * stream,
 	     encoding_resolve_font_substitute (job, encoding, font_names [i]));
   fputs ("currentdict end def\n", stream);
 }
-
+
 /************************************************************************/
 /*		     encodings hash table handling			*/
 /************************************************************************/
@@ -990,7 +990,7 @@ dump_encodings_setup (FILE * stream,
 
   free (encodings);
 }
-
+
 /************************************************************************/
 /*		     Computing the width of a char/string		*/
 /************************************************************************/
@@ -1087,7 +1087,7 @@ set_encoding (struct a2ps_job * job, struct encoding * enc)
 {
   job->encoding = enc;
 }
-
+
 /* Compare names with strverscmp, so that latin 15 is after latin 2.  */
 
 static int

@@ -138,7 +138,7 @@ struct style_sheet
  * empty string, but appearing in a string, "" denotes ".
  */
 
-
+
 /*
  * The faced_string
  */
@@ -189,7 +189,7 @@ void free_sequence PARAMS ((struct sequence * sequence));
 struct sequence * new_C_string_sequence PARAMS ((const char * delimitor));
 void sequence_self_print PARAMS ((struct sequence * v, FILE * stream));
 
-
+
 /*
  * Dealing with the struct words
  */

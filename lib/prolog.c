@@ -50,7 +50,7 @@ a2ps_job_stream_hook ps_comment_hook = NULL;
 
    If somebody feels like cleaning this up, he is really welcome.
  */
-
+
 #define PRINT_HEADER					\
 	(!IS_EMPTY(job->header))
 
@@ -72,7 +72,7 @@ a2ps_job_stream_hook ps_comment_hook = NULL;
 /* return the max of two >-comparable stuff */
 #define A2_MAX(X,Y)        (((X) > (Y)) ? (X) : (Y))
 
-
+
 /****************************************************************/
 /* Reporting the known prologues   				*/
 /****************************************************************/
@@ -182,7 +182,7 @@ prologues_list_texinfo (a2ps_job * job, FILE * stream)
   fputs ("@end table\n", stream);
 }
 
-
+
 /*
  * We want to optimize the number of fonts defined in the
  * postscript: we may run into limitcheck on poor printers
@@ -199,7 +199,7 @@ dump_encodings (FILE * stream, a2ps_job * job)
    * headers etc.), dump what is required for the headers */
   output_dump (job->ps_encodings, stream);
 }
-
+
 /****************************************************************/
 /*		Printing a document				*/
 /****************************************************************/
