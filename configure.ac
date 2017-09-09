@@ -110,7 +110,6 @@ ad_FUNC_STRFTIME
 AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_VPRINTF
 AC_FUNC_OBSTACK
-AC_FUNC_ALLOCA
 
 jm_PREREQ_QUOTEARG
 
@@ -324,9 +323,6 @@ AC_SUBST(COM_LATEX)
 ## ---------- ##
 ## Epilogue.  ##
 ## ---------- ##
-
-LTALLOCA=`echo "$ALLOCA" | sed 's/\.o/\.lo/g'`
-AC_SUBST(LTALLOCA)
 
 AC_CONFIG_SUBDIRS(ogonkify)
 

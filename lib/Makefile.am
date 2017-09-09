@@ -30,7 +30,6 @@ YFLAGS = -dtv
 GPERFFLAGS = -t -D -L ANSI-C
 BUILT_SOURCES = parseppd.c parseppd.h liba2ps.h confg.c
 
-liba2ps_la_LIBADD = @LTALLOCA@ @LTLIBOBJS@
 liba2ps_la_LDFLAGS = -version-info @LIBVERSION@
 
 liba2psheaders = encoding.h media.h jobs.h output.h		\
