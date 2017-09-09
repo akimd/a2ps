@@ -73,9 +73,7 @@ This document describes GNU @pack{} @value{VERSION}, a converter from
 various formats, included text, to PostScript converter, with
 pretty-printing abilities.
 
-Copyright @copyright{} 1988-1993 Miguel Santana
-Copyright @copyright{} 1995-2000 Akim Demaille, Miguel Santana
-Copyright @copyright{} 2007- Akim Demaille, Miguel Santana and Masayuki Hatta
+Copyright @copyright{} 1988-2017 Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -109,10 +107,7 @@ approved by the author.
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1988-1993 Miguel Santana
-
-Copyright @copyright{} 1995-2000 Akim Demaille, Miguel Santana
-Copyright @copyright{} 2007 Akim Demaille, Miguel Santana and Masayuki Hatta
+Copyright @copyright{} 1988-2017 Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
