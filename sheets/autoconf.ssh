@@ -27,7 +27,7 @@ version is 1.1
 requires a2ps 4.12i
 
 documentation is
-  "Suitable for both code(configure.in)code and library code(m4)code files."
+  "Suitable for both code(configure.ac)code and library code(m4)code files."
 end documentation
 
 ancestors are

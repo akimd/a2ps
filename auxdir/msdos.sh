@@ -18,14 +18,14 @@ cd /tmp/$package || exit 1
 
 #################### We are in the package.  Patch what we need to patch
 # 1. config.h.in is two dots long
-perl -pi -e 's/config\.h/config.h:config.hin/g' configure.in || exit 1
+perl -pi -e 's/config\.h/config.h:config.hin/g' configure.ac || exit 1
 mv config.h.in config.hin
 
 # 2. po/Makefile.in.in has 2 dots
 sed -e 's/Makefile\.in\.in/Makefile.in2/g' \
     -e 's|$(subdir)/$@.in|$(subdir)/$@.in:$(subdir)/$@.in2|g' \
     po/Makefile.in.in > po/Makefile.in2
-perl -pi -e 's#po/Makefile\.in#po/Makefile.in:po/Makefile.in2#' configure.in
+perl -pi -e 's#po/Makefile\.in#po/Makefile.in:po/Makefile.in2#' configure.ac
 
 
 ################################################ Reconfigure the package

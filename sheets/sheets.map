@@ -153,7 +153,7 @@ ada:	/*.ad[abs]/
 asn1:	/*.asn1/
 
 # Autoconf files
-autoconf: /configure.in/ /*\/configure.in/
+autoconf: /configure.ac/ /*\/configure.ac/
 	/ac*.m4/  /*\/ac*.m4/
 
 # AWK scripts

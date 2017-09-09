@@ -59,7 +59,7 @@ AppDelegate.m:objc
 InsertBlock.java:java
 a2ps.man:plain
 bookie.idl:cidl
-configure.in:autoconf
+configure.ac:autoconf
 confirm.m3:modula3
 ehandler:ps
 eplv_chkr.v:verilog
