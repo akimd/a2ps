@@ -23,15 +23,6 @@
 # include <config.h>
 #endif
 
-/* Support of prototyping when possible */
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 /*
  * Return length of the string sprintf would produce. Always > 0
  */
@@ -48,7 +39,7 @@ int printflen ();
 /*
  * List of arguments.
  */
-int vprintflen PARAMS ((const char *format, va_list args));
+int vprintflen (const char *format, va_list args);
 
 
 #endif /* ! defined(_PRINTLEN_H_) */

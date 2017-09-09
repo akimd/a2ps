@@ -16,8 +16,6 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#if defined (__STDC__) && __STDC__
-
 /* Initialize `sys_siglist'.  */
 void signame_init (void);
 
@@ -41,26 +39,4 @@ void psignal (int signal, const char *message);
 #ifndef HAVE_STRSIGNAL
 /* Return the name of SIGNAL.  */
 char *strsignal (int signal);
-#endif
-
-#if !defined (HAVE_SYS_SIGLIST)
-/* Names for signals from 0 to NSIG-1.  */
-extern const char *sys_siglist[];
-#endif
-
-#else
-
-void signame_init ();
-char *sig_abbrev ();
-int sig_number ();
-#if !defined (HAVE_SYS_SIGLIST) && !defined (HAVE_PSIGNAL)
-void psignal ();
-#endif
-#ifndef HAVE_STRSIGNAL
-char *strsignal ();
-#endif
-#if !defined (HAVE_SYS_SIGLIST)
-extern char *sys_siglist[];
-#endif
-
 #endif

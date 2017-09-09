@@ -49,7 +49,7 @@
 # include <unistd.h>
 #endif
 
-char *base_name PARAMS ((char const *));
+char *base_name (char const *);
 
 /* Append to FILENAME the extension EXT, unless the result would be too long,
    in which case just append the character E.  */

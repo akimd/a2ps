@@ -134,10 +134,10 @@ match_word (buffer_t * buffer, struct style_sheet *sheet)
 static inline int
 match_keyword (buffer_t * buffer,
 	       struct words *words,
-	       uchar * alphabet)
+	       unsigned char * alphabet)
 {
   struct rule **key;
-  uchar *string = buffer->value + buffer->curr;
+  unsigned char *string = buffer->value + buffer->curr;
   int i;
   int res;
 
@@ -189,7 +189,7 @@ match_operator (buffer_t * buffer,
 		struct words *words)
 {
   struct rule **key;
-  uchar *string = buffer->value + buffer->curr;
+  unsigned char *string = buffer->value + buffer->curr;
   int i;
   int res;
 
@@ -245,7 +245,7 @@ match_sequence (buffer_t * buffer, struct style_sheet *sheet)
 {
   int i;
   int res;
-  uchar *string = buffer->value + buffer->curr;
+  unsigned char *string = buffer->value + buffer->curr;
 
   /* In reversed order (in order to take the _last_ definition */
   for (i = (int) sheet->sequences->len - 1; i >= 0; i--)
@@ -397,7 +397,7 @@ ssh_print_postscript (struct a2ps_job *Job,
 {
   struct fface_s fface;
   /* To grab the encoding switching instruction */
-  uchar bufenc[512];
+  unsigned char bufenc[512];
   int grabbing_encoding = false;
   size_t i;
 

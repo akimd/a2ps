@@ -24,29 +24,29 @@ struct encoding;
 
 #include "faces.h"
 
-void ps_print_char PARAMS ((struct a2ps_job * job,
-			    int c, enum face_e face));
-void ps_print_string PARAMS ((struct a2ps_job * job,
-			      uchar * string, enum face_e face));
-void ps_print_buffer PARAMS ((struct a2ps_job * job,
-			      const uchar * buffer,
+void ps_print_char (struct a2ps_job * job,
+			    int c, enum face_e face);
+void ps_print_string (struct a2ps_job * job,
+			      unsigned char * string, enum face_e face);
+void ps_print_buffer (struct a2ps_job * job,
+			      const unsigned char * buffer,
 			      size_t start, size_t end,
-			      enum face_e face));
+			      enum face_e face);
 
-void ps_begin_file PARAMS ((struct a2ps_job * job));
-void ps_end_file PARAMS ((struct a2ps_job * job));
+void ps_begin_file (struct a2ps_job * job);
+void ps_end_file (struct a2ps_job * job);
 
-void page_flush PARAMS ((struct a2ps_job * job));
-void require_fresh_page PARAMS ((struct a2ps_job * job));
+void page_flush (struct a2ps_job * job);
+void require_fresh_page (struct a2ps_job * job);
 
 /*
  * Multi-lingual routines
  */
 
-void ps_set_encoding PARAMS ((struct a2ps_job * job,
-			      struct encoding * encoding));
-void ps_end_encoding PARAMS ((struct a2ps_job * job));
-void ps_switch_encoding PARAMS ((struct a2ps_job * job,
-				 struct encoding * encoding));
+void ps_set_encoding (struct a2ps_job * job,
+			      struct encoding * encoding);
+void ps_end_encoding (struct a2ps_job * job);
+void ps_switch_encoding (struct a2ps_job * job,
+				 struct encoding * encoding);
 
 #endif

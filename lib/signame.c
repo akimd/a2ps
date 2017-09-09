@@ -51,22 +51,6 @@
 
 #include "signame.h"
 
-#ifndef HAVE_SYS_SIGLIST
-/* There is too much variation in Sys V signal numbers and names, so
-   we must initialize them at runtime.  */
-
-static const char undoc[] = "unknown signal";
-
-const char *sys_siglist[NSIG];
-
-#else	/* HAVE_SYS_SIGLIST.  */
-
-#if defined HAVE_DECL_SYS_SIGLIST && !HAVE_DECL_SYS_SIGLIST
-extern char *sys_siglist[];
-#endif	/* Not HAVE_DECL_SYS_SIGLIST.  */
-
-#endif	/* Not HAVE_SYS_SIGLIST.  */
-
 /* Table of abbreviations for signals.  Note:  A given number can
    appear more than once with different abbreviations.  */
 typedef struct
@@ -86,9 +70,6 @@ init_sig (number, abbrev, name)
      const char *abbrev;
      const char *name;
 {
-#ifndef HAVE_SYS_SIGLIST
-  sys_siglist[number] = name;
-#endif
   sig_table[sig_table_nelts].number = number;
   sig_table[sig_table_nelts++].abbrev = abbrev;
 }
@@ -96,13 +77,6 @@ init_sig (number, abbrev, name)
 void
 signame_init ()
 {
-#ifndef HAVE_SYS_SIGLIST
-  int i;
-  /* Initialize signal names.  */
-  for (i = 0; i < NSIG; i++)
-    sys_siglist[i] = undoc;
-#endif /* !HAVE_SYS_SIGLIST */
-
   /* Initialize signal names.  */
 #if defined (SIGHUP)
   init_sig (SIGHUP, "HUP", "Hangup");

@@ -35,19 +35,10 @@ extern int errno;
 # define __set_errno(Val) errno = (Val)
 #endif
 
-#ifdef HAVE_LIMITS_H
-# include <limits.h>
-#endif
-
-#ifdef STDC_HEADERS
-# include <stddef.h>
-# include <stdlib.h>
-# include <string.h>
-#else
-# ifndef NULL
-#  define NULL 0
-# endif
-#endif
+#include <limits.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
 #ifdef USE_NUMBER_GROUPING
 # include "../locale/localeinfo.h"
@@ -443,18 +434,6 @@ noconv:
 }
 
 /* External user entry point.  */
-
-#if _LIBC - 0 == 0
-# undef PARAMS
-# if defined (__STDC__) && __STDC__
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-
-/* Prototype.  */
-INT strtol PARAMS ((const STRING_TYPE *nptr, STRING_TYPE **endptr, int base));
-#endif
 
 
 INT

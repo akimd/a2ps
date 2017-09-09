@@ -61,17 +61,17 @@ extern struct a2ps_job * job;
 extern const char * sshfilename;
 
 /* Local prototypes */
-void yyerror PARAMS ((const char *msg));
+void yyerror (const char *msg);
 static void yyprint ();
 
 /* Initilizes the obstacks */
-void sshlex_initialize PARAMS ((void));
+void sshlex_initialize (void);
 
 /* Comes from main.c */
 extern int highlight_level;
 
-int yylex PARAMS ((void));
-struct style_sheet * parse_style_sheet PARAMS ((const char * filename));
+int yylex (void);
+struct style_sheet * parse_style_sheet (const char * filename);
 
 /* Defines the style sheet being loaded */
 static struct style_sheet * parsed_style_sheet = NULL;
@@ -80,7 +80,7 @@ static struct style_sheet * parsed_style_sheet = NULL;
 %union
 {
   int integer;
-  uchar * string;
+  unsigned char * string;
   struct pattern * pattern;
   struct style_sheet * sheet;
   struct rule * rule;
@@ -121,7 +121,7 @@ static struct style_sheet * parsed_style_sheet = NULL;
 %type <array> rhs rhs_list
 %type <sequence> sequence
 %%
-
+
 /************************************************************************/
 /*		Top most						*/
 /************************************************************************/
@@ -143,7 +143,7 @@ style_sheet :
 
 definition_list :
 	/* empty */ {
-	  $$ = new_style_sheet ((const uchar *) "<no name>");
+	  $$ = new_style_sheet ((const unsigned char *) "<no name>");
 	}
 	| definition_list tOPTIONAL tKEYWORDS keywords_def tKEYWORDS
 	{
@@ -237,7 +237,7 @@ definition_list :
 		   sshfilename, $2);
 	}
 	;
-
+
 /************************************************************************/
 /*		Dealing with the inessential informations		*/
 /************************************************************************/
@@ -257,7 +257,7 @@ long_string: tSTRING { $$ = $1; }
 	  len1 = ustrlen ($1);
 	  $1[len1] = '\n';
 	  len2 = ustrlen ($2);
-	  $$ = XMALLOC (uchar, len1 + len2 + 2);
+	  $$ = XMALLOC (unsigned char, len1 + len2 + 2);
 	  ustpcpy (ustpncpy ($$, $1, len1 + 1), $2);
 	  free ($1);
 	  free ($2);
@@ -269,7 +269,7 @@ authors : tWRITTEN tBY tSTRING	{ $$ = $3 ; };
 version :
 	  tVERSION tIS tSTRING 	{ $$ = $3 ; }
 	| tVERSION tSTRING 	{ $$ = $2 ; };
-
+
 /************************************************************************/
 /*		Dealing with the ancestors of a style sheet		*/
 /************************************************************************/
@@ -296,7 +296,7 @@ ancestors_list: tSTRING
 	;
 
 case_def : tCASE tSENSITIVENESS { $$ = $2 ; } ;
-
+
 /************************************************************************/
 /*	Rhs							*/
 /* (Lists of (strings/regexp back references, face)			*/
@@ -366,7 +366,7 @@ rhs_list:
 	  $$ = $1;
 	}
 	;
-
+
 /*
  * The flagged faces (One (true face or Invisible) plus flags)
  */
@@ -415,7 +415,7 @@ fface_sxp:
 	  fface_add_flags($$, $3);
 	}
 	;
-
+
 /************************************************************************/
 /*		Symbol atoms						*/
 /************************************************************************/
@@ -440,7 +440,7 @@ rule:   tSTRING rhs
 			 sshfilename, sshlineno);
 	}
 	;
-
+
 /************************************************************************/
 /*		Keywords lists						*/
 /* We make the difference because the regex must be compiled with a	*/
@@ -502,7 +502,7 @@ keyword_regex:
 				 sshfilename, sshlineno);
 	}
 	;
-
+
 /************************************************************************/
 /*		Operators lists						*/
 /************************************************************************/
@@ -563,7 +563,7 @@ operator_regex:
 			 sshfilename, sshlineno);
 	}
 	;
-
+
 /************************************************************************/
 /*		Dealing with the sequences				*/
 /************************************************************************/
@@ -736,7 +736,7 @@ exception_def_opt:
 	};
 
 %%
-
+
 void
 yyerror (const char *msg)
 {

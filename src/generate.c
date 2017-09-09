@@ -18,7 +18,7 @@
 
 #include "main.h"
 
-extern int isdir PARAMS ((const char *path));
+extern int isdir (const char *path);
 
 /* Name of the file in which the tmp sample file is stored. */
 char *sample_tmpname = NULL;
@@ -48,7 +48,7 @@ string_to_style_kind (const char * string)
 /*			The inputs					*/
 /************************************************************************/
 static buffer_t *
-input_new (uchar * name)
+input_new (unsigned char * name)
 {
   NEW (buffer_t, res);
   struct file_job * file_job;
@@ -82,7 +82,7 @@ input_new (uchar * name)
 	  file_job->printable = false;
 	}
 
-      file_job->name = (uchar *) name;
+      file_job->name = (unsigned char *) name;
       if ((input_stream = fopen ((char *) name, "r")) == NULL)
 	{
 	  error (0, errno,
@@ -120,7 +120,7 @@ input_new (uchar * name)
   else
     file_job->type = get_command (file_job->name,
 				  (sample_tmpname
-				   ? (uchar *) sample_tmpname
+				   ? (unsigned char *) sample_tmpname
 				   : file_job->name));
 
   /* Remove the sample file */
@@ -185,7 +185,7 @@ void
 msg_job_pages_printed (a2ps_job * Job)
 {
   int sheets;
-  uchar *ucp;
+  unsigned char *ucp;
 
   sheets = Job->sheets;
   if (Job->duplex)
@@ -236,10 +236,10 @@ msg_nothing_printed (void)
 }
 
 void
-print_toc (const uchar * name, const uchar * value, int * native_jobs)
+print_toc (const unsigned char * name, const unsigned char * value, int * native_jobs)
 {
   buffer_t toc_buffer;
-  uchar * toc_content;
+  unsigned char * toc_content;
 
   /* Create a entry for the toc, as if it were a regular file */
   a2ps_open_input_session (job, xustrdup (name));
@@ -265,7 +265,7 @@ print_toc (const uchar * name, const uchar * value, int * native_jobs)
  * Return true if was a success, false otherwise
  */
 void
-print (uchar * filename, int * native_jobs, int * delegated_jobs)
+print (unsigned char * filename, int * native_jobs, int * delegated_jobs)
 {
   char buf[512];
   struct delegation * contract = NULL;
@@ -364,7 +364,7 @@ print (uchar * filename, int * native_jobs, int * delegated_jobs)
  * This is a dirty hack of sth OK in 4.11
  */
 void
-guess (uchar * filename)
+guess (unsigned char * filename)
 {
   buffer_t * buffer;
   struct file_job * file_job;

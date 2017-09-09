@@ -19,24 +19,15 @@
 /* Akim Demaille <demaille@inf.enst.fr>
  * Based on savedir.c, written by David MacKenzie <djm@gnu.ai.mit.edu>. */
 
-/* Support of prototyping when possible */
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 /* Functions mapped on file names. */
 typedef void (*filterdir_fun_t)
-  PARAMS ((const char *dir, const char *file, void *filtarg));
+  (const char *dir, const char *file, void *filtarg);
 
 /* Functions used to filter the file names to keep. */
 typedef bool (*filterdir_filter_t)
-  PARAMS ((const char *dir, const char *file, void *filtarg));
+  (const char *dir, const char *file, void *filtarg);
 
 void
-filterdir PARAMS ((const char *dir,
+filterdir (const char *dir,
 		   filterdir_filter_t filter, void *filtarg,
-		   filterdir_fun_t fun, void *arg));
+		   filterdir_fun_t fun, void *arg);

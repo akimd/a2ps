@@ -72,7 +72,7 @@ typedef struct a2ps_job
   /* How to get the physical font (eg Courier), from the logical
    * (eg, Keyword) */
   char * face_eo_font [NB_FACES];
-  uchar * stdin_filename;	/* Filename given to stdin		*/
+  unsigned char * stdin_filename;	/* Filename given to stdin		*/
 
   /*
    * Output related
@@ -110,18 +110,18 @@ typedef struct a2ps_job
   struct hash_table_s * font_infos;	/* The HT of the afm for each file */
 
   /* Headers and footers */
-  uchar * title;		/* Job's title (eg. in %%Title: )	*/
-  uchar * header;		/* Allow different header text	 	*/
-  uchar * center_title;		/* Allow different header text	 	*/
-  uchar * left_title;		/* Allow different header text	 	*/
-  uchar * right_title;		/* Allow different header text	 	*/
-  uchar * left_footer;		/* Allow different header text	 	*/
-  uchar * footer;		/* Allow different header text	 	*/
-  uchar * right_footer;		/* Allow different footer text	 	*/
-  uchar * water;		/* Water marks text			*/
+  unsigned char * title;		/* Job's title (eg. in %%Title: )	*/
+  unsigned char * header;		/* Allow different header text	 	*/
+  unsigned char * center_title;		/* Allow different header text	 	*/
+  unsigned char * left_title;		/* Allow different header text	 	*/
+  unsigned char * right_title;		/* Allow different header text	 	*/
+  unsigned char * left_footer;		/* Allow different header text	 	*/
+  unsigned char * footer;		/* Allow different header text	 	*/
+  unsigned char * right_footer;		/* Allow different footer text	 	*/
+  unsigned char * water;		/* Water marks text			*/
 
   /* Used to grab headers etc. from the file */
-  uchar tag1[256], tag2[256], tag3[256], tag4[256];
+  unsigned char tag1[256], tag2[256], tag3[256], tag4[256];
 
   /* Definition of the macro meta sequences	*/
   struct pair_htable * macro_meta_sequences;
@@ -144,13 +144,13 @@ typedef struct a2ps_job
 
 /* liba2ps.h:begin */
 /* Return a newly allocated output session storage */
-struct a2ps_job * a2ps_job_new PARAMS ((void));
+struct a2ps_job * a2ps_job_new (void);
 
 /* Finalize it */
-void a2ps_job_finalize PARAMS ((struct a2ps_job * job));
+void a2ps_job_finalize (struct a2ps_job * job);
 
 /* Free the memory used by JOB */
-void a2ps_job_free PARAMS ((struct a2ps_job * job));
+void a2ps_job_free (struct a2ps_job * job);
 /* liba2ps.h:end */
 
 #define CURRENT_FILE(j)				\
@@ -159,6 +159,6 @@ void a2ps_job_free PARAMS ((struct a2ps_job * job));
   ((struct file_job *) (j->jobs->content[0]))
 
 /* Unlink everything that could have been used */
-void a2ps_job_unlink_tmpfiles PARAMS ((struct a2ps_job * job));
+void a2ps_job_unlink_tmpfiles (struct a2ps_job * job);
 
 #endif

@@ -18,8 +18,9 @@
 
 ## Process this file with automake to produce Makefile.in
 info_TEXINFOS = a2ps.texi regex.texi
+a2ps_TEXINFOS = a2ps.texi $(generated_texinfos) version.texi
 
-TEXI2DVI = $(top_srcdir)/contrib/texi2dvi4a2ps
+#TEXI2DVI = $(top_srcdir)/contrib/texi2dvi4a2ps
 TEXI2DVIFLAGS = -b -c -t "@setchapternewpage odd"
 
 # The a2ps of this package
@@ -35,9 +36,6 @@ CLEANFILES = a2ps.tmp a2ps.tps
 
 EXTRA_DIST = $(generated_texinfos) .a2psrc translators.txt \
 make-authors.pl translators.pl
-
-a2ps.info: a2ps.texi $(generated_texinfos) version.texi
-a2ps.dvi: a2ps.texi $(generated_texinfos) version.texi
 
 # This is really the minimum form of dependency...
 sheets.texi: $(top_srcdir)/sheets/Makefile.am
@@ -95,6 +93,6 @@ cover-us: $(usdvi)
 
 # Note: I use a2html which puts better background and hlines.
 # you can put texi2html without any problems.
-html: a2ps.texi
+html-local: a2ps.texi
 	$(MAKEINFO) -E /tmp/a2ps.texi -o /dev/null a2ps.texi
 	a2html -expandinfo -split_chapter -number /tmp/a2ps.texi

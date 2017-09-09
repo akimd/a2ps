@@ -41,7 +41,7 @@
 #include "pair_ht.h"
 #include "dsc.h"
 #include "quotearg.h"
-
+
 /*
   What this file is in charge of?
 
@@ -76,7 +76,7 @@
   4. Down load a font file
 
 */
-
+
 /************************************************************************/
 /*			fonts.map handling				*/
 /************************************************************************/
@@ -140,7 +140,7 @@ load_main_fonts_map (struct a2ps_job * job)
   free (file);
   return 1;
 }
-
+
 /************************************************************************/
 /* Defining the structures, and lexer of afm files			*/
 /************************************************************************/
@@ -170,11 +170,11 @@ static int last_index_read;
 /* the current font info being filled */
 static struct font_info * font_info_being_parsed = NULL;
 
-static void wx_entry_add PARAMS ((struct hash_table_s * table,
+static void wx_entry_add (struct hash_table_s * table,
 				  const char * glyph,
-				  int the_index, unsigned int wx));
+				  int the_index, unsigned int wx);
 
-int yylex PARAMS ((void));
+int yylex (void);
 
 %}
 
@@ -244,7 +244,7 @@ yywrap (void)
 {
   return 1;
 }
-
+
 /************************************************************************
  * hash tables associating a glyph name to the corresponding wx		*
  ************************************************************************/
@@ -428,7 +428,7 @@ wx_entry_get_in_index_order (struct hash_table_s * table)
     hash_dump (table, NULL,
 	       (hash_cmp_func_t) wx_entry_hash_index_qcmp);
 }
-
+
 /************************************************************************
  * A font (not encoded)							*
  ************************************************************************/
@@ -499,7 +499,7 @@ font_info_table_free (struct hash_table_s * table)
   hash_free (table, (hash_map_func_t) hash_free_font_info);
   free (table);
 }
-
+
 /*
  * Create and return a new font_info cell, with key = KEY
  */
@@ -656,7 +656,7 @@ font_info_table_dump_special_font_setup (FILE * stream,
       fprintf (stream, "/f%s /%s findfont def\n",
 	       fonts [i]->key, fonts [i]->key);
 }
-
+
 /************************************************************************
  * Downloading of PostScript font					*
  ************************************************************************/
@@ -683,7 +683,7 @@ binary_font_dump_segment (FILE * in, FILE * out)
   enum segment_type segment_type;
   int magic;
   size_t length, read_length, length_to_read;
-  uchar buf [BUFSIZ];
+  unsigned char buf [BUFSIZ];
 
   magic = getc (in);
 

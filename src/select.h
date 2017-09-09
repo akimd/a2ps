@@ -22,7 +22,7 @@
 #include "darray.h"
 
 /* Used as hook when reading the options */
-void set_requested_style PARAMS ((const char * arg));
+void set_requested_style (const char * arg);
 
 /************************************************************************/
 /*			sheets.map handling				*/
@@ -30,24 +30,24 @@ void set_requested_style PARAMS ((const char * arg));
 /*
  * Structure in charge of remembering the sheets read
  */
-struct darray * sheets_map_new PARAMS ((void));
+struct darray * sheets_map_new (void);
 void
-sheets_map_add PARAMS ((const char *pattern, int on_file_verdict,
-			bool insenstive, const char *key));
+sheets_map_add (const char *pattern, int on_file_verdict,
+			bool insenstive, const char *key);
 
 /* Pattern matching is run on NAME_TO_MATCH, and file(1)
  * is run of NAME_TO_FILE
  */
-const char * get_command PARAMS ((const uchar * name_to_match,
-				  const uchar * name_to_file));
+const char * get_command (const unsigned char * name_to_match,
+				  const unsigned char * name_to_file);
 
 struct pattern_rule *
-pattern_rule_new PARAMS ((const char *pattern,
+pattern_rule_new (const char *pattern,
 			  int on_file_verdict,
 			  bool insensitive_p,
-			  const char *command));
+			  const char *command);
 
 void
-sheets_map_load PARAMS ((const char *filename));
+sheets_map_load (const char *filename);
 
 #endif /* !defined(_SELECT_H_) */

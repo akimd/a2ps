@@ -1,18 +1,19 @@
-AC_PREREQ(2.59)
-AC_COPYRIGHT([Copyright (C) 2007- Akim Demaille, Miguel Santana, Masayuki Hatta])
+AC_PREREQ([2.69])
+AC_COPYRIGHT([Copyright 2017 Free Software Foundation, Inc.])
 
 ## ---------------- ##
 ## Initialization.  ##
 ## ---------------- ##
 
 AC_INIT([GNU a2ps], [4.14], [bug-a2ps@gnu.org])
-AC_CONFIG_AUX_DIR(auxdir)
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_AUX_DIR([build-aux])
 m4_pattern_forbid([^jm_[A-Z]])
 
 # Initialize automake
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([1.15 foreign dist-bzip2 no-dist-gzip subdir-objects silent-rules])
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 # Specify the liba2ps version number
 LIBVERSION=1:0:0
@@ -38,38 +39,29 @@ jm_PATH_PERL
 
 # Check for the C compiler and the various oddities that may exist
 AC_PROG_CC
-AC_AIX
-AC_MINIX
-AC_ISC_POSIX
-AC_PROG_CPP
-AM_PROG_CC_STDC
-AM_C_PROTOTYPES
 AC_PROG_YACC
-fp_PROG_ECHO
 AC_PROG_GPERF
-missing_dir=`cd $ac_aux_dir && pwd`
-AM_MISSING_PROG(GPERF, gperf, $missing_dir)
+
 # I want flex, and only flex
-AM_PROG_LEX
-if test "$LEX" = lex; then
-  LEX="$missing_dir/missing flex"
-  LEX_OUTPUT_ROOT=lex.yy
-  AC_SUBST(LEX_OUTPUT_ROOT)dnl
-fi
+AC_PROG_LEX
+AC_MSG_CHECKING([whether LEX is flex])
+AS_CASE([`$LEX --version`],
+  [flex*],
+    [AC_MSG_RESULT([yes])],
+  [
+    AC_MSG_RESULT([no])
+    LEX="$SHELL $missing_dir/missing flex"
+    AC_SUBST([LEX_OUTPUT_ROOT], [lex.yy])
+    AC_SUBST([LEXLIB], [''])
+])
 
 # Libtool.  By default, don't do shared libs, liba2ps is not widely used.
-AC_DISABLE_SHARED
-AC_PROG_LIBTOOL
+LT_INIT([disable-shared static])
 
 ## ------------------------- ##
 ## Checks for header files.  ##
 ## ------------------------- ##
 
-AC_HEADER_STDC
-AC_HEADER_STAT
-AC_HEADER_TIME
-AC_HEADER_SYS_WAIT
-AC_HEADER_DIRENT
 AC_CHECK_HEADERS(sys/time.h sys/stat.h sys/types.h sys/ioctl.h  \
  math.h string.h strings.h stdlib.h unistd.h stdarg.h pwd.h malloc.h \
  memory.h errno.h fcntl.h stdbool.h fnmatch.h)
@@ -81,9 +73,7 @@ AC_CHECK_HEADERS(sys/time.h sys/stat.h sys/types.h sys/ioctl.h  \
 #
 # Checks for typedefs, structures, and compiler characteristics.
 #
-AC_C_CONST
-AC_C_INLINE
-AC_CHECK_TYPE(uchar, unsigned char)
+
 AC_TYPE_SIZE_T
 AC_TYPE_PID_T
 AC_TYPE_SIGNAL
@@ -94,30 +84,6 @@ AC_CHECK_MEMBERS([struct passwd.pw_gecos],,,
 #endif])
 jm_AC_PREREQ_XSTRTOUMAX
 jm_AC_TYPE_UINTMAX_T
-
-#
-# Portability non-Unix
-#
-AC_EXEEXT
-
-# Checking for sys_siglist.  Stolen from gmake-3.77
-AC_CHECK_DECLS([sys_siglist],,,
-[#include <sys/types.h>
-#include <signal.h>
-/* NetBSD declares sys_siglist in unistd.h.  */
-#if HAVE_UNISTD_H
-# include <unistd.h>
-#endif])
-AC_MSG_CHECKING(for sys_siglist)
-AC_CACHE_VAL(ac_cv_check_symbol_sys_siglist,
-[AC_TRY_LINK(, [extern char *sys_siglist[]; puts(*sys_siglist);],
-             ac_cv_check_symbol_sys_siglist=yes,
-             ac_cv_check_symbol_sys_siglist=no)])
-if test "$ac_cv_check_symbol_sys_siglist" = yes; then
-  AC_DEFINE_UNQUOTED(HAVE_SYS_SIGLIST, 1,
-                     [Define if your system has `sys_siglist'.])
-fi
-AC_MSG_RESULT($ac_cv_check_symbol_sys_siglist)
 
 ## ---------------------- ##
 ## Checks for Libraries.  ##
@@ -145,9 +111,7 @@ AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_VPRINTF
 AC_FUNC_OBSTACK
 AC_FUNC_ALLOCA
-AC_FUNC_ERROR_AT_LINE
-jm_FUNC_MALLOC
-jm_FUNC_REALLOC
+
 jm_PREREQ_QUOTEARG
 
 # Check and replace broken or missing "fnmatch"
@@ -196,7 +160,7 @@ ad_ENABLE_PATHS
 
 # What should get installed?
 AC_ARG_ENABLE(extensions,
-AC_HELP_STRING(--disable-extensions,small foot print installation),
+AS_HELP_STRING(--disable-extensions,small foot print installation),
 [case "${enableval}" in
   yes|no) ;;
   *) AC_MSG_ERROR(bad value ${enableval} for --disable-extensions) ;;
@@ -259,7 +223,7 @@ ad_PROG_LPR
 # default medium to use (defaulted to A4)
 #
 AC_ARG_WITH(medium,
-AC_HELP_STRING([--with-medium=medium],
+AS_HELP_STRING([--with-medium=medium],
                [specify the default medium (A4, Letter, Legal, etc.) [default=A4]]),
 MEDIUM=$with_medium,
 if test x"$ac_cv_lib_paper_systempapername" = xyes; then
@@ -273,7 +237,7 @@ AC_SUBST(MEDIUM)
 # default encoding to use (defaulted to latin1)
 #
 AC_ARG_WITH(encoding,
-AC_HELP_STRING([--with-encoding=enc],
+AS_HELP_STRING([--with-encoding=enc],
                [specify the default encoding (ascii, latin1, latin2... latin6, hp etc.) [default=latin1]]),
 ENCODING=$with_encoding,
 ENCODING=latin1)
@@ -307,16 +271,16 @@ ad_CHECK_PROG(convert)
 # HTML delegation
 ad_CHECK_PROGS([netscape, html2ps])
 if test "x$COM_netscape" = x; then
-  AC_CACHE_CHECK(whether netscape support remote-command, remote_com_netscape,
+  AC_CACHE_CHECK([whether netscape support remote-command], [my_cv_remote_com_netscape],
   [$netscape --help >conftest.help 2>&1
   if fgrep -e -remote  conftest.help >/dev/null &&
      fgrep -e -noraise conftest.help >/dev/null; then
-     remote_com_netscape=yes
+     my_cv_remote_com_netscape=yes
   else
-     remote_com_netscape=no
+     my_cv_remote_com_netscape=no
   fi
   rm -f conftest.help])
-  test "$remote_com_netscape" = no && COM_netscape='#'
+  test "$my_cv_remote_com_netscape" = no && COM_netscape='#'
 fi
 
 # PDF delegation
@@ -361,12 +325,6 @@ AC_SUBST(COM_LATEX)
 ## Epilogue.  ##
 ## ---------- ##
 
-# This is necessary so that .o files in LIBOBJS are also built via
-# the ANSI2KNR-filtering rules.
-LIB@&t@OBJS=`echo "$LIB@&t@OBJS" | sed 's/\.o /\$U.o /g;s/\.o$/\$U.o/'`
-# Autoconf 2.14a is not ready for libtool
-LTLIBOBJS=`echo "$LIB@&t@OBJS" | sed 's/\.o/\.lo/g'`
-AC_SUBST(LTLIBOBJS)
 LTALLOCA=`echo "$ALLOCA" | sed 's/\.o/\.lo/g'`
 AC_SUBST(LTALLOCA)
 
@@ -385,7 +343,7 @@ AC_CONFIG_FILES([Makefile
   man/Makefile
   tests/Makefile tests/defs
   lib/Makefile
-  auxdir/Makefile
+  build-aux/Makefile
   m4/Makefile
   etc/Makefile etc/a2ps_cfg etc/a2ps-site.cfg
   po/Makefile.in
@@ -405,17 +363,17 @@ if test $MEDIUM = libpaper; then
 *   (\`libpaper' means a2ps asks the medium to libpaper.  See man paperconf.)"
 fi
 
-cat <<EOF
+AC_MSG_RESULT([
 *****************************************************************
 * a2ps thinks it should be configured the following way:
-* - you print on \`$MEDIUM' paper$libpaper_msg
-* - your charset is \`$ENCODING'
-* - to send a JOB to the default printer, run \`$LPR job'
-* - to send a JOB to the printer PRINTER, run \`$LPR $LPR_QUEUE_OPTION PRINTER job'
-* - to ask \`file(1)' to follow the links, run \`$FILE_LINK'
-*   (\`file(1)' is used to guess the type of the files to print.)
+* - you print on `$MEDIUM' paper$libpaper_msg
+* - your charset is `$ENCODING'
+* - to send a JOB to the default printer, run `$LPR job'
+* - to send a JOB to the printer PRINTER, run `$LPR $LPR_QUEUE_OPTION PRINTER job'
+* - to ask `file(1)' to follow the links, run `$FILE_LINK'
+*   (`file(1)' is used to guess the type of the files to print.)
 *
-* If a2ps is wrong somewhere, fix the \`System Dependent parameters'
-* in \`etc/a2ps-site.cfg'.  See the README file.
+* If a2ps is wrong somewhere, fix the `System Dependent parameters'
+* in `etc/a2ps-site.cfg'.  See the README file.
 *****************************************************************
-EOF
+])

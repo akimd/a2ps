@@ -29,7 +29,7 @@
 static int
 plain_getc (buffer_t * buffer, enum face_e *face)
 {
-  uchar c;
+  unsigned char c;
 
   if (buffer_is_empty (buffer))
     {
@@ -52,7 +52,7 @@ plain_getc (buffer_t * buffer, enum face_e *face)
   if (buffer->content[buffer->curr] == '\b')
     {
       /* We might be dealing with misceleanous nroff'ed pages. */
-      const uchar *input = buffer->content + buffer->curr + 1;
+      const unsigned char *input = buffer->content + buffer->curr + 1;
 
       /* This might be a bolding sequence.  The bad news is that some
 	 strange systems build the bold sequences with only one

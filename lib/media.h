@@ -46,25 +46,25 @@ typedef enum
   portrait, landscape
 } ORIENTATION;
 
-struct hash_table_s * new_medium_table PARAMS ((void));
+struct hash_table_s * new_medium_table (void);
 
-void free_medium_table PARAMS ((struct hash_table_s * table));
+void free_medium_table (struct hash_table_s * table);
 
-struct medium * a2ps_get_medium PARAMS ((struct a2ps_job * job, 
-					 const char *string));
+struct medium * a2ps_get_medium (struct a2ps_job * job, 
+					 const char *string);
 
-const char  * a2ps_get_medium_name PARAMS ((struct a2ps_job * job, 
-					    const char *string));
+const char  * a2ps_get_medium_name (struct a2ps_job * job, 
+					    const char *string);
 
-bool a2ps_medium_libpaper_p PARAMS ((struct a2ps_job * job, 
-					const char * name));
+bool a2ps_medium_libpaper_p (struct a2ps_job * job, 
+					const char * name);
 
-void add_medium PARAMS ((struct a2ps_job * job,
+void add_medium (struct a2ps_job * job,
 			const char * name,
 			int w, int h,
-			int llx, int lly, int urx, int ury));
+			int llx, int lly, int urx, int ury);
 
-void list_media_long PARAMS ((struct a2ps_job * job, FILE * stream));
-void list_media_short PARAMS ((struct a2ps_job * job, FILE * stream));
+void list_media_long (struct a2ps_job * job, FILE * stream);
+void list_media_short (struct a2ps_job * job, FILE * stream);
 
 #endif

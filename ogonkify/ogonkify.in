@@ -16,7 +16,7 @@ $PROGNAME='ogonkify';
 $VERSION='v. 0.7.0 by J. Chroboczek';
 
 # Directory with the IBM Courier fonts
-$IBMFONTS="/usr/X11R6/lib/X11/fonts/Type1/cour*.pfa";
+$IBMFONTS="";
 # Directory with ogonkify's prologs
 $LIBDIR="@LIBDIR@";
 
@@ -49,7 +49,6 @@ $doStarOffice=0;
 $doApplixWare=0;
 $doXfig=0;
 $doMp=0;
-$doGnuplot=0;
 $recodeStandardFonts=0;
 $eurify=0;
 
@@ -227,7 +226,6 @@ while(defined($_ = $ARGV[0]) && /^-/) {
   elsif (/^-AX$/) { $doApplixWare=TRUE; }
   elsif (/^-M$/) { $doMosaic=TRUE; }
   elsif (/^-mp$/) { $doMp=TRUE; }
-  elsif (/^-G$/) { $doGnuplot=TRUE; }
   elsif (/^-F$/) { $doXfig=TRUE; }
   else { &usage ; die "\n"; }
 }
@@ -240,7 +238,7 @@ $where=0;
 while(<>) {
   if($where==0) {
     print;
-    if(($doMosaic || $doMp || $doGnuplot) && /^%%EndComments/) {
+    if(($doMosaic || $doMp) && /^%%EndComments/) {
       $_="%%BeginProlog\n";
       print;
     }
@@ -282,17 +280,11 @@ while(<>) {
           s/ISOLatin1Encoding/$encodingvecs{$encoding}/;
         } elsif ($doMp && m|/Encoding[ \t]+ISOLatin1Encoding[ \t]*def|) {
           s/ISOLatin1Encoding/$encodingvecs{$encoding}/;
-        } elsif ($doStarOffice || $doGnuplot && m/ISOLatin1Encoding/) {
-        } elsif ($doGnuplot && m|/Idieresis[ \t]+known|) {
-	    s/Idieresis/Aogonek/;
-        } elsif ($doGnuplot && m|/[^ ]+[ \t]+reencodeISO[ \t]+def|) {
-	  $tmp = $_;
-	  &procset($encodings{$encoding});
-	  print $tmp;
-	  s/ISOLatin1Encoding/$encodingvecs{$encoding}/;
+        } elsif ($doStarOffice && m/ISOLatin1Encoding/) {
+          s/ISOLatin1Encoding/$encodingvecs{$encoding}/;
         } elsif ($doXfig && 
                  m|/([^ \t]+)[ \t]+/([^ \t]+)[ \t]+isovec[ \t]+ReEncode|) {
-	  &remap($2,$1,$encodingvecs{$encoding});
+          &remap($2,$1,$encodingvecs{$encoding});
           next;
         }       
       }

@@ -39,24 +39,6 @@
 # define __END_DECLS /* empty */
 #endif
 
-#ifndef VOID
-# if defined (__GNUC__) || __STDC__
-#  define VOID void
-# else
-#  define VOID char
-# endif
-#endif
-
-#ifndef PARAMS
-#  if PROTOTYPES || defined (__STDC__) || defined (_AIX) \
-      || (defined (__mips) && defined (_SYSTYPE_SVR4)) \
-      || defined(WIN32) || defined(__cplusplus)
-#    define PARAMS(protos) protos
-#  else
-#    define PARAMS(protos) ()
-#  endif
-#endif
-
 /*
  * The type bool must be defined, for instance with
 

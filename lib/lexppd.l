@@ -43,11 +43,11 @@
 char * ppdfilename;
 char * const *ppdpath;
 
-int yylex PARAMS ((void));
-void yyerror PARAMS ((const char *));
+int yylex (void);
+void yyerror (const char *);
 
 /* Initilizes the obstacks */
-void ppdlex_initialize PARAMS ((void));
+void ppdlex_initialize (void);
 
 /* Obstack for strings reading */
 static struct obstack string_stack;
@@ -151,10 +151,10 @@ symbol	[^/#, \t\r\f\n\":()+]*
 
 <STATE_USTRING>{		/* string of characters */
   [:\n]		{ /* return the string */
-    uchar * string;
+    unsigned char * string;
 
     obstack_1grow (&string_stack, '\0');
-    string = (uchar *) obstack_finish (&string_stack);
+    string = (unsigned char *) obstack_finish (&string_stack);
 
     obstack_free (&string_stack, string);
 
@@ -248,7 +248,7 @@ symbol	[^/#, \t\r\f\n\":()+]*
 }
 
 %%
-
+
 int
 yywrap (void)
 {

@@ -27,7 +27,7 @@ extern unsigned int msg_verbosity;
    specifying directly the bits, or using a comma separated list of
    token which are ARGMATCHed. */
 
-int msg_verbosity_argmatch PARAMS ((const char *option, char *arg));
+int msg_verbosity_argmatch (const char *option, char *arg);
 
 /* Return non null value if message at LVL should be displayed. */
 

@@ -19,15 +19,6 @@
 #ifndef _GETSHLINE_H_
 # define _GETSHLINE_H_ 1
 
-/* Support of prototyping when possible */
-# ifndef PARAMS
-#   if PROTOTYPES
-#     define PARAMS(protos) protos
-#   else /* no PROTOTYPES */
-#     define PARAMS(protos) ()
-#   endif /* no PROTOTYPES */
-# endif
-
 /* These routines are devoted to reading meaning full lines.  By
  * meaningful is ment, not empty, and not behind a COMMENTOR symbol.
  * These lines are ended by a DELIMITER, but may be continued if
@@ -35,12 +26,12 @@
  */
 
 int
-getshline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
+getshline (char **_lineptr, size_t *_n, FILE *_stream);
 
 int
-getshdelim PARAMS ((char **_lineptr, size_t *_n,
+getshdelim (char **_lineptr, size_t *_n,
 		    int _delimiter, int _delimiter_quote, int _commentor,
-		    FILE *_stream));
+		    FILE *_stream);
 
 
 /* These routines are the pending of the above routines, keeping
@@ -53,14 +44,14 @@ getshdelim PARAMS ((char **_lineptr, size_t *_n,
 
 /* A basic example is available at the bottom of getshline.c */
 int
-getshline_numbered PARAMS ((int *_firstline, int *_lastline,
+getshline_numbered (int *_firstline, int *_lastline,
 			    char **_lineptr, size_t *_n,
-			    FILE *_stream));
+			    FILE *_stream);
 
 int
-getshdelim_numbered PARAMS ((int *_firstline, int *_lastline,
+getshdelim_numbered (int *_firstline, int *_lastline,
 			     char **_lineptr, size_t *_n,
 			     int _delimiter, int _delimiter_quote,
-			     int _commentor, FILE *_stream));
+			     int _commentor, FILE *_stream);
 
 #endif /* not defined(_GETSHLINE_H_) */

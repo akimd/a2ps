@@ -25,6 +25,7 @@
 #include <sys/types.h>
 #include <quotearg.h>
 #include <xalloc.h>
+#include <wctype.h>
 
 #include <ctype.h>
 #if defined (STDC_HEADERS) || (!defined (isascii) && !defined (HAVE_ISASCII))

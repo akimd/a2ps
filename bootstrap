@@ -12,7 +12,7 @@ do
 done
 
 # Autoconf, Automake, Gettext.
-autoreconf --force --install --verbose
+autoreconf -vif -W all
 
 # Configure and make the missing guys.
 ./configure

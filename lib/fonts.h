@@ -24,27 +24,27 @@ struct a2ps_job;
 /*
  * Handling of fonts.map files
  */
-struct pair_htable * fonts_map_new PARAMS ((void));
-void fonts_map_free PARAMS ((struct pair_htable * table));
-int load_main_fonts_map PARAMS ((struct a2ps_job * job));
+struct pair_htable * fonts_map_new (void);
+void fonts_map_free (struct pair_htable * table);
+int load_main_fonts_map (struct a2ps_job * job);
 
 
-struct hash_table_s * font_info_table_new PARAMS ((void));
-void font_info_table_free PARAMS ((struct hash_table_s * table));
-void font_info_add PARAMS ((struct a2ps_job * job, const char * key));
+struct hash_table_s * font_info_table_new (void);
+void font_info_table_free (struct hash_table_s * table);
+void font_info_add (struct a2ps_job * job, const char * key);
 
-int font_exists PARAMS ((struct a2ps_job * job, const char * key));
-int font_is_to_reencode PARAMS ((struct a2ps_job * job, const char * key));
+int font_exists (struct a2ps_job * job, const char * key);
+int font_is_to_reencode (struct a2ps_job * job, const char * key);
 
-void font_info_get_wx_for_vector PARAMS ((struct a2ps_job * job,
+void font_info_get_wx_for_vector (struct a2ps_job * job,
 					  const char * key, 
 					  char * vector [256],
-					  unsigned int * wx));
+					  unsigned int * wx);
 
 /* Dump the setup of the special fonts (e.g. Symbol) */
-void font_info_table_dump_special_font_setup PARAMS ((FILE * stream,
-						      struct a2ps_job * job));
+void font_info_table_dump_special_font_setup (FILE * stream,
+						      struct a2ps_job * job);
 
 /* Dump the definition of the fonts */
-void dump_fonts PARAMS ((FILE * stream, struct a2ps_job * job));
+void dump_fonts (FILE * stream, struct a2ps_job * job);
 #endif

@@ -198,7 +198,7 @@ a2ps_job_new (void)
   init_face_eo_font (res);
 
   /* virtual file name given to stdin */
-  res->stdin_filename = (uchar *) xstrdup ("stdin");
+  res->stdin_filename = (unsigned char *) xstrdup ("stdin");
 
   /*
    * Related to the output

@@ -49,7 +49,7 @@ struct pattern
  */
 struct faced_string
 {
-  uchar * string;		/* the destination string	*/
+  unsigned char * string;		/* the destination string	*/
   int reg_ref;			/* there is no destination string,
 				 * but the model is the REG_REF expression
 				 * caught by the regexp (e.g. 1 for \1 */
@@ -63,7 +63,7 @@ struct faced_string
 
 struct rule
 {
-  uchar *word;
+  unsigned char *word;
   struct re_pattern_buffer *regex;
   struct darray * rhs;
 };
@@ -91,17 +91,17 @@ struct style_sheet
   const char * key;
 
   /* Nice looking name of the style */
-  const uchar * name;
+  const unsigned char * name;
 
   /* Who wrote it, and when */
-  const uchar * author;
+  const unsigned char * author;
   int version[4];
 
   /* What version of a2ps is required? */
   int requirement[4];
 
   /* Note describing the mode or the language */
-  const uchar * documentation;
+  const unsigned char * documentation;
 
   /* Does it have ancestors (i.e., this one is an extension of
    * its ancestors).  It is a list of keys, of course */
@@ -113,8 +113,8 @@ struct style_sheet
   /* definition of the "words" (keywords and rules):
    * a char belonging to a first alphabet (alpha1),
    * and any number of chars belonging to the second (alpha2). */
-  uchar alpha1 [256];
-  uchar alpha2 [256];
+  unsigned char alpha1 [256];
+  unsigned char alpha2 [256];
 
   /* list of keywords for this language */
   struct words * keywords;
@@ -143,79 +143,79 @@ struct style_sheet
  * The faced_string
  */
 struct faced_string *
-faced_string_new PARAMS ((uchar * string, int reg_ref, struct fface_s fface));
+faced_string_new (unsigned char * string, int reg_ref, struct fface_s fface);
 
 /*
  * The version numbers
  */
-void style_sheet_set_version PARAMS ((struct style_sheet * sheet,
-				      const char * version_string));
-int style_sheet_set_requirement PARAMS ((struct style_sheet * sheet,
-					 const char * version_string));
+void style_sheet_set_version (struct style_sheet * sheet,
+				      const char * version_string);
+int style_sheet_set_requirement (struct style_sheet * sheet,
+					 const char * version_string);
 
 /*
  * The destinations (part of rule)
  */
-struct darray * rhs_new PARAMS ((void));
+struct darray * rhs_new (void);
 struct darray *
-rhs_new_single PARAMS ((uchar * string, int reg_ref, struct fface_s fface));
-void rhs_add PARAMS ((struct darray * dest, struct faced_string * str));
-void rhs_self_print PARAMS ((struct darray * rhs, FILE * stream));
+rhs_new_single (unsigned char * string, int reg_ref, struct fface_s fface);
+void rhs_add (struct darray * dest, struct faced_string * str);
+void rhs_self_print (struct darray * rhs, FILE * stream);
 
 /*
  * Dealing with the keywords, rules and operators
  */
-struct rule * rule_new PARAMS ((uchar * word,
+struct rule * rule_new (unsigned char * word,
 				struct pattern * pattern,
 				struct darray * destination,
-				const char *filename, size_t line));
-struct rule * keyword_rule_new PARAMS ((uchar * word,
+				const char *filename, size_t line);
+struct rule * keyword_rule_new (unsigned char * word,
 					struct pattern * pattern,
 					struct darray * destination,
-					const char *filename, size_t line));
+					const char *filename, size_t line);
 
 /*
  * Dealing with the sequences
  */
 struct pattern *
-new_pattern PARAMS ((char * pattern, size_t len));
+new_pattern (char * pattern, size_t len);
 
 struct sequence * sequence_new
-   	PARAMS ((struct rule * Open,
+   	(struct rule * Open,
 		 struct fface_s in_face,
 		 struct words * Close,
-		 struct words * exceptions));
-void free_sequence PARAMS ((struct sequence * sequence));
-struct sequence * new_C_string_sequence PARAMS ((const char * delimitor));
-void sequence_self_print PARAMS ((struct sequence * v, FILE * stream));
+		 struct words * exceptions);
+void free_sequence (struct sequence * sequence);
+struct sequence * new_C_string_sequence (const char * delimitor);
+void sequence_self_print (struct sequence * v, FILE * stream);
 
 
 /*
  * Dealing with the struct words
  */
 struct words *
-words_new PARAMS ((const char * name_strings, const char * name_regexps,
-		   size_t size, size_t increment));
-void words_free PARAMS ((struct words * words));
-void words_add_string PARAMS ((struct words * words, struct rule * rule));
-void words_add_regex PARAMS ((struct words * words, struct rule * rule));
-void words_set_no_face PARAMS ((struct words * words, struct fface_s face));
-void words_merge_rules_unique PARAMS ((struct words * words,
-					 struct words * new));
+words_new (const char * name_strings, const char * name_regexps,
+		   size_t size, size_t increment);
+void words_free (struct words * words);
+void words_add_string (struct words * words, struct rule * rule);
+void words_add_regex (struct words * words, struct rule * rule);
+void words_set_no_face (struct words * words, struct fface_s face);
+void words_merge_rules_unique (struct words * words,
+					 struct words * new);
 
 /*
  * Dealing with the style sheets
  */
-struct style_sheet * new_style_sheet PARAMS ((const uchar * name));
-void style_sheet_finalize PARAMS ((struct style_sheet * sheet));
-void style_sheet_self_print PARAMS ((struct style_sheet * sheet,
-				     FILE * stream));
+struct style_sheet * new_style_sheet (const unsigned char * name);
+void style_sheet_finalize (struct style_sheet * sheet);
+void style_sheet_self_print (struct style_sheet * sheet,
+				     FILE * stream);
 
 /*
  * Dealing with the hash table for style sheets
  */
-struct hash_table_s * new_style_sheets PARAMS ((void));
-struct style_sheet * get_style_sheet PARAMS ((const char * name));
+struct hash_table_s * new_style_sheets (void);
+struct style_sheet * get_style_sheet (const char * name);
 
 /************************************************************************/
 /*				style selection				*/
@@ -223,9 +223,9 @@ struct style_sheet * get_style_sheet PARAMS ((const char * name));
 /*
  * List the style sheets
  */
-void list_style_sheets_short PARAMS ((FILE * stream));
-void list_style_sheets_long PARAMS ((FILE * strea));
-void list_style_sheets_html PARAMS ((FILE * strea));
-void list_style_sheets_texinfo PARAMS ((FILE * strea));
+void list_style_sheets_short (FILE * stream);
+void list_style_sheets_long (FILE * strea);
+void list_style_sheets_html (FILE * strea);
+void list_style_sheets_texinfo (FILE * strea);
 
 #endif /* not defined _SSHEET_H_ */

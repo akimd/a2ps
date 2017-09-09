@@ -28,10 +28,10 @@
 
 extern struct darray * sheets_map;
 
-int yylex PARAMS ((void));
-void yyerror PARAMS ((const char *));
-static void yy_include_push PARAMS ((char *file));
-static void yy_include_pop PARAMS ((void));
+int yylex (void);
+void yyerror (const char *);
+static void yy_include_push (char *file);
+static void yy_include_pop (void);
 
 /* Obstack for strings reading */
 static struct obstack string_stack;
@@ -120,10 +120,10 @@ include       include\([^)]+\)
 
 <STATE_GLOB>{
   \/i? 			{ /* return the string */
-    uchar *string;
+    unsigned char *string;
 
     obstack_1grow (&string_stack, '\0');
-    string = (uchar *) obstack_finish (&string_stack);
+    string = (unsigned char *) obstack_finish (&string_stack);
     obstack_free (&string_stack, string);
     token_val = xustrdup (string);
 
@@ -160,10 +160,10 @@ include       include\([^)]+\)
 
 <STATE_FILE>{		/* string of characters */
   \>i? 			{ /* return the string */
-    uchar *string;
+    unsigned char *string;
 
     obstack_1grow (&string_stack, '\0');
-    string = (uchar *) obstack_finish (&string_stack);
+    string = (unsigned char *) obstack_finish (&string_stack);
     obstack_free (&string_stack, string);
     token_val = xustrdup (string);
 
@@ -197,7 +197,7 @@ include       include\([^)]+\)
   }
 }
 %%
-
+
 /*-----------------------------------------------------.
 | Handle the inclusion of files at the scanner level.  |
 `-----------------------------------------------------*/

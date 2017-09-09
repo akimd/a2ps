@@ -24,37 +24,37 @@ struct a2ps_job;
 /*
  * Handling the multivalued_entry hash tables
  */
-struct hash_table_s * multivalued_table_new PARAMS ((void));
-void multivalued_table_free PARAMS ((struct hash_table_s * table));
+struct hash_table_s * multivalued_table_new (void);
+void multivalued_table_free (struct hash_table_s * table);
 
 /*
  * needed ps resources (such as fonts)
  */
-void add_needed_resource PARAMS ((struct a2ps_job * job, 
-				  const char * key, const char * value));
-int exist_resource PARAMS ((struct a2ps_job * job, 
-			    const char * key, const char * value));
+void add_needed_resource (struct a2ps_job * job, 
+				  const char * key, const char * value);
+int exist_resource (struct a2ps_job * job, 
+			    const char * key, const char * value);
 
-void add_process_color PARAMS ((struct a2ps_job * job,
-				const char * value));
-void dump_process_color PARAMS ((FILE * stream,
-				 struct a2ps_job * job));
+void add_process_color (struct a2ps_job * job,
+				const char * value);
+void dump_process_color (FILE * stream,
+				 struct a2ps_job * job);
 
-void add_needed_resource PARAMS ((struct a2ps_job * job, 
-				  const char * key, const char * value));
-void dump_needed_resources PARAMS ((FILE * stream,
-				    struct a2ps_job * job));
+void add_needed_resource (struct a2ps_job * job, 
+				  const char * key, const char * value);
+void dump_needed_resources (FILE * stream,
+				    struct a2ps_job * job);
 
-void add_supplied_resource PARAMS ((struct a2ps_job * job, 
-				    const char * key, const char * value));
-void dump_supplied_resources PARAMS ((FILE * stream, 
-				      struct a2ps_job * job));
+void add_supplied_resource (struct a2ps_job * job, 
+				    const char * key, const char * value);
+void dump_supplied_resources (FILE * stream, 
+				      struct a2ps_job * job);
 
 /*
  * Declaration of the fonts, etc.
  */
-void add_required_font PARAMS ((struct a2ps_job * job, const char * name));
-char ** required_fonts_get PARAMS ((struct a2ps_job * job));
-void dump_setup PARAMS ((FILE * stream, struct a2ps_job * job));
+void add_required_font (struct a2ps_job * job, const char * name);
+char ** required_fonts_get (struct a2ps_job * job);
+void dump_setup (FILE * stream, struct a2ps_job * job);
 
 #endif

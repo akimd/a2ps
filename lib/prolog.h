@@ -30,21 +30,21 @@
 
 struct a2ps_job;
 
-typedef void (*a2ps_job_stream_hook) PARAMS ((struct a2ps_job * job,
-					      FILE * stream));
+typedef void (*a2ps_job_stream_hook) (struct a2ps_job * job,
+					      FILE * stream);
 
 /* A hook called when --debug, at the end of the ps comments */
 extern a2ps_job_stream_hook ps_comment_hook;
 
-void ps_begin PARAMS ((struct a2ps_job * job));
-void ps_end PARAMS ((struct a2ps_job * job));
+void ps_begin (struct a2ps_job * job);
+void ps_end (struct a2ps_job * job);
 
-void ps_end_file PARAMS ((struct a2ps_job * job));
+void ps_end_file (struct a2ps_job * job);
 
 /*
  * List of the prologue
  */
-void prologues_list_short PARAMS ((struct a2ps_job * job, FILE * stream));
-void prologues_list_long PARAMS ((struct a2ps_job * job, FILE * stream));
-void prologues_list_texinfo PARAMS ((struct a2ps_job * job, FILE * stream));
+void prologues_list_short (struct a2ps_job * job, FILE * stream);
+void prologues_list_long (struct a2ps_job * job, FILE * stream);
+void prologues_list_texinfo (struct a2ps_job * job, FILE * stream);
 #endif /* !defined(_PROLOGUE_H) */

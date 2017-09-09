@@ -19,14 +19,6 @@
 #ifndef USERDATA_H_
 # define USERDATA_H_
 
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 struct userdata
 {
   char *login;
@@ -35,6 +27,6 @@ struct userdata
   char *home;
 };
 
-void userdata_get PARAMS ((struct userdata *udata));
-void userdata_free PARAMS ((struct userdata *udata));
+void userdata_get (struct userdata *udata);
+void userdata_free (struct userdata *udata);
 #endif /* !USERDATA_H_ */

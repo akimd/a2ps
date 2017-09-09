@@ -27,114 +27,36 @@
 | This guy must be first.  |
 `-------------------------*/
 
-#ifndef alloca
-# ifdef __GNUC__
-#  define alloca __builtin_alloca
-#  define HAVE_ALLOCA 1
-# else
-#  if defined HAVE_ALLOCA_H || defined _LIBC
-#   include <alloca.h>
-#  else
-#   ifdef _AIX
- #pragma alloca
-#   else
-#    ifdef __hpux
-void *alloca ();
-#    endif /* __hpux */
-#   endif
-#  endif
-# endif
-#endif
-
+#include <alloca.h>
 #define ALLOCA(t, n) ((t *) alloca (sizeof (t) * (n)))
-
-/*-------------------------------------.
-| Support of prototyping when possible |
-`-------------------------------------*/
-
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 
 /*-------------------------------.
 | Stdio and missing prototypes.  |
 `-------------------------------*/
 
 #include <stdio.h>
-#ifndef HAVE_DECL_FPUTS
-extern int fputs PARAMS ((const char *s, FILE *stream));
-#endif
-
-
 
 /*-------------------.
 | Including stdlib.  |
 `-------------------*/
 
-#if defined STDC_HEADERS || defined _LIBC || defined HAVE_STDLIB_H
-# include <stdlib.h>
-#else
-extern char *getenv PARAMS ((const char *var));
-#endif
-
+#include <stdlib.h>
 
 /*--------------------.
 | Including strings.  |
 `--------------------*/
 
-#ifdef HAVE_STRING_H
-# if !STDC_HEADERS && HAVE_MEMORY_H
-#  include <memory.h>
-# endif
-# include <string.h>
-#else
-# include <strings.h>
-char *memchr ();
-#endif
-
-#if !defined(HAVE_STRCHR) && !defined(strchr)
-# define strchr index
-# define strrchr rindex
-#endif
-extern char *strchr  PARAMS ((const char *s, int c));
-extern char *strrchr PARAMS ((const char *s, int c));
-
-#  ifndef HAVE_STRERROR
-extern char *strerror PARAMS ((int));
-#  endif
+#include <string.h>
 
 #define strequ(s1, s2)		(strcmp ((s1), (s2)) == 0)
 #define strnequ(s1, s2, n)	(strncmp ((s1), (s2), (n)) == 0)
-
-#ifndef HAVE_STRNDUP
-extern char *strndup PARAMS ((char const *, size_t n));
-#endif
-
 
 /*---------------.
 | Math headers.  |
 `---------------*/
 
-#ifdef HAVE_MATH_H
-#  include <math.h>
-#else
-extern double atan2 PARAMS ((double, double));
-extern double ceil  PARAMS ((double));
-extern double floor PARAMS ((double));
-#endif
-
-#ifdef HAVE_ERRNO_H
-#  include <errno.h>
-#endif
-#ifndef errno
-extern int errno;
-#endif
-
+#include <math.h>
+#include <errno.h>
 
 /*-------------------.
 | Ctype and family.  |

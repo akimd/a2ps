@@ -52,7 +52,7 @@ enum fflag_e {
   ff_Encoding = 1 << 9
 };
 
-void fflag_self_print PARAMS ((enum fflag_e flags, FILE * stream));
+void fflag_self_print (enum fflag_e flags, FILE * stream);
 
 /************************************************************************/
 /*	Flagged faces							*/
@@ -63,7 +63,7 @@ struct fface_s {
   enum fflag_e flags;	/* The special flags for prog-a2ps		*/
 };
 
-void fface_self_print PARAMS ((struct fface_s face, FILE * stream));
+void fface_self_print (struct fface_s face, FILE * stream);
 
 /*
  * Read/Set the face part

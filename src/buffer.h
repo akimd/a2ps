@@ -36,9 +36,9 @@ enum eol_e
   eol_auto	/* Any of the previous */
 };
 
-const char * eol_to_string PARAMS ((enum eol_e eol));
-enum eol_e option_string_to_eol PARAMS ((const char * option,
-					 const char * arg));
+const char * eol_to_string (enum eol_e eol);
+enum eol_e option_string_to_eol (const char * option,
+					 const char * arg);
 
 /*
  * The buffer structure, which encloses a lower case version to
@@ -51,16 +51,16 @@ enum eol_e option_string_to_eol PARAMS ((const char * option,
  */
 typedef struct buffer_s
 {
-  const uchar * buf;	/* != 0 -> buffer on a string		*/
+  const unsigned char * buf;	/* != 0 -> buffer on a string		*/
   size_t bufsize;	/* size of buf				*/
   size_t bufoffset;	/* Used when a buffer string		*/
   FILE * stream;	/* != 0 -> a buffer on a stream		*/
   bool pipe_p;	/* true -> stream has been popened	*/
 
-  uchar *content;	/* Exactly what is read			*/
+  unsigned char *content;	/* Exactly what is read			*/
   enum eol_e eol;	/* What is an end of line?		*/
   bool lower_case;
-  uchar * value;	/* if LOWER_CASE, then lower case of content */
+  unsigned char * value;	/* if LOWER_CASE, then lower case of content */
   size_t line;		/* Num of the current line 		*/
   size_t allocsize;	/* Used to know how big lower_case is 	*/
   size_t len;
@@ -68,28 +68,28 @@ typedef struct buffer_s
   struct obstack obstack;
 } buffer_t;
 
-void buffer_stream_set PARAMS ((buffer_t * buffer,
-				FILE * stream, enum eol_e eol));
+void buffer_stream_set (buffer_t * buffer,
+				FILE * stream, enum eol_e eol);
 
-void buffer_pipe_set PARAMS ((buffer_t * buffer,
-			      FILE * stream, enum eol_e eol));
+void buffer_pipe_set (buffer_t * buffer,
+			      FILE * stream, enum eol_e eol);
 
-void buffer_string_set PARAMS ((buffer_t * buffer,
-				const uchar * string, enum eol_e eol));
+void buffer_string_set (buffer_t * buffer,
+				const unsigned char * string, enum eol_e eol);
 
-void buffer_buffer_set PARAMS ((buffer_t * buffer,
-				const uchar * buf, size_t bufsize,
-				enum eol_e eol));
+void buffer_buffer_set (buffer_t * buffer,
+				const unsigned char * buf, size_t bufsize,
+				enum eol_e eol);
 
-void buffer_set_lower_case PARAMS ((buffer_t * buffer, bool lower_case));
-void buffer_self_print PARAMS ((buffer_t * buffer, FILE * stream));
+void buffer_set_lower_case (buffer_t * buffer, bool lower_case);
+void buffer_self_print (buffer_t * buffer, FILE * stream);
 
-void buffer_release PARAMS ((buffer_t * buffer));
+void buffer_release (buffer_t * buffer);
 
-void buffer_get PARAMS ((buffer_t * buffer));
+void buffer_get (buffer_t * buffer);
 
-void buffer_sample_get PARAMS ((buffer_t * buffer, const char * filename));
-void buffer_save PARAMS ((buffer_t * buffer, const char * filename));
+void buffer_sample_get (buffer_t * buffer, const char * filename);
+void buffer_save (buffer_t * buffer, const char * filename);
 
 #define buffer_is_empty(Buf) (Buf->curr >= Buf->len)
 #endif

@@ -16,9 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AUTOMAKE_OPTIONS = foreign
 SUBDIRS = doc m4
-ACLOCAL_AMFLAGS = -I m4
 CLEANFILES = $(bin_SCRIPTS)
 
 afmdir = $(pkgdatadir)/afm

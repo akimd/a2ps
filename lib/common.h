@@ -32,16 +32,16 @@ struct a2ps_common_s
 };
 
 /* Default a shared mem values */
-void a2ps_common_reset PARAMS ((struct a2ps_common_s * common));
+void a2ps_common_reset (struct a2ps_common_s * common);
 
 /* Create a shared mem with default values */
-struct a2ps_common_s * a2ps_common_new PARAMS ((void));
+struct a2ps_common_s * a2ps_common_new (void);
 
 /* Free the common mem */
-void a2ps_common_free PARAMS ((struct a2ps_common_s * common));
+void a2ps_common_free (struct a2ps_common_s * common);
 
 /* Finalize the common mem to the regular values HOME is the user's
  * home dir.  */
-void a2ps_common_finalize PARAMS ((struct a2ps_common_s * common,
-				   const char * home));
+void a2ps_common_finalize (struct a2ps_common_s * common,
+				   const char * home);
 #endif /* !defined (_COMMON_H_) */

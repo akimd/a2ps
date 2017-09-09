@@ -47,8 +47,8 @@ struct ps_status
   int linesperpage;		/* Lines per page 			*/
   float title_bar_height;	/* Height of the bar for v. pages title */
   int title_font_size;		/* Font size for the main title		*/
-  uchar * magic_number;		/* The very first line of a PS file	*/
-  uchar * page_label_format;	/* User string for %%Page: (here)	*/
+  unsigned char * magic_number;		/* The very first line of a PS file	*/
+  unsigned char * page_label_format;	/* User string for %%Page: (here)	*/
 
   struct encoding * opened_encoding;/* Current encoding dict opened */
 
@@ -64,7 +64,7 @@ struct ps_status
 				 * set up part of the ps file		*/
 
   /* Changes all the time and need to be reset between files */
-  uchar ** page_label;		/* %%Page (this part) 1			*/
+  unsigned char ** page_label;		/* %%Page (this part) 1			*/
   int start_page;
   int start_line;
   int line_continued;
@@ -81,9 +81,9 @@ struct ps_status
 /*
  * Dealing with the structure
  */
-struct ps_status * new_ps_status PARAMS ((void));
-void ps_status_free PARAMS ((struct ps_status * status));
-void initialize_ps_status PARAMS ((struct ps_status * status));
+struct ps_status * new_ps_status (void);
+void ps_status_free (struct ps_status * status);
+void initialize_ps_status (struct ps_status * status);
 
 /*
  * Dealing with its content
@@ -91,23 +91,23 @@ void initialize_ps_status PARAMS ((struct ps_status * status));
 /*
  * setpagedevice
  */
-void output_pagedevice PARAMS ((struct a2ps_job * job));
-void pagedevice_dump PARAMS ((FILE *stream, struct a2ps_job * job));
-void dump_requirements PARAMS ((FILE * stream, struct a2ps_job * job));
-void setpagedevice PARAMS ((struct a2ps_job * job,
-			    const char * key, const char * value));
-void delpagedevice PARAMS ((struct a2ps_job * job,
-			    const char * key));
-void list_pagedevice PARAMS ((struct a2ps_job * job, FILE * stream));
+void output_pagedevice (struct a2ps_job * job);
+void pagedevice_dump (FILE *stream, struct a2ps_job * job);
+void dump_requirements (FILE * stream, struct a2ps_job * job);
+void setpagedevice (struct a2ps_job * job,
+			    const char * key, const char * value);
+void delpagedevice (struct a2ps_job * job,
+			    const char * key);
+void list_pagedevice (struct a2ps_job * job, FILE * stream);
 
 /*
  * statusdict
  */
-void output_statusdict PARAMS ((struct a2ps_job * job));
-void setstatusdict PARAMS ((struct a2ps_job * job,
-			    const char * key, const char * value, int def));
-void delstatusdict PARAMS ((struct a2ps_job * job,
-			    const char * key));
-void list_statusdict PARAMS ((struct a2ps_job * job, FILE * stream));
+void output_statusdict (struct a2ps_job * job);
+void setstatusdict (struct a2ps_job * job,
+			    const char * key, const char * value, int def);
+void delstatusdict (struct a2ps_job * job,
+			    const char * key);
+void list_statusdict (struct a2ps_job * job, FILE * stream);
 
 #endif

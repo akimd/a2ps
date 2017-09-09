@@ -19,13 +19,13 @@
 #ifndef GENERATE_H_
 # define GENERATE_H_
 
-void print PARAMS ((uchar * name, int * native_jobs, int * delegated_jobs));
-void print_toc PARAMS ((const uchar * name, const uchar * value,
-		       int * native_jobs));
+void print (unsigned char * name, int * native_jobs, int * delegated_jobs);
+void print_toc (const unsigned char * name, const unsigned char * value,
+		       int * native_jobs);
 
-void msg_job_pages_printed PARAMS ((a2ps_job * job));
-void msg_nothing_printed PARAMS ((void));
+void msg_job_pages_printed (a2ps_job * job);
+void msg_nothing_printed (void);
 
-void guess PARAMS ((uchar * name));
+void guess (unsigned char * name);
 
 #endif /* not defined(GENERATE_H_) */

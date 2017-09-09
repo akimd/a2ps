@@ -24,22 +24,22 @@ struct string_htable;
 /*
  * Create / Kill
  */
-struct string_htable * string_htable_new PARAMS ((void));
-void string_htable_free PARAMS ((struct string_htable * table));
+struct string_htable * string_htable_new (void);
+void string_htable_free (struct string_htable * table);
 
 /*
  *  Add, get
  */
-void string_htable_add PARAMS ((struct string_htable * table, 
-				const char * key));
-char * string_htable_get PARAMS ((struct string_htable * table,
-				  const char * key));
+void string_htable_add (struct string_htable * table, 
+				const char * key);
+char * string_htable_get (struct string_htable * table,
+				  const char * key);
 
 /*
  * Print/Dump
  */
-void string_htable_self_print PARAMS ((struct string_htable * table,
-				       FILE * stream));
-char ** string_htable_dump_sorted PARAMS ((struct string_htable * table));
+void string_htable_self_print (struct string_htable * table,
+				       FILE * stream);
+char ** string_htable_dump_sorted (struct string_htable * table);
 
 #endif /* !defined(_STR_HT_H_) */

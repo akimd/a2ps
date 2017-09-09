@@ -28,15 +28,6 @@
 # include "config.h"
 #endif
 
-/* Support of prototyping when possible */
-#ifndef PARAMS
-# if defined PROTOTYPES || defined __STDC__
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-#endif
-
 
 /*
 
@@ -63,7 +54,7 @@ RETURNS
 
 */
 
-char ** dupargv PARAMS ((char **argv));
+char ** dupargv (char **argv);
 
 /*
 
@@ -88,8 +79,8 @@ RETURNS
 
 */
 
-void freeargv PARAMS ((char **vector));
-void freeargv_from PARAMS ((char **vector, int from));
+void freeargv (char **vector);
+void freeargv_from (char **vector, int from);
 
 /*
 
@@ -138,6 +129,6 @@ NOTES
 	be passed to freeargv at any time, or returned, as appropriate.
 */
 
-char **buildargv_argc PARAMS ((const char *input, int * argc));
-char **buildargv PARAMS ((const char *input));
+char **buildargv_argc (const char *input, int * argc);
+char **buildargv (const char *input);
 #endif /* !defined (_ARGC_H_) */

@@ -32,24 +32,24 @@ struct delegation
     char *command;		/* e.g. groff -man $f                   */
   };
 
-struct hash_table_s *delegation_table_new PARAMS ((void));
-void delegation_table_free PARAMS ((struct hash_table_s * table));
+struct hash_table_s *delegation_table_new (void);
+void delegation_table_free (struct hash_table_s * table);
 
-void add_delegation PARAMS ((const char *filename, int line,
-			     char *contract_line));
-struct delegation *get_subcontract PARAMS ((const char *src_type,
-					    const char *dest_type));
-char *get_delegate_command PARAMS ((struct delegation * contract,
+void add_delegation (const char *filename, int line,
+			     char *contract_line);
+struct delegation *get_subcontract (const char *src_type,
+					    const char *dest_type);
+char *get_delegate_command (struct delegation * contract,
 				    struct file_job * file,
-				    int evaluate));
+				    int evaluate);
 /* Execute the sub contract */
-int subcontract PARAMS ((struct file_job * file, buffer_t * buffer,
-			 struct delegation * contractor));
+int subcontract (struct file_job * file, buffer_t * buffer,
+			 struct delegation * contractor);
 /*
  * For the command line interface
  */
-void delegations_list_long PARAMS ((struct hash_table_s * contracts,
-				    FILE * stream));
-void delegations_list_short PARAMS ((struct hash_table_s * contracts,
-				     FILE * stream));
+void delegations_list_long (struct hash_table_s * contracts,
+				    FILE * stream);
+void delegations_list_short (struct hash_table_s * contracts,
+				     FILE * stream);
 #endif /* !defined(_DELEGATE_H_) */

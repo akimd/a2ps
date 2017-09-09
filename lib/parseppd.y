@@ -56,13 +56,13 @@ extern FILE * ppdin;
 extern struct a2ps_job * job;
 
 /* Local prototypes */
-void yyerror PARAMS ((const char *msg));
+void yyerror (const char *msg);
 static void yyprint ();
 
 /* Initilizes the obstacks */
-void ppdlex_initialize PARAMS ((void));
+void ppdlex_initialize (void);
 
-int yylex PARAMS ((void));
+int yylex (void);
 
 static struct ppd * ppd_parse_result;
 
@@ -70,7 +70,7 @@ static struct ppd * ppd_parse_result;
 %union
 {
   char * string;
-  uchar * ustring;
+  unsigned char * ustring;
   struct ppd * ppd;
 }
 
@@ -84,7 +84,7 @@ static struct ppd * ppd_parse_result;
 
 
 %%
-
+
 /************************************************************************/
 /*		Top most						*/
 /************************************************************************/
@@ -139,7 +139,7 @@ ppd :
       $$ = $1;
     }
   ;
-
+
 /************************************************************************/
 /*		*Font entry						*/
 /************************************************************************/
@@ -150,7 +150,7 @@ font_clause :
        { $$= $3; }
    ;
 %%
-
+
 void
 yyerror (const char *msg)
 {

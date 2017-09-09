@@ -51,7 +51,7 @@
 #include <locale.h>
 
 /* From basename.c */
-char *base_name PARAMS ((const char *path));
+char *base_name (const char *path);
 
 /************************************************************************/
 /*                                                                      */
@@ -148,7 +148,7 @@ bool delegate_p = true;
 /*
  * --toc[=format], generate a table of content
  */
-uchar *toc = NULL;
+unsigned char *toc = NULL;
 
 /*
  * -E: style sheet to use. NULL => automated
@@ -317,9 +317,9 @@ list_options (struct a2ps_job *a_job, FILE *stream)
 #endif
 
 #define bool_to_string(bool) ((bool) ? _("yes") : _("no"))
-  uchar buf[256], buf2[256];
+  unsigned char buf[256], buf2[256];
   const char *cp = NULL;
-  uchar *ucp = NULL;
+  unsigned char *ucp = NULL;
 
   /* Title of --list-options (%s%s is `a2ps' `version' */
   title (stream, '=', true,
@@ -556,8 +556,8 @@ spy_user (struct a2ps_job *a_job, FILE * stream)
      of my time.  */
   fputs ("SPY-BEGIN\n", spy);
   fputs ((char *) expand_user_string (job, CURRENT_FILE (job),
-				      (const uchar *) "Debugging info",
-				      (const uchar *) "%V was called with #!$|| |\n\n"),
+				      (const unsigned char *) "Debugging info",
+				      (const unsigned char *) "%V was called with #!$|| |\n\n"),
 	 spy);
 
   list_options (a_job, spy);
@@ -1030,7 +1030,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
       /* Act like file(1) does: report guessed ssh key */
       if (argn < argc)
 	for (; argn < argc; argn++)
-	  guess ((uchar *) argv[argn]);
+	  guess ((unsigned char *) argv[argn]);
       else
 	/* A guess is asked upon stdin */
 	guess (UNULL);
@@ -1044,7 +1044,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
       for (; argn < argc; argn++)
 	{
 	  fputs (expand_user_string (job, FIRST_FILE (job),
-				     "--list=expand", (uchar *) argv[argn]),
+				     "--list=expand", (unsigned char *) argv[argn]),
 		 stdout);
 	  putc ('\n', stdout);
 	}
@@ -1056,7 +1056,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
       for (; argn < argc; argn++)
 	{
 	  char *cp;
-	  cp = pw_find_file (job->common.path, (uchar *) argv[argn], NULL);
+	  cp = pw_find_file (job->common.path, (unsigned char *) argv[argn], NULL);
 	  if (cp)
 	    {
 	      fputs (cp, stdout);
@@ -1069,7 +1069,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
       /* Glob the arguments in the library, and report the full
          paths. */
       for (; argn < argc; argn++)
-	pw_glob_print (job->common.path, (uchar *) argv[argn], stdout);
+	pw_glob_print (job->common.path, (unsigned char *) argv[argn], stdout);
       break;
 
     case b_version:
@@ -1158,10 +1158,10 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
 	  print (UNULL, &native_jobs, &delegated_jobs);
 	else			/* Print following files */
 	  for (; argn < argc; argn++)
-	    print ((uchar *) argv[argn], &native_jobs, &delegated_jobs);
+	    print ((unsigned char *) argv[argn], &native_jobs, &delegated_jobs);
 
 	if (!IS_EMPTY (toc))
-	  print_toc ((uchar *) _("Table of Content"), toc, &native_jobs);
+	  print_toc ((unsigned char *) _("Table of Content"), toc, &native_jobs);
 
 	if ((native_jobs == 0) && (delegated_jobs == 1))
 	  {

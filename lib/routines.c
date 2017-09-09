@@ -27,7 +27,7 @@
  * Convert a list of string of valid chars to an yes/no array
  */
 void
-string_to_array (uchar arr[256], const uchar * string)
+string_to_array (unsigned char arr[256], const unsigned char * string)
 {
   int c;
 
@@ -41,7 +41,7 @@ string_to_array (uchar arr[256], const uchar * string)
  * Concatenation of a char. No malloc is done.
  */
 void
-ustrccat (uchar * string, uchar c)
+ustrccat (unsigned char * string, unsigned char c)
 {
   int len = strlen((char *)string);
   *(string+len) = c;
@@ -52,7 +52,7 @@ ustrccat (uchar * string, uchar c)
  * return true iff there are no upper case chars
  */
 int
-is_strlower (const uchar * string)
+is_strlower (const unsigned char * string)
 {
   for (/* skip */; *string != '\0'; string++)
     if (isupper(*string))
@@ -63,8 +63,8 @@ is_strlower (const uchar * string)
 /* Copy the LEN first characters of SRC into DST in lower case.
    DST[LEN] is set to \0.  */
 
-static inline uchar *
-_strncpylc (uchar *dst, const uchar *src, size_t len)
+static inline unsigned char *
+_strncpylc (unsigned char *dst, const unsigned char *src, size_t len)
 {
   size_t i;
   for (i = 0 ; i < len ; i++)
@@ -73,20 +73,20 @@ _strncpylc (uchar *dst, const uchar *src, size_t len)
   return dst;
 }
 
-uchar *
-strnlower (uchar *string, size_t len)
+unsigned char *
+strnlower (unsigned char *string, size_t len)
 {
   return _strncpylc (string, string, len);
 }
 
-uchar *
-strlower (uchar *string)
+unsigned char *
+strlower (unsigned char *string)
 {
   return _strncpylc (string, string, strlen (string));
 }
 
-uchar *
-strcpylc (uchar *dst, const uchar *src)
+unsigned char *
+strcpylc (unsigned char *dst, const unsigned char *src)
 {
   return _strncpylc (dst, src, strlen (src));
 }
@@ -95,7 +95,7 @@ strcpylc (uchar *dst, const uchar *src)
  * Count the number of occurrence of C in S
  */
 int
-strcnt (uchar *s, uchar c)
+strcnt (unsigned char *s, unsigned char c)
 {
   int res;
   for (res = 0 ; *s ; s++)

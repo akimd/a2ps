@@ -86,15 +86,15 @@ enum face_e {
 /* List of the faces really used */
 extern enum face_e base_faces [];
 
-enum face_e string_to_face PARAMS ((const char * string));
-const char * face_eo_ps PARAMS ((enum face_e face));
-const char * face_to_string PARAMS ((enum face_e face));
-void face_self_print PARAMS ((enum face_e face, FILE * stream));
+enum face_e string_to_face (const char * string);
+const char * face_eo_ps (enum face_e face);
+const char * face_to_string (enum face_e face);
+void face_self_print (enum face_e face, FILE * stream);
 
-void init_face_eo_font PARAMS ((struct a2ps_job * job));
-void face_eo_font_free PARAMS ((char * face_eo_font [NB_FACES]));
-void check_face_eo_font PARAMS ((struct a2ps_job * job));
-int face_eo_font_is_set PARAMS ((struct a2ps_job * job));
-void face_set_font PARAMS ((struct a2ps_job * job,
-			    enum face_e face, const char * font_name));
+void init_face_eo_font (struct a2ps_job * job);
+void face_eo_font_free (char * face_eo_font [NB_FACES]);
+void check_face_eo_font (struct a2ps_job * job);
+int face_eo_font_is_set (struct a2ps_job * job);
+void face_set_font (struct a2ps_job * job,
+			    enum face_e face, const char * font_name);
 #endif

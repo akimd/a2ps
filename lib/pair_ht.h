@@ -24,56 +24,56 @@ struct pair_htable;
 /*
  * The type of the functions given as argument to pair_table_map
  */
-typedef void (* pair_ht_map_fn_t) PARAMS ((int i, 
+typedef void (* pair_ht_map_fn_t) (int i, 
 					   const char * key, 
 					   const char * value, 
-					   void const * arg));
-typedef int (* pair_ht_select_fn_t) PARAMS ((const char * key, 
-					     const char * value));
+					   void const * arg);
+typedef int (* pair_ht_select_fn_t) (const char * key, 
+					     const char * value);
 
 /*
  * String_Entrys
  */
-struct pair_htable * pair_table_new PARAMS ((void));
-void pair_table_free PARAMS ((struct pair_htable * table));
+struct pair_htable * pair_table_new (void);
+void pair_table_free (struct pair_htable * table);
 
 /*
  * KEY and VALUE will be strdup'd
  */
-void pair_add PARAMS ((struct pair_htable * table, 
-		       const char * key, const char * value));
+void pair_add (struct pair_htable * table, 
+		       const char * key, const char * value);
 
 /*
  * The key and value of the matching item  will be free'd
  * (No problem if KEY matches nothing)
  */
-void pair_delete PARAMS ((struct pair_htable * table, const char * key));
+void pair_delete (struct pair_htable * table, const char * key);
 
 /*
  * Returns NULL when KEY is not used, otherwise its associated VALUE
  * in TABLE
  */
-char * pair_get PARAMS ((struct pair_htable * table,
-			 const char * key));
+char * pair_get (struct pair_htable * table,
+			 const char * key);
 
-void pair_table_list_short PARAMS ((struct pair_htable * table,
-				    FILE * stream));
-void pair_table_list_long PARAMS ((struct pair_htable * table,
-				   FILE * stream));
-void pair_table_self_print PARAMS ((struct pair_htable * table,
-				    FILE * stream));
+void pair_table_list_short (struct pair_htable * table,
+				    FILE * stream);
+void pair_table_list_long (struct pair_htable * table,
+				   FILE * stream);
+void pair_table_self_print (struct pair_htable * table,
+				    FILE * stream);
 
 /*
  * Map a function to the content of the table
  */
-void pair_table_map PARAMS ((struct pair_htable * table,
+void pair_table_map (struct pair_htable * table,
 			     pair_ht_map_fn_t map_fn,
 			     pair_ht_select_fn_t select_fn,
-			     void const * arg));
+			     void const * arg);
 
 /*
  * Load entries from a map file
  */
-int pair_table_load PARAMS ((struct pair_htable * table,
-			     const char * file));
+int pair_table_load (struct pair_htable * table,
+			     const char * file);
 #endif

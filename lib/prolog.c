@@ -126,7 +126,7 @@ prologue_print_signature (struct a2ps_job * job,
 	    {
 	      if (strlen (buf2) < sizeof (buf2))
 		lastline++;
-	      (*documentation_fn) ((uchar *) buf2, "%s", stream);
+	      (*documentation_fn) ((unsigned char *) buf2, "%s", stream);
 	    }
 	  if (!strprefix (END_DOC_TAG, buf2))
 	    error (1, 0, filename, firstline,
@@ -206,7 +206,7 @@ dump_encodings (FILE * stream, a2ps_job * job)
 static void
 dump_prolog_comments (FILE * stream, struct a2ps_job * job)
 {
-  uchar * cp;
+  unsigned char * cp;
   /*
    * Fixme: Put all this is output_first_line?
    */
@@ -214,11 +214,11 @@ dump_prolog_comments (FILE * stream, struct a2ps_job * job)
   putc ('\n', stream);
 
   cp = expand_user_string (job, FIRST_FILE (job),
-			   (uchar *) "Document title", job->title);
+			   (unsigned char *) "Document title", job->title);
   fprintf (stream, "%%%%Title: %s\n", cp);
 
   cp = expand_user_string (job, FIRST_FILE (job),
-			  (uchar *) "User Name", (const uchar *) "%N");
+			  (unsigned char *) "User Name", (const unsigned char *) "%N");
   fprintf (stream, "%%%%For: %s\n", cp);
   fprintf (stream, "%%%%Creator: %s version %s\n", PACKAGE, VERSION);
   fprintf (stream, "%%%%CreationDate: %s", asctime(&job->run_tm));

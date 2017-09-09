@@ -29,8 +29,8 @@
 #include "xalloc.h"
 #include "error.h"
 
-static void hash_rehash PARAMS((struct hash_table_s* ht));
-static unsigned long round_up_2 PARAMS((unsigned long rough));
+static void hash_rehash (struct hash_table_s* ht);
+static unsigned long round_up_2 (unsigned long rough);
 
 /* Implement double hashing with open addressing.  The table size is
    always a power of two.  The secondary (`increment') hash function

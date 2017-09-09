@@ -184,8 +184,8 @@ get_delegate_command (struct delegation *contract,
 {
   if (evaluate)
     return (char *) expand_user_string (job, file,
-					(const uchar *) "delegating command",
-					(const uchar *) contract->command);
+					(const unsigned char *) "delegating command",
+					(const unsigned char *) contract->command);
   else
     return contract->command;
 }
@@ -227,7 +227,7 @@ subcontract (struct file_job *fjob, buffer_t * buffer,
       /* We change the name of the file so that the correct file name
 	 is used in the command (that of the temporary file containing
 	 stdin). */
-      fjob->name = (uchar *) stdin_content_filename;
+      fjob->name = (unsigned char *) stdin_content_filename;
       command = get_delegate_command (contractor, fjob, 1);
       fjob->name = job->stdin_filename;
     }

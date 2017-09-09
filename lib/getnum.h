@@ -19,14 +19,6 @@
 #ifndef GETNUM_H_
 #define GETNUM_H_
 
-#ifndef PARAMS
-# if PROTOTYPES || (defined (__STDC__) && __STDC__)
-#  define PARAMS(args) args
-# else
-#  define PARAMS(args) ()
-# endif  /* GCC.  */
-#endif  /* Not PARAMS.  */
-
 enum range_type_e
 {
   range_no_limit,
@@ -41,12 +33,12 @@ enum range_type_e
 };
 
 int get_integer_in_range
-	PARAMS ((const char * option, const char * arg,
+	(const char * option, const char * arg,
 		 int min, int max,
-		 enum range_type_e range_type));
+		 enum range_type_e range_type);
 
 float get_length
-	PARAMS ((const char * option, const char * arg,
+	(const char * option, const char * arg,
 		 float min, float max,
-		 const char * unit, enum range_type_e range_type));
+		 const char * unit, enum range_type_e range_type);
 #endif /* !GETNUM_H_ */

@@ -27,7 +27,7 @@
 #  if HAVE_PAPER_H
 #    include <paper.h>
 #  else
-extern char *systempapername PARAMS ((void));
+extern char *systempapername (void);
 #  endif
 #else
 #define systempapername() NULL;

@@ -20,28 +20,28 @@
 #define _DOCUMENT_H_
 
 void
-authors_print_plain PARAMS ((const uchar * authors, FILE * stream,
-			     const char * before));
+authors_print_plain (const unsigned char * authors, FILE * stream,
+			     const char * before);
 void
-authors_print_html PARAMS ((const uchar * authors, FILE * stream,
-			    const char * before));
+authors_print_html (const unsigned char * authors, FILE * stream,
+			    const char * before);
 void
-authors_print_texinfo PARAMS ((const uchar * authors, FILE * stream,
-			       const char * before));
+authors_print_texinfo (const unsigned char * authors, FILE * stream,
+			       const char * before);
 
-typedef void (*documentation_fn_t) PARAMS ((const uchar * documentation,
-				   const char * format,  FILE * stream)) ;
-
-void
-documentation_print_plain PARAMS ((const uchar * documentation,
-				   const char * format,  FILE * stream));
+typedef void (*documentation_fn_t) (const unsigned char * documentation,
+				   const char * format,  FILE * stream) ;
 
 void
-documentation_print_html PARAMS ((const uchar * documentation, 
-				  const char * format, FILE * stream));
+documentation_print_plain (const unsigned char * documentation,
+				   const char * format,  FILE * stream);
 
 void
-documentation_print_texinfo PARAMS ((const uchar * documentation,
-				     const char * format, FILE * stream));
+documentation_print_html (const unsigned char * documentation, 
+				  const char * format, FILE * stream);
+
+void
+documentation_print_texinfo (const unsigned char * documentation,
+				     const char * format, FILE * stream);
 
 #endif /* !defined(_DOCUMENT_H_) */

@@ -34,14 +34,14 @@
 
 
 struct output;
-typedef void (*delayed_routine_t) PARAMS ((FILE * stream, void * arg));
+typedef void (*delayed_routine_t) (FILE * stream, void * arg);
 
 /*
  * Maintenance
  */
-struct output * output_new PARAMS ((const char * name));
-void output_free PARAMS ((struct output * out));
-void output_report  PARAMS ((struct output * out, FILE * stream));
+struct output * output_new (const char * name);
+void output_free (struct output * out);
+void output_report  (struct output * out, FILE * stream);
 
 # if defined (__STDC__) && __STDC__
 extern void output (struct output * out, const char *format, ...)
@@ -50,32 +50,32 @@ extern void output (struct output * out, const char *format, ...)
 void output ();
 # endif
 
-void output_char PARAMS ((struct output * out, uchar c));
-void output_delayed_int PARAMS ((struct output * out, int * ptr));
-void output_delayed_string PARAMS ((struct output * out, uchar ** ptr));
-void output_delayed_chunk PARAMS ((struct output * out, 
-				   struct output * sub_out));
+void output_char (struct output * out, unsigned char c);
+void output_delayed_int (struct output * out, int * ptr);
+void output_delayed_string (struct output * out, unsigned char ** ptr);
+void output_delayed_chunk (struct output * out, 
+				   struct output * sub_out);
 
 struct a2ps_job;
-void output_file PARAMS ((struct output * out, 
+void output_file (struct output * out, 
 			  struct a2ps_job * job, 
-			  const char *name, const char *suffix));
-void output_delayed_routine PARAMS ((struct output * out, 
+			  const char *name, const char *suffix);
+void output_delayed_routine (struct output * out, 
 				     delayed_routine_t fn,
-				     void * fn_arg));
+				     void * fn_arg);
 
-void output_to_void PARAMS ((struct output * out, int forget));
-int output_is_to_void PARAMS ((struct output * out));
+void output_to_void (struct output * out, int forget);
+int output_is_to_void (struct output * out);
 
 /*
  * Debug info
  */
-void output_self_print PARAMS ((struct output * out, FILE * stream));
+void output_self_print (struct output * out, FILE * stream);
 
 /*
  * Dumping the content somewhere
  */
-void undivert PARAMS ((struct a2ps_job * job));
-void output_dump PARAMS ((struct output * out, FILE * stream));
+void undivert (struct a2ps_job * job);
+void output_dump (struct output * out, FILE * stream);
 #endif
 

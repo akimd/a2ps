@@ -17,14 +17,12 @@ libpaper.m4					\
 lib-prefix.m4 					\
 lpr.m4						\
 m4.m4						\
-malloc.m4					\
 mbrtowc.m4					\
 mbstate_t.m4					\
 perl.m4						\
 prereq.m4					\
 progtest.m4					\
 protos.m4					\
-realloc.m4					\
 rename.m4					\
 strcasecmp.m4					\
 strftim.m4					\

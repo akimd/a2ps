@@ -21,16 +21,8 @@
 #ifndef XSTRRPL_H_
 # define XSTRRPL_H_ 1
 
-# ifndef PARAMS
-#  if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#   define PARAMS(Args) Args
-#  else
-#   define PARAMS(Args) ()
-#  endif
-# endif
-
-char * xstrrpl PARAMS ((const char * string, const char * subst[][2]));
-void strrpl PARAMS ((char ** string, const char * subst[][2]));
+char * xstrrpl (const char * string, const char * subst[][2]);
+void strrpl (char ** string, const char * subst[][2]);
 
 # if defined (__STDC__) && __STDC__
 extern char * xvstrrpl (const char * string, ...);

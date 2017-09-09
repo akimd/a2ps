@@ -32,8 +32,8 @@ struct a2ps_job;	/* Declared in jobs.h which includes this file */
 /*
  * Computation of the width of the chars in the current encoding
  */
-unsigned int char_WX PARAMS ((struct a2ps_job * job, uchar c));
-unsigned int string_WX PARAMS ((struct a2ps_job * job, uchar * string));
+unsigned int char_WX (struct a2ps_job * job, unsigned char c);
+unsigned int string_WX (struct a2ps_job * job, unsigned char * string);
 
 
 /************************************************************************/
@@ -41,54 +41,54 @@ unsigned int string_WX PARAMS ((struct a2ps_job * job, uchar * string));
 /************************************************************************/
 struct encoding;
 
-const char * encoding_get_name PARAMS ((struct encoding * enc));
-const char * encoding_get_key PARAMS ((struct encoding * enc));
-void encoding_self_print PARAMS ((struct encoding * item,
-					FILE * stream));
-int encoding_char_exists PARAMS ((struct encoding * enc,
-					enum face_e face, uchar c));
+const char * encoding_get_name (struct encoding * enc);
+const char * encoding_get_key (struct encoding * enc);
+void encoding_self_print (struct encoding * item,
+					FILE * stream);
+int encoding_char_exists (struct encoding * enc,
+					enum face_e face, unsigned char c);
 struct encoding *
-get_encoding_by_alias PARAMS ((struct a2ps_job * job, 
-			       char *string));
+get_encoding_by_alias (struct a2ps_job * job, 
+			       char *string);
 
-void set_encoding PARAMS ((struct a2ps_job * job,
-			   struct encoding * enc));
+void set_encoding (struct a2ps_job * job,
+			   struct encoding * enc);
 
 /* When FONT_NAME is used with ENCODING, return the real font name to
  * use (e.g., in latin2, Courier-Ogonki should be returned when asked
  * for Courier).  */
 const char * encoding_resolve_font_substitute
-	PARAMS ((struct a2ps_job * job,
+	(struct a2ps_job * job,
 		 struct encoding * encoding,
-		 const char * font_name));
+		 const char * font_name);
 
 /*
  * Have a struct encoding determine the faces_wx
  */
-void encoding_build_faces_wx PARAMS ((struct a2ps_job * job,
-				      struct encoding * encoding));
-void encoding_add_font_name_used PARAMS ((struct encoding * enc,
-						const char * name));
+void encoding_build_faces_wx (struct a2ps_job * job,
+				      struct encoding * encoding);
+void encoding_add_font_name_used (struct encoding * enc,
+						const char * name);
 
 /* Dump on STREAM the encodings setup */
-void dump_encodings_setup PARAMS ((FILE * stream, struct a2ps_job * job));
+void dump_encodings_setup (FILE * stream, struct a2ps_job * job);
 
 /*
  * Related to a2ps_job
  */
-void list_encodings_short PARAMS ((struct a2ps_job * job, FILE * stream));
-void list_encodings_long PARAMS ((struct a2ps_job * job, FILE * stream));
-void list_texinfo_encodings_long PARAMS ((struct a2ps_job * job,
-					  FILE * stream));
+void list_encodings_short (struct a2ps_job * job, FILE * stream);
+void list_encodings_long (struct a2ps_job * job, FILE * stream);
+void list_texinfo_encodings_long (struct a2ps_job * job,
+					  FILE * stream);
 
 /************************************************************************/
 /* Road map to the files defining the encodings				*/
 /************************************************************************/
-struct pair_htable * encodings_map_new PARAMS ((void));
-void encodings_map_free PARAMS ((struct pair_htable * table));
+struct pair_htable * encodings_map_new (void);
+void encodings_map_free (struct pair_htable * table);
 
-struct hash_table_s * encodings_table_new PARAMS ((void));
-void encodings_table_free PARAMS ((struct hash_table_s * table));
+struct hash_table_s * encodings_table_new (void);
+void encodings_table_free (struct hash_table_s * table);
 
-int load_main_encodings_map PARAMS ((struct a2ps_job * job));
+int load_main_encodings_map (struct a2ps_job * job);
 #endif

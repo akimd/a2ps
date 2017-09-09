@@ -72,8 +72,8 @@ interval_is_in (struct interval * interval, int num)
  * into account.
  * E.g. 3-5 with offset 4 is 1-2.
  */
-static uchar *
-interval_to_buffer (struct interval * interval, uchar * buf, int offset)
+static unsigned char *
+interval_to_buffer (struct interval * interval, unsigned char * buf, int offset)
 {
   int min = 0;
 
@@ -200,7 +200,7 @@ add_pages_interval (struct a2ps_job * job, int min, int max)
  * E.g. 3-5 with offset 4 is 1-2.
  */
 void
-page_range_to_buffer (struct page_range * page_range, uchar * buf, int offset)
+page_range_to_buffer (struct page_range * page_range, unsigned char * buf, int offset)
 {
   size_t i;
   int put_a_comma = false;

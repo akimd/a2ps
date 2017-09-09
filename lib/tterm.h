@@ -19,30 +19,22 @@
 #ifndef _TINYTERM_H_
 #define _TINYTERM_H_
 
-#ifndef PARAMS
-# if defined PROTOTYPES || defined __STDC__
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-#endif
-
 struct tterm;
 
 /* Initialize TTERM taking the environment into account (for line
    width, and tabsize) for STREAM. */
-void tterm_initialize PARAMS ((struct tterm *tterm, FILE *stream));
+void tterm_initialize (struct tterm *tterm, FILE *stream);
 
 /* Set the line width of TTERM to WIDTH.  Returns the previous value. */
-size_t tterm_width_set PARAMS ((struct tterm *tterm, size_t width));
+size_t tterm_width_set (struct tterm *tterm, size_t width);
 
 /* Return the line width of TTERM. */
-size_t tterm_width PARAMS ((struct tterm *tterm));
+size_t tterm_width (struct tterm *tterm);
 
 /* Set the tab size of TTERM to SIZE.  Returns the previous value. */
-size_t tterm_tabsize_set PARAMS ((struct tterm *tterm, size_t size));
+size_t tterm_tabsize_set (struct tterm *tterm, size_t size);
 
 /* Return the tab size of TTERM. */
-size_t tterm_tabsize PARAMS ((struct tterm *tterm));
+size_t tterm_tabsize (struct tterm *tterm);
 
 #endif /* ! _TINYTERM_H_ */

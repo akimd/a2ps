@@ -20,23 +20,10 @@
 # include <config.h>
 #endif
 
-#ifndef PARAMS
-# if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-#endif
-
-#if STDC_HEADERS || HAVE_STRING_H
-# include <string.h>
-#else
-# include <strings.h>
-#endif
-
+#include <string.h>
 #include <sys/types.h>
 
-char *xmalloc PARAMS ((size_t n));
+char *xmalloc (size_t n);
 
 /* Return a newly allocated copy of STRING.  */
 

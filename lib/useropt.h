@@ -23,20 +23,20 @@
 struct job;
 struct pair_htable;
 
-void dict_entry_print PARAMS ((void const * item));
+void dict_entry_print (void const * item);
 
 
 /*
  * User options
  */
-struct pair_htable * user_options_table_new PARAMS ((void));
-void user_options_table_free PARAMS ((struct pair_htable * table));
+struct pair_htable * user_options_table_new (void);
+void user_options_table_free (struct pair_htable * table);
 
-void user_option_add PARAMS ((struct a2ps_job * job, 
-			      const char * key, const char * value));
-char * user_option_get PARAMS ((struct a2ps_job * job, 
-				char * key));
-void user_options_list_short PARAMS ((struct a2ps_job * job, FILE * stream));
-void user_options_list_long PARAMS ((struct a2ps_job * job, FILE * stream));
+void user_option_add (struct a2ps_job * job, 
+			      const char * key, const char * value);
+char * user_option_get (struct a2ps_job * job, 
+				char * key);
+void user_options_list_short (struct a2ps_job * job, FILE * stream);
+void user_options_list_long (struct a2ps_job * job, FILE * stream);
 
 #endif

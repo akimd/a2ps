@@ -20,15 +20,6 @@
 # include <config.h>
 #endif
 
-/* Support of prototyping when possible */
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 #include <stdio.h>
 #include <assert.h>
 #include <ctype.h>

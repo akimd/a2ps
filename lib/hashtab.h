@@ -30,19 +30,11 @@
 #ifndef HASHTAB_H_
 # define HASHTAB_H_
 
-# ifndef PARAMS
-#  if defined (__GNUC__) || (defined (__STDC__) && __STDC__)
-#   define PARAMS(args) args
-#  else
-#   define PARAMS(args) ()
-#  endif  /* GCC.  */
-# endif  /* Not PARAMS.  */
-
-typedef unsigned long (*hash_func_t) PARAMS((void const *key));
-typedef int (*hash_cmp_func_t) PARAMS((void const *x, void const *y));
-typedef int (*hash_select_func_t) PARAMS ((void const *item));
-typedef void (*hash_map_func_t) PARAMS((void const *item));
-typedef void (*hash_maparg_func_t) PARAMS((void const *item, void const * arg));
+typedef unsigned long (*hash_func_t) (void const *key);
+typedef int (*hash_cmp_func_t) (void const *x, void const *y);
+typedef int (*hash_select_func_t) (void const *item);
+typedef void (*hash_map_func_t) (void const *item);
+typedef void (*hash_maparg_func_t) (void const *item, void const * arg);
 
 struct hash_table_s
 {
@@ -58,28 +50,28 @@ struct hash_table_s
   hash_cmp_func_t ht_compare;	/* comparison function */
 };
 
-typedef int (*qsort_cmp_t) PARAMS((void const *, void const *));
+typedef int (*qsort_cmp_t) (void const *, void const *);
 
-void hash_init PARAMS((struct hash_table_s *ht, unsigned long size,
-		    hash_func_t hash_1, hash_func_t hash_2, hash_cmp_func_t hash_cmp));
-void hash_load PARAMS((struct hash_table_s *ht, void *item_table,
-		    unsigned long cardinality, unsigned long size));
-void **hash_find_slot PARAMS((struct hash_table_s *ht, void const *key));
-void *hash_find_item PARAMS((struct hash_table_s *ht, void const *key));
-void *hash_insert PARAMS((struct hash_table_s *ht, void *item));
-void *hash_insert_at PARAMS((struct hash_table_s *ht, void *item, void const *slot));
-void *hash_delete PARAMS((struct hash_table_s *ht, void const *item));
-void *hash_delete_at PARAMS((struct hash_table_s *ht, void const *slot));
-void hash_delete_items PARAMS((struct hash_table_s *ht));
-void hash_free_items PARAMS((struct hash_table_s *ht, hash_map_func_t free_fn));
-void hash_free PARAMS((struct hash_table_s *ht, hash_map_func_t free_fn));
-void hash_map PARAMS((struct hash_table_s *ht, hash_map_func_t map));
-void hash_maparg PARAMS((struct hash_table_s *ht, hash_maparg_func_t map,
-		      void const *arg, qsort_cmp_t compare));
-void hash_print_stats PARAMS((struct hash_table_s *ht, FILE *out_FILE));
-void **hash_dump PARAMS((struct hash_table_s *ht, void **vector_0, qsort_cmp_t compare));
-void **hash_dump_select PARAMS((struct hash_table_s *ht, void **vector_0,
-				hash_select_func_t select_fn, qsort_cmp_t compare));
+void hash_init (struct hash_table_s *ht, unsigned long size,
+		    hash_func_t hash_1, hash_func_t hash_2, hash_cmp_func_t hash_cmp);
+void hash_load (struct hash_table_s *ht, void *item_table,
+		    unsigned long cardinality, unsigned long size);
+void **hash_find_slot (struct hash_table_s *ht, void const *key);
+void *hash_find_item (struct hash_table_s *ht, void const *key);
+void *hash_insert (struct hash_table_s *ht, void *item);
+void *hash_insert_at (struct hash_table_s *ht, void *item, void const *slot);
+void *hash_delete (struct hash_table_s *ht, void const *item);
+void *hash_delete_at (struct hash_table_s *ht, void const *slot);
+void hash_delete_items (struct hash_table_s *ht);
+void hash_free_items (struct hash_table_s *ht, hash_map_func_t free_fn);
+void hash_free (struct hash_table_s *ht, hash_map_func_t free_fn);
+void hash_map (struct hash_table_s *ht, hash_map_func_t map);
+void hash_maparg (struct hash_table_s *ht, hash_maparg_func_t map,
+		      void const *arg, qsort_cmp_t compare);
+void hash_print_stats (struct hash_table_s *ht, FILE *out_FILE);
+void **hash_dump (struct hash_table_s *ht, void **vector_0, qsort_cmp_t compare);
+void **hash_dump_select (struct hash_table_s *ht, void **vector_0,
+				hash_select_func_t select_fn, qsort_cmp_t compare);
 
 extern void *hash_deleted_item;
 # define HASH_VACANT(item) ((item) == 0 || (void *) (item) == hash_deleted_item)

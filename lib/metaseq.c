@@ -180,13 +180,13 @@ static void
 grow_user_string_obstack (struct obstack * user_string_stack,
 			  struct a2ps_job * job,
 			  struct file_job * file,
-			  const uchar * context_name,
-			  const uchar * str)
+			  const unsigned char * context_name,
+			  const unsigned char * str)
 {
-  uchar * cp, * cp2;
+  unsigned char * cp, * cp2;
   size_t i = 0, j;
-  uchar padding = ' ' ;	/* Char used to complete %20 (usually ` ' or `.' */
-  uchar buf[512], buf2[512], buf3[256];
+  unsigned char padding = ' ' ;	/* Char used to complete %20 (usually ` ' or `.' */
+  unsigned char buf[512], buf2[512], buf3[256];
   size_t width = 0;
   int justification = 1;
 
@@ -288,7 +288,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    break;
 
 	  case 'c':	/* `%c' trailing component of pwd. */
-	    cp = (uchar *) xgetcwd ();
+	    cp = (unsigned char *) xgetcwd ();
 	    if (!cp)
 	      error (1, errno,
 		     _("cannot get current working directory"));
@@ -307,7 +307,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    break;
 
 	  case 'd':	/* `%d' current working directory */
-	    cp = (uchar *) xgetcwd ();
+	    cp = (unsigned char *) xgetcwd ();
 	    if (!cp)
 	      error (1, errno,
 		     _("cannot get current working directory"));
@@ -370,7 +370,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 
 	  case 'm':	/* `%m' the hostname up to the first `.' */
 	    cp = macro_meta_sequence_get (job, VAR_USER_HOST);
-	    cp2 = ALLOCA (uchar, strlen (cp) + 1);
+	    cp2 = ALLOCA (unsigned char, strlen (cp) + 1);
 	    strcpy (cp2, cp);
 	    cp = ustrchr (cp2, '.');
 	    if (cp)
@@ -521,7 +521,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 		     context_name, "$()");
 	    buf[j] = '\0';
 
-	    cp = (uchar *) getenv ((char *)buf);
+	    cp = (unsigned char *) getenv ((char *)buf);
 	    if (cp)
 	      APPEND_STR (cp);
 	    break;
@@ -551,7 +551,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    buf[j] = '\0';
 
 	    /* Get the value of the env var */
-	    cp = (uchar *) getenv ((char *)buf);
+	    cp = (unsigned char *) getenv ((char *)buf);
 	    if (IS_EMPTY (cp2))
 	      {
 		/* No word specified */
@@ -941,7 +941,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 		     context_name, "#()");
 	    buf[j] = '\0';
 
-	    cp = (uchar *) macro_meta_sequence_get (job,
+	    cp = (unsigned char *) macro_meta_sequence_get (job,
 						    (char *) buf);
 	    if (cp)
 	      grow_user_string_obstack (user_string_stack,
@@ -975,7 +975,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    buf[j] = '\0';
 
 	    /* Get the value of the macro */
-	    cp = (uchar *) macro_meta_sequence_get (job, (char *) buf);
+	    cp = (unsigned char *) macro_meta_sequence_get (job, (char *) buf);
 	    if (IS_EMPTY (cp2))
 	      {
 		/* No word specified */
@@ -1018,9 +1018,9 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	  case '?':	/* `#?' if-then meta sequence */
 	    {
 	      int test = 0;
-	      uchar cond, sep;
-	      uchar * if_true, * if_false;
-	      uchar * next;
+	      unsigned char cond, sep;
+	      unsigned char * if_true, * if_false;
+	      unsigned char * next;
 
 	      cond = str[++i];
 	      sep = str[++i];
@@ -1108,9 +1108,9 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 
 	  case '!':	/* `#!' a enumeration of a category		*/
 	    {
-	      uchar category, sep;
-	      uchar * in, * between;
-	      uchar * next;
+	      unsigned char category, sep;
+	      unsigned char * in, * between;
+	      unsigned char * next;
 
 	      category = str[++i];
 	      sep = str[++i];
@@ -1249,8 +1249,8 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    if (a2ps_printers_flag_output_is_printer_get (job->printers))
 	      grow_user_string_obstack
 		(user_string_stack, job, file,
-		 (const uchar *) _("output command"),
-		 (const uchar *) a2ps_printers_flag_output_name_get(job->printers));
+		 (const unsigned char *) _("output command"),
+		 (const unsigned char *) a2ps_printers_flag_output_name_get(job->printers));
 	    else
 	      APPEND_STR (a2ps_printers_flag_output_name_get (job->printers));
 	    break;
@@ -1291,16 +1291,16 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 /* The exported function.
    GIGO principle: if STR is NULL, output too.  */
 
-uchar *
+unsigned char *
 expand_user_string (struct a2ps_job * job,
 		    struct file_job * file,
-		    const uchar * context_name,
-		    const uchar * str)
+		    const unsigned char * context_name,
+		    const unsigned char * str)
 {
   static int first_time = 1;
   static struct obstack user_string_stack;
 
-  uchar * res;
+  unsigned char * res;
 
   if (first_time)
     {
@@ -1319,7 +1319,7 @@ expand_user_string (struct a2ps_job * job,
 			    job, file, context_name, str);
 
   obstack_1grow (&user_string_stack, '\0');
-  res = (uchar *) obstack_finish (&user_string_stack);
+  res = (unsigned char *) obstack_finish (&user_string_stack);
   obstack_free (&user_string_stack, res);
 
   message (msg_meta,

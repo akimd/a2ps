@@ -410,10 +410,10 @@ a2ps_printers_command_get (struct a2ps_printers_s *printers,
 
 /* Make a standard message upon the destination.  Mallocs the
    result.  If FILE_P, NAME is a file name, else a printer name. */
-static uchar*
+static unsigned char*
 destination_to_string (const char *name, bool file_p)
 {
-  uchar *res;
+  unsigned char *res;
 
   if (IS_EMPTY (name))
     {
@@ -426,7 +426,7 @@ destination_to_string (const char *name, bool file_p)
       char *format = (file_p
 		      ? _("saved into the file `%s'")
 		      : _("sent to the printer `%s'"));
-      res = XMALLOC (uchar, strlen (format) + strlen (name));
+      res = XMALLOC (unsigned char, strlen (format) + strlen (name));
       sprintf ((char *) res, format, name);
     }
   return res;
@@ -437,7 +437,7 @@ destination_to_string (const char *name, bool file_p)
 
    Result is malloced. */
 
-uchar *
+unsigned char *
 a2ps_flag_destination_to_string (a2ps_job * job)
 {
   /* Make a nice message to tell where the output is sent */
@@ -449,7 +449,7 @@ a2ps_flag_destination_to_string (a2ps_job * job)
 /* Report where the output was really sent, i.e., evaluate the command
    and in the case of a file, report the file name. */
 
-uchar *
+unsigned char *
 a2ps_destination_to_string (a2ps_job * job)
 {
   /* The main difference is when sending to a file, in which
@@ -661,8 +661,8 @@ a2ps_open_output_stream (struct a2ps_job * job)
 
       /* Expand the metaseq before */
       command = (char *) expand_user_string (job, FIRST_FILE (job),
-					     (uchar *) "output command",
-					     (uchar *) printer_cmd);
+					     (unsigned char *) "output command",
+					     (unsigned char *) printer_cmd);
       job->output_stream = stream_perl_open_backup (command,
 						    job->backup_type,
 						    &name);

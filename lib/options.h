@@ -24,21 +24,21 @@ struct a2ps_job;
 /*
  * Type of the functions for options hooks
  */
-typedef int (* option_hook) PARAMS ((int opt, char * arg));
+typedef int (* option_hook) (int opt, char * arg);
 
 extern option_hook handle_option_hook;
 
 /* Handle arguments */
 bool a2ps_get_bool
-  PARAMS ((const char * option, const char * arg));
+  (const char * option, const char * arg);
 
 /* Handle options.  Returns the indice of the first element of ARGV
    which is not an option. */
 
 int a2ps_handle_options
-   PARAMS ((struct a2ps_job * job, int argc, char *argv[]));
+   (struct a2ps_job * job, int argc, char *argv[]);
 
 int a2ps_handle_string_options
-   PARAMS ((struct a2ps_job * job, const char *string));
+   (struct a2ps_job * job, const char *string);
 
 #endif /* !OPTIONS_H_ */

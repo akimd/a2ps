@@ -27,25 +27,25 @@ struct stream
 };
 
 /* Open for reading */
-struct stream * stream_ropen PARAMS ((const char * command,
-				      bool is_file));
+struct stream * stream_ropen (const char * command,
+				      bool is_file);
 /* Open for writing */
-struct stream * stream_wopen PARAMS ((const char * command,
-				      bool is_file));
+struct stream * stream_wopen (const char * command,
+				      bool is_file);
 /* Open for writing, using backup services */
-struct stream * stream_wopen_backup PARAMS ((const char * command,
+struct stream * stream_wopen_backup (const char * command,
 					     bool is_file,
-					     enum backup_type backup_type));
+					     enum backup_type backup_type);
 
 /*
  * Uses the perl convention to know whether file or pipe
  * I.e., command starts by '>', or '|'
  */
 struct stream * stream_perl_open_backup
-   PARAMS ((char const * perl_command, enum backup_type backup,
-	    const char **name));
+   (char const * perl_command, enum backup_type backup,
+	    const char **name);
 
 /* Closes and frees.  */
-void stream_close PARAMS ((struct stream * stream));
+void stream_close (struct stream * stream);
 
 #endif

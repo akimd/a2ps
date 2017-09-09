@@ -30,14 +30,6 @@
 # include <config.h>
 #endif
 
-#ifndef PARAMS
-# if defined __GNUC__ || (defined __STDC__ && __STDC__)
-#  define PARAMS(args) args
-# else
-#  define PARAMS(args) ()
-# endif  /* GCC.  */
-#endif  /* Not PARAMS.  */
-
 #if defined STDC_HEADERS && !defined emacs
 # include <stddef.h>
 #else
@@ -377,12 +369,12 @@ typedef char boolean;
 #define false 0
 #define true 1
 
-static int re_match_2_internal PARAMS ((struct re_pattern_buffer *bufp,
+static int re_match_2_internal (struct re_pattern_buffer *bufp,
 					const char *string1, int size1,
 					const char *string2, int size2,
 					int pos,
 					struct re_registers *regs,
-					int stop));
+					int stop);
 
 /* These are the command codes that appear in compiled regular
    expressions.  Some opcodes are followed by argument bytes.  A

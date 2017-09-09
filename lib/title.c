@@ -28,6 +28,7 @@
 #endif
 
 #include <stdio.h>
+#include <string.h>
 
 #if HAVE_VPRINTF || HAVE_DOPRNT || _LIBC
 # if __STDC__

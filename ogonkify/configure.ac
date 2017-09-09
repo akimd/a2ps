@@ -1,8 +1,10 @@
-AC_PREREQ(2.53)
+AC_PREREQ([2.69])
 
-AC_INIT(Ogonkify, 0.7.0)
-AC_CONFIG_AUX_DIR(../auxdir)
-AM_INIT_AUTOMAKE
+AC_INIT([Ogonkify], [0.7.0])
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_AUX_DIR([../build-aux])
+
+AM_INIT_AUTOMAKE([1.15 foreign dist-bzip2 no-dist-gzip subdir-objects silent-rules])
 
 # What should get installed?
 AC_ARG_ENABLE(extensions,
@@ -55,6 +57,8 @@ esac
 ad_IBMFONTS
 
 AC_CONFIG_FILES(composeglyphs, [chmod +x composeglyphs])
-AC_OUTPUT(Makefile ogonkify.in
-	   doc/Makefile
-	   m4/Makefile)
+AC_OUTPUT([
+  Makefile
+  ogonkify.in
+  doc/Makefile
+  m4/Makefile])

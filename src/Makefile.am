@@ -16,12 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-## Since this package is written in ansi, be ready to un-ansify
-AUTOMAKE_OPTIONS = $(top_builddir)/lib/ansi2knr
+# I don't really understand why I have to put srcdir here, but
+# it is needed for yacc and lex files (seems related to #line, but
+# I really don't understand why)...
+AM_CPPFLAGS = -I.. -I$(srcdir) -I$(top_srcdir)/lib -I$(top_builddir)/intl \
+	-DLOCALEDIR=\"$(localedir)\"
 
 bin_PROGRAMS = a2ps
-
-DEFS = @DEFS@ -DLOCALEDIR=\"$(datadir)/locale\"
 
 a2ps_SOURCES = main.c \
 read.c sshread.c ssheet.c select.c generate.c 			\
@@ -39,10 +40,6 @@ BUILT_SOURCES = parsessh.c parsessh.h
 
 YFLAGS = -dtv
 LEX = @LEX@
-# I don't really understand why I have to put srcdir here, but
-# it is needed for yacc and lex files (seems related to #line, but
-# I really don't understand why)...
-INCLUDES = -I.. -I$(srcdir) -I$(top_srcdir)/lib -I$(top_builddir)/intl
 
 a2ps_LDADD = $(top_builddir)/lib/liba2ps.la @LIBINTL@ -lm
 

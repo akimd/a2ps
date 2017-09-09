@@ -98,7 +98,7 @@ option_string_to_eol (const char *option,
 static inline void
 buffer_internal_set (buffer_t * buffer,
 		     FILE * stream,
-		     const uchar * buf, size_t bufsize,
+		     const unsigned char * buf, size_t bufsize,
 		     bool pipe_p, enum eol_e eol)
 {
   buffer->buf = buf;
@@ -131,13 +131,13 @@ buffer_pipe_set (buffer_t * buffer, FILE * stream, enum eol_e eol)
 }
 
 void
-buffer_string_set (buffer_t * buffer, const uchar * string, enum eol_e eol)
+buffer_string_set (buffer_t * buffer, const unsigned char * string, enum eol_e eol)
 {
   buffer_internal_set (buffer, NULL, string, strlen (string), false, eol);
 }
 
 void
-buffer_buffer_set (buffer_t * buffer, const uchar * buf, size_t bufsize,
+buffer_buffer_set (buffer_t * buffer, const unsigned char * buf, size_t bufsize,
 		   enum eol_e eol)
 {
   buffer_internal_set (buffer, NULL, buf, bufsize, false, eol);
@@ -163,12 +163,12 @@ void
 buffer_self_print (buffer_t * buffer, FILE * stream)
 {
   if (buffer->buf)
-    fprintf (stream, "A string buffer.  Bufoffset %u\n",
+    fprintf (stream, "A string buffer.  Bufoffset %zu\n",
 	     buffer->bufoffset);
   if (buffer->stream)
     fprintf (stream, "A stream buffer (%s).\n",
 	     buffer->pipe_p ? "pipe" : "file");
-  fprintf (stream, "Len = %d, Lower case = %d, Line = %d\n",
+  fprintf (stream, "Len = %zu, Lower case = %d, Line = %zu\n",
 	   buffer->len, buffer->lower_case, buffer->line);
   if (buffer->len)
     fprintf (stream, "Content = `%s'\n", buffer->content);
@@ -408,7 +408,7 @@ buffer_get (buffer_t * buffer)
      test on the length of the buffer. */
   buffer->len = obstack_object_size (&buffer->obstack);
   obstack_1grow (&buffer->obstack, '\0');
-  buffer->content = (uchar *) obstack_finish (&buffer->obstack);
+  buffer->content = (unsigned char *) obstack_finish (&buffer->obstack);
 
   /* One more line read */
   buffer->line++;
@@ -428,7 +428,7 @@ buffer_get (buffer_t * buffer)
 	buffer->allocsize = buffer->len + 1;
 
       buffer->value =
-	XREALLOC (buffer->value, uchar, buffer->allocsize);
+	XREALLOC (buffer->value, unsigned char, buffer->allocsize);
 
       for (i = 0; i <= buffer->len; i++)
 	buffer->value[i] = tolower (buffer->content[i]);

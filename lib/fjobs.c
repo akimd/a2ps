@@ -29,7 +29,7 @@ typedef struct file_job fjob_t;
  *
  */
 fjob_t *
-_a2ps_file_job_new (uchar *name, int num, struct tm *run_tm)
+_a2ps_file_job_new (unsigned char *name, int num, struct tm *run_tm)
 {
   NEW (fjob_t, res);
 

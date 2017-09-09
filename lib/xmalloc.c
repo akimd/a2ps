@@ -21,15 +21,7 @@
 #endif
 
 #include <sys/types.h>
-
-#if STDC_HEADERS
-# include <stdlib.h>
-#else
-void *calloc ();
-void *malloc ();
-void *realloc ();
-void free ();
-#endif
+#include <stdlib.h>
 
 #if ENABLE_NLS
 # include <libintl.h>
@@ -47,20 +39,12 @@ void free ();
 # define EXIT_FAILURE 1
 #endif
 
-#ifndef HAVE_DONE_WORKING_MALLOC_CHECK
-you must run the autoconf test for a properly working malloc -- see malloc.m4
-#endif
-
-#ifndef HAVE_DONE_WORKING_REALLOC_CHECK
-you must run the autoconf test for a properly working realloc -- see realloc.m4
-#endif
-
 /* Exit value when the requested amount of memory is not available.
    The caller may set it to some other value.  */
 int xalloc_exit_failure = EXIT_FAILURE;
 
 /* If non NULL, call this function when memory is exhausted. */
-void (*xalloc_fail_func) PARAMS ((void)) = 0;
+void (*xalloc_fail_func) (void) = 0;
 
 /* If XALLOC_FAIL_FUNC is NULL, or does return, display this message
    before exiting when memory is exhausted.  Goes through gettext. */

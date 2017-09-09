@@ -81,7 +81,7 @@ char *getenv ();
 # define YYLMAX 1024
 #endif
 
-void reassemble PARAMS ((FILE*,FILE*,FILE*,char*,char*,char*));
+void reassemble (FILE*,FILE*,FILE*,char*,char*,char*);
 static int first_time = 1;
 FILE *font;
 FILE *adobe;

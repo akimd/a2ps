@@ -22,15 +22,15 @@
 /*
  * From xgetcwd.c
  */
-char *xgetcwd PARAMS ((void));
+char *xgetcwd (void);
 
 /*
  * from xgethostname.c
  */
-char *xgethostname PARAMS ((void));
+char *xgethostname (void);
 
-char *stpcpy PARAMS ((char * dest, const char * src));
-char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
+char *stpcpy (char * dest, const char * src);
+char *stpncpy (char * dest, const char * src, size_t n);
 
 /*
  * unsigned char variation of usual functions on strings
@@ -60,21 +60,21 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
 	(strlen((const char *)(x)))
 
 #define ustrchr(x,y) 					\
-	((uchar *) strchr((char *)(x), (int)(y)))
+	((unsigned char *) strchr((char *)(x), (int)(y)))
 #define ustrrchr(x,y) 					\
-	((uchar *) strrchr((char *)(x), (int)(y)))
+	((unsigned char *) strrchr((char *)(x), (int)(y)))
 
 #define xustrdup(x) 					\
-	((uchar *) xstrdup((const char *)(x)))
+	((unsigned char *) xstrdup((const char *)(x)))
 
 #define ustrtok(x,y)					\
-	((uchar *) strtok ((char *)(x), (const char *)(y)))
+	((unsigned char *) strtok ((char *)(x), (const char *)(y)))
 
 /*
  * Put in X a copy of chars in Y from Z to T
  */
 #define ustrsub(x,y,z,t)				\
-        ((uchar *) strsub ((char *)(x), (const char *)(y), (z), (t)));
+        ((unsigned char *) strsub ((char *)(x), (const char *)(y), (z), (t)));
 
 /*
  * A string prefixes another
@@ -119,7 +119,7 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
 
 #define xustrcpy(s1, s2)				\
  do {				       			\
-   const uchar *my_s2 = (uchar *) (s2);			\
+   const unsigned char *my_s2 = (unsigned char *) (s2);			\
    XFREE (s1);					       	\
    s1 = !IS_EMPTY (my_s2) ? xustrdup (my_s2) : UNULL;	\
  } while (0)
@@ -135,8 +135,8 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
       *__strcut_cp = '\0';			\
   } while (0)
 
-#define ustrcut(_ustring_, _uchar_)	\
-  strcut ((char *) (_ustring_), (char) _uchar_)
+#define ustrcut(_ustring_, _unsigned_char_)	\
+  strcut ((char *) (_ustring_), (char) _unsigned_char_)
 
 /*
  * Cut the _STRING_ a the last occurence of the _CHAR_ if there is
@@ -149,8 +149,8 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
       *__strrcut_cp = '\0';			\
   } while (0)
 
-#define ustrrcut(_ustring_, _uchar_)	\
-  strrcut ((char *) (_ustring_), (char) _uchar_)
+#define ustrrcut(_ustring_, _unsigned_char_)	\
+  strrcut ((char *) (_ustring_), (char) _unsigned_char_)
 
 /*
  * alloca version of some str routines
@@ -174,8 +174,8 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
 
 #define austrcpy(_d_,_s_)				\
    do {							\
-	const uchar * _tmp_ = (const uchar *) (_s_);	\
-	_d_ = ALLOCA (uchar, ustrlen (_tmp_) + 1);	\
+	const unsigned char * _tmp_ = (const unsigned char *) (_s_);	\
+	_d_ = ALLOCA (unsigned char, ustrlen (_tmp_) + 1);	\
 	ustrcpy (_d_, _tmp_);				\
    } while (0)
 
@@ -213,38 +213,38 @@ char *stpncpy PARAMS ((char * dest, const char * src, size_t n));
 #define strcaseequ(s1, s2) (!strcasecmp(s1, s2))
 
 /* Functions on strings */
-void string_to_array PARAMS ((uchar arr[256], const uchar * string));
-int is_strlower PARAMS((const uchar * string));
-uchar *strnlower PARAMS ((uchar * string, size_t len));
-uchar *strlower PARAMS ((uchar * string));
-uchar *strcpylc PARAMS ((uchar *dst, const uchar *src));
+void string_to_array (unsigned char arr[256], const unsigned char * string);
+int is_strlower (const unsigned char * string);
+unsigned char *strnlower (unsigned char * string, size_t len);
+unsigned char *strlower (unsigned char * string);
+unsigned char *strcpylc (unsigned char *dst, const unsigned char *src);
 
-void ustrccat PARAMS((uchar * string, uchar c));
-int strcnt PARAMS((uchar * s, uchar c));
-char * strsub PARAMS ((char * dest,
-		       const char * string, int start, int length));
+void ustrccat (unsigned char * string, unsigned char c);
+int strcnt (unsigned char * s, unsigned char c);
+char * strsub (char * dest,
+		       const char * string, int start, int length);
 
 /* Copy the content of IN into OUT */
-void streams_copy PARAMS ((FILE * in, FILE * out));
+void streams_copy (FILE * in, FILE * out);
 
 /* Dump the content of a file onto STREAM */
-void stream_dump PARAMS ((FILE * stream, const char * filename));
+void stream_dump (FILE * stream, const char * filename);
 /* unlink FILENAME */
-void unlink2 PARAMS ((void* dummy, const char * filename));
+void unlink2 (void* dummy, const char * filename);
 
 /* Fopen but exits on failure */
-FILE * xfopen PARAMS ((const char * filename, const char * rights,
-		       const char * format));
+FILE * xfopen (const char * filename, const char * rights,
+		       const char * format);
 /* opened "r", and "w" */
-FILE * xrfopen PARAMS ((const char * filename));
-FILE * xwfopen PARAMS ((const char * filename));
+FILE * xrfopen (const char * filename);
+FILE * xwfopen (const char * filename);
 
 /* Popen but exits on failure */
-FILE * xpopen PARAMS ((const char * command, const char * rights,
-		       const char * format));
+FILE * xpopen (const char * command, const char * rights,
+		       const char * format);
 /* opened "r", and "w" */
-FILE * xrpopen PARAMS ((const char * command));
-FILE * xwpopen PARAMS ((const char * command));
+FILE * xrpopen (const char * command);
+FILE * xwpopen (const char * command);
 
 /* If _STR_ is not defined, give it a tempname in _TMPDIR_ */
 #define tempname_ensure(Str)				\

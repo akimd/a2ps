@@ -47,10 +47,10 @@ da_new (const char * name, size_t size,
 
   /* No longer relevant: size_t cannot be null */
   if (size == 0)
-    error (da_exit_error, 0, "invalid size for dynamic array `%s': %d",
+    error (da_exit_error, 0, "invalid size for dynamic array `%s': %zu",
 	   name, size);
   if (increment == 0 && growth != da_steady)
-    error (da_exit_error, 0, "invalid increment for dynamic array `%s': %d",
+    error (da_exit_error, 0, "invalid increment for dynamic array `%s': %zu",
 	   name, increment);
 
   res = XMALLOC (struct darray, 1);
@@ -125,7 +125,7 @@ da_print_stats (struct darray * arr, FILE * stream)
   const char * cp = NULL;
 
   fprintf (stream, _("Dynamic array `%s':\n"), arr->name);
-  fprintf (stream, _("\tload: %d/%d (%2.1f%%)\n"),
+  fprintf (stream, _("\tload: %zu/%zu (%2.1f%%)\n"),
 	   arr->len, arr->size, 100.0 * arr->len / arr->size);
   switch (arr->growth) {
   case da_steady:
@@ -143,7 +143,7 @@ da_print_stats (struct darray * arr, FILE * stream)
   default:
     abort ();
   }
-  fprintf (stream, _("\toriginal size: %d, growth: %s %d\n"),
+  fprintf (stream, _("\toriginal size: %zu, growth: %s %zu\n"),
 	   arr->original_size, cp, arr->increment);
 }
 
@@ -292,7 +292,7 @@ da_insert_at (struct darray * arr, void * elem, size_t where)
   size_t i;
 
   if (where > arr->len)
-    error (da_exit_error, 0, "can't insert at %d in darray %s [0,%d]\n",
+    error (da_exit_error, 0, "can't insert at %zu in darray %s [0,%zu]\n",
 	   where, arr->name, arr->len - 1);
 
   if (da_is_full (arr))
@@ -314,7 +314,7 @@ da_remove_at (struct darray * arr, size_t where, da_map_func_t free_func)
   size_t i;
 
   if (where >= arr->len)
-    error (da_exit_error, 0, "can't remove at %d in darray %s [0,%d]\n",
+    error (da_exit_error, 0, "can't remove at %zu in darray %s [0,%zu]\n",
 	   where, arr->name, arr->len - 1);
 
   if (free_func)
@@ -613,7 +613,7 @@ da_self_print (struct darray * arr, FILE * stream)
   if (!arr->self_print)
     abort ();
   for (i = 0 ; i < arr->len ; i++) {
-    fprintf (stream, "[%2d] = ", i);
+    fprintf (stream, "[%2zu] = ", i);
     arr->self_print (arr->content [i], stream);
     fprintf (stream, "\n");
   }

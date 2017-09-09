@@ -41,11 +41,11 @@ extern int strip_level;
 
 /* #define YY_DECL yylex (YYSTYPE *lvalp);*/
 
-int yylex PARAMS ((void));
-void yyerror PARAMS ((const char *));
+int yylex (void);
+void yyerror (const char *);
 
 /* Initilizes the obstacks */
-void sshlex_initialize PARAMS ((void));
+void sshlex_initialize (void);
 
 /* Obstack for strings reading */
 static struct obstack string_stack;
@@ -54,7 +54,7 @@ static struct obstack string_stack;
 const char * sshfilename;
 
 #define LATEX_SYM_RETURN(Str)	\
-   yylval.string = (uchar *) xstrdup (Str) ; return tLATEXSYMBOL ;
+   yylval.string = (unsigned char *) xstrdup (Str) ; return tLATEXSYMBOL ;
 
 #define RETURN_FACE(_f_)\
    {yylval.face = _f_ ; return tFACE ;}
@@ -298,10 +298,10 @@ naked_string	[^/#, \t\r\f\n\"()+]*
 
 <STATE_STRING>{		/* string of characters */
   \" 			{ /* return the string */
-    uchar * string;
+    unsigned char * string;
 
     obstack_1grow (&string_stack, '\0');
-    string = (uchar *) obstack_finish (&string_stack);
+    string = (unsigned char *) obstack_finish (&string_stack);
 
     obstack_free (&string_stack, string);
 
@@ -421,7 +421,7 @@ naked_string	[^/#, \t\r\f\n\"()+]*
 }
 
 %%
-
+
 int
 yywrap (void)
 {

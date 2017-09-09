@@ -51,7 +51,7 @@ struct derivation
   delayed_routine_t delayed_routine;
   void * delayed_routine_arg;
   int * delayed_int;
-  uchar ** delayed_string;
+  unsigned char ** delayed_string;
   struct output * delayed_chunk;
 };
 
@@ -75,7 +75,7 @@ new_derivation (enum derivation_type type)
 static void
 derivation_self_print (struct derivation * derivation, FILE * stream)
 {
-  fprintf (stream, "At %x: ", (int) derivation);
+  fprintf (stream, "At %p: ", derivation);
   switch (derivation->type)
     {
     case nothing:
@@ -203,7 +203,7 @@ output (out, format, va_alist)
  * Add C to the end of output
  */
 void
-output_char (struct output * out, uchar c)
+output_char (struct output * out, unsigned char c)
 {
   if (out->to_void)
     return;
@@ -269,7 +269,7 @@ output_delayed_int (struct output * out, int * ptr)
  * The value pointed will be read only when undiverting
  */
 void
-output_delayed_string (struct output * out, uchar ** ptr)
+output_delayed_string (struct output * out, unsigned char ** ptr)
 {
   struct derivation *tmp;
 
@@ -514,8 +514,8 @@ output_file (struct output * out, a2ps_job * job,
 	token = GET_LINE_TOKEN (buf + strlen (EXPAND_TAG));
 	expansion = ((char *)
 		     expand_user_string (job, FIRST_FILE (job),
-					 (const uchar *) "Expand: requirement",
-					 (const uchar *) token));
+					 (const unsigned char *) "Expand: requirement",
+					 (const unsigned char *) token));
 	output (dest, expansion);
 	continue;
       }

@@ -53,7 +53,7 @@ unprintable_format_to_string (enum unprintable_format format)
  */
 int
 escape_unprintable (a2ps_job * job, int c,
-		    uchar * res)
+		    unsigned char * res)
 {
   int len = 0;
 

@@ -65,7 +65,7 @@
  * Returns number of columns used (on the output) to print the char.
  */
 static int
-ps_escape_char (a2ps_job * job, uchar c, uchar * res)
+ps_escape_char (a2ps_job * job, unsigned char c, unsigned char * res)
 {
   int len=0;
 
@@ -167,7 +167,7 @@ ps_escape_char (a2ps_job * job, uchar c, uchar * res)
  * Print a string in a form accepted by postscript printers.
  */
 static int
-ps_escape_string (a2ps_job * job, uchar * string, uchar * res)
+ps_escape_string (a2ps_job * job, unsigned char * string, unsigned char * res)
 {
   size_t i;
   int delta_column=0;
@@ -182,13 +182,13 @@ ps_escape_string (a2ps_job * job, uchar * string, uchar * res)
  * Output the formated marker.
  */
 static void
-output_marker (a2ps_job * job, const char * kind, uchar * marker)
+output_marker (a2ps_job * job, const char * kind, unsigned char * marker)
 {
-  uchar *cp, buf[256];
+  unsigned char *cp, buf[256];
   int i;
 
   cp = expand_user_string (job, CURRENT_FILE (job),
-			   (const uchar *) kind, marker);
+			   (const unsigned char *) kind, marker);
 
   for (i = 0 ; cp[i] ; i++) {
     switch (cp[i]) {
@@ -345,7 +345,7 @@ page_begin (a2ps_job * job)
   if (!output_is_to_void (jdiv))
     {
       output (jdiv, "%%%%Page: (");
-      job->status->page_label = XMALLOC (uchar *, 1);
+      job->status->page_label = XMALLOC (unsigned char *, 1);
       output_delayed_string (jdiv, job->status->page_label);
       output (jdiv, ") %d\n", job->sheets);
     }
@@ -411,7 +411,7 @@ page_end (a2ps_job * job)
    */
   *(job->status->page_label) =
     xustrdup (expand_user_string (job, CURRENT_FILE (job),
-				  (const uchar *) "Page label",
+				  (const unsigned char *) "Page label",
 				  job->status->page_label_format));
 
   output (jdiv, "grestore\n");
@@ -862,7 +862,7 @@ ps_print_char (a2ps_job * job, int c, enum face_e new_face)
   print:
   default:
     {
-      uchar buf[256];
+      unsigned char buf[256];
       int nchars;
       *buf = '\0';
 
@@ -900,7 +900,7 @@ ps_print_char (a2ps_job * job, int c, enum face_e new_face)
  * Print the content of a C string \0 terminated
  */
 void
-ps_print_string (a2ps_job * job, uchar * string, enum face_e face)
+ps_print_string (a2ps_job * job, unsigned char * string, enum face_e face)
 {
   while (*string)
     ps_print_char (job, *(string++), face);
@@ -911,7 +911,7 @@ ps_print_string (a2ps_job * job, uchar * string, enum face_e face)
  */
 void
 ps_print_buffer (a2ps_job * job,
-		 const uchar * buffer,
+		 const unsigned char * buffer,
 		 size_t start, size_t end,
 		 enum face_e face)
 {

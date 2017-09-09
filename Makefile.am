@@ -16,15 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-## Process this file with automake to produce Makefile.in
-AUTOMAKE_OPTIONS = check-news 1.6.3 dist-bzip2 readme-alpha
-
 ## Make sure to drop doc at the end: it causes may problems, so
 ## let's do the maximum before it
-SUBDIRS = auxdir m4 etc ps ogonkify \
+SUBDIRS = build-aux m4 etc ps ogonkify \
 	lib src po tests sheets encoding afm fonts ppd contrib doc man
 
-ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = TODO ANNOUNCE FAQ a2ps.prj arch
 
 MAKE_AUTHORS = make-authors.pl
@@ -50,7 +46,7 @@ prcs-diff:
 
 FAQ: $(top_srcdir)/doc/a2ps.texi
 	LC_ALL=C $(MAKEINFO) --no-header -I $(top_srcdir)/doc a2ps.texi | \
-	sed -n -f $(top_srcdir)/auxdir/make-faq.sed > FAQ-tmp
+	sed -n -f $(top_srcdir)/build-aux/make-faq.sed > FAQ-tmp
 	mv FAQ-tmp FAQ
 
 AUTHORS: $(top_srcdir)/doc/translators.txt $(top_srcdir)/doc/$(MAKE_AUTHORS) $(top_srcdir)/sheets/sheets.map

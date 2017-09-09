@@ -23,6 +23,6 @@
 
 struct a2ps_job;
 
-void plain_print_postscript PARAMS ((struct a2ps_job * job,
-				     buffer_t * buffer));
+void plain_print_postscript (struct a2ps_job * job,
+				     buffer_t * buffer);
 #endif /* not defined(_READ_H_) */

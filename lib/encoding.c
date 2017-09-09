@@ -384,7 +384,7 @@ font_entry_set_used (struct hash_table_s * table, const char * name)
 struct encoding {
   char * key;			/* e.g. latin1			*/
   char * name;			/* e.g. ISO Latin 1		*/
-  uchar * documentation;		/* Useful pieces of text	*/
+  unsigned char * documentation;		/* Useful pieces of text	*/
 
   char * default_font;		/* When a font can't be used
 				   define the font to use	*/
@@ -740,7 +740,7 @@ encoding_get_key (struct encoding * enc)
 
 int
 encoding_char_exists (struct encoding * enc,
-			    enum face_e face, uchar c)
+			    enum face_e face, unsigned char c)
 {
   return enc->faces_wx[face][c];
 }
@@ -782,7 +782,7 @@ dump_encoding_setup (FILE * stream,
   /* Create the dictionary and fill it */
   fprintf (stream, "%% Dictionary for %s support\n",
 	  encoding->name);
-  fprintf (stream, "/%sdict %d dict begin\n", encoding->key, nb);
+  fprintf (stream, "/%sdict %zu dict begin\n", encoding->key, nb);
   for (i = 0 ; i < nb ; i++)
     fprintf (stream, "  /f%s %sEncoding /%s reencode_font\n",
 	     font_names [i],
@@ -935,7 +935,7 @@ encoding_build_faces_wx (a2ps_job * job, struct encoding * encoding)
 }
 
 /*
- * Retreive an encoding
+ * Retrieve an encoding
  */
 static struct encoding *
 encoding_get (struct a2ps_job * job, const char * key)
@@ -998,7 +998,7 @@ dump_encodings_setup (FILE * stream,
  *	Returns the WX of a char (including M- and ^)
  */
 unsigned int
-char_WX (a2ps_job * job, uchar c)
+char_WX (a2ps_job * job, unsigned char c)
 {
 #define _WX_(char)  (job->encoding->faces_wx[job->status->face][(int) char])
   unsigned int wx = _WX_(c);
@@ -1069,7 +1069,7 @@ char_WX (a2ps_job * job, uchar c)
  *	Returns the WX of a string (including M- and ^)
  */
 unsigned int
-string_WX (a2ps_job * job, uchar * string)
+string_WX (a2ps_job * job, unsigned char * string)
 {
   unsigned int result=0;
 

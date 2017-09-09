@@ -19,14 +19,6 @@
 #ifndef LISTER_H_
 #define LISTER_H_
 
-#ifndef PARAMS
-# if defined PROTOTYPES || defined __STDC__
-#  define PARAMS(Args) Args
-# else
-#  define PARAMS(Args) ()
-# endif
-#endif
-
 enum lister_justification
 {
   lister_left   = 0,
@@ -36,51 +28,51 @@ enum lister_justification
 
 struct lister;
 
-typedef size_t (*lister_width_t) PARAMS ((void const *item));
-typedef void (*lister_print_t) PARAMS ((void const *item, FILE *stream));
+typedef size_t (*lister_width_t) (void const *item);
+typedef void (*lister_print_t) (void const *item, FILE *stream);
 
 /* Initialize the values taking the environment into account (for line
    width, and tabsize). */
-void lister_initialize PARAMS ((struct lister *lister, FILE *stream));
+void lister_initialize (struct lister *lister, FILE *stream);
 
 /* Set the tiny term of LISTER to TTERM.  Returns the previous value.  */
-struct tterm *lister_tterm_set PARAMS ((struct lister *lister,
-					struct tterm *tterm));
+struct tterm *lister_tterm_set (struct lister *lister,
+					struct tterm *tterm);
 
 /* Set the width of the white prefix in LISTER to SIZE.  Returns the
    previous value. */
-size_t  lister_before_set PARAMS ((struct lister * lister, size_t size));
+size_t  lister_before_set (struct lister * lister, size_t size);
 
 /* Set the width of the white suffix in LISTER to SIZE.  Returns the
    previous value. */
-size_t lister_after_set PARAMS ((struct lister * lister, size_t size));
+size_t lister_after_set (struct lister * lister, size_t size);
 
 
 void lister_fprint_horizontal
-  PARAMS ((struct lister * lister, FILE * stream,
+  (struct lister * lister, FILE * stream,
 	   void **items, size_t item_number,
-	   lister_width_t item_width_fn, lister_print_t item_print_fn));
+	   lister_width_t item_width_fn, lister_print_t item_print_fn);
 
 void lister_fprint_vertical
-   PARAMS ((struct lister * lister, FILE * stream,
+   (struct lister * lister, FILE * stream,
 	    void **items, size_t item_number,
-	    lister_width_t item_width_fn, lister_print_t item_print_fn));
+	    lister_width_t item_width_fn, lister_print_t item_print_fn);
 
 void lister_fprint_separated
-   PARAMS ((struct lister * lister, FILE * stream,
+   (struct lister * lister, FILE * stream,
 	    void **items, size_t item_number,
-	    lister_width_t item_width_fn, lister_print_t item_print_fn));
+	    lister_width_t item_width_fn, lister_print_t item_print_fn);
 
 /* Same as the previous functions, but using the default stream,
    width_fn and print_fn. */
 
 void lister_print_vertical
-  PARAMS ((struct lister * lister, void **items, size_t item_number));
+  (struct lister * lister, void **items, size_t item_number);
 
 void lister_print_horizontal
-  PARAMS ((struct lister * lister, void **items, size_t item_number));
+  (struct lister * lister, void **items, size_t item_number);
 
 void lister_print_separated
-  PARAMS ((struct lister * lister, void **items, size_t item_number));
+  (struct lister * lister, void **items, size_t item_number);
 
 #endif /* ! LISTER_H_ */

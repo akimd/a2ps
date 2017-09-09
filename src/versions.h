@@ -24,21 +24,21 @@
 #define VERSION_LENGTH 3
 typedef int version_t[VERSION_LENGTH];
 
-void version_set_to_null PARAMS ((version_t version));
+void version_set_to_null (version_t version);
 
-bool version_null_p PARAMS ((version_t version));
+bool version_null_p (version_t version);
 
-int version_cmp PARAMS ((version_t v1, version_t v2));
+int version_cmp (version_t v1, version_t v2);
 
-void version_cpy PARAMS ((version_t d, version_t s));
+void version_cpy (version_t d, version_t s);
 
-void version_self_print PARAMS ((version_t version , FILE *stream));
+void version_self_print (version_t version , FILE *stream);
 
 /* Return the length occupied by this version number once printed */
-int version_length PARAMS ((version_t version));
+int version_length (version_t version);
 
-void version_add PARAMS ((version_t v1, version_t v2));
+void version_add (version_t v1, version_t v2);
 
-void string_to_version PARAMS ((const char *string, version_t version));
+void string_to_version (const char *string, version_t version);
 
 #endif /* not defined VERSIONS_H_ */

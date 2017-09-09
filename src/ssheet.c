@@ -43,16 +43,16 @@ extern char * re_syntax_table;
 
 /* This function is defined in sshparser.y, but I don't know
  * how to make it appear in a .h file */
-struct style_sheet * parse_style_sheet PARAMS ((const char * filename));
+struct style_sheet * parse_style_sheet (const char * filename);
 
 /* Computes the sum of the versions and the highest requirement
  * of the sheet with key in KEYS */
-static inline void style_sheets_versions PARAMS ((struct darray * keys,
+static inline void style_sheets_versions (struct darray * keys,
 						  int sum [4],
-						  int requirement [4]));
+						  int requirement [4]);
 
 /* return true iff OK */
-static bool style_sheet_check PARAMS ((struct style_sheet * sheet));
+static bool style_sheet_check (struct style_sheet * sheet);
 
 /* We drop in the alphabets[0] an invalid value.  It allows to see if
  * the alphabets were defined or not, so that the default alphabets
@@ -65,9 +65,9 @@ static bool style_sheet_check PARAMS ((struct style_sheet * sheet));
 #define ALPHABET_UNDEFINE(_alpha_)	\
 	((_alpha_)[0] = ALPHABET_UNDEFINED_TAG)
 
-#define DEFAULT_ALPHA1 ((const uchar *) \
+#define DEFAULT_ALPHA1 ((const unsigned char *) \
 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_")
-#define DEFAULT_ALPHA2 ((const uchar *) \
+#define DEFAULT_ALPHA2 ((const unsigned char *) \
 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789")
 
 static void
@@ -102,7 +102,7 @@ new_pattern (char * pattern, size_t len)
  * The faced_string
  */
 struct faced_string *
-faced_string_new (uchar * string, int reg_ref, struct fface_s face)
+faced_string_new (unsigned char * string, int reg_ref, struct fface_s face)
 {
   struct faced_string * res = XMALLOC (struct faced_string, 1);
   res->string = string;
@@ -190,7 +190,7 @@ rhs_new (void)
  * New rhs array with a single argument
  */
 struct darray *
-rhs_new_single (uchar * string, int reg_ref, struct fface_s face)
+rhs_new_single (unsigned char * string, int reg_ref, struct fface_s face)
 {
   struct darray * res;
   res = da_new ("Rhs", 2, da_geometrical, 2,
@@ -245,7 +245,7 @@ rhs_self_print (struct darray * rhs, FILE * stream)
  * Dealing with the rules and operators
  */
 inline static struct rule *
-rule_new_internal_word (uchar * word,
+rule_new_internal_word (unsigned char * word,
 			struct darray * rhs)
 {
   struct rule * res = XMALLOC (struct rule, 1);
@@ -270,7 +270,7 @@ rule_new_internal_regexp (struct pattern *pattern,
 
   /* This is a regular expression.  We want to keep the original
    * pattern to ease the debugging of a style sheet */
-  res->word = (uchar *) pattern->pattern;
+  res->word = (unsigned char *) pattern->pattern;
 
   /* Build the regex structure, and compile the pattern */
   res->regex = XMALLOC (struct re_pattern_buffer, 1);
@@ -294,7 +294,7 @@ rule_new_internal_regexp (struct pattern *pattern,
  * Dealing with the rules and operators
  */
 struct rule *
-rule_new (uchar * word, struct pattern * pattern,
+rule_new (unsigned char * word, struct pattern * pattern,
 	  struct darray * rhs,
 	  const char *filename, size_t line)
 {
@@ -318,7 +318,7 @@ rule_new (uchar * word, struct pattern * pattern,
 `-------------------------------------------------------------------*/
 
 struct rule *
-keyword_rule_new (uchar * word, struct pattern * pattern,
+keyword_rule_new (unsigned char * word, struct pattern * pattern,
 		  struct darray * rhs,
 		  const char *filename, size_t line)
 {
@@ -579,9 +579,9 @@ ancestors_finalize (struct style_sheet * sheet)
       /* Inherit of the _last_ alphabets if it has not been defined in
        * this sheet.  */
       if (ALPHABET_IS_UNDEFINED (sheet->alpha1))
-	memcpy (sheet->alpha1, ancestor->alpha1, sizeof (uchar) * 256);
+	memcpy (sheet->alpha1, ancestor->alpha1, sizeof (unsigned char) * 256);
       if (ALPHABET_IS_UNDEFINED (sheet->alpha2))
-	memcpy (sheet->alpha2, ancestor->alpha2, sizeof (uchar) * 256);
+	memcpy (sheet->alpha2, ancestor->alpha2, sizeof (unsigned char) * 256);
 
       /* Inherit of the _last_ case sensitivity */
       if (sheet->sensitiveness == case_undefined)
@@ -704,7 +704,7 @@ sequence_self_print (struct sequence * tmp, FILE * stream)
  * Dealing with the style sheets
  */
 struct style_sheet *
-new_style_sheet (const uchar * name)
+new_style_sheet (const unsigned char * name)
 {
   NEW (struct style_sheet, res);
 
@@ -737,7 +737,7 @@ new_style_sheet (const uchar * name)
 `---------------------------------------------------------*/
 
 static char *
-style_sheet_mixed_new (const uchar * ancestors)
+style_sheet_mixed_new (const unsigned char * ancestors)
 {
   struct style_sheet *sheet, *ancestor;
   char *ancestor_key, *key, *cp;
@@ -769,7 +769,7 @@ style_sheet_mixed_new (const uchar * ancestors)
   message (msg_sheet,
 	   (stderr, "Creating a mixed style sheet \"%s\"\n", key));
   /* Its name is its key. */
-  sheet = new_style_sheet ((uchar *) key);
+  sheet = new_style_sheet ((unsigned char *) key);
   sheet->key = strdup (key);
   da_concat (sheet->ancestors, ancestors_array);
   da_erase (ancestors_array);

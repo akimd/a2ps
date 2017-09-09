@@ -19,15 +19,6 @@
 #ifndef DSTRING_H_
 # define DSTRING_H_
 
-/* Support of prototyping when possible */
-#ifndef PARAMS
-#  if PROTOTYPES
-#    define PARAMS(protos) protos
-#  else /* no PROTOTYPES */
-#    define PARAMS(protos) ()
-#  endif /* no PROTOTYPES */
-#endif
-
 # ifndef __attribute__
 /* This feature is available in gcc versions 2.5 and later.  */
 #  if __GNUC__ < 2 || (__GNUC__ == 2 && __GNUC_MINOR__ < 5) || __STRICT_ANSI__
@@ -81,44 +72,44 @@ struct dstring {
  * Maintaining
  */
 struct dstring *
-ds_new PARAMS ((size_t size,
-		enum ds_growth growth, size_t increment));
-void ds_erase PARAMS ((struct dstring *string));
-void ds_print_stats PARAMS ((struct dstring * str, FILE * stream));
-void ds_resize PARAMS ((struct dstring *string, size_t size));
-void ds_grow PARAMS ((struct dstring *string));
+ds_new (size_t size,
+		enum ds_growth growth, size_t increment);
+void ds_erase (struct dstring *string);
+void ds_print_stats (struct dstring * str, FILE * stream);
+void ds_resize (struct dstring *string, size_t size);
+void ds_grow (struct dstring *string);
 
 
 
 /*
  * Testing
  */
-int ds_is_full PARAMS ((struct dstring *string));
+int ds_is_full (struct dstring *string);
 
 
 
 /*
  * Usual string manipulations
  */
-void ds_strcat PARAMS ((struct dstring *s, char *t));
-void ds_strncat PARAMS ((struct dstring *s, char *t, int n));
-void ds_strccat PARAMS ((struct dstring *s, char c));
+void ds_strcat (struct dstring *s, char *t);
+void ds_strncat (struct dstring *s, char *t, int n);
+void ds_strccat (struct dstring *s, char c);
 
 /*
  * Sprintf variations
  */
 /* Sprintf in the dstring, resizing if necessary */
-void ds_vsprintf PARAMS ((struct dstring *s, const char *format,
-			  va_list args));
+void ds_vsprintf (struct dstring *s, const char *format,
+			  va_list args);
 /* sprintf at the end of the dstring, resize if necessary */
-void ds_cat_vsprintf PARAMS ((struct dstring *s, const char *format,
-			      va_list args));
+void ds_cat_vsprintf (struct dstring *s, const char *format,
+			      va_list args);
 /* Same as the two previous, but much less care is taken to
  * make sure the dstring is big enough */
-void ds_unsafe_vsprintf PARAMS ((struct dstring *s, const char *format,
-				 va_list args));
-void ds_unsafe_cat_vsprintf PARAMS ((struct dstring *s, const char *format,
-				     va_list args));
+void ds_unsafe_vsprintf (struct dstring *s, const char *format,
+				 va_list args);
+void ds_unsafe_cat_vsprintf (struct dstring *s, const char *format,
+				     va_list args);
 
 /* Same as the previous, but with variable num of args */
 # if defined (__STDC__) && __STDC__
@@ -142,7 +133,7 @@ void ds_unsafe_cat_sprintf ();
 /*
  * Dealing with files
  */
-char *ds_getline PARAMS ((struct dstring *s, FILE * stream));
-char *ds_getdelim PARAMS ((struct dstring *s, char eos, FILE * stream));
+char *ds_getline (struct dstring *s, FILE * stream);
+char *ds_getdelim (struct dstring *s, char eos, FILE * stream);
 
 #endif /* _DSTRING_H_ */

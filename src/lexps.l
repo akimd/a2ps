@@ -26,11 +26,11 @@
 #include "main.h"
 #include "lexps.h"
 
-int yylex PARAMS ((void));
-void yyerror PARAMS ((const char *));
+int yylex (void);
+void yyerror (const char *);
 
 /* Initilizes the obstacks */
-void pslex_initialize PARAMS ((void));
+void pslex_initialize (void);
 %}
 
 %option prefix="ps"
@@ -53,7 +53,7 @@ begin_setup	^%%BeginSetup.*\n
   .*	        ECHO;
 }
 %%
-
+
 int
 yywrap (void)
 {

@@ -23,14 +23,6 @@
 #  include <config.h>
 # endif
 
-# ifndef PARAMS
-#  if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#   define PARAMS(Args) Args
-#  else
-#   define PARAMS(Args) ()
-#  endif
-# endif
-
-int strverscmp PARAMS ((const char*, const char*));
+int strverscmp (const char*, const char*);
 
 #endif /* not STRVERSCMP_H_ */

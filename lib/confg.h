@@ -30,8 +30,8 @@ struct a2ps_job;
  * Type of the functions that can be used as hooks when reading
  * the config files
  */
-typedef void (* config_hook) PARAMS ((const char * filename, int line,
-				      char * config_line));
+typedef void (* config_hook) (const char * filename, int line,
+				      char * config_line);
 extern config_hook delegation_hook;
 extern config_hook toc_entry_hook;
 
@@ -39,13 +39,13 @@ extern config_hook toc_entry_hook;
 /*
  * Read the configuration file
  */
-int a2_read_config PARAMS ((struct a2ps_job * job,
-			 const char *path, const char *file));
+int a2_read_config (struct a2ps_job * job,
+			 const char *path, const char *file);
 
 /*
  * Read the system's configuration file
  * (i.e., a2_read_config  (job, etc, a2ps.cfg))
  */
-void a2_read_sys_config PARAMS ((struct a2ps_job * job));
+void a2_read_sys_config (struct a2ps_job * job);
 /* liba2ps.h:end */
 #endif

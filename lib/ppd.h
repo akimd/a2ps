@@ -22,7 +22,7 @@
 struct a2ps_job;
 struct string_htable;
 
-int font_is_ps_known PARAMS ((struct a2ps_job * job, const char * name));
+int font_is_ps_known (struct a2ps_job * job, const char * name);
 
 struct ppd
 {
@@ -35,25 +35,25 @@ struct ppd
 /*
  * The font part
  */
-void ppd_font_add PARAMS ((struct ppd * pdd, const char * fontname));
-int ppd_font_known_p PARAMS ((struct ppd * pdd, const char * fontname));
+void ppd_font_add (struct ppd * pdd, const char * fontname);
+int ppd_font_known_p (struct ppd * pdd, const char * fontname);
 
 /*
  * The whole struct
  */
-struct ppd * ppd_new PARAMS ((void));
-void ppd_free PARAMS ((struct ppd * pdd));
-struct ppd * _a2ps_ppd_get PARAMS ((char * const * path, const char * key));
+struct ppd * ppd_new (void);
+void ppd_free (struct ppd * pdd);
+struct ppd * _a2ps_ppd_get (char * const * path, const char * key);
 
 /*
  * Report them
  */
-void _a2ps_ppd_list_short PARAMS ((char * const * path, FILE * stream));
-void _a2ps_ppd_list_long PARAMS ((char * const * path, FILE * stream));
+void _a2ps_ppd_list_short (char * const * path, FILE * stream);
+void _a2ps_ppd_list_long (char * const * path, FILE * stream);
 
 /* From parsepdd.y */
 
 struct ppd * a2ps_ppd_parse
-   PARAMS ((const char * filename, char * const *path));
+   (const char * filename, char * const *path);
 
 #endif /* !defined(PPD_H_) */

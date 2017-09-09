@@ -37,11 +37,11 @@ ds_new (size_t size,
   struct dstring * res;
 
   if (size ==  0)
-    error (ds_exit_error, 0, "invalid size for dynamic string: %d",
+    error (ds_exit_error, 0, "invalid size for dynamic string: %zu",
 	   size);
 
   if (increment == 0 && growth != ds_steady)
-    error (ds_exit_error, 0, "invalid increment for dynamic string: %d",
+    error (ds_exit_error, 0, "invalid increment for dynamic string: %zu",
 	   increment);
 
   res = XMALLOC (struct dstring, 1);
@@ -74,7 +74,7 @@ ds_print_stats (struct dstring * str, FILE * stream)
   const char * cp = NULL;
 
   fprintf (stream, _("Dynamic string:\n"));
-  fprintf (stream, _("\tload: %d/%d (%2.1f%%)\n"),
+  fprintf (stream, _("\tload: %zu/%zu (%2.1f%%)\n"),
 	   str->len, str->size, 100.0 * str->len / str->size);
   switch (str->growth) {
   case ds_steady:
@@ -89,7 +89,7 @@ ds_print_stats (struct dstring * str, FILE * stream)
   default:
     error (ds_exit_error, 0, "invalid growth type for dstring");
   }
-  fprintf (stream, _("\toriginal size: %d, growth: %s %d\n"),
+  fprintf (stream, _("\toriginal size: %zu, growth: %s %zu\n"),
 	   str->original_size, cp, str->increment);
 }
 

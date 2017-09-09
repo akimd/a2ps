@@ -16,17 +16,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-## Process this file with automake to produce Makefile.in.
-## This seems to make problems with some makes
-AUTOMAKE_OPTIONS = $(top_builddir)/lib/ansi2knr
+AM_CPPFLAGS = -I$(top_builddir) -I$(top_builddir)/intl -I$(srcdir) \
+	-DLOCALEDIR=\"$(localedir)\" -DSYSCONFFILE=\"$(sysconfdir)/a2ps.cfg\"
 
 #
 # Definition of the local target
 #
 lib_LTLIBRARIES = liba2ps.la
 
-INCLUDES = -I$(top_builddir) -I$(top_builddir)/intl -I$(srcdir)
-DEFS = @DEFS@ -DLOCALEDIR=\"$(datadir)/locale\" -DSYSCONFFILE=\"$(sysconfdir)/a2ps.cfg\"
 # --debug, --defines, --verbose
 YFLAGS = -dtv
 # Use a struct, handle duplicates, produce ANSI-C
@@ -92,8 +89,8 @@ $(libitpuresources)
 # with modern compilers.  And many warnings means many complains from
 # user.
 confg.c: confg.gperf
-	$(GPERF) $(GPERFFLAGS) confg.gperf >confg.tmp
-	sed -e 's/ signed char/ short/g' <confg.tmp >confg.c
+	$(GPERF) $(GPERFFLAGS) $< >confg.tmp
+	sed -e 's/ signed char/ short/g' <confg.tmp >$@
 	rm -f confg.tmp
 
 #

@@ -20,7 +20,7 @@
 #include "xalloc.h"
 #include "userdata.h"
 
-char *stpcpy PARAMS ((char *dest, const char *src));
+char *stpcpy (char *dest, const char *src);
 
 #if !HAVE_PWD_H
 struct passwd

@@ -33,12 +33,12 @@
 #include "backupfile.h"
 
 /* Non failing wrapping of find_backup_file_name */
-char * xfind_backup_file_name PARAMS ((const char * file,
-				       enum backup_type backup_type));
+char * xfind_backup_file_name (const char * file,
+				       enum backup_type backup_type);
 
-FILE * fopen_backup PARAMS ((const char * filename, 
-			     enum backup_type backup_type));
+FILE * fopen_backup (const char * filename, 
+			     enum backup_type backup_type);
 
-int create_file_for_backup PARAMS ((char const *file, int oflag, mode_t mode,
-				    enum backup_type backup_type));
+int create_file_for_backup (char const *file, int oflag, mode_t mode,
+				    enum backup_type backup_type);
 #endif /* !_XBACKUPFILES_H_ */

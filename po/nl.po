@@ -7,176 +7,174 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.13b\n"
-"POT-Creation-Date: 2000-02-09 17:34+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-09 19:04+0200\n"
 "PO-Revision-Date: 2007-09-30 22:49+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#. TRANS: the type of the end-of-line rules, is `any type', i.e.
-#. lines ended by \n, or \r, or \r\n, or \n\r are OK
-#: src/buffer.c:67
+#: src/buffer.c:56
 msgid "any type"
 msgstr "willekeurig"
 
-#: lib/routines.c:160 lib/xbackupfile.c:248 lib/xbackupfile.c:276
-#: lib/xbackupfile.c:284 src/delegate.c:260
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
+#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#, c-format
+msgid "missing argument for `%s'"
+msgstr "ontbrekend argument voor '%s'"
+
+#: src/delegate.c:250 lib/routines.c:150 lib/xbackupfile.c:248
+#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
 #, c-format
 msgid "cannot create file `%s'"
 msgstr "kan bestand '%s' niet aanmaken"
 
-#: lib/routines.c:190 lib/routines.c:196 src/delegate.c:269 src/select.c:159
+#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "kan geen pijp openen op '%s'"
 
-#. E.g.: Delegation `PsNup', from ps to ps
-#: src/delegate.c:389
+#: src/delegate.c:379
 #, c-format
 msgid "Delegation `%s', from %s to %s\n"
 msgstr "Delegatie '%s', van %s naar %s\n"
 
-#: src/delegate.c:408 src/delegate.c:430
+#: src/delegate.c:398 src/delegate.c:420
 msgid "Applications configured for delegation"
 msgstr "Programma's waarnaar gedelegeerd kan worden"
 
-#: src/generate.c:88
+#: src/generate.c:81
 #, c-format
 msgid "`%s' is a directory"
 msgstr "'%s' is een map"
 
-#: lib/confg.c:288 lib/confg.c:451 lib/routines.c:154 src/generate.c:96
-#: src/main.c:558 src/main.c:580
+#: src/generate.c:89 src/main.c:551 src/main.c:573 confg.gperf:192
+#: confg.gperf:355 lib/routines.c:144
 #, c-format
 msgid "cannot open file `%s'"
 msgstr "kan bestand '%s' niet openen"
 
-#. Another kind of error occured: exit
-#: lib/xbackupfile.c:224 src/generate.c:101
+#: src/generate.c:94 lib/xbackupfile.c:224
 #, c-format
 msgid "cannot get informations on file `%s'"
 msgstr "kan geen informatie over bestand '%s' verkrijgen"
 
-#: src/generate.c:168
+#: src/generate.c:161
 #, c-format
 msgid "[%s (%s): 1 page on 1 sheet]\n"
 msgstr "[%s (%s): 1 pagina op 1 blad]\n"
 
-#: src/generate.c:174
+#: src/generate.c:167
 #, c-format
 msgid "[%s (%s): %d pages on 1 sheet]\n"
 msgstr "[%s (%s): %d pagina's op 1 blad]\n"
 
-#: src/generate.c:181
+#: src/generate.c:174
 #, c-format
 msgid "[%s (%s): %d pages on %d sheets]\n"
 msgstr "[%s (%s): %d pagina's op %d bladen]\n"
 
-#: src/generate.c:208
+#: src/generate.c:201
 #, c-format
 msgid "[Total: 1 page on 1 sheet] %s\n"
 msgstr "[Totaal: 1 pagina op 1 blad] %s\n"
 
-#: src/generate.c:212
+#: src/generate.c:205
 #, c-format
 msgid "[Total: %d pages on 1 sheet] %s\n"
 msgstr "[Totaal: %d pagina's op 1 blad] %s\n"
 
-#: src/generate.c:217
+#: src/generate.c:210
 #, c-format
 msgid "[Total: %d pages on %d sheets] %s\n"
 msgstr "[Totaal: %d pagina's op %d bladen] %s\n"
 
-#: src/generate.c:226
+#: src/generate.c:219
 msgid "[1 line wrapped]\n"
 msgstr "[1 afgebroken regel]\n"
 
-#: src/generate.c:229
+#: src/generate.c:222
 #, c-format
 msgid "[%d lines wrapped]\n"
 msgstr "[%d afgebroken regels]\n"
 
-#: src/generate.c:242
+#: src/generate.c:235
 msgid "[No output produced]\n"
 msgstr "[Geen uitvoer geproduceerd]\n"
 
-#: src/generate.c:314
+#: src/generate.c:307
 #, c-format
 msgid "%s, delegated to %s"
 msgstr "%s, gedelegeerd naar %s"
 
-#: src/generate.c:322
+#: src/generate.c:315
 #, c-format
 msgid "[%s (%s): failed.  Ignored]\n"
 msgstr "[%s (%s): is mislukt -- genegeerd]\n"
 
-#: src/generate.c:330
+#: src/generate.c:323
 #, c-format
 msgid "[%s (unprintable): ignored]\n"
 msgstr "[%s (onafdrukbaar) -- genegeerd]\n"
 
-#: src/generate.c:339
+#: src/generate.c:332
 #, c-format
 msgid "[%s (binary): ignored]\n"
 msgstr "[%s (binair) -- genegeerd]\n"
 
-#: src/generate.c:360
+#: src/generate.c:353
 msgid "plain"
 msgstr "gewoon"
 
-#: /home/akim/src/a2ps-4.12/src/lexssh.l:348
+#: lexssh.l:348
 msgid "end-of-line in string constant"
 msgstr "regeleindeteken in tekstconstante"
 
-#. TRANS: %s is ".." or <..> or /../ etc.
-#: /home/akim/src/a2ps-4.12/src/lexssh.l:415 src/sheets-map.l:152
-#: src/sheets-map.l:191
+#: lexssh.l:415 src/sheets-map.l:153 src/sheets-map.l:192
 #, c-format
 msgid "end of line inside a %s"
 msgstr "regeleinde binnen een %s"
 
-#: src/main.c:201
+#: src/main.c:194
 #, c-format
 msgid "received signal %d: %s"
 msgstr "signaal %d ontvangen: %s"
 
-#. TRANS: highlighting level = heavy (2/2)
-#: src/main.c:240
+#: src/main.c:233
 msgid "heavy"
 msgstr "sterk"
 
-#. TRANS: highlighting level = normal (1/2)
-#: src/main.c:244
+#: src/main.c:237
 msgid "normal"
 msgstr "normaal"
 
-#. TRANS: highlighting level = none (0/2)
-#: src/main.c:248
+#: src/main.c:241
 msgid "none"
 msgstr "geen"
 
-#. This is just so that gettext knows I use those two strings.
-#: src/main.c:322
+#: src/main.c:315 src/main.c:319
 msgid "yes"
 msgstr "ja"
 
-#: src/main.c:323 src/main.c:367
+#: src/main.c:316 src/main.c:319 src/main.c:360
 msgid "no"
 msgstr "nee"
 
-#: src/main.c:333
+#: src/main.c:326
 #, c-format
 msgid "Configuration status of %s %s\n"
 msgstr "Configuratiestatus van %s %s\n"
 
-#: src/main.c:337 src/main.c:694
+#: src/main.c:330 src/main.c:688
 msgid "Sheets:\n"
 msgstr "Bladen:\n"
 
-#: src/main.c:338
+#: src/main.c:331
 #, c-format
 msgid ""
 "  medium          = %s%s, %s\n"
@@ -191,45 +189,43 @@ msgstr ""
 "  bestandsuitlijning  = %s\n"
 "  binnenmarge         = %d\n"
 
-#: src/main.c:347
+#: src/main.c:340
 msgid "portrait"
 msgstr "portret"
 
-#: src/main.c:347
+#: src/main.c:340
 msgid "landscape"
 msgstr "landschap"
 
-#: src/main.c:356
+#: src/main.c:349
 #, c-format
 msgid "%d characters per line"
 msgstr "%d tekens per regel"
 
-#: src/main.c:359
+#: src/main.c:352
 #, c-format
 msgid "%d lines per page"
 msgstr "%d regels per pagina"
 
-#: src/main.c:362
+#: src/main.c:355
 #, c-format
 msgid "font size is %gpt"
 msgstr "groote van lettertype is %gpt"
 
-#. number line: each line
-#: src/main.c:371
+#: src/main.c:364
 msgid "each line"
 msgstr "elke regel"
 
-#. number line: each %d line
-#: src/main.c:375
+#: src/main.c:368
 #, c-format
 msgid "each %d lines"
 msgstr "om de %d regels"
 
-#: src/main.c:378 src/main.c:715
+#: src/main.c:371 src/main.c:709
 msgid "Virtual pages:\n"
 msgstr "Virtuele pagina's:\n"
 
-#: src/main.c:379
+#: src/main.c:372
 #, c-format
 msgid ""
 "  number lines         = %s\n"
@@ -242,11 +238,11 @@ msgstr ""
 "  tabulatiebreedte        = %d\n"
 "  niet-afdrukbare tekens  = %s\n"
 
-#: src/main.c:390
+#: src/main.c:383
 msgid "Headers:\n"
 msgstr "Randversierselen:\n"
 
-#: src/main.c:391
+#: src/main.c:384
 #, c-format
 msgid ""
 "  header       = %s\n"
@@ -267,11 +263,11 @@ msgstr ""
 "  rechter titel       = %s\n"
 "  achtergrond         = %s\n"
 
-#: src/main.c:410 src/main.c:744
+#: src/main.c:403 src/main.c:738
 msgid "Input:\n"
 msgstr "Invoer:\n"
 
-#: src/main.c:411
+#: src/main.c:404
 #, c-format
 msgid ""
 "  truncate lines = %s\n"
@@ -292,17 +288,15 @@ msgstr ""
 "  afdrukken forceren  = %s\n"
 "  delegeren           = %s\n"
 
-#. TRANS: a2ps -E --list=options.  Warning, this answer is also
-#. used for the PPD file.  Make it compatible with both.
-#: src/main.c:436 src/main.c:502
+#: src/main.c:429 src/main.c:495
 msgid "selected automatically"
 msgstr "automatisch geselecteerd"
 
-#: src/main.c:439 src/main.c:763
+#: src/main.c:432 src/main.c:757
 msgid "Pretty-printing:\n"
 msgstr "Fraai printen:\n"
 
-#: src/main.c:440
+#: src/main.c:433
 #, c-format
 msgid ""
 "  style sheet     = %s\n"
@@ -313,16 +307,15 @@ msgstr ""
 "  accentueringsniveau      = %s\n"
 "  commentaaronderdrukking  = %d\n"
 
-#: src/main.c:460
+#: src/main.c:453
 msgid "never make backups"
 msgstr "nooit backups maken"
 
-#: src/main.c:464
+#: src/main.c:457
 msgid "simple backups of every file"
 msgstr "simpele backups van ieder bestand"
 
-#. appears in a2ps --version-=existing --list=defaults
-#: src/main.c:469
+#: src/main.c:462
 msgid ""
 "numbered backups of files already numbered,\n"
 "                            and simple of others"
@@ -330,15 +323,15 @@ msgstr ""
 "genummerde backups van reeds genummerde bestanden,\n"
 "                            en simpele van anderen"
 
-#: src/main.c:474
+#: src/main.c:467
 msgid "numbered backups of every file"
 msgstr "genummerde backups van ieder bestand"
 
-#: src/main.c:478 src/main.c:772
+#: src/main.c:471 src/main.c:766
 msgid "Output:\n"
 msgstr "Uitvoer:\n"
 
-#: src/main.c:479
+#: src/main.c:472
 #, c-format
 msgid ""
 "  destination     = %s\n"
@@ -349,11 +342,11 @@ msgstr ""
 "  versiebeheer          = %s\n"
 "  backup-achtervoegsel  = %s\n"
 
-#: src/main.c:492 src/main.c:782
+#: src/main.c:485 src/main.c:777
 msgid "PostScript:\n"
 msgstr "PostScript:\n"
 
-#: src/main.c:493
+#: src/main.c:486
 #, c-format
 msgid ""
 "  magic number              = %s\n"
@@ -372,23 +365,21 @@ msgstr ""
 "  zijdes per blad             = %s\n"
 "  pagina-apparaat-definities  = "
 
-#: src/main.c:513
+#: src/main.c:506
+#, c-format
 msgid "  statusdict definitions    = "
 msgstr "  statusdict-definities       = "
 
-#: src/main.c:516
+#: src/main.c:509
 #, c-format
 msgid "  page prefeed              = %s\n"
 msgstr "  pagina-anticipering         = %s\n"
 
-#.
-#. * Internal Details
-#.
-#: src/main.c:525
+#: src/main.c:518
 msgid "Internals:\n"
 msgstr "Interne werking:\n"
 
-#: src/main.c:526
+#: src/main.c:519
 #, c-format
 msgid ""
 "  verbosity level     = %d\n"
@@ -399,12 +390,13 @@ msgstr ""
 "  bestandsopdracht         = %s\n"
 "  bibliothekenzoekpad      = \n"
 
-#: src/main.c:651
-#, c-format
+#: src/main.c:644
+#, fuzzy, c-format
 msgid ""
 "Usage: %s [OPTION]... [FILE]...\n"
 "\n"
-"Convert FILE(s) or standard input to PostScript.\n"
+"Convert FILE(s) or standard input to PostScript.  By default, the output\n"
+"is sent to the default printer.  An output file may be specified with -o.\n"
 "\n"
 "Mandatory arguments to long options are mandatory for short options too.\n"
 "Long options marked with * require a yes/no argument, corresponding\n"
@@ -418,11 +410,11 @@ msgstr ""
 "Lange opties gemarkeerd met een * vereisen 'yes' of 'no' als argument,\n"
 "de overeenkomstige korte opties staan voor 'yes' (ja).\n"
 
-#: src/main.c:665
+#: src/main.c:659
 msgid "Tasks:\n"
 msgstr "Taken:\n"
 
-#: src/main.c:666
+#: src/main.c:660
 msgid ""
 "  --version        display version\n"
 "  --help           display this help\n"
@@ -430,8 +422,10 @@ msgid ""
 "  --which          report the full path of library files named FILES\n"
 "  --glob           report the full path of library files matching FILES\n"
 "  --list=defaults  display default settings and parameters\n"
-"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, features,\n"
-"                   variables, media, ppd, printers, prologues, style-sheets,\n"
+"  --list=TOPIC     detailed list on TOPIC (delegations, encodings, "
+"features,\n"
+"                   variables, media, ppd, printers, prologues, style-"
+"sheets,\n"
 "                   user-options)\n"
 msgstr ""
 "  --version          versie-informatie tonen\n"
@@ -442,10 +436,11 @@ msgstr ""
 "                       het patroon BESTANDEN\n"
 "  --list=defaults    standaardinstellingen en -parameters tonen\n"
 "  --list=ONDERWERP   gedetailleerde lijst tonen over een ONDERWERP:\n"
-"                       delegations, encodings, features, media, ppd, printers,\n"
+"                       delegations, encodings, features, media, ppd, "
+"printers,\n"
 "                       prologues, style-sheets, user-options, variables\n"
 
-#: src/main.c:677
+#: src/main.c:671
 msgid ""
 "After having performed the task, exit successfully.  Detailed lists may\n"
 "provide additional help on specific features.\n"
@@ -453,11 +448,11 @@ msgstr ""
 "Nadat een taak afgerond is, wordt succesvol afgesloten.  Gedetailleerde\n"
 "lijsten verschaffen soms meer informatie over specifieke mogelijkheden.\n"
 
-#: src/main.c:685
+#: src/main.c:679
 msgid "Global:\n"
 msgstr "Globaal:\n"
 
-#: src/main.c:686
+#: src/main.c:680
 msgid ""
 "  -q, --quiet, --silent      be really quiet\n"
 "  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
@@ -466,12 +461,14 @@ msgid ""
 "  -D, --define=KEY[:VALUE]   unset variable KEY or set to VALUE\n"
 msgstr ""
 "  -q, --quiet, --silent            zo weinig mogelijke uitvoer produceren\n"
-"  -v, --verbose[=NIVEAU]           extra informatie tonen, tot bepaald NIVEAU\n"
-"  -=, --user-option=OPTIE          door gebruiker ingestelde OPTIE gebruiken\n"
+"  -v, --verbose[=NIVEAU]           extra informatie tonen, tot bepaald "
+"NIVEAU\n"
+"  -=, --user-option=OPTIE          door gebruiker ingestelde OPTIE "
+"gebruiken\n"
 "      --debug                      debugging-functies inschakelen\n"
 "      --define=VARIABELE[:WAARDE]  VARIABELE wissen, of een WAARDE geven\n"
 
-#: src/main.c:695
+#: src/main.c:689
 msgid ""
 "  -M, --medium=NAME      use output medium NAME\n"
 "  -r, --landscape        print in landscape mode\n"
@@ -479,7 +476,8 @@ msgid ""
 "      --columns=NUM      number of columns per sheet\n"
 "      --rows=NUM         number of rows per sheet\n"
 "      --major=DIRECTION  first fill (DIRECTION=) rows, or columns\n"
-"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 virtuals\n"
+"  -1, -2, ..., -9        predefined font sizes and layouts for 1.. 9 "
+"virtuals\n"
 "  -A, --file-align=MODE  align separate files according to MODE (fill, rank\n"
 "                         page, sheet, or a number)\n"
 "  -j, --borders*         print borders around columns\n"
@@ -490,19 +488,23 @@ msgstr ""
 "  -R, --portrait            in portretformaat afdrukken\n"
 "      --columns=AANTAL      aantal kolommen per pagina\n"
 "      --rows=AANTAL         aantal rijen per pagina\n"
-"      --major=RICHTING      virtuele pagina's eerst in deze richting vullen;\n"
+"      --major=RICHTING      virtuele pagina's eerst in deze richting "
+"vullen;\n"
 "                              'rows' (rijen) of 'columns' kolommen\n"
-"  -1, -2, ..., -9           voorgedefiniëerde lay-outs voor virtuele pagina's\n"
+"  -1, -2, ..., -9           voorgedefiniëerde lay-outs voor virtuele "
+"pagina's\n"
 "  -A, --file-align=MANIER   losse bestanden op deze manier uitlijnen;\n"
 "                              'fill', 'rank', 'page', 'sheet', of een getal\n"
 "  -j, --borders*            rond kolommen randen afdrukken\n"
 "      --margin[=GROOTTE]    een binnenmarge gebruiken, van deze GROOTTE\n"
 
-#: src/main.c:708
+#: src/main.c:702
 msgid ""
-"The options -1.. -9 affect several primitive parameters to set up predefined\n"
+"The options -1.. -9 affect several primitive parameters to set up "
+"predefined\n"
 "layouts with 80 columns.  Therefore the order matters: `-R -f40 -2' is\n"
-"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose primitive\n"
+"equivalent to `-2'.  To modify the layout, use `-2Rf40', or compose "
+"primitive\n"
 "options (`--columns', `--font-size' etc.).\n"
 msgstr ""
 "De opties -1 tot en met -9 veranderen meerdere basisparameters om\n"
@@ -511,31 +513,34 @@ msgstr ""
 "standaard-lay-out aan te passen, kunt u bijvoorbeeld '-2 -R -f40'\n"
 "gebruiken, of deze samenstellen uit basisopties.\n"
 
-#: src/main.c:716
+#: src/main.c:710
 msgid ""
 "      --line-numbers=NUM     precede each NUM lines with its line number\n"
 "  -C                         alias for --line-numbers=5\n"
 "  -f, --font-size=SIZE       use font SIZE (float) for the body text\n"
 "  -L, --lines-per-page=NUM   scale the font to print NUM lines per virtual\n"
-"  -l, --chars-per-line=NUM   scale the font to print NUM columns per virtual\n"
+"  -l, --chars-per-line=NUM   scale the font to print NUM columns per "
+"virtual\n"
 "  -m, --catman               process FILE as a man page (same as -L66)\n"
 "  -T, --tabsize=NUM          set tabulator size to NUM\n"
 "  --non-printable-format=FMT specify how non-printable chars are printed\n"
 msgstr ""
 "      --line-numbers=AANTAL  elke AANTALste regel een regelnummer geven\n"
 "  -C                         hetzelfde als '--line-numbers=5'\n"
-"  -f, --font-size=GETAL      te gebruiken lettertypegrootte voor gewone tekst\n"
+"  -f, --font-size=GETAL      te gebruiken lettertypegrootte voor gewone "
+"tekst\n"
 "  -L, --lines-per-page=AANTAL    aantal regels per virtuele pagina\n"
 "  -l, --columns-per-page=AANTAL  aantal kolommen per virtuele pagina\n"
-"  -m, --catman                   afdrukken als handleidingspagina (== '-L66')\n"
+"  -m, --catman                   afdrukken als handleidingspagina (== '-"
+"L66')\n"
 "  -T, --tabsize=AANTAL           tabulatiebreedte\n"
 "  --non-printable-format=MANIER  behandelwijze van onafdrukbare tekens\n"
 
-#: src/main.c:727
+#: src/main.c:721
 msgid "Headings:\n"
 msgstr "Paginakoppen:\n"
 
-#: src/main.c:729
+#: src/main.c:723
 #, no-c-format
 msgid ""
 "  -B, --no-header        no page headers at all\n"
@@ -558,11 +563,11 @@ msgstr ""
 "  --left-footer[=TEKST]    linker paginavoettekst\n"
 "  --right-footer[=TEKST]   rechter paginavoettekst\n"
 
-#: src/main.c:740
+#: src/main.c:734
 msgid "The TEXTs may use special escapes.\n"
 msgstr "De TEKSTen mogen speciale stuurcodes gebruiken.\n"
 
-#: src/main.c:745
+#: src/main.c:739
 msgid ""
 "  -a, --pages[=RANGE]        select the pages to print\n"
 "  -c, --truncate-lines*      cut long lines\n"
@@ -578,8 +583,10 @@ msgstr ""
 "  -a, --pages[=BEREIK]      alleen deze reeks pagina's afdrukken\n"
 "  -c, --truncate-lines*     lange regels afkappen\n"
 "      --end-of-line=SOORT   te herkennen regeleindeteken; 'r' (Return),\n"
-"                              'n' (Newline), 'nr', 'rn', of 'any' (alle vier)\n"
-"  -i, --interpret*          Tab-, BackSpace- en FormFeed-tekens interpreteren\n"
+"                              'n' (Newline), 'nr', 'rn', of 'any' (alle "
+"vier)\n"
+"  -i, --interpret*          Tab-, BackSpace- en FormFeed-tekens "
+"interpreteren\n"
 "      --print-anyway*       het afdrukken van binaire bestanden afdwingen\n"
 "      --prologue=BESTAND    dit bestand als proloog gebruiken\n"
 "      --stdin=NAAM          deze naam gebruiken voor standaardinvoer\n"
@@ -588,17 +595,19 @@ msgstr ""
 "  -X, --encoding=CODE       de codering van de invoer\n"
 "  -Z, --delegate*           sommige taken aan andere progamma's uitbesteden\n"
 
-#: src/main.c:757
+#: src/main.c:751
 msgid ""
 "When delegations are enabled, a2ps may use other applications to handle the\n"
-"processing of files that should not be printed as raw information, e.g., HTML\n"
+"processing of files that should not be printed as raw information, e.g., "
+"HTML\n"
 "PostScript, PDF etc.\n"
 msgstr ""
-"Wanneer delegeren ingeschakeld wordt, kan 'a2ps' andere programma's aanroepen\n"
+"Wanneer delegeren ingeschakeld wordt, kan 'a2ps' andere programma's "
+"aanroepen\n"
 "om bestanden te verwerken die niet als kale tekst moeten worden afgedrukt.\n"
 "Bijvoorbeeld voor HTML, PostScript, of PDF.\n"
 
-#: src/main.c:764
+#: src/main.c:758
 msgid ""
 "  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
 "  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
@@ -607,12 +616,15 @@ msgid ""
 "  --strip-level=NUM          level of comments stripping\n"
 msgstr ""
 "  -E, --pretty-print[=TAAL]      fraai afdrukken, voor deze programmeertaal\n"
-"      --highlight-level=NIVEAU   accentueringsniveau; mogelijke waarden zijn:\n"
-"                                   'none' (geen), 'normal', of 'heavy' (sterk)\n"
+"      --highlight-level=NIVEAU   accentueringsniveau; mogelijke waarden "
+"zijn:\n"
+"                                   'none' (geen), 'normal', of "
+"'heavy' (sterk)\n"
 "  -g                             hetzelfde als '--highlight-level=heavy'\n"
 "      --strip-level=GETAL        commentaaronderdrukkingsniveau\n"
 
-#: src/main.c:773
+#: src/main.c:767
+#, fuzzy
 msgid ""
 "  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
 "                             leave output to stdout.\n"
@@ -620,6 +632,7 @@ msgid ""
 "  --suffix=SUFFIX            override the usual backup suffix\n"
 "  -P, --printer=NAME         send output to printer NAME\n"
 "  -d                         send output to the default printer\n"
+"                             (this is the default behavior)\n"
 msgstr ""
 "  -o, --output=BESTAND          uitvoer in dit bestand opslaan; als dit\n"
 "                                  '-' is, wordt standaarduitvoer gebruikt\n"
@@ -628,7 +641,7 @@ msgstr ""
 "  -P, --printer=NAAM            uitvoer naar deze printer sturen\n"
 "  -d                            uitvoer naar standaardprinter sturen\n"
 
-#: src/main.c:783
+#: src/main.c:778
 msgid ""
 "      --prologue=FILE        include FILE.pro as PostScript prologue\n"
 "      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
@@ -644,7 +657,8 @@ msgstr ""
 "      --ppd[=NAAM]           printerdefinitie automatisch selecteren, of de\n"
 "                               gegeven definitie gebruiken\n"
 "  -n, --copies=AANTAL        dit aantal kopieën van elke pagina afdrukken\n"
-"  -s, --sides=MODUS          één- of tweezijdig afdrukken; mogelijke waarden\n"
+"  -s, --sides=MODUS          één- of tweezijdig afdrukken; mogelijke "
+"waarden\n"
 "                               zijn '1' of 'simplex', '2' of 'duplex', of\n"
 "                               'tumble' (tweezijdig, maar dan overdekop)\n"
 "  -S, --setpagedevice=S[:W]  een 'page device'-definitie in uitvoer opnemen\n"
@@ -652,10 +666,11 @@ msgstr ""
 "  -k, --page-prefeed         pagina-anticipering gebruiken\n"
 "  -K, --no-page-prefeed      geen pagina-anticipering gebruiken\n"
 
-#: src/main.c:797
+#: src/main.c:792
 msgid ""
 "By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
-"print the content of the `src' directory and a table of content, and send the\n"
+"print the content of the `src' directory and a table of content, and send "
+"the\n"
 "result to the printer `lw',\n"
 "\n"
 "    $ a2ps -P lw --toc src/*\n"
@@ -692,27 +707,31 @@ msgstr ""
 "\n"
 "    a2ps -=book folder.dvi.gz -d\n"
 
-#: src/main.c:818
-msgid "News, updates and documentation: visit http://www.inf.enst.fr/~demaille/a2ps/.\n"
+#: src/main.c:813
+#, fuzzy
+msgid ""
+"News, updates and documentation: visit http://www.gnu.org/software/a2ps/.\n"
 msgstr ""
 "Nieuws, updates en documentatie vindt u op\n"
 "    http://www.inf.enst.fr/~demaille/a2ps/\n"
 
-#: src/main.c:820
+#: src/main.c:815
 msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
 msgstr ""
 "Rapporteer gebreken in het programma aan <bug-a2ps@gnu.org;\n"
 "meld fouten in de vertaling aan <vertaling@vrijschrift.org>.\n"
 
-#: src/main.c:938
+#: src/main.c:933
+#, fuzzy
 msgid ""
 "Copyright (c) 1988-1993 Miguel Santana\n"
-"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana"
+"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n"
+"Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta"
 msgstr ""
 "Copyright (C) 1988-1993 Miguel Santana\n"
 "Copyright (C) 1995-2000 Akim Demaille, Miguel Santana"
 
-#: src/main.c:1168
+#: src/main.c:1164
 msgid "Table of Content"
 msgstr "Inhoudsopgave"
 
@@ -721,62 +740,59 @@ msgstr "Inhoudsopgave"
 msgid "cannot process `%s' which requires a2ps version %s"
 msgstr "kan '%s' niet verwerken; dit vereist versie %s van 'a2ps'"
 
-#: src/sheets-map.l:110
+#: src/sheets-map.l:111
 #, c-format
 msgid "unexpected character `%c'"
 msgstr "onverwacht teken '%c'"
 
-#: /home/akim/src/a2ps-4.12/lib/lexppd.l:211 src/sheets-map.l:210
+#: src/sheets-map.l:211 lexppd.l:211
 msgid "too many includes"
 msgstr "te veel insluitingen ('includes')"
 
-#: src/sheets-map.l:292 src/sheets-map.l:299
+#: src/sheets-map.l:296 src/sheets-map.l:303
 #, c-format
 msgid "no key defined for `%s'"
 msgstr "geen sleutel gedefinieerd voor '%s'"
 
-#: /home/akim/src/a2ps-4.12/lib/fonts.l:837
-#: /home/akim/src/a2ps-4.12/lib/fonts.l:839
-#: /home/akim/src/a2ps-4.12/lib/fonts.l:841 lib/pathwalk.c:328
-#: lib/pathwalk.c:414 src/select.c:122 src/ssheet.c:866
+#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:322 lib/pathwalk.c:408
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "kan bestand '%s' niet vinden"
 
-#. sheets.map can not be found: there is no automatic prettyprinting
-#: src/select.c:124
+#: src/select.c:117
 msgid "automatic style selection cancelled"
 msgstr "automatische stijlkeuze is geannuleerd"
 
-#: src/ssheet.c:295
+#: src/ssheet.c:286
 #, c-format
 msgid "cannot compile regular expression `%s': %s"
 msgstr "kan reguliere expressie '%s' niet compileren: %s"
 
-#: src/ssheet.c:974 src/ssheet.c:995
+#: src/ssheet.c:965 src/ssheet.c:986
 msgid "Known Style Sheets"
 msgstr "Bekende stijlbestanden"
 
-#: src/ssheet.c:1461
+#: src/ssheet.c:1452
 #, c-format
 msgid "cannot find style sheet `%s': using plain style"
 msgstr "kan stijlbestand '%s' niet vinden -- gewone stijl wordt gebruikt"
 
-#: src/sshread.c:453
+#: src/sshread.c:439
 #, c-format
 msgid "unknown encoding `%s', ignored"
 msgstr "onbekende codering '%s' -- genegeerd"
 
-#: src/version-etc.c:38
+#: src/version-etc.c:39
 msgid "Copyright (C) 1999 Free Software Foundation, Inc."
 msgstr "Copyright (C) 1999 Free Software Foundation, Inc."
 
-#: src/version-etc.c:60
+#: src/version-etc.c:61
 #, c-format
 msgid "Written by %s.\n"
 msgstr "Geschreven door %s.\n"
 
-#: src/version-etc.c:66
+#: src/version-etc.c:67
 msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
@@ -785,237 +801,221 @@ msgstr ""
 "Er is GEEN garantie; zelfs niet voor VERKOOPBAARHEID of GESCHIKTHEID\n"
 "VOOR EEN BEPAALD DOEL.\n"
 
-#: src/versions.c:133
+#: src/versions.c:125
 #, c-format
 msgid "invalid version number `%s'"
 msgstr "ongeldig versienummer '%s'"
 
-#: lib/caret.c:43
+#: lib/caret.c:31
 msgid "space (i.e., ` ')"
 msgstr "spatie (' ')"
 
-#: lib/caret.c:45
+#: lib/caret.c:33
 msgid "octal (i.e., `\\001' etc.)"
 msgstr "octaal ('\\001' enz.)"
 
-#: lib/caret.c:47
+#: lib/caret.c:35
 msgid "hexadecimal (i.e., `\\x0a' etc.)"
 msgstr "hexadecimaal ('\\x0a' enz.)"
 
-#: lib/caret.c:49
+#: lib/caret.c:37
 msgid "caret (i.e., `^C', `M-^C' etc.)"
 msgstr "dakje ('^C', 'M-^C' enz.)"
 
-#: lib/caret.c:51
+#: lib/caret.c:39
 msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
 msgstr "emacs ('C-c', 'M-C-c' enz.)"
 
-#: lib/caret.c:53
+#: lib/caret.c:41
 msgid "question-mark (i.e., `?')"
 msgstr "vraagteken ('?')"
 
-#: lib/closeout.c:71 lib/closeout.c:73
+#: lib/closeout.c:72 lib/closeout.c:74
 msgid "write error"
 msgstr "schrijffout"
 
-#: lib/confg.c:253 lib/encoding.c:639
+#: confg.gperf:157 lib/encoding.c:630
 #, c-format
 msgid "invalid option `%s'"
 msgstr "ongeldige optie '%s'"
 
-#: lib/confg.c:264 lib/encoding.c:577 lib/encoding.c:617 lib/prolog.c:146
-#, c-format
-msgid "missing argument for `%s'"
-msgstr "ontbrekend argument voor '%s'"
-
-#: lib/confg.c:320 lib/confg.c:327 lib/confg.c:334
+#: confg.gperf:224 confg.gperf:231 confg.gperf:238
 #, c-format
 msgid "invalid definition for printer `%s': %s"
 msgstr "ongeldige definitie voor printer '%s': %s"
 
-#: lib/confg.c:325 lib/confg.c:328
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
 msgid "Unknown Printer"
 msgstr "Onbekende printer"
 
-#: lib/confg.c:332 lib/confg.c:335
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
 msgid "Default Printer"
 msgstr "Standaardprinter"
 
-#: lib/confg.c:388 lib/options.c:703
+#: confg.gperf:292 lib/options.c:683
 #, c-format
 msgid "invalid variable identifier `%s'"
 msgstr "ongeldige variabelenaam '%s'"
 
-#: lib/confg.c:417
+#: confg.gperf:321
 #, c-format
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "verouderd item '%s' -- genegeerd"
 
-#: lib/encoding.c:1115 lib/encoding.c:1136
+#: lib/encoding.c:1106 lib/encoding.c:1127
 msgid "Known Encodings"
 msgstr "Bekende coderingen"
 
-#: lib/faces.c:156
+#: lib/faces.c:146
 msgid "incomplete knowledge of faces"
 msgstr "niet genoeg bekend over uiterlijk"
 
-#: lib/filtdir.c:113
+#: lib/filtdir.c:115
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "kan map '%s' niet sluiten"
 
-#: lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
+#: lib/getnum.c:55 lib/getnum.c:113 lib/getnum.c:145 lib/getnum.c:213
 #, c-format
 msgid "invalid argument `%s' for `%s'"
 msgstr "ongeldig argument '%s' van optie '%s'"
 
-#: lib/getnum.c:123
+#: lib/getnum.c:115
 #, c-format
 msgid "Valid arguments are integers n such that: %s\n"
 msgstr "Geldige argumenten zijn gehele getallen 'n' waarvoor geldt: %s\n"
 
-#: lib/getnum.c:223
+#: lib/getnum.c:215
 #, c-format
 msgid "Valid arguments are floats f such that: %s\n"
-msgstr "Geldige argumenten zijn drijvende-komma-getallen 'f' waarvoor geldt: %s\n"
+msgstr ""
+"Geldige argumenten zijn drijvende-komma-getallen 'f' waarvoor geldt: %s\n"
 
-#: lib/jobs.c:307
+#: lib/jobs.c:302
 #, c-format
 msgid "unknown encoding `%s'"
 msgstr "onbekende codering '%s'"
 
-#: lib/madir.c:59
+#: lib/madir.c:48
 msgid "rows first"
 msgstr "regels eerst"
 
-#: lib/madir.c:62
+#: lib/madir.c:51
 msgid "columns first"
 msgstr "kolommen eerst"
 
-#: lib/media.c:173
+#: lib/media.c:164
 #, c-format
 msgid "unknown medium `%s'"
 msgstr "onbekend papierformaat '%s'"
 
-#: lib/media.c:208 lib/media.c:237
+#: lib/media.c:199 lib/media.c:228
 msgid "Known Media"
 msgstr "Bekende papierformaten"
 
-#: lib/media.c:211
+#: lib/media.c:202
 msgid "Name"
 msgstr "Naam"
 
-#: lib/media.c:212
+#: lib/media.c:203
 msgid "dimensions"
 msgstr "afmetingen"
 
-#. TRANS: Variables (formely called `macro meta sequences', eeeaerk)
-#. are things such as #(psnup) which is substituted to a bigger strings,
-#. e.g. -#v #?q|-q|| #?j|-d|| #?r||-c| -w#w -h#h
-#: lib/metaseq.c:104 lib/metaseq.c:113
+#: lib/metaseq.c:90 lib/metaseq.c:99
+#, c-format
 msgid "Known Variables"
 msgstr "Bekende variabelen"
 
-#: lib/metaseq.c:288 lib/metaseq.c:300
-#, c-format
-msgid "Printed by %s"
-msgstr "Afgedrukt door %s"
-
-#: lib/metaseq.c:298
-#, c-format
-msgid "Printed by %s from %s"
-msgstr "Afgedrukt door %s vanaf %s"
-
-#: lib/metaseq.c:308 lib/metaseq.c:327
-msgid "cannot get current working directory"
-msgstr "kan huidige map niet bepalen"
-
-#: lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
-#: lib/metaseq.c:954 lib/metaseq.c:987
-#, c-format
-msgid "%s: too long argument for %s escape"
-msgstr "%s: argument voor '%s'-stuurcodereeks is te lang"
-
-#. Translators: please make a short date format
-#. * according to the std form in your language, using
-#. * the standard strftime(3)
-#: lib/metaseq.c:364 lib/metaseq.c:675
-msgid "%b %d, %y"
-msgstr "%d %b %y"
-
-#. Translators: please make a long date format
-#. * according to the std form in your language, using
-#. * GNU strftime(3)
-#: lib/metaseq.c:373 lib/metaseq.c:684
-msgid "%A %B %d, %Y"
-msgstr "%A %d %B %Y"
-
-#: lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
-#: lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
-#: lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
-#, c-format
-msgid "%s: unknown `%s' escape `%c' (%d)"
-msgstr "%s: onbekende '%s'-stuurcodereeks '%c' (%d)"
-
-#. `%q' localized `Page %d'
-#: lib/metaseq.c:426 lib/metaseq.c:815
-#, c-format
-msgid "Page %d"
-msgstr "Pagina %d"
-
-#. `%Q' localized `Page %d/%c'
-#: lib/metaseq.c:431 lib/metaseq.c:826
-#, c-format
-msgid "Page %d/%c"
-msgstr "Pagina %d/%c"
-
-#: lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608 lib/metaseq.c:951
-#: lib/metaseq.c:972
+#: lib/metaseq.c:148 lib/metaseq.c:517 lib/metaseq.c:534 lib/metaseq.c:594
+#: lib/metaseq.c:937 lib/metaseq.c:958
 #, c-format
 msgid "%s: missing `%c' for %s%c escape"
 msgstr "%s: ontbrekende '%c' in '%s%c'-stuurcodereeks"
 
-#: lib/metaseq.c:593 lib/metaseq.c:1021
+#: lib/metaseq.c:274 lib/metaseq.c:286
+#, c-format
+msgid "Printed by %s"
+msgstr "Afgedrukt door %s"
+
+#: lib/metaseq.c:284
+#, c-format
+msgid "Printed by %s from %s"
+msgstr "Afgedrukt door %s vanaf %s"
+
+#: lib/metaseq.c:294 lib/metaseq.c:313
+msgid "cannot get current working directory"
+msgstr "kan huidige map niet bepalen"
+
+#: lib/metaseq.c:327 lib/metaseq.c:520 lib/metaseq.c:549 lib/metaseq.c:638
+#: lib/metaseq.c:940 lib/metaseq.c:973
+#, c-format
+msgid "%s: too long argument for %s escape"
+msgstr "%s: argument voor '%s'-stuurcodereeks is te lang"
+
+#: lib/metaseq.c:350 lib/metaseq.c:661
+msgid "%b %d, %y"
+msgstr "%d %b %y"
+
+#: lib/metaseq.c:359 lib/metaseq.c:670
+msgid "%A %B %d, %Y"
+msgstr "%A %d %B %Y"
+
+#: lib/metaseq.c:405 lib/metaseq.c:434 lib/metaseq.c:477 lib/metaseq.c:710
+#: lib/metaseq.c:794 lib/metaseq.c:853 lib/metaseq.c:908 lib/metaseq.c:1085
+#: lib/metaseq.c:1220 lib/metaseq.c:1232 lib/metaseq.c:1275
+#, c-format
+msgid "%s: unknown `%s' escape `%c' (%d)"
+msgstr "%s: onbekende '%s'-stuurcodereeks '%c' (%d)"
+
+#: lib/metaseq.c:412 lib/metaseq.c:801
+#, c-format
+msgid "Page %d"
+msgstr "Pagina %d"
+
+#: lib/metaseq.c:417 lib/metaseq.c:812
+#, c-format
+msgid "Page %d/%c"
+msgstr "Pagina %d/%c"
+
+#: lib/metaseq.c:579 lib/metaseq.c:1007
 #, c-format
 msgid "%s: invalid separator `%s%c' for `%s' escape"
 msgstr "%s: ongeldig scheidingsteken '%s%c' voor stuurcode '%s'"
 
-#: lib/metaseq.c:601 lib/metaseq.c:611
+#: lib/metaseq.c:587 lib/metaseq.c:597
 #, c-format
 msgid "%s: invalid argument for %s%c escape"
 msgstr "%s: ongeldig argument voor stuurcode '%s%c'"
 
-#. This file is finised, we do know its real number of pages
-#: lib/metaseq.c:822
+#: lib/metaseq.c:808
 #, c-format
 msgid "Page %d/%d"
 msgstr "Pagina %d/%d"
 
-#: lib/metaseq.c:1266
+#: lib/metaseq.c:1252
 msgid "output command"
 msgstr "uitvoeropdracht"
 
-#: lib/options.c:302
+#: lib/options.c:288
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Typ '%s --help' voor meer informatie.\n"
 
-#: lib/output.c:466
+#: lib/output.c:457
 #, c-format
 msgid "invalid face `%s'"
 msgstr "ongeldig uiterlijk '%s'"
 
-#: lib/output.c:538
+#: lib/output.c:529
 #, c-format
 msgid "`%s' with no matching `%s'"
 msgstr "'%s' zonder corresponderende '%s'"
 
-#: lib/ppd.c:108
+#: lib/ppd.c:94
 msgid "Known Fonts"
 msgstr "Bekende lettertypen"
 
-#. TRANS: This `none' is an answer to `List of known fonts: None'
-#: lib/ppd.c:111
+#: lib/ppd.c:97
 msgid ""
 "\n"
 "  None.\n"
@@ -1023,84 +1023,82 @@ msgstr ""
 "\n"
 "  Geen.\n"
 
-#: lib/ppd.c:149 lib/ppd.c:165
+#: lib/ppd.c:135 lib/ppd.c:151
 msgid "Known PostScript Printer Descriptions"
 msgstr "Bekende PostScript-printeromschrijvingen"
 
-#: lib/prange.c:305 lib/prange.c:323
+#: lib/prange.c:293 lib/prange.c:311
 #, c-format
 msgid "invalid interval `%s'"
 msgstr "ongeldig interval '%s'"
 
-#: lib/printers.c:396 lib/printers.c:413
+#: lib/printers.c:388 lib/printers.c:405
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "geen opdracht voor de '%s' (%s%s)"
 
-#: lib/printers.c:429
+#: lib/printers.c:421
 msgid "sent to the standard output"
 msgstr "naar standaarduitvoer gestuurd"
 
-#: lib/printers.c:430
+#: lib/printers.c:422
 msgid "sent to the default printer"
 msgstr "naar de standaardprinter gestuurd"
 
-#: lib/printers.c:435
+#: lib/printers.c:427
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "in bestand '%s' opgeslagen"
 
-#: lib/printers.c:436
+#: lib/printers.c:428
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "naar printer '%s' gestuurd"
 
-#: lib/printers.c:613 lib/printers.c:621
+#: lib/printers.c:605 lib/printers.c:613
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Bekende uitvoerapparaten (printers, enz.)"
 
-#: lib/prolog.c:98 lib/prolog.c:181
+#: lib/prolog.c:85 lib/prolog.c:168
 msgid "Known Prologues"
 msgstr "Bekende prologen"
 
-#: lib/prolog.c:579
+#: lib/prolog.c:566
 #, c-format
 msgid "font %f too big"
 msgstr "lettertype %f is te groot"
 
-#: lib/psgen.c:662
+#: lib/psgen.c:649
 #, c-format
 msgid "`%s' is a binary file, printing aborted"
 msgstr "'%s' is binair -- afdrukken is afgebroken"
 
-#: lib/quotearg.c:200
+#: lib/quotearg.c:202
 msgid "`"
 msgstr "‘"
 
-#: lib/quotearg.c:203
+#: lib/quotearg.c:205
 msgid "'"
 msgstr "’"
 
-#: lib/userdata.c:129
+#: lib/userdata.c:123
 msgid "user"
 msgstr "gebruiker"
 
-#: lib/userdata.c:130
+#: lib/userdata.c:124
 msgid "Unknown User"
 msgstr "Onbekende gebruiker"
 
-#: lib/useropt.c:75
+#: lib/useropt.c:63
 #, c-format
 msgid "unknown user option `%s'"
 msgstr "onbekende gebruikeroptie '%s'"
 
-#: lib/useropt.c:86 lib/useropt.c:97
+#: lib/useropt.c:74 lib/useropt.c:85
 msgid "Known User Options"
 msgstr "Bekende gebruikeropties"
 
-#. If XALLOC_FAIL_FUNC is NULL, or does return, display this message
-#. before exiting when memory is exhausted.  Goes through gettext.
-#: lib/xbackupfile.c:105 lib/xmalloc.c:66
+#: lib/xbackupfile.c:105 lib/xmalloc.c:51
 msgid "Memory exhausted"
 msgstr "Onvoldoende geheugen beschikbaar"
 
@@ -1114,81 +1112,76 @@ msgstr "kan bestand '%s' niet hernoemen naar '%s'"
 msgid "restored file `%s'"
 msgstr "bestand '%s' is hersteld"
 
-#: lib/argmatch.c:159
+#: lib/argmatch.c:162
 #, c-format
 msgid "invalid argument %s for `%s'"
 msgstr "ongeldig argument '%s' bij optie '%s'"
 
-#: lib/argmatch.c:160
+#: lib/argmatch.c:163
 #, c-format
 msgid "ambiguous argument %s for `%s'"
 msgstr "argument '%s' bij optie '%s' is niet eenduidig"
 
-#. We try to put synonyms on the same line.  The assumption is that
-#. synonyms follow each other
-#: lib/argmatch.c:178
+#: lib/argmatch.c:181
+#, c-format
 msgid "Valid arguments are:"
 msgstr "Geldige argumenten zijn:"
 
-#: lib/error.c:102
+#: lib/error.c:99
 msgid "Unknown system error"
 msgstr "Onbekende systeemfout"
 
-#: lib/getopt.c:675
+#: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
 msgstr "%s: optie '%s' is niet eenduidig\n"
 
-#: lib/getopt.c:700
+#: lib/getopt.c:698
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
 msgstr "%s: optie '--%s' staat geen argument toe\n"
 
-#: lib/getopt.c:705
+#: lib/getopt.c:703
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: optie '%c%s' staat geen argument toe\n"
 
-#: lib/getopt.c:723 lib/getopt.c:896
+#: lib/getopt.c:721 lib/getopt.c:894
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: optie '%s' vereist een argument\n"
 
-#. --option
-#: lib/getopt.c:752
+#: lib/getopt.c:750
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: onbekende optie '--%s'\n"
 
-#. +option or -option
-#: lib/getopt.c:756
+#: lib/getopt.c:754
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: onbekende optie '%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
-#: lib/getopt.c:782
+#: lib/getopt.c:780
 #, c-format
 msgid "%s: illegal option -- %c\n"
 msgstr "%s: ongeldige optie -- %c\n"
 
-#: lib/getopt.c:785
+#: lib/getopt.c:783
 #, c-format
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: ongeldige optie -- %c\n"
 
-#. 1003.2 specifies the format of this message.
-#: lib/getopt.c:815 lib/getopt.c:945
+#: lib/getopt.c:813 lib/getopt.c:943
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: optie vereist een argument -- %c\n"
 
-#: lib/getopt.c:862
+#: lib/getopt.c:860
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
 msgstr "%s: optie '-W %s' is niet eenduidig\n"
 
-#: lib/getopt.c:880
+#: lib/getopt.c:878
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: optie '-W %s' staat geen argument toe\n"

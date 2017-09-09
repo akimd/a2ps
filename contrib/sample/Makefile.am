@@ -16,14 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-## Since this package is written in ansi, be ready to un-ansify
-AUTOMAKE_OPTIONS = $(top_builddir)/lib/ansi2knr
-localedir = $(datadir)/locale
+AM_CPPFLAGS = -I. -I.. -I$(top_builddir) -I$(top_srcdir)/intl -I$(top_srcdir)/lib \
+	-DLOCALEDIR=\"$(localedir)\"
 
 noinst_PROGRAMS = sample
 
 sample_SOURCES = main.c
 
-INCLUDES = -I. -I.. -I$(top_builddir) -I$(top_srcdir)/intl -I$(top_srcdir)/lib
-sample_LDADD = $(top_builddir)/lib/liba2ps.la @LIBINTL@ -lm
-DEFS = @DEFS@ -DLOCALEDIR=\"$(localedir)\"
+sample_LDADD = ../../lib/liba2ps.la @LIBINTL@ -lm

@@ -22,6 +22,6 @@
 /* Dump the file FILENAME on STREAM, while inserting the special
    pagedevice requests of JOB. */
 
-void pslex_dump PARAMS ((FILE *stream, const char *filename));
+void pslex_dump (FILE *stream, const char *filename);
 
 #endif

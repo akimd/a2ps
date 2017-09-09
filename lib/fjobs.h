@@ -26,7 +26,7 @@ struct a2ps_job;
  */
 struct file_job
 {
-  uchar * name;			/* Guess what it is :)			*/
+  unsigned char * name;			/* Guess what it is :)			*/
 
   /* A tmp file associated with this file.  It is used only privately
      by a2ps-prog.  If the file is delegated, the output of the
@@ -58,14 +58,14 @@ struct file_job
 
 /* in the output session JOB, create a new input session NAME */
 struct file_job *
-_a2ps_file_job_new PARAMS ((uchar * name, int num, struct tm * run_tm));
+_a2ps_file_job_new (unsigned char * name, int num, struct tm * run_tm);
 
-int file_name_cmp PARAMS ((struct file_job * f1, struct file_job * f2));
+int file_name_cmp (struct file_job * f1, struct file_job * f2);
 
-void file_job_synchronize_sheets PARAMS ((struct a2ps_job * job));
-void file_job_synchronize_pages PARAMS ((struct a2ps_job * job));
-void file_job_self_print PARAMS ((struct file_job * file, FILE * stream));
-void file_job_unlink_tmpfile PARAMS ((struct file_job * file));
-void file_job_free PARAMS ((struct file_job * file_job));
+void file_job_synchronize_sheets (struct a2ps_job * job);
+void file_job_synchronize_pages (struct a2ps_job * job);
+void file_job_self_print (struct file_job * file, FILE * stream);
+void file_job_unlink_tmpfile (struct file_job * file);
+void file_job_free (struct file_job * file_job);
 
 #endif /* !defined (_FJOBS_H) */

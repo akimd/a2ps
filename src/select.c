@@ -158,7 +158,7 @@ shell_escape(const char *fn)
   if could not be run.  */
 
 static char *
-file_verdict_on (const uchar *filename)
+file_verdict_on (const unsigned char *filename)
 {
   char *cp = NULL, * command;
   char buf [1024];
@@ -218,11 +218,11 @@ file_verdict_on (const uchar *filename)
  */
 #define rule(_i_) ((struct pattern_rule *)sheets_map->content[_i_])
 const char *
-get_command (const uchar *name_to_match, const uchar *name_to_file)
+get_command (const unsigned char *name_to_match, const unsigned char *name_to_file)
 {
   int i;
   char *file_verdict;
-  uchar *name_to_match_lc;
+  unsigned char *name_to_match_lc;
 
   /* We only want to read the sheets map if needed, hence,
    * from here (not needed if the sheet name is given by the

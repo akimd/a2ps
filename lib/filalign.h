@@ -44,8 +44,8 @@ typedef int file_align_t;
    This is to be compatible with enscript. */
 
 file_align_t file_align_argmatch
-  PARAMS ((const char * option, const char * arg));
+  (const char * option, const char * arg);
 
 const char * file_align_to_string
-  PARAMS ((file_align_t file_align));
+  (file_align_t file_align);
 #endif /* !defined (MADIR_H_) */

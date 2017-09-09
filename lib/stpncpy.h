@@ -25,16 +25,8 @@
 # include <config.h>
 #endif
 
-#ifndef PARAMS
-# if PROTOTYPES || (defined (__STDC__) && __STDC__)
-#  define PARAMS(args) args
-# else
-#  define PARAMS(args) ()
-# endif
-#endif
-
 /* Copy no more than N characters of SRC to DEST, returning the address of
    the last character written into DEST.  */
-char * stpncpy PARAMS ((char * dest, const char * src, size_t n));
+char * stpncpy (char * dest, const char * src, size_t n);
 
 #endif

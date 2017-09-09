@@ -21,6 +21,6 @@
 
 # include "system.h"
 
-# define UNULL 		(uchar *) NULL
+# define UNULL 		(unsigned char *) NULL
 
 #endif

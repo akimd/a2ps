@@ -38,64 +38,64 @@ struct a2ps_job;
 struct a2ps_printers_s;
 
 /* Listing printers and PPD. */
-void a2ps_printers_list_short PARAMS ((struct a2ps_job * job, FILE * stream));
-void a2ps_printers_list_long PARAMS ((struct a2ps_job * job, FILE * stream));
-void a2ps_ppd_list_short PARAMS ((struct a2ps_job * job, FILE * stream));
-void a2ps_ppd_list_long PARAMS ((struct a2ps_job * job, FILE * stream));
+void a2ps_printers_list_short (struct a2ps_job * job, FILE * stream);
+void a2ps_printers_list_long (struct a2ps_job * job, FILE * stream);
+void a2ps_ppd_list_short (struct a2ps_job * job, FILE * stream);
+void a2ps_ppd_list_long (struct a2ps_job * job, FILE * stream);
 /*
  * Output streams
  */
-void a2ps_open_output_stream PARAMS ((struct a2ps_job * job));
-void a2ps_close_output_stream PARAMS ((struct a2ps_job * job));
+void a2ps_open_output_stream (struct a2ps_job * job);
+void a2ps_close_output_stream (struct a2ps_job * job);
 
-uchar *a2ps_flag_destination_to_string
-    PARAMS ((struct a2ps_job * job));
-uchar *a2ps_destination_to_string
-    PARAMS ((struct a2ps_job * job));
+unsigned char *a2ps_flag_destination_to_string
+    (struct a2ps_job * job);
+unsigned char *a2ps_destination_to_string
+    (struct a2ps_job * job);
 
 /* Create the mem of the printers module */
 struct a2ps_printers_s *a2ps_printers_new
-   PARAMS ((struct a2ps_common_s * common));
+   (struct a2ps_common_s * common);
 
 /* Release the mem used by a PRINTERS module The module is freed */
-void a2ps_printers_free PARAMS ((struct a2ps_printers_s * printers));
+void a2ps_printers_free (struct a2ps_printers_s * printers);
 
 /* Finalize the printers module */
-void a2ps_printers_finalize PARAMS ((struct a2ps_printers_s * printers));
+void a2ps_printers_finalize (struct a2ps_printers_s * printers);
 
 /* Accessing some of the fields */
 const char * a2ps_printers_default_ppdkey_get
-   PARAMS ((struct a2ps_printers_s * printers));
+   (struct a2ps_printers_s * printers);
 
 void a2ps_printers_default_ppdkey_set
-   PARAMS ((struct a2ps_printers_s * printers,
-	      const char * key));
+   (struct a2ps_printers_s * printers,
+	      const char * key);
 
 const char * a2ps_printers_request_ppdkey_get
-   PARAMS ((struct a2ps_printers_s * printers));
+   (struct a2ps_printers_s * printers);
 
 void a2ps_printers_request_ppdkey_set
-   PARAMS ((struct a2ps_printers_s * printers,
-	    const char * key));
+   (struct a2ps_printers_s * printers,
+	    const char * key);
 
 bool a2ps_printers_add
-   PARAMS ((struct a2ps_printers_s * printers,
-	    const char * key, char * definition));
+   (struct a2ps_printers_s * printers,
+	    const char * key, char * definition);
 
 int a2ps_printers_font_known_p
-   PARAMS ((struct a2ps_printers_s * printers,
-	    const char * name));
+   (struct a2ps_printers_s * printers,
+	    const char * name);
 
 
 /*
  * Outputs
  */
 void a2ps_printers_flag_output_set
-    PARAMS ((struct a2ps_printers_s * printers,
-	     const char * output_name, bool is_printer));
+    (struct a2ps_printers_s * printers,
+	     const char * output_name, bool is_printer);
 const char * a2ps_printers_flag_output_name_get
-    PARAMS ((struct a2ps_printers_s * printers));
+    (struct a2ps_printers_s * printers);
 bool a2ps_printers_flag_output_is_printer_get
-    PARAMS ((struct a2ps_printers_s * printers));
+    (struct a2ps_printers_s * printers);
 
 #endif /* !defined (PRINTERS_H_) */

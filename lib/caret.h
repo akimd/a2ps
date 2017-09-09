@@ -27,11 +27,11 @@ enum unprintable_format {
 };
 
 const char * unprintable_format_to_string 
-	PARAMS ((enum unprintable_format format));
+	(enum unprintable_format format);
 
 /* Escape C, put result in RES, and return strlen RES */
-int escape_unprintable PARAMS ((struct a2ps_job * job, 
+int escape_unprintable (struct a2ps_job * job, 
 				int c,
-				uchar * res));
+				unsigned char * res);
 
 #endif

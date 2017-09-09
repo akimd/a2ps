@@ -43,7 +43,7 @@
 extern struct hash_table_s * files;
 
 /* --stdin=NAME name of the file given by stdin */
-extern uchar * stdin_filename;
+extern unsigned char * stdin_filename;
 
 extern struct a2ps_job * job;
 

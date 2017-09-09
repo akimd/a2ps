@@ -23,14 +23,6 @@
 #  include <inttypes.h> /* for uintmax_t */
 # endif
 
-# ifndef PARAMS
-#  if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#   define PARAMS(Args) Args
-#  else
-#   define PARAMS(Args) ()
-#  endif
-# endif
-
 # ifndef _STRTOL_ERROR
 enum strtol_error
   {
@@ -41,8 +33,8 @@ typedef enum strtol_error strtol_error;
 
 # define _DECLARE_XSTRTOL(name, type) \
   strtol_error \
-    name PARAMS ((const char *s, char **ptr, int base, \
-		  type *val, const char *valid_suffixes));
+    name (const char *s, char **ptr, int base, \
+		  type *val, const char *valid_suffixes);
 _DECLARE_XSTRTOL (xstrtol, long int)
 _DECLARE_XSTRTOL (xstrtoul, unsigned long int)
 _DECLARE_XSTRTOL (xstrtoumax, uintmax_t)

@@ -25,6 +25,6 @@ typedef enum madir_e
   madir_rows, madir_columns
 } madir_t;
 
-madir_t madir_argmatch PARAMS ((const char * option, const char * arg));
-const char * madir_to_string PARAMS ((madir_t madir));
+madir_t madir_argmatch (const char * option, const char * arg);
+const char * madir_to_string (madir_t madir);
 #endif /* !defined (MADIR_H_) */

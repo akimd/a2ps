@@ -95,7 +95,7 @@
  * use this convention "First Last <email>".
  */
 static inline void
-authors_print (const uchar * authors, FILE * stream,
+authors_print (const unsigned char * authors, FILE * stream,
 	       const char *before,
 	       const char *author_fmt, const char *between,
 	       const char *after)
@@ -139,7 +139,7 @@ authors_print (const uchar * authors, FILE * stream,
  * Plain : nothing to change
  */
 void
-authors_print_plain (const uchar * authors, FILE * stream,
+authors_print_plain (const unsigned char * authors, FILE * stream,
 		     const char *before)
 {
   authors_print (authors, stream,
@@ -150,7 +150,7 @@ authors_print_plain (const uchar * authors, FILE * stream,
  * HTML : nothing to change
  */
 void
-authors_print_html (const uchar * authors, FILE * stream,
+authors_print_html (const unsigned char * authors, FILE * stream,
 		    const char *before)
 {
   authors_print (authors, stream,
@@ -163,12 +163,12 @@ authors_print_html (const uchar * authors, FILE * stream,
  * Plain : nothing to change
  */
 void
-authors_print_texinfo (const uchar * authors, FILE * stream,
+authors_print_texinfo (const unsigned char * authors, FILE * stream,
 		       const char *before)
 {
-  uchar *cp;
+  unsigned char *cp;
   /* We must quote the @ of the emails */
-  cp = (uchar *) xvstrrpl ((const char *) authors,
+  cp = (unsigned char *) xvstrrpl ((const char *) authors,
 			   AUTHORS_TO_TEXINFO);
 
   /* Don't print the email, that makes too wide output. */
@@ -181,7 +181,7 @@ authors_print_texinfo (const uchar * authors, FILE * stream,
 /************************************************************************/
 /* 1. Plain ASCII */
 void
-documentation_print_plain (const uchar * documentation,
+documentation_print_plain (const unsigned char * documentation,
 			   const char *format, FILE * stream)
 {
   char *cp;
@@ -196,7 +196,7 @@ documentation_print_plain (const uchar * documentation,
 
 /* 2. Towards HTML */
 void
-documentation_print_html (const uchar * documentation,
+documentation_print_html (const unsigned char * documentation,
 			  const char *format, FILE * stream)
 {
   char *cp;
@@ -211,7 +211,7 @@ documentation_print_html (const uchar * documentation,
 
 /* 3. Towards Texinfo */
 void
-documentation_print_texinfo (const uchar * documentation,
+documentation_print_texinfo (const unsigned char * documentation,
 			     const char *format, FILE * stream)
 {
   char *cp;

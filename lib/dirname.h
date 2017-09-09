@@ -19,15 +19,7 @@
 #ifndef DIRNAME_H_
 # define DIRNAME_H_ 1
 
-# ifndef PARAMS
-#  if defined PROTOTYPES || (defined __STDC__ && __STDC__)
-#   define PARAMS(Args) Args
-#  else
-#   define PARAMS(Args) ()
-#  endif
-# endif
-
 char *
-dir_name PARAMS ((const char *path));
+dir_name (const char *path);
 
 #endif /* not DIRNAME_H_ */

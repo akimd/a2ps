@@ -25,22 +25,22 @@ struct pair_htable;
 
 /* Macro meta sequences hash table */
 
-struct pair_htable * macro_meta_sequence_table_new PARAMS ((void));
-void macro_meta_sequence_table_free PARAMS ((struct pair_htable * table));
+struct pair_htable * macro_meta_sequence_table_new (void);
+void macro_meta_sequence_table_free (struct pair_htable * table);
 
 /* Return true if valid definition, false otherwise */
-bool macro_meta_sequence_add PARAMS ((struct a2ps_job * job,
+bool macro_meta_sequence_add (struct a2ps_job * job,
 					 const char * key,
-					 const char * value));
-void macro_meta_sequence_delete PARAMS ((struct a2ps_job * job,
-					 const char * key));
-char * macro_meta_sequence_get PARAMS ((struct a2ps_job * job,
-					const char * key));
-void macro_meta_sequences_list_short PARAMS ((struct a2ps_job * job,
-					     FILE * stream));
+					 const char * value);
+void macro_meta_sequence_delete (struct a2ps_job * job,
+					 const char * key);
+char * macro_meta_sequence_get (struct a2ps_job * job,
+					const char * key);
+void macro_meta_sequences_list_short (struct a2ps_job * job,
+					     FILE * stream);
 
-void macro_meta_sequences_list_long PARAMS ((struct a2ps_job * job,
-					    FILE * stream));
+void macro_meta_sequences_list_long (struct a2ps_job * job,
+					    FILE * stream);
 
 /*
  * Expand escape sequences in a string
@@ -48,10 +48,10 @@ void macro_meta_sequences_list_long PARAMS ((struct a2ps_job * job,
  * The result must either be used before the following
  * call to expand_user_string, or strdup'ed
  */
-uchar * expand_user_string PARAMS ((struct a2ps_job * job,
+unsigned char * expand_user_string (struct a2ps_job * job,
 				    struct file_job * file,
-				    const uchar * context_name,
-				    const uchar * str));
+				    const unsigned char * context_name,
+				    const unsigned char * str);
 
 /* Definition of the integer divertions */
 #define JOB_NB_PAGES		1
