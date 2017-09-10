@@ -332,7 +332,7 @@ AC_CONFIG_FILES([
   doc/Makefile
   man/Makefile
   tests/Makefile tests/defs
-  lib/Makefile
+  liba2ps/Makefile
   build-aux/Makefile
   etc/Makefile etc/a2ps_cfg etc/a2ps-site.cfg
   po/Makefile.in

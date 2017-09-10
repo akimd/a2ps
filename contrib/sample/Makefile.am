@@ -16,11 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AM_CPPFLAGS = -I. -I.. -I$(top_builddir) -I$(top_srcdir)/intl -I$(top_srcdir)/lib \
+AM_CPPFLAGS = -I. -I.. -I$(top_builddir) -I$(top_srcdir)/intl -I$(top_srcdir)/liba2ps \
 	-DLOCALEDIR=\"$(localedir)\"
 
 noinst_PROGRAMS = sample
 
 sample_SOURCES = main.c
 
-sample_LDADD = ../../lib/liba2ps.la @LIBINTL@ -lm
+sample_LDADD = ../../liba2ps/liba2ps.la @LIBINTL@ -lm

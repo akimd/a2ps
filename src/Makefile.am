@@ -19,7 +19,7 @@
 # I don't really understand why I have to put srcdir here, but
 # it is needed for yacc and lex files (seems related to #line, but
 # I really don't understand why)...
-AM_CPPFLAGS = -I.. -I$(srcdir) -I$(top_srcdir)/lib -I$(top_builddir)/intl \
+AM_CPPFLAGS = -I.. -I$(srcdir) -I$(top_srcdir)/liba2ps -I$(top_builddir)/intl \
 	-DLOCALEDIR=\"$(localedir)\"
 
 bin_PROGRAMS = a2ps
@@ -41,6 +41,6 @@ BUILT_SOURCES = parsessh.c parsessh.h
 YFLAGS = -dtv
 LEX = @LEX@
 
-a2ps_LDADD = $(top_builddir)/lib/liba2ps.la @LIBINTL@ -lm
+a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la @LIBINTL@ -lm
 
 EXTRA_DIST = $(BUILT_SOURCES)

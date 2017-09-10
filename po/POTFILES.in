@@ -21,44 +21,44 @@ src/version-etc.c
 src/versions.c
 
 # a2ps own files
-lib/caret.c
-lib/closeout.c
-lib/confg.c
-#lib/darray.c
-#lib/dstring.c
-lib/encoding.c
-lib/faces.c
-lib/filtdir.c
+liba2ps/caret.c
+liba2ps/closeout.c
+liba2ps/confg.c
+#liba2ps/darray.c
+#liba2ps/dstring.c
+liba2ps/encoding.c
+liba2ps/faces.c
+liba2ps/filtdir.c
 # Here we don't put fonts.l, because gettext dies on a pattern with "
-lib/fonts.c
-lib/getnum.c
-lib/jobs.c
-lib/lexppd.c
-lib/madir.c
-lib/media.c
-lib/metaseq.c
-lib/options.c
-lib/output.c
-lib/pair_ht.c
-lib/parseppd.c
-lib/pathwalk.c
-lib/ppd.c
-lib/prange.c
-lib/printers.c
-lib/prolog.c
-lib/psgen.c
-lib/quotearg.c
-lib/routines.c
-# lib/title.c uses __attribute__(Spec)
-lib/tterm.c
-lib/userdata.c
-lib/useropt.c
-lib/xbackupfile.c
+liba2ps/fonts.c
+liba2ps/getnum.c
+liba2ps/jobs.c
+liba2ps/lexppd.c
+liba2ps/madir.c
+liba2ps/media.c
+liba2ps/metaseq.c
+liba2ps/options.c
+liba2ps/output.c
+liba2ps/pair_ht.c
+liba2ps/parseppd.c
+liba2ps/pathwalk.c
+liba2ps/ppd.c
+liba2ps/prange.c
+liba2ps/printers.c
+liba2ps/prolog.c
+liba2ps/psgen.c
+liba2ps/quotearg.c
+liba2ps/routines.c
+# liba2ps/title.c uses __attribute__(Spec)
+liba2ps/tterm.c
+liba2ps/userdata.c
+liba2ps/useropt.c
+liba2ps/xbackupfile.c
 
 # These are GNU standard files
-lib/argmatch.c
-lib/getopt.c
-lib/hashtab.c
-# Uses L_(): lib/strtol.c
-# Doesn't use the same string as us: lib/obstack.c
-lib/xmalloc.c
+liba2ps/argmatch.c
+liba2ps/getopt.c
+liba2ps/hashtab.c
+# Uses L_(): liba2ps/strtol.c
+# Doesn't use the same string as us: liba2ps/obstack.c
+liba2ps/xmalloc.c

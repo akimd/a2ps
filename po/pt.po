@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-10 10:57+0200\n"
+"POT-Creation-Date: 2017-09-10 11:10+0200\n"
 "PO-Revision-Date: 2000-01-14 10:48+01:00\n"
 "Last-Translator: Paulo Matos <pjsm@students.fct.unl.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -23,22 +23,24 @@ msgid "any type"
 msgstr "qualquer tipo"
 
 # lib/confg.c:264 lib/encoding.c:577 lib/encoding.c:617 lib/prolog.c:146
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
-#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 liba2ps/encoding.c:524
+#: liba2ps/encoding.c:570 liba2ps/encoding.c:610 liba2ps/output.c:293
+#: liba2ps/pair_ht.c:284 liba2ps/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "argumento em falta para `%s'"
 
 # lib/routines.c:160 lib/xbackupfile.c:248 lib/xbackupfile.c:276
 # lib/xbackupfile.c:284 src/delegate.c:260
-#: src/delegate.c:250 lib/routines.c:150 lib/xbackupfile.c:248
-#: lib/xbackupfile.c:276 lib/xbackupfile.c:284
+#: src/delegate.c:250 liba2ps/routines.c:150 liba2ps/xbackupfile.c:248
+#: liba2ps/xbackupfile.c:276 liba2ps/xbackupfile.c:284
 #, c-format
 msgid "cannot create file `%s'"
 msgstr "não consigo criar ficheiro `%s'"
 
 # lib/routines.c:190 lib/routines.c:196 src/delegate.c:269 src/select.c:159
-#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 liba2ps/routines.c:180
+#: liba2ps/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "não consigo abrir pipe em `%s'"
@@ -63,13 +65,13 @@ msgstr "`%s' é uma directoria"
 # lib/confg.c:288 lib/confg.c:451 lib/routines.c:154 src/generate.c:96
 # src/main.c:558 src/main.c:580
 #: src/generate.c:89 src/main.c:551 src/main.c:573 confg.gperf:192
-#: confg.gperf:355 lib/routines.c:144
+#: confg.gperf:355 liba2ps/routines.c:144
 #, c-format
 msgid "cannot open file `%s'"
 msgstr "não consigo abrir ficheiro `%s'"
 
 # lib/xbackupfile.c:224 src/generate.c:101
-#: src/generate.c:94 lib/xbackupfile.c:224
+#: src/generate.c:94 liba2ps/xbackupfile.c:224
 #, c-format
 msgid "cannot get informations on file `%s'"
 msgstr "não consigo obter informações do ficheiro `%s'"
@@ -836,7 +838,7 @@ msgstr "não há chave definida para `%s'"
 # /home/akim/src/a2ps-4.12/lib/fonts.l:841 lib/pathwalk.c:328
 # lib/pathwalk.c:414 src/select.c:122 src/ssheet.c:866
 #: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:324 lib/pathwalk.c:410
+#: liba2ps/pathwalk.c:324 liba2ps/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "não consigo encontrar o ficheiro `%s'"
@@ -897,42 +899,42 @@ msgid "invalid version number `%s'"
 msgstr "número de versão ilegal `%s'"
 
 # lib/caret.c:43
-#: lib/caret.c:31
+#: liba2ps/caret.c:31
 msgid "space (i.e., ` ')"
 msgstr "espaço (i.e., ` ')"
 
 # lib/caret.c:45
-#: lib/caret.c:33
+#: liba2ps/caret.c:33
 msgid "octal (i.e., `\\001' etc.)"
 msgstr "octal (i.e., `\\001' etc.)"
 
 # lib/caret.c:47
-#: lib/caret.c:35
+#: liba2ps/caret.c:35
 msgid "hexadecimal (i.e., `\\x0a' etc.)"
 msgstr "hexadecimal (i.e., `\\x0a' etc.)"
 
 # lib/caret.c:49
-#: lib/caret.c:37
+#: liba2ps/caret.c:37
 msgid "caret (i.e., `^C', `M-^C' etc.)"
 msgstr "caret (i.e., `^C', `M-^C' etc.)"
 
 # lib/caret.c:51
-#: lib/caret.c:39
+#: liba2ps/caret.c:39
 msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
 msgstr "emacs (i.e., `C-c', `M-C-c' etc.)"
 
 # lib/caret.c:53
-#: lib/caret.c:41
+#: liba2ps/caret.c:41
 msgid "question-mark (i.e., `?')"
 msgstr "interrogação (i.e., `?')"
 
 # lib/closeout.c:71 lib/closeout.c:73
-#: lib/closeout.c:72 lib/closeout.c:74
+#: liba2ps/closeout.c:72 liba2ps/closeout.c:74
 msgid "write error"
 msgstr "erro de escrita"
 
 # lib/confg.c:253 lib/encoding.c:639
-#: confg.gperf:157 lib/encoding.c:632
+#: confg.gperf:157 liba2ps/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "opção inválida `%s'"
@@ -944,17 +946,17 @@ msgid "invalid definition for printer `%s': %s"
 msgstr "definição inválida para a impressora `%s': %s"
 
 # lib/confg.c:325 lib/confg.c:328
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
+#: confg.gperf:229 confg.gperf:232 liba2ps/printers.c:41
 msgid "Unknown Printer"
 msgstr "Impressora Desconhecida"
 
 # lib/confg.c:332 lib/confg.c:335
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
+#: confg.gperf:236 confg.gperf:239 liba2ps/printers.c:40
 msgid "Default Printer"
 msgstr "Impressora por Omissão"
 
 # lib/confg.c:388 lib/options.c:703
-#: confg.gperf:292 lib/options.c:683
+#: confg.gperf:292 liba2ps/options.c:683
 #, c-format
 msgid "invalid variable identifier `%s'"
 msgstr "identificador de variável inválido `%s'"
@@ -966,195 +968,197 @@ msgid "obsolete `%s' entry.  Ignored"
 msgstr "entrada `%s' obsoleta. Ignorada"
 
 # lib/encoding.c:1115 lib/encoding.c:1136
-#: lib/encoding.c:1108 lib/encoding.c:1129
+#: liba2ps/encoding.c:1108 liba2ps/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Codificações conhecidas"
 
 # lib/faces.c:156
-#: lib/faces.c:146
+#: liba2ps/faces.c:146
 msgid "incomplete knowledge of faces"
 msgstr "conhecimento incompleto das faces"
 
 # lib/filtdir.c:113
-#: lib/filtdir.c:114
+#: liba2ps/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "não consigo fechar o directório `%s'"
 
 # lib/getnum.c:63 lib/getnum.c:121 lib/getnum.c:153 lib/getnum.c:221
-#: lib/getnum.c:55 lib/getnum.c:113 lib/getnum.c:145 lib/getnum.c:213
+#: liba2ps/getnum.c:55 liba2ps/getnum.c:113 liba2ps/getnum.c:145
+#: liba2ps/getnum.c:213
 #, c-format
 msgid "invalid argument `%s' for `%s'"
 msgstr "argumento inválido `%s' para a opção `%s'"
 
 # lib/getnum.c:123
-#: lib/getnum.c:115
+#: liba2ps/getnum.c:115
 #, c-format
 msgid "Valid arguments are integers n such that: %s\n"
 msgstr "Argumentos válidos são inteiros n de modo que: %s\n"
 
 # lib/getnum.c:223
-#: lib/getnum.c:215
+#: liba2ps/getnum.c:215
 #, c-format
 msgid "Valid arguments are floats f such that: %s\n"
 msgstr "Argumentos válidos são reais f de modo que: %s\n"
 
 # lib/jobs.c:307
-#: lib/jobs.c:302
+#: liba2ps/jobs.c:302
 #, c-format
 msgid "unknown encoding `%s'"
 msgstr "codificação `%s' desconhecida"
 
 # lib/madir.c:59
-#: lib/madir.c:48
+#: liba2ps/madir.c:48
 msgid "rows first"
 msgstr "linhas primeiro"
 
 # lib/madir.c:62
-#: lib/madir.c:51
+#: liba2ps/madir.c:51
 msgid "columns first"
 msgstr "colunas primeiro"
 
 # lib/media.c:173
-#: lib/media.c:164
+#: liba2ps/media.c:164
 #, c-format
 msgid "unknown medium `%s'"
 msgstr "meio desconhecido `%s'"
 
 # lib/media.c:208 lib/media.c:237
-#: lib/media.c:199 lib/media.c:228
+#: liba2ps/media.c:199 liba2ps/media.c:228
 msgid "Known Media"
 msgstr "Meio conhecido"
 
 # lib/media.c:211
-#: lib/media.c:202
+#: liba2ps/media.c:202
 msgid "Name"
 msgstr "Nome"
 
 # lib/media.c:212
-#: lib/media.c:203
+#: liba2ps/media.c:203
 msgid "dimensions"
 msgstr "dimensões"
 
 # lib/metaseq.c:104 lib/metaseq.c:113
-#: lib/metaseq.c:90 lib/metaseq.c:99
+#: liba2ps/metaseq.c:90 liba2ps/metaseq.c:99
 #, c-format
 msgid "Known Variables"
 msgstr "Variáveis Conhecidas"
 
 # lib/metaseq.c:531 lib/metaseq.c:548 lib/metaseq.c:608 lib/metaseq.c:951
 # lib/metaseq.c:972
-#: lib/metaseq.c:148 lib/metaseq.c:517 lib/metaseq.c:534 lib/metaseq.c:594
-#: lib/metaseq.c:937 lib/metaseq.c:958
+#: liba2ps/metaseq.c:148 liba2ps/metaseq.c:517 liba2ps/metaseq.c:534
+#: liba2ps/metaseq.c:594 liba2ps/metaseq.c:937 liba2ps/metaseq.c:958
 #, c-format
 msgid "%s: missing `%c' for %s%c escape"
 msgstr "%s: `%c' em falta para escape %s%c"
 
 # lib/metaseq.c:288 lib/metaseq.c:300
-#: lib/metaseq.c:274 lib/metaseq.c:286
+#: liba2ps/metaseq.c:274 liba2ps/metaseq.c:286
 #, c-format
 msgid "Printed by %s"
 msgstr "Impresso por %s"
 
 # lib/metaseq.c:298
-#: lib/metaseq.c:284
+#: liba2ps/metaseq.c:284
 #, c-format
 msgid "Printed by %s from %s"
 msgstr "Impresso por %s de %s"
 
 # lib/metaseq.c:308 lib/metaseq.c:327
-#: lib/metaseq.c:294 lib/metaseq.c:313
+#: liba2ps/metaseq.c:294 liba2ps/metaseq.c:313
 msgid "cannot get current working directory"
 msgstr "não consigo obter o directório actual"
 
 # lib/metaseq.c:341 lib/metaseq.c:534 lib/metaseq.c:563 lib/metaseq.c:652
 # lib/metaseq.c:954 lib/metaseq.c:987
-#: lib/metaseq.c:327 lib/metaseq.c:520 lib/metaseq.c:549 lib/metaseq.c:638
-#: lib/metaseq.c:940 lib/metaseq.c:973
+#: liba2ps/metaseq.c:327 liba2ps/metaseq.c:520 liba2ps/metaseq.c:549
+#: liba2ps/metaseq.c:638 liba2ps/metaseq.c:940 liba2ps/metaseq.c:973
 #, c-format
 msgid "%s: too long argument for %s escape"
 msgstr "%s: argumento demasiado longo para escape %s"
 
 # lib/metaseq.c:364 lib/metaseq.c:675
-#: lib/metaseq.c:350 lib/metaseq.c:661
+#: liba2ps/metaseq.c:350 liba2ps/metaseq.c:661
 msgid "%b %d, %y"
 msgstr "%d %b %y"
 
 # lib/metaseq.c:373 lib/metaseq.c:684
-#: lib/metaseq.c:359 lib/metaseq.c:670
+#: liba2ps/metaseq.c:359 liba2ps/metaseq.c:670
 msgid "%A %B %d, %Y"
 msgstr "%A %d %B %Y"
 
 # lib/metaseq.c:419 lib/metaseq.c:448 lib/metaseq.c:491 lib/metaseq.c:724
 # lib/metaseq.c:808 lib/metaseq.c:867 lib/metaseq.c:922 lib/metaseq.c:1099
 # lib/metaseq.c:1234 lib/metaseq.c:1246 lib/metaseq.c:1289
-#: lib/metaseq.c:405 lib/metaseq.c:434 lib/metaseq.c:477 lib/metaseq.c:710
-#: lib/metaseq.c:794 lib/metaseq.c:853 lib/metaseq.c:908 lib/metaseq.c:1085
-#: lib/metaseq.c:1220 lib/metaseq.c:1232 lib/metaseq.c:1275
+#: liba2ps/metaseq.c:405 liba2ps/metaseq.c:434 liba2ps/metaseq.c:477
+#: liba2ps/metaseq.c:710 liba2ps/metaseq.c:794 liba2ps/metaseq.c:853
+#: liba2ps/metaseq.c:908 liba2ps/metaseq.c:1085 liba2ps/metaseq.c:1220
+#: liba2ps/metaseq.c:1232 liba2ps/metaseq.c:1275
 #, c-format
 msgid "%s: unknown `%s' escape `%c' (%d)"
 msgstr "%s: escape `%s' desconhecido `%c' (%d)"
 
 # lib/metaseq.c:426 lib/metaseq.c:815
-#: lib/metaseq.c:412 lib/metaseq.c:801
+#: liba2ps/metaseq.c:412 liba2ps/metaseq.c:801
 #, c-format
 msgid "Page %d"
 msgstr "Página %d"
 
 # lib/metaseq.c:431 lib/metaseq.c:826
-#: lib/metaseq.c:417 lib/metaseq.c:812
+#: liba2ps/metaseq.c:417 liba2ps/metaseq.c:812
 #, c-format
 msgid "Page %d/%c"
 msgstr "Página %d/%c"
 
 # lib/metaseq.c:593 lib/metaseq.c:1021
-#: lib/metaseq.c:579 lib/metaseq.c:1007
+#: liba2ps/metaseq.c:579 liba2ps/metaseq.c:1007
 #, c-format
 msgid "%s: invalid separator `%s%c' for `%s' escape"
 msgstr "%s: separador inválido `%s%c' para escape `%s'"
 
 # lib/metaseq.c:601 lib/metaseq.c:611
-#: lib/metaseq.c:587 lib/metaseq.c:597
+#: liba2ps/metaseq.c:587 liba2ps/metaseq.c:597
 #, c-format
 msgid "%s: invalid argument for %s%c escape"
 msgstr "%s: argumentos inválido para escape %s%c"
 
 # lib/metaseq.c:822
-#: lib/metaseq.c:808
+#: liba2ps/metaseq.c:808
 #, c-format
 msgid "Page %d/%d"
 msgstr "Página %d/%d"
 
 # lib/metaseq.c:1266
-#: lib/metaseq.c:1252
+#: liba2ps/metaseq.c:1252
 msgid "output command"
 msgstr "comando de saída"
 
 # lib/options.c:302
-#: lib/options.c:288
+#: liba2ps/options.c:288
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Tente `%s --help' para mais informações.\n"
 
 # lib/output.c:466
-#: lib/output.c:457
+#: liba2ps/output.c:457
 #, c-format
 msgid "invalid face `%s'"
 msgstr "face `%s' inválida"
 
 # lib/output.c:538
-#: lib/output.c:529
+#: liba2ps/output.c:529
 #, c-format
 msgid "`%s' with no matching `%s'"
 msgstr "`%s' sem ocorrência de `%s'"
 
 # lib/ppd.c:108
-#: lib/ppd.c:94
+#: liba2ps/ppd.c:94
 msgid "Known Fonts"
 msgstr "Fontes Conhecidas"
 
 # lib/ppd.c:111
-#: lib/ppd.c:97
+#: liba2ps/ppd.c:97
 msgid ""
 "\n"
 "  None.\n"
@@ -1163,194 +1167,194 @@ msgstr ""
 "  Nenhuma.\n"
 
 # lib/ppd.c:149 lib/ppd.c:165
-#: lib/ppd.c:135 lib/ppd.c:151
+#: liba2ps/ppd.c:135 liba2ps/ppd.c:151
 msgid "Known PostScript Printer Descriptions"
 msgstr "Descrições de Impressoras PostScript conhecidas"
 
 # lib/prange.c:305 lib/prange.c:323
-#: lib/prange.c:293 lib/prange.c:311
+#: liba2ps/prange.c:293 liba2ps/prange.c:311
 #, c-format
 msgid "invalid interval `%s'"
 msgstr "intervalo de inteiros ilegal `%s'"
 
 # lib/printers.c:396 lib/printers.c:413
-#: lib/printers.c:390 lib/printers.c:407
+#: liba2ps/printers.c:390 liba2ps/printers.c:407
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "nenhum comando para `%s' (%s%s)"
 
 # lib/printers.c:429
-#: lib/printers.c:423
+#: liba2ps/printers.c:423
 msgid "sent to the standard output"
 msgstr "enviar para o standard output"
 
 # lib/printers.c:430
-#: lib/printers.c:424
+#: liba2ps/printers.c:424
 msgid "sent to the default printer"
 msgstr "enviado para a impressora por omissão"
 
 # lib/printers.c:435
-#: lib/printers.c:429
+#: liba2ps/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "gravado para o ficheiro `%s'"
 
 # lib/printers.c:436
-#: lib/printers.c:430
+#: liba2ps/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "enviado para a impressora `%s'"
 
 # lib/printers.c:613 lib/printers.c:621
-#: lib/printers.c:607 lib/printers.c:615
+#: liba2ps/printers.c:607 liba2ps/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Destinos de saída conhecidos (impressoras, etc.)"
 
 # lib/prolog.c:98 lib/prolog.c:181
-#: lib/prolog.c:85 lib/prolog.c:168
+#: liba2ps/prolog.c:85 liba2ps/prolog.c:168
 msgid "Known Prologues"
 msgstr "Prólogos conhecidos"
 
 # lib/prolog.c:579
-#: lib/prolog.c:566
+#: liba2ps/prolog.c:566
 #, c-format
 msgid "font %f too big"
 msgstr "fonte %f é demasiado grande"
 
 # lib/psgen.c:662
-#: lib/psgen.c:649
+#: liba2ps/psgen.c:649
 #, c-format
 msgid "`%s' is a binary file, printing aborted"
 msgstr "`%s' é um ficheiro binário, impressão abortada"
 
 # lib/quotearg.c:200
-#: lib/quotearg.c:202
+#: liba2ps/quotearg.c:202
 msgid "`"
 msgstr "`"
 
 # lib/quotearg.c:203
-#: lib/quotearg.c:205
+#: liba2ps/quotearg.c:205
 msgid "'"
 msgstr "'"
 
 # lib/userdata.c:129
-#: lib/userdata.c:123
+#: liba2ps/userdata.c:123
 msgid "user"
 msgstr "utilizador"
 
 # lib/userdata.c:130
-#: lib/userdata.c:124
+#: liba2ps/userdata.c:124
 msgid "Unknown User"
 msgstr "Utilizador Desconhecido"
 
 # lib/useropt.c:75
-#: lib/useropt.c:63
+#: liba2ps/useropt.c:63
 #, c-format
 msgid "unknown user option `%s'"
 msgstr "opção do utilizador `%s' desconhecida"
 
 # lib/useropt.c:86 lib/useropt.c:97
-#: lib/useropt.c:74 lib/useropt.c:85
+#: liba2ps/useropt.c:74 liba2ps/useropt.c:85
 msgid "Known User Options"
 msgstr "Opções de utilizador conhecidas"
 
 # lib/xbackupfile.c:105 lib/xmalloc.c:66
-#: lib/xbackupfile.c:105 lib/xmalloc.c:51
+#: liba2ps/xbackupfile.c:105 liba2ps/xmalloc.c:51
 msgid "Memory exhausted"
 msgstr "Falta de memória"
 
 # lib/xbackupfile.c:240 lib/xbackupfile.c:252
-#: lib/xbackupfile.c:240 lib/xbackupfile.c:252
+#: liba2ps/xbackupfile.c:240 liba2ps/xbackupfile.c:252
 #, c-format
 msgid "cannot rename file `%s' as `%s'"
 msgstr "não consigo renomear o ficheiro `%s' como `%s'"
 
 # lib/xbackupfile.c:255
-#: lib/xbackupfile.c:255
+#: liba2ps/xbackupfile.c:255
 #, c-format
 msgid "restored file `%s'"
 msgstr "restaurei o ficheiro `%s'"
 
 # lib/argmatch.c:159
-#: lib/argmatch.c:162
+#: liba2ps/argmatch.c:162
 #, c-format
 msgid "invalid argument %s for `%s'"
 msgstr "argumento %s inválido para a opção `%s'"
 
 # lib/argmatch.c:160
-#: lib/argmatch.c:163
+#: liba2ps/argmatch.c:163
 #, c-format
 msgid "ambiguous argument %s for `%s'"
 msgstr "argumento %s ambíguo para a opção `%s'"
 
 # lib/argmatch.c:178
-#: lib/argmatch.c:181
+#: liba2ps/argmatch.c:181
 #, c-format
 msgid "Valid arguments are:"
 msgstr "Argumentos válidos são:"
 
 # lib/getopt.c:675
-#: lib/getopt.c:673
+#: liba2ps/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
 msgstr "%s: opção `%s' é ambígua\n"
 
 # lib/getopt.c:700
-#: lib/getopt.c:698
+#: liba2ps/getopt.c:698
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
 msgstr "%s: opção `--%s' não permite argumentos\n"
 
 # lib/getopt.c:705
-#: lib/getopt.c:703
+#: liba2ps/getopt.c:703
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: opção `%c%s' não permite argumentos\n"
 
 # lib/getopt.c:723 lib/getopt.c:896
-#: lib/getopt.c:721 lib/getopt.c:894
+#: liba2ps/getopt.c:721 liba2ps/getopt.c:894
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: opção `%s' necessita de um argumento\n"
 
 # lib/getopt.c:752
-#: lib/getopt.c:750
+#: liba2ps/getopt.c:750
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: opção desconhecida `--%s'\n"
 
 # lib/getopt.c:756
-#: lib/getopt.c:754
+#: liba2ps/getopt.c:754
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: opção desconhecida `%c%s'\n"
 
 # lib/getopt.c:782
-#: lib/getopt.c:780
+#: liba2ps/getopt.c:780
 #, c-format
 msgid "%s: illegal option -- %c\n"
 msgstr "%s: opção ilegal -- %c\n"
 
 # lib/getopt.c:785
-#: lib/getopt.c:783
+#: liba2ps/getopt.c:783
 #, c-format
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: opção inválida -- %c\n"
 
 # lib/getopt.c:815 lib/getopt.c:945
-#: lib/getopt.c:813 lib/getopt.c:943
+#: liba2ps/getopt.c:813 liba2ps/getopt.c:943
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: opção necessita de um argumento -- %c\n"
 
 # lib/getopt.c:862
-#: lib/getopt.c:860
+#: liba2ps/getopt.c:860
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
 msgstr "%s: opção `-W %s' é ambigua\n"
 
 # lib/getopt.c:880
-#: lib/getopt.c:878
+#: liba2ps/getopt.c:878
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: opção `-W %s' não permite argumentos\n"
