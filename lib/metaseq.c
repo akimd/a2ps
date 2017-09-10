@@ -288,7 +288,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    break;
 
 	  case 'c':	/* `%c' trailing component of pwd. */
-	    cp = (unsigned char *) xgetcwd ();
+	    cp = (unsigned char *) getcwd (NULL, 0);
 	    if (!cp)
 	      error (1, errno,
 		     _("cannot get current working directory"));
@@ -307,7 +307,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    break;
 
 	  case 'd':	/* `%d' current working directory */
-	    cp = (unsigned char *) xgetcwd ();
+	    cp = (unsigned char *) getcwd (NULL, 0);
 	    if (!cp)
 	      error (1, errno,
 		     _("cannot get current working directory"));

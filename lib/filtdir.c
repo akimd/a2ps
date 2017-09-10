@@ -24,8 +24,8 @@
 #endif
 
 #include <stdio.h>
-
 #include <sys/types.h>
+#include <fnmatch.h>
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -79,7 +79,6 @@ typedef enum {false = 0, true = 1} bool;
 #include "error.h"
 #include "darray.h"
 #include "filtdir.h"
-#include "xfnmatch.h"
 
 /* Is NAME . or ..? */
 #define IS_NOTDOTDOT(Name)			\

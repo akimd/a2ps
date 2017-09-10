@@ -16,6 +16,9 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#define _GNU_SOURCE
+#include <string.h>
+
 #define printer_table hash_table_s
 
 #include "a2ps.h"
@@ -33,7 +36,6 @@
 #include "xbackupfile.h"
 #include "lister.h"
 #include "title.h"
-#include "strverscmp.h"
 
 #define DEFAULT_PRINTER _("Default Printer")
 #define UNKNOWN_PRINTER _("Unknown Printer")

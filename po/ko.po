@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps-4.10.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 1999-01-24 13:02+01:00\n"
 "Last-Translator: CHOI Junho <junker@jazz.snu.ac.kr>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "any type"
 msgstr "모든 종류"
 
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, fuzzy, c-format
 msgid "missing argument for `%s'"
 msgstr "`%s'의 인수 없음"
@@ -31,7 +31,7 @@ msgstr "`%s'의 인수 없음"
 msgid "cannot create file `%s'"
 msgstr "출력 파일 `%s'을 만들 수 없습니다"
 
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, fuzzy, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "`%s'의 파이프를 열 수 없습니다"
@@ -708,13 +708,13 @@ msgstr ""
 msgid "no key defined for `%s'"
 msgstr "파일 `%s%s'을 찾을 수 없습니다"
 
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, fuzzy, c-format
 msgid "cannot find file `%s'"
 msgstr "파일 `%s%s'을 찾을 수 없습니다"
 
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "자동 스타일 선택은 취소되었습니다"
 
@@ -789,7 +789,7 @@ msgstr "의문부호 (예> `?')"
 msgid "write error"
 msgstr ""
 
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, fuzzy, c-format
 msgid "invalid option `%s'"
 msgstr "%s: 잘못된 옵션 -- %c\n"
@@ -799,11 +799,11 @@ msgstr "%s: 잘못된 옵션 -- %c\n"
 msgid "invalid definition for printer `%s': %s"
 msgstr "프린터 `%s'에 대한 잘못된 정의: %s"
 
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "알 수 없는 프린터"
 
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "기본 프린터"
 
@@ -817,7 +817,7 @@ msgstr "잘못된 매크로 식별자: `%s'"
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "사용하지 않는 `%s' 엔트리. 무시합니다"
 
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "알려진 인코딩"
 
@@ -825,7 +825,7 @@ msgstr "알려진 인코딩"
 msgid "incomplete knowledge of faces"
 msgstr "폰트 모양에 대해 불완전하게 알고 있습니다"
 
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "디렉토리 `%s'를 닫을 수 없습니다"
@@ -985,30 +985,30 @@ msgstr ""
 msgid "invalid interval `%s'"
 msgstr "잘못된 정수 범위: %s"
 
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, fuzzy, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "알 수 없는 프린터 `%s'에 대한 기본 명령이 없습니다"
 
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "표준 출력으로 보냅니다"
 
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "기본 프린터로 보냅니다"
 
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "파일 `%s'로 저장합니다"
 
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "프린터 `%s'로 보냅니다"
 
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "알려진 출력 방향(프린터 등등)"
 
@@ -1080,10 +1080,6 @@ msgstr "애매한 인수 `%s'가 옵션 `%s'에 사용"
 msgid "Valid arguments are:"
 msgstr "올바른 인수는:"
 
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "알 수 없는 시스템 에러"
-
 #: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
@@ -1138,6 +1134,9 @@ msgstr "%s: 옵션 `-W %s'은 애매합니다\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: 옵숀 `-W %s'은 인수가 없습니다\n"
+
+#~ msgid "Unknown system error"
+#~ msgstr "알 수 없는 시스템 에러"
 
 #, fuzzy
 #~ msgid "end of line in a %s"

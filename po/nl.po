@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.13b\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 2007-09-30 22:49+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "any type"
 msgstr "willekeurig"
 
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "ontbrekend argument voor '%s'"
@@ -34,7 +34,7 @@ msgstr "ontbrekend argument voor '%s'"
 msgid "cannot create file `%s'"
 msgstr "kan bestand '%s' niet aanmaken"
 
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "kan geen pijp openen op '%s'"
@@ -754,13 +754,13 @@ msgstr "te veel insluitingen ('includes')"
 msgid "no key defined for `%s'"
 msgstr "geen sleutel gedefinieerd voor '%s'"
 
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "kan bestand '%s' niet vinden"
 
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "automatische stijlkeuze is geannuleerd"
 
@@ -834,7 +834,7 @@ msgstr "vraagteken ('?')"
 msgid "write error"
 msgstr "schrijffout"
 
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "ongeldige optie '%s'"
@@ -844,11 +844,11 @@ msgstr "ongeldige optie '%s'"
 msgid "invalid definition for printer `%s': %s"
 msgstr "ongeldige definitie voor printer '%s': %s"
 
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "Onbekende printer"
 
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "Standaardprinter"
 
@@ -862,7 +862,7 @@ msgstr "ongeldige variabelenaam '%s'"
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "verouderd item '%s' -- genegeerd"
 
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Bekende coderingen"
 
@@ -870,7 +870,7 @@ msgstr "Bekende coderingen"
 msgid "incomplete knowledge of faces"
 msgstr "niet genoeg bekend over uiterlijk"
 
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "kan map '%s' niet sluiten"
@@ -1032,30 +1032,30 @@ msgstr "Bekende PostScript-printeromschrijvingen"
 msgid "invalid interval `%s'"
 msgstr "ongeldig interval '%s'"
 
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "geen opdracht voor de '%s' (%s%s)"
 
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "naar standaarduitvoer gestuurd"
 
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "naar de standaardprinter gestuurd"
 
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "in bestand '%s' opgeslagen"
 
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "naar printer '%s' gestuurd"
 
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Bekende uitvoerapparaten (printers, enz.)"
 
@@ -1127,10 +1127,6 @@ msgstr "argument '%s' bij optie '%s' is niet eenduidig"
 msgid "Valid arguments are:"
 msgstr "Geldige argumenten zijn:"
 
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "Onbekende systeemfout"
-
 #: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
@@ -1185,3 +1181,6 @@ msgstr "%s: optie '-W %s' is niet eenduidig\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: optie '-W %s' staat geen argument toe\n"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Onbekende systeemfout"

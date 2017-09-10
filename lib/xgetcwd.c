@@ -24,19 +24,9 @@
 
 #include <stdio.h>
 #include <errno.h>
-#ifndef errno
-extern int errno;
-#endif
-
+#include <limits.h>
+#include <unistd.h>
 #include <sys/types.h>
-#include "pathmax.h"
-
-#if HAVE_GETCWD
-char *getcwd ();
-#else
-char *getwd ();
-# define getcwd(Buf, Max) getwd (Buf)
-#endif
 
 /* Amount to increase buffer size by in each try. */
 #define PATH_INCR 32

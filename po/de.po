@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 1999-09-21 22:11+02:00\n"
 "Last-Translator: Erwin Dieterich <bamse@gmx.de>\n"
 "Language-Team: German <LL@li.org>\n"
@@ -21,8 +21,8 @@ msgstr ""
 msgid "any type"
 msgstr "alle"
 
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "Fehlendes Argument für `%s'"
@@ -33,7 +33,7 @@ msgstr "Fehlendes Argument für `%s'"
 msgid "cannot create file `%s'"
 msgstr "Kann Ausgabedatei `%s' nicht anlegen."
 
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "Kann Pipe auf `%s' nicht öffnen"
@@ -744,13 +744,13 @@ msgstr ""
 msgid "no key defined for `%s'"
 msgstr "Kann Datei `%s' nicht finden."
 
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "Kann Datei `%s' nicht finden."
 
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "Automatische Format-Auswahl abgebrochen"
 
@@ -825,7 +825,7 @@ msgstr "Fragezeichen (z.B., `?')"
 msgid "write error"
 msgstr "Fehler beim Schreiben"
 
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "Ungültige Option `%s'."
@@ -835,11 +835,11 @@ msgstr "Ungültige Option `%s'."
 msgid "invalid definition for printer `%s': %s"
 msgstr "Ungültiges Kommando für Drucker `%s': %s"
 
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "Unbekannter Drucker"
 
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "Systemdrucker"
 
@@ -853,7 +853,7 @@ msgstr "Ungültiger Variablenbezeichner `%s'"
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "Obsoleter Eintrag `%s'. Ignoriert"
 
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Bekannte Zeichensätze"
 
@@ -861,7 +861,7 @@ msgstr "Bekannte Zeichensätze"
 msgid "incomplete knowledge of faces"
 msgstr "Nicht genügend Information über die Schriftart"
 
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "Kann Verzeichnis `%s' nicht schließen."
@@ -1022,30 +1022,30 @@ msgstr "Bekannte PostScript-Drucker-Beschreibungen"
 msgid "invalid interval `%s'"
 msgstr "Ungültiges Intervall `%s'"
 
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "Kein Kommando für `%s' (%s%s)"
 
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "auf die Standardausgabe geschickt"
 
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "zum voreingestellten Drucker geschickt"
 
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "in die Datei `%s' geschrieben"
 
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "zum Drucker `%s' geschickt"
 
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Bekannte Ausgabegeräte (Drucker usw.)"
 
@@ -1117,10 +1117,6 @@ msgstr "Mehrdeutiges Argument `%s' für `%s'"
 msgid "Valid arguments are:"
 msgstr "Gültige Argumente sind:"
 
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "Unbekannter Fehler im Betriebssystem"
-
 #: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
@@ -1175,6 +1171,9 @@ msgstr "%s: Option »-W %s« ist zweideutig.\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: Option »-W %s« erlaubt keinen Parameter.\n"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Unbekannter Fehler im Betriebssystem"
 
 #, fuzzy
 #~ msgid "end of line in a %s"

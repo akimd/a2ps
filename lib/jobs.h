@@ -19,6 +19,8 @@
 #ifndef _JOBS_H_
 #define _JOBS_H_
 
+#include <time.h>
+
 #include "encoding.h"
 #include "output.h"
 #include "confg.h"

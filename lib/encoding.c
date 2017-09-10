@@ -16,6 +16,9 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#define _GNU_SOURCE
+#include <string.h>
+
 #include "encoding.h"
 #include "routines.h"
 #include "jobs.h"
@@ -28,7 +31,6 @@
 #include "getshline.h"
 #include "document.h"
 #include "quotearg.h"
-#include "strverscmp.h"
 
 /* Suffix of the Encoding Description Files */
 #define EDF_SUFFIX ".edf"

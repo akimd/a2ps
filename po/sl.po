@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 1999-02-19 16:59+01:00\n"
 "Last-Translator: Igor Furlan <IgorF@ix.netcom.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "any type"
 msgstr "kakrsenkoli tip"
 
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "manjka argument za `%s'"
@@ -31,7 +31,7 @@ msgstr "manjka argument za `%s'"
 msgid "cannot create file `%s'"
 msgstr "ne morem ustvariti fajla `%s'"
 
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "ne morem vzpostaviti povezave na `%s'"
@@ -741,13 +741,13 @@ msgstr ""
 msgid "no key defined for `%s'"
 msgstr "ne morem najti fajla `%s'"
 
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "ne morem najti fajla `%s'"
 
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "samodejna izbira stila je izbrisana"
 
@@ -818,7 +818,7 @@ msgstr "vprasaj (npr., `?')"
 msgid "write error"
 msgstr ""
 
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "neveljaven izbor `%s'"
@@ -828,11 +828,11 @@ msgstr "neveljaven izbor `%s'"
 msgid "invalid definition for printer `%s': %s"
 msgstr "neveljavna definicija za tiskalnik `%s': %s"
 
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "Neznani tiskalnik"
 
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "Osnovni/primarni tiskalnik"
 
@@ -846,7 +846,7 @@ msgstr "neveljavni oznacevalec `%s za spremenljivko"
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "nepotrebni vnos `%s'. Ni upostevan"
 
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Znano kodiranje"
 
@@ -854,7 +854,7 @@ msgstr "Znano kodiranje"
 msgid "incomplete knowledge of faces"
 msgstr "nezadostno poznavanje faces"
 
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "ne morem zapreti imenik `%s'"
@@ -1015,30 +1015,30 @@ msgstr "Znani opisi PostScript tiskalnikov "
 msgid "invalid interval `%s'"
 msgstr "neveljaven interval `%s'"
 
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, fuzzy, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "ne obstaja v naprej pripravljen ukaz za neznani tiskalnik `%s'"
 
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "poslano na standardni izhod"
 
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "poslano na primarni tiskalnik"
 
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "shranjeno v fajl `%s'"
 
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "`%s' poslan v tiskanje"
 
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Znane izhodne enote (Tiskalniki, itd.)"
 
@@ -1112,10 +1112,6 @@ msgstr "dvoumen argument `%s' za `%s'"
 msgid "Valid arguments are:"
 msgstr "Pripoznane moznosti so"
 
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "Neprepoznana sistemska napaka"
-
 #: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
@@ -1170,6 +1166,9 @@ msgstr "%s: izbira `-W %s' je dvoumna\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: izbira `-W %s' ne dopusca oziroma sprejema argumenta \n"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Neprepoznana sistemska napaka"
 
 #~ msgid "end-of-line in regular expression"
 #~ msgstr "znak-za-konec-vrstice v normalnem stavku"

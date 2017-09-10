@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 2002-03-25 18:17+0100\n"
 "Last-Translator: H. Turgut Uyar <uyar@cs.itu.edu.tr>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -20,8 +20,8 @@ msgstr ""
 msgid "any type"
 msgstr "her tip"
 
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "`%s' için eksik argüman"
@@ -32,7 +32,7 @@ msgstr "`%s' için eksik argüman"
 msgid "cannot create file `%s'"
 msgstr "`%s' dosyasý yaratýlamýyor"
 
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "`%s' üzerinde pipe açýlamýyor"
@@ -718,13 +718,13 @@ msgstr ""
 msgid "no key defined for `%s'"
 msgstr "`%s' dosyasý bulunamýyor"
 
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "`%s' dosyasý bulunamýyor"
 
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "kendiliðinden stil seçimi kapatýldý"
 
@@ -795,7 +795,7 @@ msgstr "soru iþareti (yani `?')"
 msgid "write error"
 msgstr ""
 
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "geçersiz seçenek `%s'"
@@ -805,11 +805,11 @@ msgstr "geçersiz seçenek `%s'"
 msgid "invalid definition for printer `%s': %s"
 msgstr "`%s' yazýcýsý için hatalý tanýmlama: %s"
 
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "Tanýnmayan Yazýcý"
 
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "Öntanýmlý Yazýcý"
 
@@ -823,7 +823,7 @@ msgstr "geçersiz deðiþken adý `%s'"
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "`%s' kaydý artýk anlamsýz.  Gözardý edildi"
 
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Tanýnan kodlamalar"
 
@@ -831,7 +831,7 @@ msgstr "Tanýnan kodlamalar"
 msgid "incomplete knowledge of faces"
 msgstr "yüzler hakkýnda yetersiz bilgi"
 
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "`%s' dizini kapatýlamýyor"
@@ -992,30 +992,30 @@ msgstr "Tanýnan PostScript Yazýcý Betimlemeleri (PPD)"
 msgid "invalid interval `%s'"
 msgstr "geçersiz aralýk %s"
 
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, fuzzy, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "tanýnmayan `%s' yazýcýsý için öntanýmlý bir komut yok"
 
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "standart çýkýþa gönderildi"
 
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "öntanýmlý yazýcýya gönderildi"
 
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "`%s' dosyasýna yazýldý"
 
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "`%s' yazýcýsýna gönderildi"
 
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Tanýnan çýktý varýþlarý (yazýcýlar v.b.)"
 
@@ -1087,10 +1087,6 @@ msgstr "`%2$s' seçeneði için belirsiz argüman `%1$s'"
 msgid "Valid arguments are:"
 msgstr "Geçerli argümanlar:"
 
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "Tanýnmayan sistem hatasý"
-
 #: lib/getopt.c:673
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
@@ -1145,6 +1141,9 @@ msgstr "%s: `-W %s' seçeneði belirsiz\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: `-W %s' seçeneðine argüman verilemez\n"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Tanýnmayan sistem hatasý"
 
 #, fuzzy
 #~ msgid "end of line in a %s"

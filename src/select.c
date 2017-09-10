@@ -16,10 +16,11 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <fnmatch.h>
+
 #include "a2ps.h"
 #include "select.h"
 #include "routines.h"
-#include "xfnmatch.h"
 #include "getshline.h"
 #include "path-concat.h"
 #include "pathwalk.h"

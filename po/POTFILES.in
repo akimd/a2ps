@@ -57,7 +57,6 @@ lib/xbackupfile.c
 
 # These are GNU standard files
 lib/argmatch.c
-lib/error.c
 lib/getopt.c
 lib/hashtab.c
 # Uses L_(): lib/strtol.c

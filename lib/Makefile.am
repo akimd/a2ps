@@ -56,7 +56,7 @@ title.c xbackupfile.c getnum.c tterm.c lister.c userdata.c
 
 # Libit stuff
 libitpureheaders = \
-fnmatch.h pathmax.h stpncpy.h  xdirent.h		\
+stpncpy.h  xdirent.h		\
 xfnmatch.h xobstack.h
 
 libitpuresources = \
@@ -64,12 +64,12 @@ addext.c basename.c getopt1.c isdir.c xgetcwd.c xgethostname.c xstrdup.c
 
 libitheaders = \
 argmatch.h argv.h backupfile.h dirname.h getopt.h hashtab.h		\
-path-concat.h quotearg.h signame.h strverscmp.h xalloc.h		\
+path-concat.h quotearg.h signame.h xalloc.h		\
 xstrtol.h closeout.h
 
 libitsources = \
 argmatch.c argv.c backupfile.c dirname.c getopt.c hashtab.c		\
-path-concat.c quotearg.c signame.c strverscmp.c xmalloc.c		\
+path-concat.c quotearg.c signame.c xmalloc.c		\
 xstrtol.c closeout.c
 
 noinst_HEADERS = $(liba2psheaders) $(libitheaders) $(mylibitheaders)   \

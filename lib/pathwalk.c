@@ -20,6 +20,9 @@
    some day we should use kpathsea, it would be a waste of time.
    There are other files to rewrite :). */
 
+#define _GNU_SOURCE
+#include <string.h>
+
 #include "a2ps.h"
 #include "pathwalk.h"
 #include "darray.h"
@@ -27,7 +30,6 @@
 #include "routines.h"
 #include "filtdir.h"
 #include "lister.h"
-#include "strverscmp.h"
 #include "quotearg.h"
 #include "dirname.h"
 

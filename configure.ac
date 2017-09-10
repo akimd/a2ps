@@ -11,7 +11,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 m4_pattern_forbid([^jm_[A-Z]])
 
 # Initialize automake
-AM_INIT_AUTOMAKE([1.15 foreign dist-bzip2 no-dist-gzip subdir-objects silent-rules])
+AM_INIT_AUTOMAKE([1.15 foreign dist-bzip2 no-dist-gzip subdir-objects silent-rules -Wall])
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -31,7 +31,6 @@ ALL_LINGUAS="ca cs da de es fr it ja ko nl no pl pt ru sl sv tr"
 ## --------------------- ##
 
 AC_PROG_AWK
-AC_PROG_GNU_M4
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
@@ -39,8 +38,15 @@ jm_PATH_PERL
 
 # Check for the C compiler and the various oddities that may exist
 AC_PROG_CC
+AC_PROG_CC_C99
+
+AS_IF([test "x$ac_cv_prog_cc_c99" = "xno"], [
+  AC_MSG_ERROR([GNU a2ps requires a C99 capable compiler!])
+])
+
 AC_PROG_YACC
 AC_PROG_GPERF
+AM_PROG_AR
 
 # I want flex, and only flex
 AC_PROG_LEX
@@ -82,8 +88,6 @@ AC_CHECK_MEMBERS([struct passwd.pw_gecos],,,
 [#if HAVE_PWD_H
 # include <pwd.h>
 #endif])
-jm_AC_PREREQ_XSTRTOUMAX
-jm_AC_TYPE_UINTMAX_T
 
 ## ---------------------- ##
 ## Checks for Libraries.  ##
@@ -100,18 +104,11 @@ AC_SEARCH_LIBS(getpwuid, sun,
 ## ------------------------------ ##
 
 AC_REPLACE_FUNCS(stpcpy stpncpy strtoul memcpy memset gethostname getuid)
-ad_REPLACE_FUNC_STRCASECMP
-ad_REPLACE_FUNC_STRNCASECMP
-ad_REPLACE_FUNC_RENAME
 AC_CHECK_FUNCS(uname strchr strerror strerror_r getcwd bcopy bzero tempnam strsignal psignal setlocale)
 ad_FUNC_SYSTEMPAPERNAME
-ad_FUNC_ATEXIT
-ad_FUNC_STRFTIME
 AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_VPRINTF
 AC_FUNC_OBSTACK
-
-jm_PREREQ_QUOTEARG
 
 # Check and replace broken or missing "fnmatch"
 AC_FUNC_FNMATCH
@@ -146,10 +143,6 @@ AC_DEFINE(SYNTAX_TABLE, 1,
 ## ---------------------------- ##
 ## Various extentions/options.  ##
 ## ---------------------------- ##
-
-# Some extra warnings
-ad_GCC_WARNINGS
-CFLAGS="$CFLAGS $EXTRA_CFLAGS"
 
 # Where to put the emacs files
 AM_PATH_LISPDIR
@@ -341,7 +334,6 @@ AC_CONFIG_FILES([
   tests/Makefile tests/defs
   lib/Makefile
   build-aux/Makefile
-  m4/Makefile
   etc/Makefile etc/a2ps_cfg etc/a2ps-site.cfg
   po/Makefile.in
   sheets/Makefile

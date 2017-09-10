@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-09 19:04+0200\n"
+"POT-Creation-Date: 2017-09-10 10:57+0200\n"
 "PO-Revision-Date: 2000-01-14 10:48+01:00\n"
 "Last-Translator: Paulo Matos <pjsm@students.fct.unl.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -23,8 +23,8 @@ msgid "any type"
 msgstr "qualquer tipo"
 
 # lib/confg.c:264 lib/encoding.c:577 lib/encoding.c:617 lib/prolog.c:146
-#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:522 lib/encoding.c:568
-#: lib/encoding.c:608 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
+#: src/delegate.c:127 confg.gperf:168 lib/encoding.c:524 lib/encoding.c:570
+#: lib/encoding.c:610 lib/output.c:293 lib/pair_ht.c:284 lib/prolog.c:133
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "argumento em falta para `%s'"
@@ -38,7 +38,7 @@ msgid "cannot create file `%s'"
 msgstr "não consigo criar ficheiro `%s'"
 
 # lib/routines.c:190 lib/routines.c:196 src/delegate.c:269 src/select.c:159
-#: src/delegate.c:259 src/select.c:186 lib/routines.c:180 lib/routines.c:186
+#: src/delegate.c:259 src/select.c:187 lib/routines.c:180 lib/routines.c:186
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "não consigo abrir pipe em `%s'"
@@ -835,14 +835,14 @@ msgstr "não há chave definida para `%s'"
 # /home/akim/src/a2ps-4.12/lib/fonts.l:839
 # /home/akim/src/a2ps-4.12/lib/fonts.l:841 lib/pathwalk.c:328
 # lib/pathwalk.c:414 src/select.c:122 src/ssheet.c:866
-#: src/select.c:115 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: lib/pathwalk.c:322 lib/pathwalk.c:408
+#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
+#: lib/pathwalk.c:324 lib/pathwalk.c:410
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "não consigo encontrar o ficheiro `%s'"
 
 # src/select.c:124
-#: src/select.c:117
+#: src/select.c:118
 msgid "automatic style selection cancelled"
 msgstr "selecção automática de estilo cancelada"
 
@@ -932,7 +932,7 @@ msgid "write error"
 msgstr "erro de escrita"
 
 # lib/confg.c:253 lib/encoding.c:639
-#: confg.gperf:157 lib/encoding.c:630
+#: confg.gperf:157 lib/encoding.c:632
 #, c-format
 msgid "invalid option `%s'"
 msgstr "opção inválida `%s'"
@@ -944,12 +944,12 @@ msgid "invalid definition for printer `%s': %s"
 msgstr "definição inválida para a impressora `%s': %s"
 
 # lib/confg.c:325 lib/confg.c:328
-#: confg.gperf:229 confg.gperf:232 lib/printers.c:39
+#: confg.gperf:229 confg.gperf:232 lib/printers.c:41
 msgid "Unknown Printer"
 msgstr "Impressora Desconhecida"
 
 # lib/confg.c:332 lib/confg.c:335
-#: confg.gperf:236 confg.gperf:239 lib/printers.c:38
+#: confg.gperf:236 confg.gperf:239 lib/printers.c:40
 msgid "Default Printer"
 msgstr "Impressora por Omissão"
 
@@ -966,7 +966,7 @@ msgid "obsolete `%s' entry.  Ignored"
 msgstr "entrada `%s' obsoleta. Ignorada"
 
 # lib/encoding.c:1115 lib/encoding.c:1136
-#: lib/encoding.c:1106 lib/encoding.c:1127
+#: lib/encoding.c:1108 lib/encoding.c:1129
 msgid "Known Encodings"
 msgstr "Codificações conhecidas"
 
@@ -976,7 +976,7 @@ msgid "incomplete knowledge of faces"
 msgstr "conhecimento incompleto das faces"
 
 # lib/filtdir.c:113
-#: lib/filtdir.c:115
+#: lib/filtdir.c:114
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "não consigo fechar o directório `%s'"
@@ -1174,35 +1174,35 @@ msgid "invalid interval `%s'"
 msgstr "intervalo de inteiros ilegal `%s'"
 
 # lib/printers.c:396 lib/printers.c:413
-#: lib/printers.c:388 lib/printers.c:405
+#: lib/printers.c:390 lib/printers.c:407
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "nenhum comando para `%s' (%s%s)"
 
 # lib/printers.c:429
-#: lib/printers.c:421
+#: lib/printers.c:423
 msgid "sent to the standard output"
 msgstr "enviar para o standard output"
 
 # lib/printers.c:430
-#: lib/printers.c:422
+#: lib/printers.c:424
 msgid "sent to the default printer"
 msgstr "enviado para a impressora por omissão"
 
 # lib/printers.c:435
-#: lib/printers.c:427
+#: lib/printers.c:429
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "gravado para o ficheiro `%s'"
 
 # lib/printers.c:436
-#: lib/printers.c:428
+#: lib/printers.c:430
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "enviado para a impressora `%s'"
 
 # lib/printers.c:613 lib/printers.c:621
-#: lib/printers.c:605 lib/printers.c:613
+#: lib/printers.c:607 lib/printers.c:615
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Destinos de saída conhecidos (impressoras, etc.)"
 
@@ -1289,11 +1289,6 @@ msgstr "argumento %s ambíguo para a opção `%s'"
 msgid "Valid arguments are:"
 msgstr "Argumentos válidos são:"
 
-# lib/error.c:102
-#: lib/error.c:99
-msgid "Unknown system error"
-msgstr "Erro de sistema desconhecido"
-
 # lib/getopt.c:675
 #: lib/getopt.c:673
 #, c-format
@@ -1359,6 +1354,10 @@ msgstr "%s: opção `-W %s' é ambigua\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: opção `-W %s' não permite argumentos\n"
+
+# lib/error.c:102
+#~ msgid "Unknown system error"
+#~ msgstr "Erro de sistema desconhecido"
 
 #, fuzzy
 #~ msgid "end of line in a %s"
