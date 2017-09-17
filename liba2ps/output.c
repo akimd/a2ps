@@ -518,7 +518,7 @@ output_file (struct output * out, a2ps_job * job,
 		     expand_user_string (job, FIRST_FILE (job),
 					 (const unsigned char *) "Expand: requirement",
 					 (const unsigned char *) token));
-	output (dest, expansion);
+	output (dest, "%s", expansion);
 	continue;
       }
 

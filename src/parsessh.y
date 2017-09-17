@@ -742,7 +742,7 @@ exception_def_opt:
 void
 yyerror (const char *msg)
 {
-  error_at_line (1, 0, sshfilename, sshlineno, msg);
+  error_at_line (1, 0, sshfilename, sshlineno, "%s", msg);
 }
 
 /*

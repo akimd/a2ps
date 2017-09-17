@@ -156,7 +156,7 @@ font_clause :
 void
 yyerror (const char *msg)
 {
-  error_at_line (1, 0, ppdfilename, ppdlineno, msg);
+  error_at_line (1, 0, ppdfilename, ppdlineno, "%s", msg);
 }
 
 /*

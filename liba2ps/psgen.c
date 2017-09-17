@@ -221,7 +221,7 @@ output_marker (a2ps_job * job, const char * kind, unsigned char * marker)
     default:
       *buf = '\0';
       ps_escape_char (job, cp[i], buf);
-      output (jdiv, (char *) buf);
+      output (jdiv, "%s", (char *) buf);
       break;
     }
   }
