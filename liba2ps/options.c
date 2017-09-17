@@ -22,6 +22,8 @@
 /*			I n c l u d e   f i l e s			*/
 /*                                                                      */
 /************************************************************************/
+#include <config.h>
+
 #include <assert.h>
 
 #include "a2ps.h"
@@ -40,10 +42,12 @@
 #include "argv.h"
 #include "quotearg.h"
 #include "filalign.h"
+#include "version-etc.h"
 
 #define MAN_LINES               66	/* no lines for a man */
 extern char *program_name;
-extern const char *program_invocation_name;
+
+const char version_etc_copyright[] = N_("Copyright (C) 1988-2017 Free Software Foundation, Inc.");
 
 /*
  * Hooks used
@@ -189,8 +193,8 @@ static const bool bool_types[] =
 bool
 a2ps_get_bool (const char *option, const char *arg)
 {
-  ARGMATCH_ASSERT (bool_args, bool_types);
-  return XARGCASEMATCH (option, arg, bool_args, bool_types);
+  //ARGMATCH_VERIFY (bool_args, bool_types);
+  return XARGMATCH (option, arg, bool_args, bool_types);
 }
 
 
@@ -399,14 +403,14 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 
       case 'B':				/* No headers at all */
 	/* Free them if they were allocated */
-	XFREE (job->header);
-	XFREE (job->left_footer);
-	XFREE (job->footer);
-	XFREE (job->right_footer);
-	XFREE (job->left_title);
-	XFREE (job->center_title);
-	XFREE (job->right_title);
-	XFREE (job->water);
+	free (job->header);
+	free (job->left_footer);
+	free (job->footer);
+	free (job->right_footer);
+	free (job->left_title);
+	free (job->center_title);
+	free (job->right_title);
+	free (job->water);
 
 	job->header = UNULL;
 	job->left_footer = UNULL;
@@ -557,8 +561,8 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 
       case 's':
 	/* I'd like to have this test be run at compile time, but how? */
-	ARGMATCH_ASSERT (duplex_args, duplex_types);
-	job->duplex = XARGCASEMATCH ("--sides", optarg,
+	//ARGMATCH_VERIFY (duplex_args, duplex_types);
+	job->duplex = XARGMATCH ("--sides", optarg,
 				     duplex_args, duplex_types);
 	switch (job->duplex)
 	  {
@@ -636,7 +640,7 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 	 * Nevertheless, if encoding.map has been read. which means
 	 * that this is actually a real command line option,
 	 * do store the correct encoding */
-	XFREE (job->requested_encoding_name);
+	free (job->requested_encoding_name);
 	job->requested_encoding_name = xstrdup (optarg);
 	break;
 
@@ -655,9 +659,9 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 	break;
 
       case 135:				/* --non-printable-format */
-	ARGMATCH_ASSERT (non_printable_args, non_printable_types);
+	//ARGMATCH_VERIFY (non_printable_args, non_printable_types);
 	job->unprintable_format =
-	  XARGCASEMATCH ("--non-printable", optarg,
+	  XARGMATCH ("--non-printable", optarg,
 			 non_printable_args, non_printable_types);
 	break;
 

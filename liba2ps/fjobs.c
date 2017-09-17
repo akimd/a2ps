@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "fjobs.h"
@@ -31,7 +33,7 @@ typedef struct file_job fjob_t;
 fjob_t *
 _a2ps_file_job_new (unsigned char *name, int num, struct tm *run_tm)
 {
-  NEW (fjob_t, res);
+  fjob_t * res = XMALLOC (fjob_t);
 
   /* liba2ps.h must not try to read a file.  This is the job of its
      clients.  Hence, make sure, at least, to have reasonable values.  */
@@ -78,8 +80,8 @@ _a2ps_file_job_new (unsigned char *name, int num, struct tm *run_tm)
 void
 file_job_free (fjob_t *file_job)
 {
-  XFREE (file_job->delegation_tmpname);
-  XFREE (file_job->stdin_tmpname);
+  free (file_job->delegation_tmpname);
+  free (file_job->stdin_tmpname);
   free (file_job);
 }
 

@@ -21,54 +21,13 @@
 /*  Create and destroy argument vectors.  An argument vector is simply an
     array of string pointers, terminated by a NULL pointer. */
 
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
-#ifndef alloca
-# ifdef __GNUC__
-#  define alloca __builtin_alloca
-#  define HAVE_ALLOCA 1
-# else
-#  if defined HAVE_ALLOCA_H || defined _LIBC
-#   include <alloca.h>
-#  else
-#   ifdef _AIX
- #pragma alloca
-#   else
-#    ifndef alloca
-char *alloca ();
-#    endif
-#   endif
-#  endif
-# endif
-#endif
-
-#if defined STDC_HEADERS || defined _LIBC
-# include <stdlib.h>
-#else
-# ifdef HAVE_MALLOC_H
-#  include <malloc.h>
-# else
-extern void free ();
-extern void * calloc ();
-extern void * malloc ();
-extern void * realloc ();
-# endif
-#endif
-
-#ifdef HAVE_STRING_H
-# if !STDC_HEADERS && HAVE_MEMORY_H
-#  include <memory.h>
-# endif
-# include <string.h>
-#else
-# include <strings.h>
-char *memchr ();
-#endif
-
-
+#include <alloca.h>
+#include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
+
 /* Jim Meyering writes:
 
    "... Some ctype macros are valid only for character codes that
@@ -80,26 +39,16 @@ char *memchr ();
    Defining isascii to 1 should let any compiler worth its salt
    eliminate the && through constant folding."  */
 
-#if defined (STDC_HEADERS) || (!defined (isascii) && !defined (HAVE_ISASCII))
-#define ISASCII(c) 1
-#else
 #define ISASCII(c) isascii((int) c)
-#endif
-
 #define ISSPACE(c) (ISASCII (c) && isspace   ((int) c))
 
 #include "argv.h"
 
-#ifndef NULL
-#define NULL 0
-#endif
+#define INITIAL_MAXARGC 8	/* Number of args + NULL in initial argv */
 
 #ifndef EOS
 #define EOS '\0'
 #endif
-
-#define INITIAL_MAXARGC 8	/* Number of args + NULL in initial argv */
-
 
 /* dupargv -- duplicate an argument vector */
 

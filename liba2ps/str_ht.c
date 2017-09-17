@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "system.h"
 
 /* Hack! */
@@ -64,7 +66,7 @@ string_htable_new (void)
 {
   struct string_htable * res;
   
-  res = XMALLOC (struct string_htable, 1);
+  res = XMALLOC (struct string_htable);
   hash_init (res, 8,
 	     (hash_func_t) string_hash_1,
 	     (hash_func_t) string_hash_2,

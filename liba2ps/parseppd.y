@@ -30,6 +30,8 @@
  * $Id: parseppd.y,v 1.1.1.1.2.1 2007/12/29 01:58:21 mhatta Exp $
  */
 
+#include <config.h>
+
 #include "a2ps.h"
 
 /* We need to use the same `const' as bison, to avoid the following

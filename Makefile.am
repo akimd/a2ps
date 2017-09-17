@@ -18,10 +18,10 @@
 
 ## Make sure to drop doc at the end: it causes may problems, so
 ## let's do the maximum before it
-SUBDIRS = build-aux etc ps ogonkify liba2ps src po tests \
-	sheets encoding afm fonts ppd contrib doc man
+SUBDIRS = build-aux etc ps ogonkify lib liba2ps src po \
+	tests sheets encoding afm fonts ppd contrib doc man
 
-EXTRA_DIST = TODO ANNOUNCE FAQ a2ps.prj arch
+EXTRA_DIST = TODO ANNOUNCE FAQ a2ps.prj arch m4/gnulib-cache.m4
 
 MAKE_AUTHORS = make-authors.pl
 

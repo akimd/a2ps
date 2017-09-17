@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "routines.h"
 #include "ssheet.h"
@@ -92,7 +94,7 @@ alphabet_self_print (char *a, FILE *s)
 struct pattern *
 new_pattern (char * pattern, size_t len)
 {
-  struct pattern * res = XMALLOC (struct pattern, 1);
+  struct pattern * res = XMALLOC (struct pattern);
   res->pattern = pattern;
   res->len = len;
   return res;
@@ -104,7 +106,7 @@ new_pattern (char * pattern, size_t len)
 struct faced_string *
 faced_string_new (unsigned char * string, int reg_ref, struct fface_s face)
 {
-  struct faced_string * res = XMALLOC (struct faced_string, 1);
+  struct faced_string * res = XMALLOC (struct faced_string);
   res->string = string;
   res->reg_ref = reg_ref;
   res->face = face;
@@ -128,7 +130,7 @@ faced_string_self_print (struct faced_string * faced_string, FILE * stream)
 inline static void
 faced_string_free (struct faced_string * faced_string)
 {
-  XFREE (faced_string->string);
+  free (faced_string->string);
   free (faced_string);
 }
 
@@ -248,7 +250,7 @@ inline static struct rule *
 rule_new_internal_word (unsigned char * word,
 			struct darray * rhs)
 {
-  struct rule * res = XMALLOC (struct rule, 1);
+  struct rule * res = XMALLOC (struct rule);
 
   res->word = word;
   res->regex = NULL;
@@ -265,7 +267,7 @@ rule_new_internal_regexp (struct pattern *pattern,
 			  struct darray *rhs,
 			  const char *filename, size_t line)
 {
-  struct rule *res = XMALLOC (struct rule, 1);
+  struct rule *res = XMALLOC (struct rule);
   const char *error_msg;
 
   /* This is a regular expression.  We want to keep the original
@@ -273,7 +275,7 @@ rule_new_internal_regexp (struct pattern *pattern,
   res->word = (unsigned char *) pattern->pattern;
 
   /* Build the regex structure, and compile the pattern */
-  res->regex = XMALLOC (struct re_pattern_buffer, 1);
+  res->regex = XMALLOC (struct re_pattern_buffer);
   res->regex->translate = NULL;
   res->regex->fastmap = NULL;
   res->regex->buffer = NULL;
@@ -348,7 +350,7 @@ keyword_rule_new (unsigned char * word, struct pattern * pattern,
 static void
 free_rule (struct rule * rule)
 {
-  XFREE (rule->word);
+  free (rule->word);
   if (rule->regex)
     {
       regfree (rule->regex);
@@ -411,7 +413,7 @@ words_new (/* Regular darray parameters */
 	      size_t size, size_t increment)
 {
   int c;
-  struct words * res = XMALLOC (struct words, 1);
+  struct words * res = XMALLOC (struct words);
 
   /* Initialize the underlying darray of strings */
   res->strings = da_new (name_strings, size,
@@ -613,7 +615,7 @@ sequence_new (struct rule * Open,
 	      struct words * Close,
 	      struct words * exceptions)
 {
-  struct sequence * res = XMALLOC (struct sequence, 1);
+  struct sequence * res = XMALLOC (struct sequence);
 
   /* Make sure to set the face of those with No_fface */
   rule_set_no_face (Open, in_face);
@@ -671,7 +673,7 @@ new_C_exceptions (void)
 struct sequence *
 new_C_string_sequence (const char * delimitor)
 {
-  struct sequence * res = XMALLOC (struct sequence, 1);
+  struct sequence * res = XMALLOC (struct sequence);
   res->open = rule_new (xustrdup (delimitor), NULL,
 			rhs_new_single (NULL, 0, Plain_fface),
 			__FILE__, __LINE__);
@@ -706,7 +708,7 @@ sequence_self_print (struct sequence * tmp, FILE * stream)
 struct style_sheet *
 new_style_sheet (const unsigned char * name)
 {
-  NEW (struct style_sheet, res);
+  struct style_sheet * res = XMALLOC (struct style_sheet);
 
   res->name = name;
   res->author = UNULL;
@@ -1418,7 +1420,7 @@ struct hash_table_s *
 new_style_sheets (void)
 {
   struct hash_table_s * res;
-  res = XMALLOC (hash_table, 1);
+  res = XMALLOC (hash_table);
   hash_init (res, 8,
              sheet_hash_1, sheet_hash_2, sheet_hash_cmp);
   return res;

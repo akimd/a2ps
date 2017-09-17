@@ -18,9 +18,12 @@
 
 /* Author: Akim Demaille <demaille@inf.enst.fr> */
 
+#include <config.h>
+
 #include "system.h"
 #include "dstring.h"
 #include "printlen.h"
+#include "routines.h"
 
 #define DS_MARGIN	1024
 
@@ -44,13 +47,13 @@ ds_new (size_t size,
     error (ds_exit_error, 0, "invalid increment for dynamic string: %zu",
 	   increment);
 
-  res = XMALLOC (struct dstring, 1);
+  res = XMALLOC (struct dstring);
   res->len = 0;
   res->size = size;
   res->original_size = size;
   res->growth = growth;
   res->increment = increment;
-  res->content = XMALLOC (char, size);
+  res->content = XNMALLOC (size, char);
   res->content[0] = '\0';
 
   return res;
@@ -102,7 +105,7 @@ ds_resize (struct dstring *string, size_t size)
   if (string->len + 1 < size)
     {
       string->size = size;
-      string->content = XREALLOC (string->content, char, size);
+      string->content = xnrealloc (string->content, size, sizeof(char));
     }
 }
 
@@ -124,7 +127,7 @@ ds_grow (struct dstring *string)
     string->size *= string->increment;
     break;
   }
-  string->content = XREALLOC (string->content, char, string->size);
+  string->content = xnrealloc (string->content, string->size, sizeof(char));
 }
 
 /****************************************************************/

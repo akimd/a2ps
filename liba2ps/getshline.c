@@ -20,19 +20,13 @@
 /* Written by Akim Demaille, demaille@inf.enst.fr
  * from getline.c by Jan Brittenson, bson@gnu.ai.mit.edu.  */
 
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
 #include <stdio.h>
-
-#if HAVE_SYS_TYPES_H
-# include <sys/types.h>
-#endif
+#include <sys/types.h>
 #include <assert.h>
 
 #include "xalloc.h"
-
 #include "getshline.h"
 
 /* Always add at least this many bytes when extending the buffer.  */
@@ -61,7 +55,7 @@ getshstr (int * firstline, int * lastline,
   if (!*lineptr)
     {
       *n = MIN_CHUNK;
-      *lineptr = XMALLOC (char, *n);
+      *lineptr = XNMALLOC (*n, char);
       if (!*lineptr)
 	return -1;
     }
@@ -87,7 +81,7 @@ getshstr (int * firstline, int * lastline,
 	    *n += MIN_CHUNK;
 
 	  nchars_avail = *n + *lineptr - read_pos;
-	  *lineptr = XREALLOC (*lineptr, char, *n);
+	  *lineptr = xnrealloc (*lineptr, *n, sizeof(char));
 	  if (!*lineptr)
 	    return -1;
 	  read_pos = *n - nchars_avail + *lineptr;

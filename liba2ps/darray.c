@@ -18,9 +18,12 @@
 
 /* Author: Akim Demaille <demaille@inf.enst.fr> */
 
+#include <config.h>
+
 #include <system.h>
 
 #include "darray.h"
+#include "routines.h"
 
 int da_exit_error = 1;			/* exit value when encounters	*
 					 * an error 			*/
@@ -53,11 +56,11 @@ da_new (const char * name, size_t size,
     error (da_exit_error, 0, "invalid increment for dynamic array `%s': %zu",
 	   name, increment);
 
-  res = XMALLOC (struct darray, 1);
+  res = XMALLOC (struct darray);
   res->name = name;
   res->original_size = size;
   res->size = size;
-  res->content = XCALLOC (void *, res->size);
+  res->content = XCALLOC (res->size, void *);
   res->growth = growth;
   res->increment = increment;
   res->len = 0;
@@ -73,7 +76,7 @@ static inline void
 _da_erase (struct darray * arr)
 {
   if (arr) {
-    XFREE (arr->content);
+    free (arr->content);
     free (arr);
   }
 }
@@ -156,7 +159,7 @@ da_resize (struct darray * arr, size_t size)
   if (arr->len + 1 < size)
     {
       arr->size = size;
-      arr->content = XREALLOC (arr->content, void *, arr->size);
+      arr->content = xnrealloc (arr->content, arr->size, sizeof(void *));
     }
 }
 
@@ -181,7 +184,7 @@ da_grow (struct darray * arr)
   default:
     abort ();
   }
-  arr->content = XREALLOC (arr->content, void *, arr->size);
+  arr->content = xnrealloc (arr->content, arr->size, sizeof(void *));
 }
 
 /*
@@ -191,8 +194,8 @@ struct darray *
 da_clone (struct darray * array)
 {
   struct darray * res;
-  res = CLONE (array);
-  res->content = CCLONE (array->content, array->len);
+  res = xmemdup (array, sizeof *(array));
+  res->content = xmemdup (array->content, (array->len) * sizeof *(array->content));
   return res;
 }
 
@@ -337,7 +340,7 @@ da_concat (struct darray * arr, struct darray * arr2)
 
   if (len > arr->size) {
     arr->size = len + 1;
-    arr->content = XREALLOC (arr->content, void *, arr->size);
+    arr->content = xnrealloc (arr->content, arr->size, sizeof(void *));
   }
 
   for (i = 0 ; i < arr2->len ; i++)
@@ -355,7 +358,7 @@ da_prefix (struct darray * arr, struct darray * arr2)
 
   if (len > arr->size) {
     arr->size = len + 1;
-    arr->content = XREALLOC (arr->content, void *, arr->size);
+    arr->content = xnrealloc (arr->content, arr->size, sizeof(void *));
   }
 
   /* Move the content of ARR */
@@ -383,7 +386,7 @@ da_qsort (struct darray * arr)
   if (arr->len <= 1)
     return;
 
-  istack = XMALLOC (int, QSORT_STACK);
+  istack = XNMALLOC (QSORT_STACK, int);
   ir = arr->len - 1;
   l = 0;
   jstack = 0;
@@ -462,7 +465,7 @@ da_qsort_with_arg (struct darray * arr, da_cmp_arg_func_t cmp,
   if (arr->len <= 1)
     return;
 
-  istack = XMALLOC (int, QSORT_STACK);
+  istack = XNMALLOC (QSORT_STACK, int);
   ir = arr->len - 1;
   l = 0;
   jstack = 0;

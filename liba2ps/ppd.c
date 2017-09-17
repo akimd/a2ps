@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "ppd.h"
 #include "jobs.h"
@@ -50,7 +52,7 @@ ppd_font_known_p (struct ppd * ppd, const char * fontname)
 struct ppd *
 ppd_new (void)
 {
-  NEW (struct ppd, res);
+  struct ppd * res = XMALLOC (struct ppd);
   res->fonts = string_htable_new ();
   res->key = NULL;
   res->modelname = NULL;
@@ -63,9 +65,9 @@ ppd_free (struct ppd * ppd)
 {
   if (ppd) {
     string_htable_free (ppd->fonts);
-    XFREE (ppd->key);
-    XFREE (ppd->modelname);
-    XFREE (ppd->nickname);
+    free (ppd->key);
+    free (ppd->modelname);
+    free (ppd->nickname);
     free (ppd);
   }
 }

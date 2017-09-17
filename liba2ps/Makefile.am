@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AM_CPPFLAGS = -I$(top_builddir) -I$(top_builddir)/intl -I$(srcdir) \
+AM_CPPFLAGS = -I$(top_builddir) -I$(top_builddir)/intl -I$(srcdir) -I$(top_srcdir)/lib \
 	-DLOCALEDIR=\"$(localedir)\" -DSYSCONFFILE=\"$(sysconfdir)/a2ps.cfg\"
 
 #
@@ -48,29 +48,18 @@ parseppd.y
 
 mylibitheaders = msg.h msg.c message.h xstrrpl.h getshline.h pathwalk.h	\
 darray.h dstring.h printlen.h pair_ht.h filtdir.h str_ht.h		\
-title.h xbackupfile.h getnum.h tterm.h lister.h userdata.h
+title.h xbackupfile.h getnum.h tterm.h lister.h userdata.h xobstack.h
 
 mylibitsources = message.c xstrrpl.c getshline.c pathwalk.c		\
 darray.c dstring.c printlen.c pair_ht.c filtdir.c str_ht.c		\
 title.c xbackupfile.c getnum.c tterm.c lister.c userdata.c
 
-# Libit stuff
-libitpureheaders = \
-stpncpy.h  xdirent.h		\
-xfnmatch.h xobstack.h
+noinst_HEADERS = $(liba2psheaders) $(mylibitheaders)   \
+gettext.h
 
-libitpuresources = \
-addext.c basename.c getopt1.c isdir.c xgetcwd.c xgethostname.c xstrdup.c
+libitheaders = argv.h hashtab.h
 
-libitheaders = \
-argmatch.h argv.h backupfile.h dirname.h getopt.h hashtab.h		\
-path-concat.h quotearg.h signame.h xalloc.h		\
-xstrtol.h closeout.h
-
-libitsources = \
-argmatch.c argv.c backupfile.c dirname.c getopt.c hashtab.c		\
-path-concat.c quotearg.c signame.c xmalloc.c		\
-xstrtol.c closeout.c
+libitsources = argv.c hashtab.c
 
 noinst_HEADERS = $(liba2psheaders) $(libitheaders) $(mylibitheaders)   \
 $(libitpureheaders) gettext.h
@@ -78,6 +67,8 @@ $(libitpureheaders) gettext.h
 
 liba2ps_la_SOURCES = $(liba2pssources) $(libitsources) $(mylibitsources) \
 $(libitpuresources)
+
+liba2ps_la_LIBADD = ../lib/libgnu.la
 
 #
 # Handling the Gperf code

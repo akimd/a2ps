@@ -19,22 +19,14 @@
 #ifndef _PRINTLEN_H_
 #define _PRINTLEN_H_
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
-
 /*
  * Return length of the string sprintf would produce. Always > 0
  */
 /*
  * Varaible arguments
  */
-# if defined (__STDC__) && __STDC__
 extern int printflen (const char *format, ...)
      __attribute__ ((__format__ (__printf__, 1, 2)));
-# else
-int printflen ();
-# endif
 
 /*
  * List of arguments.

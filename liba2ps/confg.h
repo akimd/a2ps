@@ -20,10 +20,6 @@
 #ifndef _CONFG_H_
 #define _CONFG_H_
 
-#ifdef HAVE_CONFIG_H
-#  include "config.h"
-#endif
-
 struct a2ps_job;
 
 /*

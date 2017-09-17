@@ -19,66 +19,22 @@
 /* Akim Demaille <demaille@inf.enst.fr>
  * Based on savedir.c, written by David MacKenzie <djm@gnu.ai.mit.edu>. */
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <stdio.h>
 #include <sys/types.h>
 #include <fnmatch.h>
-
-#ifdef HAVE_UNISTD_H
 #include <unistd.h>
-#endif
+#include <errno.h>
+#include <stdbool.h>
 
-#if HAVE_DIRENT_H
-# include <dirent.h>
-# define NAMLEN(dirent) strlen((dirent)->d_name)
-#else
-# define dirent direct
-# define NAMLEN(dirent) (dirent)->d_namlen
-# if HAVE_SYS_NDIR_H
-#  include <sys/ndir.h>
-# endif
-# if HAVE_SYS_DIR_H
-#  include <sys/dir.h>
-# endif
-# if HAVE_NDIR_H
-#  include <ndir.h>
-# endif
-#endif
-
-#ifdef CLOSEDIR_VOID
-/* Fake a return value. */
-#define CLOSEDIR(d) (closedir (d), 0)
-#else
-#define CLOSEDIR(d) closedir (d)
-#endif
-
-#ifdef HAVE_ERRNO_H
-# include <errno.h>
-#endif
-#ifndef errno
-extern int errno;
-#endif
-
-#if ENABLE_NLS
-# include <libintl.h>
-# define _(Text) gettext (Text)
-#else
-# define textdomain(Domain)
-# define _(Text) Text
-#endif
-
-#if HAVE_STDBOOL_H
-# include <stdbool.h>
-#else
-typedef enum {false = 0, true = 1} bool;
-#endif
+#include <dirent.h>
+#define NAMLEN(dirent) strlen((dirent)->d_name)
 
 #include "error.h"
 #include "darray.h"
 #include "filtdir.h"
+#include "routines.h"
 
 /* Is NAME . or ..? */
 #define IS_NOTDOTDOT(Name)			\
@@ -110,6 +66,6 @@ filterdir (const char *dir,
 	&& (!filter || (*filter) (dir, dp->d_name, filtarg)))
       fun (dir, dp->d_name, arg);
 
-  if (CLOSEDIR (dirp))
+  if (closedir (dirp))
     error (1, errno, _("cannot close directory `%s'"), dir);
 }

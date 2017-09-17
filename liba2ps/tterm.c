@@ -16,63 +16,23 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
 #include <stdio.h>
-
-#if defined STDC_HEADERS || defined _LIBC || defined HAVE_STDLIB_H
-# include <stdlib.h>
-#else
-char *getenv ();
-#endif
-
-#if HAVE_SYS_TYPES_H
-# include <sys/types.h>
-#endif
-
-#if HAVE_UNISTD_H
-# include <unistd.h>
-#endif
-
-#if HAVE_INTTYPES_H
-# include <inttypes.h>
-#endif
-
-#if HAVE_LIMITS_H
-/* limits.h must come before pathmax.h because limits.h on some systems
-   undefs PATH_MAX, whereas pathmax.h sets PATH_MAX.  */
-# include <limits.h>
-#endif
-#ifndef CHAR_BIT
-# define CHAR_BIT 8
-#endif
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <termios.h>
+#include <sys/ioctl.h>
 
 /* The extra casts work around common compiler bugs,
    e.g. Cray C 5.0.3.0 when t == time_t.  */
 #define TYPE_SIGNED(t) (! ((t) 0 < (t) -1))
-#define TYPE_MINIMUM(t) \
-  ((t) (TYPE_SIGNED (t) ? ~ (t) 0 << (sizeof (t) * CHAR_BIT - 1) : (t) 0))
-#define TYPE_MAXIMUM(t) ((t) (~ (t) 0 - TYPE_MINIMUM (t)))
 
 #ifndef INT_MAX
 # define INT_MAX TYPE_MAXIMUM (int)
-#endif
-
-#if HAVE_TERMIOS_H
-# include <termios.h>
-#endif
-
-#ifdef HAVE_SYS_IOCTL
-# include <sys/ioctl.h>
-#endif
-
-#if ENABLE_NLS
-# include <libintl.h>
-# define _(Text) gettext (Text)
-#else
-# define _(Text) Text
 #endif
 
 #include "xstrtol.h"
@@ -197,8 +157,6 @@ tterm_initialize (struct tterm *tterm, FILE *stream)
 /* Sample test of TinyTerm. */
 
 #ifdef TEST
-
-#include <stdio,h>
 
 const char * program_name = "tterm";
 

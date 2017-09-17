@@ -30,6 +30,8 @@
  * $Id: fonts.l,v 1.1.1.1.2.1 2007/12/29 01:58:18 mhatta Exp $
  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "routines.h"
 #include "message.h"
@@ -298,7 +300,7 @@ wx_entry_table_new (void)
 {
   struct hash_table_s * res;
 
-  res = XMALLOC (struct hash_table_s, 1);
+  res = XMALLOC (struct hash_table_s);
   hash_init (res, 8,
 	     (hash_func_t) wx_entry_hash_1,
 	     (hash_func_t) wx_entry_hash_2,
@@ -345,7 +347,7 @@ wx_entry_add (struct hash_table_s * table,
      * Since there is a bug in Ogonkify's AFM files, just shut up. */
     return;
   } else {
-    item = XMALLOC (struct wx_entry, 1);
+    item = XMALLOC (struct wx_entry);
     item->glyph = xstrdup(glyph);
     item->wx = wx;
     item->index = the_index;
@@ -470,7 +472,7 @@ font_info_hash_qcmp (struct font_info **x, struct font_info **y)
 struct hash_table_s *
 font_info_table_new (void)
 {
-  NEW (struct hash_table_s, res);
+  struct hash_table_s * res = XMALLOC (struct hash_table_s);
 
   hash_init (res, 8,
 	     (hash_func_t) font_info_hash_1,
@@ -506,7 +508,7 @@ font_info_table_free (struct hash_table_s * table)
 static inline struct font_info *
 font_info_new (const char * key)
 {
-  NEW (struct font_info, res);
+  struct font_info * res = XMALLOC (struct font_info);
 
   res->key = xstrdup (key);
   res->wx = wx_entry_table_new ();

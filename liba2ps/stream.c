@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "stream.h"
 #include "routines.h"
@@ -28,7 +30,7 @@
 static inline struct stream *
 _stream_ropen (const char * command, bool is_file)
 {
-  NEW (struct stream, res);
+  struct stream * res = XMALLOC (struct stream);
 
   res->is_file = is_file;
   if (!res->is_file)
@@ -59,7 +61,7 @@ static inline struct stream *
 _stream_wopen (const char * command, bool is_file,
 	       enum backup_type backup_type)
 {
-  NEW (struct stream, res);
+  struct stream * res = XMALLOC (struct stream);
 
   res->is_file = is_file;
   if (!res->is_file)
@@ -80,7 +82,7 @@ _stream_wopen (const char * command, bool is_file,
 struct stream *
 stream_wopen (const char * command, bool is_file)
 {
-  return _stream_wopen (command, is_file, none);
+  return _stream_wopen (command, is_file, no_backups);
 }
 
 struct stream *
@@ -119,7 +121,7 @@ stream_perl_open_backup (const char * perl_command,
   switch (*perl_command)
     {
     case '|':
-      return _stream_wopen (*name, false, none);
+      return _stream_wopen (*name, false, no_backups);
 
     case '>':
       return _stream_wopen (*name, true, backup);

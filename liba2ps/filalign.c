@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "filalign.h"
 #include "argmatch.h"
@@ -50,9 +52,9 @@ file_align_argmatch (const char * option, const char * arg)
 {
   int i;
 
-  ARGMATCH_ASSERT (file_align_args, file_align_types);
+  //ARGMATCH_VERIFY (file_align_args, file_align_types);
 
-  i = ARGCASEMATCH (arg, file_align_args, file_align_types);
+  i = ARGMATCH (arg, file_align_args, file_align_types);
   if (i >= 0)
     return file_align_types[i];
 

@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "faces.h"
 #include "routines.h"
@@ -178,12 +180,12 @@ face_eo_font_free (char * face_eo_font [NB_FACES])
   for (f = First_face ; f <= Last_face ; f++)
     /* Xfree because it may not have been initialized if no printing
      * was done (e.g. --help) */
-    XFREE (face_eo_font [f]);
+    free (face_eo_font [f]);
 }
 
 void
 face_set_font (struct a2ps_job * job, enum face_e face, const char * font_name)
 {
-  XFREE (job->face_eo_font [face]);
+  free (job->face_eo_font [face]);
   job->face_eo_font [face] = xstrdup (font_name);
 }

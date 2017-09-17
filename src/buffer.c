@@ -24,6 +24,8 @@
 
    Currently it does not fetch that next char. */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "routines.h"
 #include "argmatch.h"
@@ -88,8 +90,8 @@ enum eol_e
 option_string_to_eol (const char *option,
 		      const char *arg)
 {
-  ARGMATCH_ASSERT (eol_args, eol_types);
-  return XARGCASEMATCH (option, arg, eol_args, eol_types);
+  //ARGMATCH_VERIFY (eol_args, eol_types);
+  return XARGMATCH (option, arg, eol_args, eol_types);
 }
 
 /****************************************************************/
@@ -428,7 +430,7 @@ buffer_get (buffer_t * buffer)
 	buffer->allocsize = buffer->len + 1;
 
       buffer->value =
-	XREALLOC (buffer->value, unsigned char, buffer->allocsize);
+	xnrealloc (buffer->value, buffer->allocsize, sizeof(unsigned char));
 
       for (i = 0; i <= buffer->len; i++)
 	buffer->value[i] = tolower (buffer->content[i]);
@@ -455,7 +457,7 @@ buffer_sample_get (buffer_t * buffer, const char *filename)
   FILE *out = xwfopen (filename);
   size_t cur = 0;
   int c;
-  char *sample_buffer = XMALLOC (char, SAMPLE_SIZE);
+  char *sample_buffer = XNMALLOC (SAMPLE_SIZE, char);
 
   for (; (cur < SAMPLE_SIZE) && ((c = sgetc (buffer)) != EOF); cur++)
     {

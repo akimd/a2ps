@@ -18,78 +18,19 @@
 
 /* Written by Akim Demaille <demaille@inf.enst.fr> */
 
-#include "xbackupfile.h"
+#include <config.h>
 
 #include <assert.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <fcntl.h>
 
-#if HAVE_SYS_STAT_H
-# include <sys/stat.h>
-#endif
-
-#ifdef STAT_MACROS_BROKEN
-# undef S_ISREG
-#endif /* STAT_MACROS_BROKEN.  */
-
-#if !defined(S_ISREG) && defined(S_IFREG)
-# define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
-#endif
-
-#if HAVE_UNISTD_H
-# include <unistd.h>
-#endif
-
-#ifdef HAVE_ERRNO_H
-# include <errno.h>
-#endif
-#ifndef errno
-extern int errno;
-#endif
-
-#if HAVE_STDLIB_H
-# define getopt system_getopt
-# include <stdlib.h>
-# undef getopt
-#endif
-
-/* The following test is to work around the gross typo in
-   systems like Sony NEWS-OS Release 4.0C, whereby EXIT_FAILURE
-   is defined to 0, not 1.  */
-#if !EXIT_FAILURE
-# undef EXIT_FAILURE
-# define EXIT_FAILURE 1
-#endif
-
-#ifndef EXIT_SUCCESS
-# define EXIT_SUCCESS 0
-#endif
-
-#ifdef HAVE_FCNTL_H
-# include <fcntl.h>
-#else
-# include <sys/file.h>
-#endif
-
-#if !defined (SEEK_SET)
-# define SEEK_SET 0
-# define SEEK_CUR 1
-# define SEEK_END 2
-#endif
-#ifndef F_OK
-# define F_OK 0
-# define X_OK 1
-# define W_OK 2
-# define R_OK 4
-#endif
-
+#include "xbackupfile.h"
+#include "routines.h"
 #include "error.h"
 #include "quotearg.h"
-
-#if ENABLE_NLS
-# include <libintl.h>
-# define _(Text) gettext (Text)
-#else
-# define _(Text) Text
-#endif
 
 #define STREQ(s1, s2)            (strcmp ((s1), (s2)) == 0)
 
@@ -152,25 +93,10 @@ create_file_for_backup (char const *file, int oflag, mode_t mode,
 
   assert (oflag & O_CREAT);
 
-  if (backup_type == none)
+  if (backup_type == no_backups)
     return open (file, oflag, mode);
 
-#ifdef O_EXCL
   fd = open (file, oflag | O_EXCL, mode);
-#else
-  {
-    /* This substitute for O_EXCL allows races between `stat' and `open'.  */
-    if (stat (file, &st) == 0)
-      {
-	errno = EEXIST;
-	fd = -1;
-      }
-    else if (errno == ENOENT)
-      fd = open (file, oflag, mode);
-    else
-      return -1;
-  }
-#endif
 
   if (fd < 0 && errno == EEXIST)
     {
@@ -218,7 +144,7 @@ fopen_backup (const char * filename, enum backup_type backup_type)
       if ((errno == ENOENT)
 	  || (errno == ENOTDIR))
 	/* the file does not exist: return */
-	backup_type = none ;
+	backup_type = no_backups ;
       else
 	/* Another kind of error occured: exit */
 	error (1, errno, _("cannot get informations on file `%s'"),
@@ -230,10 +156,10 @@ fopen_backup (const char * filename, enum backup_type backup_type)
      backup, so that the forthcoming fopen does complain on the rights*/
   if (!S_ISREG (filestat.st_mode)
       || access (filename, W_OK))
-    backup_type = none ;
+    backup_type = no_backups ;
 
   /* Definitely, make a backup */
-  if (backup_type != none)
+  if (backup_type != no_backups)
     {
       backup_name = xfind_backup_file_name (filename, backup_type);
       if (rename (filename, backup_name))
@@ -272,7 +198,7 @@ fopen_backup (const char * filename, enum backup_type backup_type)
   fd = create_file_for_backup (filename, O_CREAT, 0666, backup_type);
   if (fd < 0)
     {
-      if (backup_type == none)
+      if (backup_type == no_backups)
 	error (1, errno, _("cannot create file `%s'"), quotearg (filename));
       else
 	error (1, errno, ("cannot backup and create file `%s'"),

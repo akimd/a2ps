@@ -18,6 +18,8 @@
 
 /* Author: Akim Demaille <demaille@inf.enst.fr> */
 
+#include <config.h>
+
 #include "system.h"
 #include <assert.h>
 #include "xstrrpl.h"
@@ -40,7 +42,7 @@ xstrrpl (const char * string, const char * subst[][2])
 
   /* Add one to make sure that it is never zero, which might cause malloc
      to return NULL.  */
-  res = XMALLOC (char, strlen (string) * (max + 1) + 1);
+  res = XNMALLOC (strlen (string) * (max + 1) + 1, char);
   cp = res;
 
   /* Perform the substitutions */
@@ -63,7 +65,7 @@ xstrrpl (const char * string, const char * subst[][2])
   assert (strlen (string) * (max + 1) < cp - res);
 #endif
 
-  res = XREALLOC (res, char, cp - res + 1);
+  res = xnrealloc (res, cp - res + 1, sizeof(char));
 
   return res;
 }

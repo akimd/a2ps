@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-10 11:10+0200\n"
+"Report-Msgid-Bugs-To: bug-a2ps@gnu.org\n"
+"POT-Creation-Date: 2017-09-17 22:54+0200\n"
 "PO-Revision-Date: 1999-10-10 00:49+02:00\n"
 "Last-Translator: Peter Nilsson <pnidv96@student.vxu.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -15,165 +15,165 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/buffer.c:56
+#: src/buffer.c:58
 msgid "any type"
 msgstr "alla typer"
 
-#: src/delegate.c:127 confg.gperf:168 liba2ps/encoding.c:524
-#: liba2ps/encoding.c:570 liba2ps/encoding.c:610 liba2ps/output.c:293
-#: liba2ps/pair_ht.c:284 liba2ps/prolog.c:133
+#: src/delegate.c:129 confg.gperf:171 liba2ps/encoding.c:525
+#: liba2ps/encoding.c:571 liba2ps/encoding.c:611 liba2ps/output.c:295
+#: liba2ps/pair_ht.c:286 liba2ps/prolog.c:135
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "argument för \"%s\" saknas"
 
-#: src/delegate.c:250 liba2ps/routines.c:150 liba2ps/xbackupfile.c:248
-#: liba2ps/xbackupfile.c:276 liba2ps/xbackupfile.c:284
+#: src/delegate.c:252 liba2ps/routines.c:151 liba2ps/xbackupfile.c:174
+#: liba2ps/xbackupfile.c:202 liba2ps/xbackupfile.c:210
 #, c-format
 msgid "cannot create file `%s'"
 msgstr "kan inte skapa filen \"%s\""
 
-#: src/delegate.c:259 src/select.c:187 liba2ps/routines.c:180
-#: liba2ps/routines.c:186
+#: src/delegate.c:261 src/select.c:190 liba2ps/routines.c:181
+#: liba2ps/routines.c:187
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "kan inte öppna rör till \"%s\""
 
-#: src/delegate.c:379
+#: src/delegate.c:381
 #, c-format
 msgid "Delegation `%s', from %s to %s\n"
 msgstr "Delegering \"%s\" från \"%s\" till \"%s\"\n"
 
-#: src/delegate.c:398 src/delegate.c:420
+#: src/delegate.c:400 src/delegate.c:422
 msgid "Applications configured for delegation"
 msgstr "Applikationer konfigurerade för delegering"
 
-#: src/generate.c:81
+#: src/generate.c:82
 #, c-format
 msgid "`%s' is a directory"
 msgstr "\"%s\" är en katalog"
 
-#: src/generate.c:89 src/main.c:551 src/main.c:573 confg.gperf:192
-#: confg.gperf:355 liba2ps/routines.c:144
+#: src/generate.c:90 src/main.c:555 src/main.c:577 confg.gperf:201
+#: confg.gperf:364 liba2ps/routines.c:145
 #, c-format
 msgid "cannot open file `%s'"
 msgstr "kan inte öppna filen \"%s\""
 
-#: src/generate.c:94 liba2ps/xbackupfile.c:224
+#: src/generate.c:95 liba2ps/xbackupfile.c:150
 #, c-format
 msgid "cannot get informations on file `%s'"
 msgstr "kan inte skaffa information om filen \"%s\""
 
-#: src/generate.c:161
+#: src/generate.c:162
 #, c-format
 msgid "[%s (%s): 1 page on 1 sheet]\n"
 msgstr "[%s (%s): 1 sida på 1 ark]\n"
 
-#: src/generate.c:167
+#: src/generate.c:168
 #, c-format
 msgid "[%s (%s): %d pages on 1 sheet]\n"
 msgstr "[%s (%s): %d sidor på 1 ark]\n"
 
-#: src/generate.c:174
+#: src/generate.c:175
 #, c-format
 msgid "[%s (%s): %d pages on %d sheets]\n"
 msgstr "[%s (%s): %d sidor på %d ark]\n"
 
-#: src/generate.c:201
+#: src/generate.c:202
 #, c-format
 msgid "[Total: 1 page on 1 sheet] %s\n"
 msgstr "[Totalt: 1 sida på 1 ark] %s\n"
 
-#: src/generate.c:205
+#: src/generate.c:206
 #, c-format
 msgid "[Total: %d pages on 1 sheet] %s\n"
 msgstr "[Totalt: %d sidor på 1 ark] %s\n"
 
-#: src/generate.c:210
+#: src/generate.c:211
 #, c-format
 msgid "[Total: %d pages on %d sheets] %s\n"
 msgstr "[Totalt: %d sidor på %d ark] %s\n"
 
-#: src/generate.c:219
+#: src/generate.c:220
 msgid "[1 line wrapped]\n"
 msgstr ""
 
-#: src/generate.c:222
+#: src/generate.c:223
 #, fuzzy, c-format
 msgid "[%d lines wrapped]\n"
 msgstr "%d rader per sida"
 
-#: src/generate.c:235
+#: src/generate.c:236
 msgid "[No output produced]\n"
 msgstr "[Ingen utdata skapad]\n"
 
-#: src/generate.c:307
+#: src/generate.c:308
 #, c-format
 msgid "%s, delegated to %s"
 msgstr "%s, delegerad till %s"
 
-#: src/generate.c:315
+#: src/generate.c:316
 #, c-format
 msgid "[%s (%s): failed.  Ignored]\n"
 msgstr "[%s (%s): misslyckades. Ignorerad]\n"
 
-#: src/generate.c:323
+#: src/generate.c:324
 #, c-format
 msgid "[%s (unprintable): ignored]\n"
 msgstr "[%s (går ej att skriva ut): ignorerad]\n"
 
-#: src/generate.c:332
+#: src/generate.c:333
 #, c-format
 msgid "[%s (binary): ignored]\n"
 msgstr "[%s (binär): ignorerad]\n"
 
-#: src/generate.c:353
+#: src/generate.c:354
 msgid "plain"
 msgstr "enkel"
 
-#: lexssh.l:348
+#: lexssh.l:350
 msgid "end-of-line in string constant"
 msgstr "radslut i strängkonstant"
 
-#: lexssh.l:415 src/sheets-map.l:153 src/sheets-map.l:192
+#: lexssh.l:417 src/sheets-map.l:156 src/sheets-map.l:195
 #, fuzzy, c-format
 msgid "end of line inside a %s"
 msgstr "radslut i reguljärt uttryck"
 
-#: src/main.c:194
+#: src/main.c:198
 #, c-format
 msgid "received signal %d: %s"
 msgstr "fick signal %d: %s"
 
-#: src/main.c:233
+#: src/main.c:237
 msgid "heavy"
 msgstr "stor"
 
-#: src/main.c:237
+#: src/main.c:241
 msgid "normal"
 msgstr "normal"
 
-#: src/main.c:241
+#: src/main.c:245
 msgid "none"
 msgstr "ingen"
 
-#: src/main.c:315 src/main.c:319
+#: src/main.c:319 src/main.c:323
 msgid "yes"
 msgstr "ja"
 
-#: src/main.c:316 src/main.c:319 src/main.c:360
+#: src/main.c:320 src/main.c:323 src/main.c:364
 msgid "no"
 msgstr "nej"
 
-#: src/main.c:326
+#: src/main.c:330
 #, c-format
 msgid "Configuration status of %s %s\n"
 msgstr "Konfigurationsstatus för %s %s\n"
 
-#: src/main.c:330 src/main.c:688
+#: src/main.c:334 src/main.c:692
 msgid "Sheets:\n"
 msgstr "Ark:\n"
 
-#: src/main.c:331
+#: src/main.c:335
 #, c-format
 msgid ""
 "  medium          = %s%s, %s\n"
@@ -188,43 +188,43 @@ msgstr ""
 "  \"fil-alignment\"       = %s\n"
 "  inre marginal         = %d\n"
 
-#: src/main.c:340
+#: src/main.c:344
 msgid "portrait"
 msgstr "stående"
 
-#: src/main.c:340
+#: src/main.c:344
 msgid "landscape"
 msgstr "liggande"
 
-#: src/main.c:349
+#: src/main.c:353
 #, c-format
 msgid "%d characters per line"
 msgstr "%d tecken per rad"
 
-#: src/main.c:352
+#: src/main.c:356
 #, c-format
 msgid "%d lines per page"
 msgstr "%d rader per sida"
 
-#: src/main.c:355
+#: src/main.c:359
 #, c-format
 msgid "font size is %gpt"
 msgstr "teckenstorleken är %.0f tum"
 
-#: src/main.c:364
+#: src/main.c:368
 msgid "each line"
 msgstr "varje rad"
 
-#: src/main.c:368
+#: src/main.c:372
 #, c-format
 msgid "each %d lines"
 msgstr "var %d:e rad"
 
-#: src/main.c:371 src/main.c:709
+#: src/main.c:375 src/main.c:713
 msgid "Virtual pages:\n"
 msgstr "Virtuella sidor:\n"
 
-#: src/main.c:372
+#: src/main.c:376
 #, c-format
 msgid ""
 "  number lines         = %s\n"
@@ -237,11 +237,11 @@ msgstr ""
 "  tabulatoravstånd             = %d\n"
 "  format för oskrivbara tecken = %s\n"
 
-#: src/main.c:383
+#: src/main.c:387
 msgid "Headers:\n"
 msgstr "Sidhuvud och sidfot:\n"
 
-#: src/main.c:384
+#: src/main.c:388
 #, c-format
 msgid ""
 "  header       = %s\n"
@@ -262,11 +262,11 @@ msgstr ""
 "  högerställd titel   = %s\n"
 "  text under sidor    = %s\n"
 
-#: src/main.c:403 src/main.c:738
+#: src/main.c:407 src/main.c:742
 msgid "Input:\n"
 msgstr "Indata:\n"
 
-#: src/main.c:404
+#: src/main.c:408
 #, c-format
 msgid ""
 "  truncate lines = %s\n"
@@ -287,15 +287,15 @@ msgstr ""
 "  skriv ut i alla fall      = %s\n"
 "  delegering                = %s\n"
 
-#: src/main.c:429 src/main.c:495
+#: src/main.c:433 src/main.c:499
 msgid "selected automatically"
 msgstr "vald automatiskt"
 
-#: src/main.c:432 src/main.c:757
+#: src/main.c:436 src/main.c:761
 msgid "Pretty-printing:\n"
 msgstr "Snygga utskrifter:\n"
 
-#: src/main.c:433
+#: src/main.c:437
 #, c-format
 msgid ""
 "  style sheet     = %s\n"
@@ -306,15 +306,15 @@ msgstr ""
 "  märkningsnivå         = %s\n"
 "  borttagninngsnivå     = %d\n"
 
-#: src/main.c:453
+#: src/main.c:457
 msgid "never make backups"
 msgstr "skapa aldrig säkerhetskopior"
 
-#: src/main.c:457
+#: src/main.c:461
 msgid "simple backups of every file"
 msgstr "enkla säkerhetskopior av alla filer"
 
-#: src/main.c:462
+#: src/main.c:466
 msgid ""
 "numbered backups of files already numbered,\n"
 "                            and simple of others"
@@ -322,15 +322,15 @@ msgstr ""
 "numrerade säkerhetskopior av filer som redan är numrerade\n"
 "och enkla säkerhetskopior av övriga filer"
 
-#: src/main.c:467
+#: src/main.c:471
 msgid "numbered backups of every file"
 msgstr "numrerade säkerhetskopior av alla filer"
 
-#: src/main.c:471 src/main.c:766
+#: src/main.c:475 src/main.c:770
 msgid "Output:\n"
 msgstr "Utdata:\n"
 
-#: src/main.c:472
+#: src/main.c:476
 #, c-format
 msgid ""
 "  destination     = %s\n"
@@ -341,11 +341,11 @@ msgstr ""
 "  versionshantering         = %s\n"
 "  suffix på säkerhetskopior = %s\n"
 
-#: src/main.c:485 src/main.c:777
+#: src/main.c:489 src/main.c:781
 msgid "PostScript:\n"
 msgstr "PostScript:\n"
 
-#: src/main.c:486
+#: src/main.c:490
 #, c-format
 msgid ""
 "  magic number              = %s\n"
@@ -364,21 +364,21 @@ msgstr ""
 "  sidor per ark              = %s\n"
 "  \"page device\"-definitioner = "
 
-#: src/main.c:506
+#: src/main.c:510
 #, c-format
 msgid "  statusdict definitions    = "
 msgstr "  \"statusdict\"-definitioner  = "
 
-#: src/main.c:509
+#: src/main.c:513
 #, c-format
 msgid "  page prefeed              = %s\n"
 msgstr "  förmatning av sidor        = %s\n"
 
-#: src/main.c:518
+#: src/main.c:522
 msgid "Internals:\n"
 msgstr "Interna detaljer:\n"
 
-#: src/main.c:519
+#: src/main.c:523
 #, c-format
 msgid ""
 "  verbosity level     = %d\n"
@@ -389,7 +389,7 @@ msgstr ""
 "  file-kommando               = %s\n"
 "  katalog för hjälpfiler      = \n"
 
-#: src/main.c:644
+#: src/main.c:648
 #, fuzzy, c-format
 msgid ""
 "Usage: %s [OPTION]... [FILE]...\n"
@@ -410,11 +410,11 @@ msgstr ""
 "Långa flaggor märkta med * kräver \"yes\" eller \"no\" som argument.\n"
 "Motsvarande korta flaggor betyder \"yes\".\n"
 
-#: src/main.c:659
+#: src/main.c:663
 msgid "Tasks:\n"
 msgstr "Uppgifter:\n"
 
-#: src/main.c:660
+#: src/main.c:664
 msgid ""
 "  --version        display version\n"
 "  --help           display this help\n"
@@ -442,7 +442,7 @@ msgstr ""
 "                            printers, prologues, style-sheets, user-"
 "options)\n"
 
-#: src/main.c:671
+#: src/main.c:675
 msgid ""
 "After having performed the task, exit successfully.  Detailed lists may\n"
 "provide additional help on specific features.\n"
@@ -450,11 +450,11 @@ msgstr ""
 "Avsluta normalt, efter att uppgiften har utförts. Detaljerade listor ger\n"
 "mer information om specifika funktioner.\n"
 
-#: src/main.c:679
+#: src/main.c:683
 msgid "Global:\n"
 msgstr "Globala flaggor:\n"
 
-#: src/main.c:680
+#: src/main.c:684
 msgid ""
 "  -q, --quiet, --silent      be really quiet\n"
 "  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
@@ -471,7 +471,7 @@ msgstr ""
 "  -D, --define=NYCKEL[:VÄRDE] ta bort variabeln NYCKEL, eller sätt den till\n"
 "                             VÄRDE\n"
 
-#: src/main.c:689
+#: src/main.c:693
 #, fuzzy
 msgid ""
 "  -M, --medium=NAME      use output medium NAME\n"
@@ -502,7 +502,7 @@ msgstr ""
 "  -j, --borders*             rita ramar runt kolumner\n"
 "  --margin[=NUM]             definiera en inre marginal av storlek NUM\n"
 
-#: src/main.c:702
+#: src/main.c:706
 msgid ""
 "The options -1.. -9 affect several primitive parameters to set up "
 "predefined\n"
@@ -512,7 +512,7 @@ msgid ""
 "options (`--columns', `--font-size' etc.).\n"
 msgstr ""
 
-#: src/main.c:710
+#: src/main.c:714
 msgid ""
 "      --line-numbers=NUM     precede each NUM lines with its line number\n"
 "  -C                         alias for --line-numbers=5\n"
@@ -535,11 +535,11 @@ msgstr ""
 "  -T, --tab-size=NUM         sätt tabulatoravståndet till NUM\n"
 "  --non-printable-format=FMT ange hur icke skrivbara tecken skall skrivas\n"
 
-#: src/main.c:721
+#: src/main.c:725
 msgid "Headings:\n"
 msgstr "Sudhuvud och sidfot:\n"
 
-#: src/main.c:723
+#: src/main.c:727
 #, no-c-format
 msgid ""
 "  -B, --no-header        no page headers at all\n"
@@ -563,11 +563,11 @@ msgstr ""
 "sekvenser\n"
 "  --right-footer[=TEXT]\n"
 
-#: src/main.c:734
+#: src/main.c:738
 msgid "The TEXTs may use special escapes.\n"
 msgstr "TEXT-erna kan innehålla speciella metasekvenser.\n"
 
-#: src/main.c:739
+#: src/main.c:743
 msgid ""
 "  -a, --pages[=RANGE]        select the pages to print\n"
 "  -c, --truncate-lines*      cut long lines\n"
@@ -591,7 +591,7 @@ msgstr ""
 "  --toc=TEXT                 skapa innehållsförteckning\n"
 "  -Z, --delegate*            delegera filer till ett annat program\n"
 
-#: src/main.c:751
+#: src/main.c:755
 msgid ""
 "When delegations are enabled, a2ps may use other applications to handle the\n"
 "processing of files that should not be printed as raw information, e.g., "
@@ -602,7 +602,7 @@ msgstr ""
 "inte skall skrivas ut som rå information, exempelvis HTML, PostScript och "
 "PDF.\n"
 
-#: src/main.c:758
+#: src/main.c:762
 msgid ""
 "  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
 "  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
@@ -616,7 +616,7 @@ msgstr ""
 "  -G                         samma som --highlight-level=heavy\n"
 "  --strip-level=NIVÅ         nivå på bortrensning av kommentarer\n"
 
-#: src/main.c:767
+#: src/main.c:771
 #, fuzzy
 msgid ""
 "  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
@@ -635,7 +635,7 @@ msgstr ""
 "  -P, --printer=NAMN         skicka utdata till skrivaren NAMN\n"
 "  -d                         skicka utdata till standardskrivaren\n"
 
-#: src/main.c:778
+#: src/main.c:782
 msgid ""
 "      --prologue=FILE        include FILE.pro as PostScript prologue\n"
 "      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
@@ -658,7 +658,7 @@ msgstr ""
 "  -k, --page-prefeed         slå på förmatade papper\n"
 "  -K, --no-page-prefeed      slå av förmatade papper\n"
 
-#: src/main.c:792
+#: src/main.c:796
 #, fuzzy
 msgid ""
 "By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
@@ -694,7 +694,7 @@ msgstr ""
 "utskrift,\n"
 "    a2ps -=book paper.dvi.gz -d\n"
 
-#: src/main.c:813
+#: src/main.c:817
 #, fuzzy
 msgid ""
 "News, updates and documentation: visit http://www.gnu.org/software/a2ps/.\n"
@@ -704,7 +704,7 @@ msgstr ""
 "\n"
 "Översättningen är gjord av Peter Nilsson <pnidv96@student.vxu.se>.\n"
 
-#: src/main.c:815
+#: src/main.c:819
 msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
 msgstr ""
 "Rapportera fel till <bug-a2ps@gnu.org>.\n"
@@ -712,302 +712,279 @@ msgstr ""
 "Översättaren är medveten om att översättningen har brister. Kom gärna med\n"
 "konstruktiva synpunkter och tips på förbättringar!\n"
 
-#: src/main.c:933
-#, fuzzy
-msgid ""
-"Copyright (c) 1988-1993 Miguel Santana\n"
-"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n"
-"Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta"
-msgstr ""
-"Copyright (c) 1988-93 Miguel Santana\n"
-"Copyright (c) 1995-99 Akim Demaille, Miguel Santana"
-
-#: src/main.c:1164
+#: src/main.c:1160
 msgid "Table of Content"
 msgstr "Innehållsförteckning"
 
-#: src/parsessh.y:236
+#: src/parsessh.y:238
 #, c-format
 msgid "cannot process `%s' which requires a2ps version %s"
 msgstr "kan inte hantera \"%s\", då den kräver a2ps version %s"
 
-#: src/sheets-map.l:111
+#: src/sheets-map.l:114
 #, c-format
 msgid "unexpected character `%c'"
 msgstr ""
 
-#: src/sheets-map.l:211 lexppd.l:211
+#: src/sheets-map.l:214 lexppd.l:213
+#, c-format
 msgid "too many includes"
 msgstr ""
 
-#: src/sheets-map.l:296 src/sheets-map.l:303
+#: src/sheets-map.l:299 src/sheets-map.l:306
 #, fuzzy, c-format
 msgid "no key defined for `%s'"
 msgstr "kan inte hitta filen \"%s\""
 
-#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: liba2ps/pathwalk.c:324 liba2ps/pathwalk.c:410
+#: src/select.c:119 src/ssheet.c:859 fonts.l:839 fonts.l:841 fonts.l:843
+#: liba2ps/pathwalk.c:323 liba2ps/pathwalk.c:409
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "kan inte hitta filen \"%s\""
 
-#: src/select.c:118
+#: src/select.c:121
+#, c-format
 msgid "automatic style selection cancelled"
 msgstr "väljer ej stilmall automatiskt"
 
-#: src/ssheet.c:286
+#: src/ssheet.c:288
 #, c-format
 msgid "cannot compile regular expression `%s': %s"
 msgstr "kan inte kompilera reguljärt uttryck \"%s\": %s"
 
-#: src/ssheet.c:965 src/ssheet.c:986
+#: src/ssheet.c:967 src/ssheet.c:988
 msgid "Known Style Sheets"
 msgstr "Kända stilmallar"
 
-#: src/ssheet.c:1452
+#: src/ssheet.c:1454
 #, c-format
 msgid "cannot find style sheet `%s': using plain style"
 msgstr "kan inte hitta stilmallen \"%s\": använder enkel stilmall"
 
-#: src/sshread.c:439
+#: src/sshread.c:441
 #, c-format
 msgid "unknown encoding `%s', ignored"
 msgstr "okänd teckenuppsättning \"%s\", ignorerad"
 
-#: src/version-etc.c:39
-msgid "Copyright (C) 1999 Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999 Free Software Foundation, Inc."
-
-#: src/version-etc.c:61
-#, c-format
-msgid "Written by %s.\n"
-msgstr "Utskrivet av %s.\n"
-
-#: src/version-etc.c:67
-msgid ""
-"This is free software; see the source for copying conditions.  There is NO\n"
-"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
-msgstr ""
-"Detta är fri programvara; se källkoden för kopieringsvillkor.  Det finns\n"
-"INGEN garanti; inte ens för SÄLJBARHET eller LÄMPLIGHET FÖR NÅGOT SPECIELLT\n"
-"ÄNDAMÅL.\n"
-
-#: src/versions.c:125
+#: src/versions.c:128
 #, c-format
 msgid "invalid version number `%s'"
 msgstr "felaktigt versionsnummer \"%s\""
 
-#: liba2ps/caret.c:31
+#: liba2ps/caret.c:33
 msgid "space (i.e., ` ')"
 msgstr "mellanslag (d.v.s. \" \")"
 
-#: liba2ps/caret.c:33
+#: liba2ps/caret.c:35
 msgid "octal (i.e., `\\001' etc.)"
 msgstr "oktalt tal (\"\\001\" etc.)"
 
-#: liba2ps/caret.c:35
+#: liba2ps/caret.c:37
 msgid "hexadecimal (i.e., `\\x0a' etc.)"
 msgstr "hexadecimalt tal (\"\\x0a\" etc.)"
 
-#: liba2ps/caret.c:37
+#: liba2ps/caret.c:39
 msgid "caret (i.e., `^C', `M-^C' etc.)"
 msgstr "cirkumflex (\"^C\", \"M-^C\" etc.)"
 
-#: liba2ps/caret.c:39
+#: liba2ps/caret.c:41
 msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
 msgstr "emacs (\"C-c\", \"M-C-c\" etc.)"
 
-#: liba2ps/caret.c:41
+#: liba2ps/caret.c:43
 msgid "question-mark (i.e., `?')"
 msgstr "frågetecken (d.v.s. \"?\")"
 
-#: liba2ps/closeout.c:72 liba2ps/closeout.c:74
-msgid "write error"
-msgstr "fel vid skrivning"
-
-#: confg.gperf:157 liba2ps/encoding.c:632
+#: confg.gperf:160 liba2ps/encoding.c:633
 #, c-format
 msgid "invalid option `%s'"
 msgstr "otillåten flagga \"%s\""
 
-#: confg.gperf:224 confg.gperf:231 confg.gperf:238
+#: confg.gperf:233 confg.gperf:240 confg.gperf:247
 #, c-format
 msgid "invalid definition for printer `%s': %s"
 msgstr "ogiltig definition för skrivaren \"%s\": %s"
 
-#: confg.gperf:229 confg.gperf:232 liba2ps/printers.c:41
+#: confg.gperf:238 confg.gperf:241 liba2ps/printers.c:42
 msgid "Unknown Printer"
 msgstr "Okänd skrivare"
 
-#: confg.gperf:236 confg.gperf:239 liba2ps/printers.c:40
+#: confg.gperf:245 confg.gperf:248 liba2ps/printers.c:41
 msgid "Default Printer"
 msgstr "Standardskrivare"
 
-#: confg.gperf:292 liba2ps/options.c:683
+#: confg.gperf:301 liba2ps/options.c:687
 #, c-format
 msgid "invalid variable identifier `%s'"
 msgstr "ogiltig variabelidentifierare \"%s\""
 
-#: confg.gperf:321
+#: confg.gperf:330
 #, c-format
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "\"%s\" obsolet. Ignorerad"
 
-#: liba2ps/encoding.c:1108 liba2ps/encoding.c:1129
+#: liba2ps/encoding.c:1109 liba2ps/encoding.c:1130
 msgid "Known Encodings"
 msgstr "Kända teckenuppsättningar"
 
-#: liba2ps/faces.c:146
+#: liba2ps/faces.c:148
+#, c-format
 msgid "incomplete knowledge of faces"
 msgstr "otillräcklig kännedom om virtuella typsnitt"
 
-#: liba2ps/filtdir.c:114
+#: liba2ps/filtdir.c:70
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "kan inte stänga katalogen \"%s\""
 
-#: liba2ps/getnum.c:55 liba2ps/getnum.c:113 liba2ps/getnum.c:145
-#: liba2ps/getnum.c:213
+#: liba2ps/getnum.c:41 liba2ps/getnum.c:99 liba2ps/getnum.c:131
+#: liba2ps/getnum.c:199
 #, c-format
 msgid "invalid argument `%s' for `%s'"
 msgstr "ogiltigt argument \"%s\" för flaggan \"%s\""
 
-#: liba2ps/getnum.c:115
+#: liba2ps/getnum.c:101
 #, c-format
 msgid "Valid arguments are integers n such that: %s\n"
 msgstr "Tillåtna argument är heltal n så att: %s\n"
 
-#: liba2ps/getnum.c:215
+#: liba2ps/getnum.c:201
 #, c-format
 msgid "Valid arguments are floats f such that: %s\n"
 msgstr "Tillåtna argument är flyttal f så att: %s\n"
 
-#: liba2ps/jobs.c:302
+#: liba2ps/jobs.c:304
 #, c-format
 msgid "unknown encoding `%s'"
 msgstr "okänd teckenuppsättning \"%s\""
 
-#: liba2ps/madir.c:48
+#: liba2ps/madir.c:51
 msgid "rows first"
 msgstr "rader först"
 
-#: liba2ps/madir.c:51
+#: liba2ps/madir.c:54
 msgid "columns first"
 msgstr "kolumner först"
 
-#: liba2ps/media.c:164
+#: liba2ps/media.c:158
 #, c-format
 msgid "unknown medium `%s'"
 msgstr "okänt medium \"%s\""
 
-#: liba2ps/media.c:199 liba2ps/media.c:228
+#: liba2ps/media.c:193 liba2ps/media.c:222
 msgid "Known Media"
 msgstr "Kända media"
 
-#: liba2ps/media.c:202
+#: liba2ps/media.c:196
 msgid "Name"
 msgstr "Namn"
 
-#: liba2ps/media.c:203
+#: liba2ps/media.c:197
 msgid "dimensions"
 msgstr "dimensioner"
 
-#: liba2ps/metaseq.c:90 liba2ps/metaseq.c:99
+#: liba2ps/metaseq.c:91 liba2ps/metaseq.c:100
 #, c-format
 msgid "Known Variables"
 msgstr "Kända metasekvenser (makron)"
 
-#: liba2ps/metaseq.c:148 liba2ps/metaseq.c:517 liba2ps/metaseq.c:534
-#: liba2ps/metaseq.c:594 liba2ps/metaseq.c:937 liba2ps/metaseq.c:958
+#: liba2ps/metaseq.c:149 liba2ps/metaseq.c:518 liba2ps/metaseq.c:535
+#: liba2ps/metaseq.c:595 liba2ps/metaseq.c:938 liba2ps/metaseq.c:959
 #, c-format
 msgid "%s: missing `%c' for %s%c escape"
 msgstr "%s: \"%c\" saknas för metasekvens %s%c"
 
-#: liba2ps/metaseq.c:274 liba2ps/metaseq.c:286
+#: liba2ps/metaseq.c:275 liba2ps/metaseq.c:287
 #, c-format
 msgid "Printed by %s"
 msgstr "Utskrivet av %s"
 
-#: liba2ps/metaseq.c:284
+#: liba2ps/metaseq.c:285
 #, c-format
 msgid "Printed by %s from %s"
 msgstr "Utskrivet av %s från %s"
 
-#: liba2ps/metaseq.c:294 liba2ps/metaseq.c:313
+#: liba2ps/metaseq.c:295 liba2ps/metaseq.c:314
+#, c-format
 msgid "cannot get current working directory"
 msgstr "kan inte ta reda på aktuell katalog"
 
-#: liba2ps/metaseq.c:327 liba2ps/metaseq.c:520 liba2ps/metaseq.c:549
-#: liba2ps/metaseq.c:638 liba2ps/metaseq.c:940 liba2ps/metaseq.c:973
+#: liba2ps/metaseq.c:328 liba2ps/metaseq.c:521 liba2ps/metaseq.c:550
+#: liba2ps/metaseq.c:639 liba2ps/metaseq.c:941 liba2ps/metaseq.c:974
 #, c-format
 msgid "%s: too long argument for %s escape"
 msgstr "%s: för långt argument till metasekvens %s"
 
-#: liba2ps/metaseq.c:350 liba2ps/metaseq.c:661
+#: liba2ps/metaseq.c:351 liba2ps/metaseq.c:662
 msgid "%b %d, %y"
 msgstr "%d %b %y"
 
-#: liba2ps/metaseq.c:359 liba2ps/metaseq.c:670
+#: liba2ps/metaseq.c:360 liba2ps/metaseq.c:671
 msgid "%A %B %d, %Y"
 msgstr "%Aen den %d %B %Y"
 
-#: liba2ps/metaseq.c:405 liba2ps/metaseq.c:434 liba2ps/metaseq.c:477
-#: liba2ps/metaseq.c:710 liba2ps/metaseq.c:794 liba2ps/metaseq.c:853
-#: liba2ps/metaseq.c:908 liba2ps/metaseq.c:1085 liba2ps/metaseq.c:1220
-#: liba2ps/metaseq.c:1232 liba2ps/metaseq.c:1275
+#: liba2ps/metaseq.c:406 liba2ps/metaseq.c:435 liba2ps/metaseq.c:478
+#: liba2ps/metaseq.c:711 liba2ps/metaseq.c:795 liba2ps/metaseq.c:854
+#: liba2ps/metaseq.c:909 liba2ps/metaseq.c:1086 liba2ps/metaseq.c:1221
+#: liba2ps/metaseq.c:1233 liba2ps/metaseq.c:1276
 #, c-format
 msgid "%s: unknown `%s' escape `%c' (%d)"
 msgstr "%s: okänd \"%s\" metasekvens \"%c\" (%d)"
 
-#: liba2ps/metaseq.c:412 liba2ps/metaseq.c:801
+#: liba2ps/metaseq.c:413 liba2ps/metaseq.c:802
 #, c-format
 msgid "Page %d"
 msgstr "Sidan %d"
 
-#: liba2ps/metaseq.c:417 liba2ps/metaseq.c:812
+#: liba2ps/metaseq.c:418 liba2ps/metaseq.c:813
 #, c-format
 msgid "Page %d/%c"
 msgstr "Sidan %d/%c"
 
-#: liba2ps/metaseq.c:579 liba2ps/metaseq.c:1007
+#: liba2ps/metaseq.c:580 liba2ps/metaseq.c:1008
 #, c-format
 msgid "%s: invalid separator `%s%c' for `%s' escape"
 msgstr "%s: otillåten avskiljare \"%s%c\" för metasekvens \"%s\""
 
-#: liba2ps/metaseq.c:587 liba2ps/metaseq.c:597
+#: liba2ps/metaseq.c:588 liba2ps/metaseq.c:598
 #, c-format
 msgid "%s: invalid argument for %s%c escape"
 msgstr "%s: otillåtet argument för metasekvens %s%c"
 
-#: liba2ps/metaseq.c:808
+#: liba2ps/metaseq.c:809
 #, c-format
 msgid "Page %d/%d"
 msgstr "Siidan %d/%d"
 
-#: liba2ps/metaseq.c:1252
+#: liba2ps/metaseq.c:1253
 msgid "output command"
 msgstr "utkommando"
 
-#: liba2ps/options.c:288
+#: liba2ps/options.c:50
+#, fuzzy
+msgid "Copyright (C) 1988-2017 Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999 Free Software Foundation, Inc."
+
+#: liba2ps/options.c:292
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Försök med \"%s --help\" för mer information.\n"
 
-#: liba2ps/output.c:457
+#: liba2ps/output.c:459
 #, c-format
 msgid "invalid face `%s'"
 msgstr "ogiltligt typsnitt \"%s\""
 
-#: liba2ps/output.c:529
+#: liba2ps/output.c:531
 #, c-format
 msgid "`%s' with no matching `%s'"
 msgstr "\"%s\" utan matchande \"%s\""
 
-#: liba2ps/ppd.c:94
+#: liba2ps/ppd.c:96
 msgid "Known Fonts"
 msgstr "Kända typsnitt"
 
-#: liba2ps/ppd.c:97
+#: liba2ps/ppd.c:99
 msgid ""
 "\n"
 "  None.\n"
@@ -1015,164 +992,161 @@ msgstr ""
 "\n"
 "  Inga.\n"
 
-#: liba2ps/ppd.c:135 liba2ps/ppd.c:151
+#: liba2ps/ppd.c:137 liba2ps/ppd.c:153
 msgid "Known PostScript Printer Descriptions"
 msgstr "Kända PostScript-skrivarbeskrivningar"
 
-#: liba2ps/prange.c:293 liba2ps/prange.c:311
+#: liba2ps/prange.c:295 liba2ps/prange.c:313
 #, c-format
 msgid "invalid interval `%s'"
 msgstr "ogiltigt intervall: %s"
 
-#: liba2ps/printers.c:390 liba2ps/printers.c:407
+#: liba2ps/printers.c:391 liba2ps/printers.c:408
 #, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "inget kommando för \"%s\" (%s%s)"
 
-#: liba2ps/printers.c:423
+#: liba2ps/printers.c:424
 msgid "sent to the standard output"
 msgstr "skickat till standard ut"
 
-#: liba2ps/printers.c:424
+#: liba2ps/printers.c:425
 msgid "sent to the default printer"
 msgstr "skickat till standardskrivaren"
 
-#: liba2ps/printers.c:429
+#: liba2ps/printers.c:430
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "sparat på filen \"%s\""
 
-#: liba2ps/printers.c:430
+#: liba2ps/printers.c:431
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "skickat till skrivaren \"%s\""
 
-#: liba2ps/printers.c:607 liba2ps/printers.c:615
+#: liba2ps/printers.c:608 liba2ps/printers.c:616
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Kända destinationer för utdata (skrivare etc.)"
 
-#: liba2ps/prolog.c:85 liba2ps/prolog.c:168
+#: liba2ps/prolog.c:87 liba2ps/prolog.c:170
 msgid "Known Prologues"
 msgstr "Kända prologer"
 
-#: liba2ps/prolog.c:566
+#: liba2ps/prolog.c:568
 #, c-format
 msgid "font %f too big"
 msgstr "typsnittet %f för stort"
 
-#: liba2ps/psgen.c:649
+#: liba2ps/psgen.c:651
 #, c-format
 msgid "`%s' is a binary file, printing aborted"
 msgstr "\"%s\" är en binär fil; utskriften avbruten"
 
-#: liba2ps/quotearg.c:202
-msgid "`"
-msgstr ""
-
-#: liba2ps/quotearg.c:205
-msgid "'"
-msgstr ""
-
-#: liba2ps/userdata.c:123
+#: liba2ps/userdata.c:114
 msgid "user"
 msgstr "användare"
 
-#: liba2ps/userdata.c:124
+#: liba2ps/userdata.c:115
 msgid "Unknown User"
 msgstr "Okänd användare"
 
-#: liba2ps/useropt.c:63
+#: liba2ps/useropt.c:65
 #, c-format
 msgid "unknown user option `%s'"
 msgstr "okänd användarflagga \"%s\""
 
-#: liba2ps/useropt.c:74 liba2ps/useropt.c:85
+#: liba2ps/useropt.c:76 liba2ps/useropt.c:87
 msgid "Known User Options"
 msgstr "Kända användarflaggor"
 
-#: liba2ps/xbackupfile.c:105 liba2ps/xmalloc.c:51
+#: liba2ps/xbackupfile.c:46
+#, c-format
 msgid "Memory exhausted"
 msgstr "Slut på minne"
 
-#: liba2ps/xbackupfile.c:240 liba2ps/xbackupfile.c:252
+#: liba2ps/xbackupfile.c:166 liba2ps/xbackupfile.c:178
 #, c-format
 msgid "cannot rename file `%s' as `%s'"
 msgstr "kan inte ändra namn på filen \"%s\" till \"%s\"."
 
-#: liba2ps/xbackupfile.c:255
+#: liba2ps/xbackupfile.c:181
 #, c-format
 msgid "restored file `%s'"
 msgstr "återskapad fil \"%s\""
 
-#: liba2ps/argmatch.c:162
-#, fuzzy, c-format
-msgid "invalid argument %s for `%s'"
-msgstr "ogiltigt argument \"%s\" för flaggan \"%s\""
+#, fuzzy
+#~ msgid "Copyright (c) 1988-2017 Free Software Foundation, Inc."
+#~ msgstr "Copyright (C) 1999 Free Software Foundation, Inc."
 
-#: liba2ps/argmatch.c:163
-#, fuzzy, c-format
-msgid "ambiguous argument %s for `%s'"
-msgstr "tvetydigt argument \"%s\" för \"%s\""
+#~ msgid "Written by %s.\n"
+#~ msgstr "Utskrivet av %s.\n"
 
-#: liba2ps/argmatch.c:181
-#, c-format
-msgid "Valid arguments are:"
-msgstr "Tillåtna argument är:"
+#~ msgid ""
+#~ "This is free software; see the source for copying conditions.  There is "
+#~ "NO\n"
+#~ "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR "
+#~ "PURPOSE.\n"
+#~ msgstr ""
+#~ "Detta är fri programvara; se källkoden för kopieringsvillkor.  Det finns\n"
+#~ "INGEN garanti; inte ens för SÄLJBARHET eller LÄMPLIGHET FÖR NÅGOT "
+#~ "SPECIELLT\n"
+#~ "ÄNDAMÅL.\n"
 
-#: liba2ps/getopt.c:673
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: flaggan \"%s\" är tvetydig\n"
+#, fuzzy
+#~ msgid ""
+#~ "Copyright (c) 1988-1993 Miguel Santana\n"
+#~ "Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n"
+#~ "Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta"
+#~ msgstr ""
+#~ "Copyright (c) 1988-93 Miguel Santana\n"
+#~ "Copyright (c) 1995-99 Akim Demaille, Miguel Santana"
 
-#: liba2ps/getopt.c:698
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: flaggan \"--%s\" tillåter inget argument\n"
+#~ msgid "write error"
+#~ msgstr "fel vid skrivning"
 
-#: liba2ps/getopt.c:703
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: flaggan \"%c%s\" tillåter inget argument\n"
+#, fuzzy
+#~ msgid "invalid argument %s for `%s'"
+#~ msgstr "ogiltigt argument \"%s\" för flaggan \"%s\""
 
-#: liba2ps/getopt.c:721 liba2ps/getopt.c:894
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: flaggan \"%s\" kräver argument\n"
+#, fuzzy
+#~ msgid "ambiguous argument %s for `%s'"
+#~ msgstr "tvetydigt argument \"%s\" för \"%s\""
 
-#: liba2ps/getopt.c:750
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: okänd flagga \"--%s\"\n"
+#~ msgid "Valid arguments are:"
+#~ msgstr "Tillåtna argument är:"
 
-#: liba2ps/getopt.c:754
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: okänd flagga \"%c%s\"\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: flaggan \"%s\" är tvetydig\n"
 
-#: liba2ps/getopt.c:780
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: ogiltig flagga -- %c\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"--%s\" tillåter inget argument\n"
 
-#: liba2ps/getopt.c:783
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: otillåten flagga -- %c\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"%c%s\" tillåter inget argument\n"
 
-#: liba2ps/getopt.c:813 liba2ps/getopt.c:943
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: flaggan kräver argument -- %c\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: flaggan \"%s\" kräver argument\n"
 
-#: liba2ps/getopt.c:860
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: okänd flagga \"--%s\"\n"
 
-#: liba2ps/getopt.c:878
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: flaggan \"-W %s\" tillåter inget argument\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: okänd flagga \"%c%s\"\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: ogiltig flagga -- %c\n"
+
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: otillåten flagga -- %c\n"
+
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: flaggan kräver argument -- %c\n"
+
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
+
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"-W %s\" tillåter inget argument\n"
 
 #~ msgid "Unknown system error"
 #~ msgstr "Okänt systemfel"

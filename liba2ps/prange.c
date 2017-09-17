@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "fjobs.h"
@@ -39,7 +41,7 @@ struct interval
 static struct interval *
 interval_new (int min, int max)
 {
-  struct interval * res = XMALLOC (struct interval, 1);
+  struct interval * res = XMALLOC (struct interval);
   res->min = min;
   res->max = max;
   return res;
@@ -138,7 +140,7 @@ struct page_range {
 struct page_range *
 page_range_new (void)
 {
-  NEW (struct page_range, res);
+  struct page_range * res = XMALLOC (struct page_range);
   res->intervals = da_new ("Page Range Interval", 5, da_linear, 10,
 			   (da_print_func_t) interval_self_print, NULL);
   res->toc = false;

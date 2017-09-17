@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 
 /* Hack! */
@@ -75,9 +77,9 @@ pair_hash_qcmp (struct pair **x, struct pair **y)
 static void
 pair_free (struct pair * pair)
 {
-  XFREE (pair->key);
-  XFREE (pair->value);
-  XFREE (pair);
+  free (pair->key);
+  free (pair->value);
+  free (pair);
 }
 
 /* Return the length of the key of PAIR */
@@ -105,7 +107,7 @@ pair_table_new (void)
 {
   struct hash_table_s * res;
 
-  res = XMALLOC (struct hash_table_s, 1);
+  res = XMALLOC (struct hash_table_s);
   hash_init (res, 8,
 	     (hash_func_t) pair_hash_1,
 	     (hash_func_t) pair_hash_2,
@@ -140,7 +142,7 @@ pair_add (struct hash_table_s * table,
     if (item->value)
       free (item->value);
   } else {
-    item = XMALLOC (struct pair, 1);
+    item = XMALLOC (struct pair);
     item->key = xstrdup(key);
   }
 

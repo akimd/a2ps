@@ -16,9 +16,12 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "madir.h"
 #include "argmatch.h"
+#include "routines.h"
 
 /*
  * Return a madir mode
@@ -36,7 +39,7 @@ static madir_t madir_types[] =
 madir_t
 madir_argmatch (const char * option, const char * arg)
 {
-  return XARGCASEMATCH (option, arg, madir_args, madir_types);
+  return XARGMATCH (option, arg, madir_args, madir_types);
 }
 
 const char *

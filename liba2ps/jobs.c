@@ -16,6 +16,10 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
+#include <locale.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "routines.h"
@@ -33,7 +37,7 @@
 #include "lister.h"
 #include "quotearg.h"
 #include "userdata.h"
-#include <locale.h>
+#include "xgethostname.h"
 
 /* Temporary file names should start with a2_
  * Don't make it too big (think of MSDOS), though by definition
@@ -89,7 +93,7 @@ tmpfiles_free (struct a2ps_job * job)
   size_t i;
 
   for (i = 0 ; i < cardinalityof (job->tmp_filenames) ; i ++)
-    XFREE (job->tmp_filenames[i]);
+    free (job->tmp_filenames[i]);
 }
 
 /*
@@ -122,16 +126,14 @@ a2ps_job_new (void)
   a2ps_job * res;
   char * cp;
 
-  res = XMALLOC (a2ps_job, 1);
+  res = XMALLOC (a2ps_job);
 
   /* Specify the quotation style. */
   set_quoting_style (NULL, escape_quoting_style);
 
   /* Set the NLS on */
   setlocale (LC_TIME, "");
-#ifdef HAVE_LC_MESSAGES
   setlocale (LC_MESSAGES, "");
-#endif
   setlocale (LC_CTYPE, "");
 
   bindtextdomain (PACKAGE, LOCALEDIR);
@@ -332,7 +334,7 @@ a2ps_job_free (struct a2ps_job * job)
 
   a2ps_printers_free (job->printers);
 
-  XFREE (job->stdin_filename);
+  free (job->stdin_filename);
 
   /* Encoding handling */
   encodings_table_free (job->encodings);
@@ -342,15 +344,15 @@ a2ps_job_free (struct a2ps_job * job)
   font_info_table_free (job->font_infos);
 
   /* Headers */
-  XFREE (job->title);
-  XFREE (job->header);
-  XFREE (job->center_title);
-  XFREE (job->left_title);
-  XFREE (job->right_title);
-  XFREE (job->left_footer);
-  XFREE (job->footer);
-  XFREE (job->right_footer);
-  XFREE (job->water);
+  free (job->title);
+  free (job->header);
+  free (job->center_title);
+  free (job->left_title);
+  free (job->right_title);
+  free (job->left_footer);
+  free (job->footer);
+  free (job->right_footer);
+  free (job->water);
 
   free (job->prolog);
   free (job->medium_request);

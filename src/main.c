@@ -22,7 +22,11 @@
 /*                      I n c l u d e   f i l e s                       */
 /*                                                                      */
 /************************************************************************/
+#include <config.h>
+
 #include <assert.h>
+#include <signal.h>
+#include <locale.h>
 
 #include "a2ps.h"
 #include "argmatch.h"
@@ -43,12 +47,11 @@
 #include "title.h"
 #include "useropt.h"
 #include "main.h"
+#include "routines.h"
 #include "lexps.h"
-#include <signal.h>
-#include "signame.h"
+#include "sig2str.h"
 #include "long-options.h"
 #include "version-etc.h"
-#include <locale.h>
 
 /* From basename.c */
 char *base_name (const char *path);
@@ -95,7 +98,6 @@ enum behavior behavior = b_ps;
    defined twice, see lib/confg.gperf, handling of `Options:'. */
 
 char *program_name;
-const char *program_invocation_name;
 
 /* Stores the data of liba2ps.  */
 
@@ -186,12 +188,14 @@ exit_handler (void)
     unlink (sample_tmpname);
 }
 
-static RETSIGTYPE
+static void
 signal_handler (int signum)
 {
   /* Error calls exit which calls atexit which removes the files. */
+  char * strsignal = NULL;
+  sig2str (signum, strsignal);
   error (EXIT_FAILURE, 0,
-	 _("received signal %d: %s"), signum, strsignal (signum));
+	 _("received signal %d: %s"), signum, strsignal);
 }
 
 /************************************************************************
@@ -218,8 +222,8 @@ static const int highlight_level_types[] =
 static int
 get_highlight_level (const char *option, const char *arg)
 {
-  ARGMATCH_ASSERT (highlight_level_args, highlight_level_types);
-  return XARGCASEMATCH (option, arg,
+  //ARGMATCH_VERIFY (highlight_level_args, highlight_level_types);
+  return XARGMATCH (option, arg,
 			highlight_level_args, highlight_level_types);
 }
 
@@ -449,21 +453,21 @@ list_options (struct a2ps_job *a_job, FILE *stream)
   /* Make a nice message to tell what version control is used */
   switch (a_job->backup_type)
     {
-    case none:
+    case no_backups:
       cp = _("never make backups");
       break;
 
-    case simple:
+    case simple_backups:
       cp = _("simple backups of every file");
       break;
 
-    case numbered_existing:
+    case numbered_existing_backups:
       /* appears in a2ps --version-=existing --list=defaults */
       cp = _("numbered backups of files already numbered,\n\
                             and simple of others");
       break;
 
-    case numbered:
+    case numbered_backups:
       cp = _("numbered backups of every file");
       break;
     }
@@ -875,8 +879,8 @@ handle_a2ps_option (int option, char *optional_arg)
       break;
 
     case 145:
-      ARGMATCH_ASSERT (behavior_args, behavior_types);
-      behavior = XARGCASEMATCH ("--list", optional_arg,
+      //ARGMATCH_VERIFY (behavior_args, behavior_types);
+      behavior = XARGMATCH ("--list", optional_arg,
 				behavior_args, behavior_types);
       break;
 
@@ -930,16 +934,10 @@ main (int argc, char *argv[])
   /* Name under which this program was called. */
   program_name = base_name (argv[0]);
   program_invocation_name = xstrdup (program_name);
-  version_etc_copyright = N_("\
-Copyright (c) 1988-1993 Miguel Santana\n\
-Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n\
-Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
 
   /* Set the NLS on */
   setlocale (LC_TIME, "");
-#ifdef HAVE_LC_MESSAGES
   setlocale (LC_MESSAGES, "");
-#endif
   setlocale (LC_CTYPE, "");
 
   bindtextdomain (PACKAGE, LOCALEDIR);
@@ -949,8 +947,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
      or --version. */
   parse_long_options (argc, argv,
 		      NULL, GNU_PACKAGE, VERSION,
-		      "Akim Demaille, Miguel Santana",
-		      usage);
+		      usage, "Akim Demaille", "Miguel Santana", (char const *) NULL);
 
   /* Catch the exits and signals to cleanup the mess.
 
@@ -958,7 +955,6 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
      find it beautiful to see `received signal blah blah' even if it
      is even before a2ps could make a move.  */
   atexit (exit_handler);
-  signame_init ();
 #define signal_set(Sig, Handler)		\
  do {						\
    if (signal (Sig, Handler) == SIG_IGN)	\
@@ -1074,7 +1070,7 @@ Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta");
 
     case b_version:
       version_etc (stdout, NULL, GNU_PACKAGE, VERSION,
-		   "Akim Demaille, Miguel Santana");
+		   "Akim Demaille", "Miguel Santana", (char const *) NULL);
       break;
 
     case b_help:

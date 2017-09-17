@@ -20,7 +20,8 @@
    some day we should use kpathsea, it would be a waste of time.
    There are other files to rewrite :). */
 
-#define _GNU_SOURCE
+#include <config.h>
+
 #include <string.h>
 
 #include "a2ps.h"
@@ -59,7 +60,7 @@ pw_internal_string_to_path (const char * path, char sep, int * length)
   const char *cp, *cp2;
   int len;
 
-  res = XCALLOC (char *, allocated);
+  res = XCALLOC (allocated, char *);
   for (cp = path; cp; cp = strchr (cp, sep))
     {
       if (cp != path)
@@ -84,7 +85,7 @@ pw_internal_string_to_path (const char * path, char sep, int * length)
 	    len --;
 	}
 
-      res [ entries ] = XMALLOC (char, len + 1);
+      res [ entries ] = XNMALLOC (len + 1, char);
       strncpy (res [entries],  cp, len);
       res [entries] [len] = '\0';
 
@@ -92,14 +93,14 @@ pw_internal_string_to_path (const char * path, char sep, int * length)
       if (entries >= allocated)
 	{
 	  allocated *= 2;
-	  res = XREALLOC (res, char *, allocated);
+	  res = xnrealloc (res, allocated, sizeof(char *));
 	}
     }
   *length = entries;
 
   /* Make it null-terminated, and exactely that size */
   res [*length] = NULL;
-  res = XREALLOC (res, char *, *length + 1);
+  res = xnrealloc (res, *length + 1, sizeof(char *));
   return res;
 }
 
@@ -142,7 +143,7 @@ pw_path_concat (char ** path1, int len1, char ** path2, int len2)
 
   if (path2)
     {
-      path1 = XREALLOC (path1, char *, len1 + len2 + 1);
+      path1 = xnrealloc (path1, len1 + len2 + 1, sizeof(char *));
       for (i = 0 ; i <= len2 ; i++)
 	path1 [len1 + i] = path2 [i];
       free (path2);
@@ -192,7 +193,7 @@ pw_free_path (char ** path)
   if (path)
     for (i = 0 ; path[i] ; i++)
       free (path[i]);
-  XFREE (path);
+  free (path);
 }
 
 void
@@ -277,17 +278,15 @@ _pw_find_file (char * const * path,
       /* Return a malloc'ed full file name */
       if (suffix)
 	{
-	  res = XMALLOC (char,
-			 strlen (path[i-1]) + 2
-			 + strlen (name) + strlen (suffix));
+	  res = XNMALLOC (strlen (path[i-1]) + 2
+			 + strlen (name) + strlen (suffix), char);
 	  sprintf (res, "%s%c%s%s", path [i-1], DIRECTORY_SEPARATOR,
 		   name, suffix);
 	}
       else
 	{
-	  res = XMALLOC (char,
-			 strlen (path[i-1]) + 2
-			 + strlen (name));
+	  res = XNMALLOC (strlen (path[i-1]) + 2
+			 + strlen (name), char);
 	  sprintf (res, "%s%c%s", path [i-1], DIRECTORY_SEPARATOR,
 		   name);
 	}
@@ -350,7 +349,7 @@ xpw_find_included_file (char * const *path,
 		       + 2));
   sprintf (res, "%s%c%s%s", dir, DIRECTORY_SEPARATOR,
 	   name, suffix ? suffix : "");
-  XFREE (dir);
+  free (dir);
   if (stat (res, &statbuf) == 0)
     return xstrdup (res);
 

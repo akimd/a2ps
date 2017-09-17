@@ -41,7 +41,7 @@
 #include "pathwalk.h"
 #include "confg.h"
 #include "useropt.h"
-#include "path-concat.h"
+#include "filenamecat.h"
 #include "printers.h"
 #include "options.h"
 #include "metaseq.h"
@@ -125,7 +125,10 @@ a2_read_config (a2ps_job * job, const char *path, const char *file)
   size_t bufsiz = 0;
   int firstline = 0, lastline = 0;
 
-  fname = xpath_concat (path, file, NULL);
+  if (path)
+    fname = file_name_concat (path, file, NULL);
+  else
+    fname = strdup (file);
 
   fp = fopen (fname, "r");
   if (fp == NULL)
@@ -187,13 +190,19 @@ a2_read_config (a2ps_job * job, const char *path, const char *file)
 
 	    if (!a2_read_config (job, dir, argv[1]))
 	      {
-		char *included_file = xpath_concat (dir, argv[1], NULL);
+		char *included_file;
+		if (dir)
+		  included_file = file_name_concat (dir, argv[1], NULL);
+		else
+		  included_file = strdup (argv[1]);
+
+
 		error_at_line (0, errno, fname, firstline,
 			       _("cannot open file `%s'"),
 			       quotearg (included_file));
 		free (included_file);
 	      }
-	    XFREE (dir);
+	    free (dir);
 	  }
 	  break;
 
@@ -295,7 +304,7 @@ a2_read_config (a2ps_job * job, const char *path, const char *file)
 
 	  /* Handling of the library path */
 	case LibraryPath:
-	  XFREE (job->common.path);
+	  free (job->common.path);
 	  job->common.path = pw_string_to_path (argv[1]);
 	  break;
 
@@ -322,7 +331,7 @@ a2_read_config (a2ps_job * job, const char *path, const char *file)
 	  break;
 	}
     }
-  XFREE (fname);
+  free (fname);
   fclose (fp);
   /* BUF was allocated by getshlinenumbered. */
   free (buf);

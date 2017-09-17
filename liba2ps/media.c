@@ -16,22 +16,16 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
+#include <paper.h>
+
 #include "a2ps.h"
 #include "media.h"
 #include "jobs.h"
 #include "routines.h"
 #include "lister.h"
 #include "quotearg.h"
-
-#if HAVE_SYSTEMPAPERNAME
-#  if HAVE_PAPER_H
-#    include <paper.h>
-#  else
-extern char *systempapername (void);
-#  endif
-#else
-#define systempapername() NULL;
-#endif
 
 /************************************************************************/
 /*				medium selection			*/
@@ -94,7 +88,7 @@ add_medium (struct a2ps_job * job,
 	   int w, int h,
 	   int llx, int lly, int urx, int ury)
 {
-  struct medium * a_medium = XMALLOC (struct medium, 1);
+  struct medium * a_medium = XMALLOC (struct medium);
 
   a_medium->name = xstrdup (name);
   a_medium->w = w;
@@ -125,7 +119,7 @@ new_medium_table (void)
 {
   struct hash_table_s * res;
 
-  res = XMALLOC (struct hash_table_s, 1);
+  res = XMALLOC (struct hash_table_s);
   hash_init (res, 16,
 	     medium_hash_1, medium_hash_2, medium_hash_cmp);
 

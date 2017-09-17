@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "psstat.h"
 #include "jobs.h"
@@ -60,7 +62,7 @@ new_dict_entry_table (void)
 {
   static struct hash_table_s * res;
 
-  res = XMALLOC (hash_table, 1);
+  res = XMALLOC (hash_table);
   hash_init (res, 8,
 	     key_hash_1, key_hash_2, key_hash_cmp);
   return res;
@@ -70,7 +72,7 @@ static void
 dict_entry_add (struct hash_table_s * table,
 		const char * key, const char * value, int def)
 {
-  NEW (dict_entry, item);
+  dict_entry * item = XMALLOC (dict_entry);
   item->key = xstrdup (key);
   item->value = xstrdup (value);
   item->def = def;
@@ -122,7 +124,7 @@ free_dict_entry_table (struct hash_table_s * table)
 struct ps_status *
 new_ps_status (void)
 {
-  struct ps_status * res = XMALLOC (struct ps_status, 1);
+  struct ps_status * res = XMALLOC (struct ps_status);
 
   /* The very first line of a PS file */
   res->magic_number = xustrdup ("%!PS-Adobe-3.0");

@@ -1,14 +1,12 @@
 # List of files which containing translatable strings. -*- ksh -*-
 #
-# Copyright (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
-# Copyright (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel Santana
+# Copyright (c) 1988-2017 Free Software Foundation, Inc.
 
 # Package source files
 src/buffer.c
 src/delegate.c
 src/generate.c
 src/lexssh.c
-src/long-options.c
 src/main.c
 # src/parsessh.c
 src/parsessh.y
@@ -17,12 +15,10 @@ src/sheets-map.l
 src/select.c
 src/ssheet.c
 src/sshread.c
-src/version-etc.c
 src/versions.c
 
 # a2ps own files
 liba2ps/caret.c
-liba2ps/closeout.c
 liba2ps/confg.c
 #liba2ps/darray.c
 #liba2ps/dstring.c
@@ -47,18 +43,9 @@ liba2ps/prange.c
 liba2ps/printers.c
 liba2ps/prolog.c
 liba2ps/psgen.c
-liba2ps/quotearg.c
 liba2ps/routines.c
 # liba2ps/title.c uses __attribute__(Spec)
 liba2ps/tterm.c
 liba2ps/userdata.c
 liba2ps/useropt.c
 liba2ps/xbackupfile.c
-
-# These are GNU standard files
-liba2ps/argmatch.c
-liba2ps/getopt.c
-liba2ps/hashtab.c
-# Uses L_(): liba2ps/strtol.c
-# Doesn't use the same string as us: liba2ps/obstack.c
-liba2ps/xmalloc.c

@@ -19,18 +19,9 @@
 #ifndef _ROUTINES_H_
 # define _ROUTINES_H_
 
-/*
- * From xgetcwd.c
- */
-char *xgetcwd (void);
-
-/*
- * from xgethostname.c
- */
-char *xgethostname (void);
-
-char *stpcpy (char * dest, const char * src);
-char *stpncpy (char * dest, const char * src, size_t n);
+#include <libintl.h>
+#define _(String) gettext (String)
+#define N_(String) String
 
 /*
  * unsigned char variation of usual functions on strings
@@ -106,7 +97,7 @@ char *stpncpy (char * dest, const char * src, size_t n);
 #define xstrcpy(s1, s2)					\
  do {				       			\
    const char *my_s2 = (s2);	       			\
-   XFREE (s1);					       	\
+   free (s1);					       	\
    s1 = !IS_EMPTY (my_s2) ? xstrdup (my_s2) : NULL;	\
  } while (0)
 
@@ -120,7 +111,7 @@ char *stpncpy (char * dest, const char * src, size_t n);
 #define xustrcpy(s1, s2)				\
  do {				       			\
    const unsigned char *my_s2 = (unsigned char *) (s2);			\
-   XFREE (s1);					       	\
+   free (s1);					       	\
    s1 = !IS_EMPTY (my_s2) ? xustrdup (my_s2) : UNULL;	\
  } while (0)
 

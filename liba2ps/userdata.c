@@ -16,29 +16,24 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
+#include <string.h>
+#include <pwd.h>
+
 #include "system.h"
 #include "xalloc.h"
 #include "userdata.h"
-
-char *stpcpy (char *dest, const char *src);
-
-#if !HAVE_PWD_H
-struct passwd
-{
-  const char *pw_name;
-  const char *pw_gecos;
-  const char *pw_dir;
-};
-#endif
+#include "routines.h"
 
 /* Free the memory hold by UDATA, but not UDATA itself. */
 void
 userdata_free (struct userdata *udata)
 {
-  XFREE (udata->login);
-  XFREE (udata->name);
-  XFREE (udata->comments);
-  XFREE (udata->home);
+  free (udata->login);
+  free (udata->name);
+  free (udata->comments);
+  free (udata->home);
 }
 
 void
@@ -48,9 +43,7 @@ userdata_get (struct userdata *udata)
   const char *home, *login;
   char *comments = NULL, *name = NULL, *cp;
 
-#if HAVE_GETPWUID
   passwd = getpwuid (getuid ());
-#endif
 
   /* Home dir. */
   if ((cp = getenv ("HOME")))
@@ -72,7 +65,6 @@ userdata_get (struct userdata *udata)
 
   /* The field `pw_gecos' contains the full name and comments, such as
      phone number etc. */
-#ifdef HAVE_STRUCT_PASSWD_PW_GECOS
   if (passwd && passwd->pw_gecos)
     {
       char *gecos = NULL;
@@ -118,7 +110,6 @@ userdata_get (struct userdata *udata)
 	  comments++;
 	}
     }
-#endif
 
   udata->login = xstrdup (login ? login : _("user"));
   udata->name = xstrdup (name ? name : _("Unknown User"));

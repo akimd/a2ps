@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "fjobs.h"
@@ -93,7 +95,7 @@ delegate_free (struct delegation *delegation)
 struct hash_table_s *
 delegation_table_new (void)
 {
-  NEW (struct hash_table_s, res);
+  struct hash_table_s * res = XMALLOC (struct hash_table_s);
   hash_init (res, 8,
 	     delegate_hash_1, delegate_hash_2, delegate_hash_cmp);
   return res;
@@ -133,7 +135,7 @@ add_delegation (const char *filename, int line,
   char *cp, *cp2;
   struct delegation *contract;
 
-  contract = XMALLOC (struct delegation, 1);
+  contract = XMALLOC (struct delegation);
 
   /* Structure of the line:
      <name of contract> <source type>:<destination type> <command> */
@@ -145,7 +147,7 @@ add_delegation (const char *filename, int line,
   error_if_null (cp);
   cp2 = strtok (NULL, " \t\n");
   error_if_null (cp2);
-  contract->contract = XMALLOC (char, strlen (cp) + strlen (cp2) + 2);
+  contract->contract = XNMALLOC (strlen (cp) + strlen (cp2) + 2, char);
   sprintf (contract->contract, "%s:%s", cp, cp2);
 
   cp = strtok (NULL, "\n");

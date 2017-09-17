@@ -19,7 +19,6 @@
 #ifndef _MEDIAS_H_
 #define _MEDIAS_H_
 
-#include "config.h"
 #include "hashtab.h"
 
 struct a2ps_job;

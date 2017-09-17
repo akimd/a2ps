@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "common.h"
 #include "pathwalk.h"
 
@@ -34,7 +36,7 @@ a2ps_common_reset (struct a2ps_common_s * common)
 struct a2ps_common_s *
 a2ps_common_new (void)
 {
-  NEW (struct a2ps_common_s, res);
+  struct a2ps_common_s * res = XMALLOC (struct a2ps_common_s);
   a2ps_common_reset (res);
   return res;
 }

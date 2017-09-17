@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: a2ps 4.12c\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-10 11:10+0200\n"
+"Report-Msgid-Bugs-To: bug-a2ps@gnu.org\n"
+"POT-Creation-Date: 2017-09-17 22:54+0200\n"
 "PO-Revision-Date: 1999-02-19 16:59+01:00\n"
 "Last-Translator: Igor Furlan <IgorF@ix.netcom.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -15,165 +15,165 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/buffer.c:56
+#: src/buffer.c:58
 msgid "any type"
 msgstr "kakrsenkoli tip"
 
-#: src/delegate.c:127 confg.gperf:168 liba2ps/encoding.c:524
-#: liba2ps/encoding.c:570 liba2ps/encoding.c:610 liba2ps/output.c:293
-#: liba2ps/pair_ht.c:284 liba2ps/prolog.c:133
+#: src/delegate.c:129 confg.gperf:171 liba2ps/encoding.c:525
+#: liba2ps/encoding.c:571 liba2ps/encoding.c:611 liba2ps/output.c:295
+#: liba2ps/pair_ht.c:286 liba2ps/prolog.c:135
 #, c-format
 msgid "missing argument for `%s'"
 msgstr "manjka argument za `%s'"
 
-#: src/delegate.c:250 liba2ps/routines.c:150 liba2ps/xbackupfile.c:248
-#: liba2ps/xbackupfile.c:276 liba2ps/xbackupfile.c:284
+#: src/delegate.c:252 liba2ps/routines.c:151 liba2ps/xbackupfile.c:174
+#: liba2ps/xbackupfile.c:202 liba2ps/xbackupfile.c:210
 #, c-format
 msgid "cannot create file `%s'"
 msgstr "ne morem ustvariti fajla `%s'"
 
-#: src/delegate.c:259 src/select.c:187 liba2ps/routines.c:180
-#: liba2ps/routines.c:186
+#: src/delegate.c:261 src/select.c:190 liba2ps/routines.c:181
+#: liba2ps/routines.c:187
 #, c-format
 msgid "cannot open a pipe on `%s'"
 msgstr "ne morem vzpostaviti povezave na `%s'"
 
-#: src/delegate.c:379
+#: src/delegate.c:381
 #, c-format
 msgid "Delegation `%s', from %s to %s\n"
 msgstr "Prenos izvrsitve `%s', iz %s na  %s\n"
 
-#: src/delegate.c:398 src/delegate.c:420
+#: src/delegate.c:400 src/delegate.c:422
 msgid "Applications configured for delegation"
 msgstr "Aplikacije prirejene za prenos izvrsbe "
 
-#: src/generate.c:81
+#: src/generate.c:82
 #, c-format
 msgid "`%s' is a directory"
 msgstr "`%s' je imenik"
 
-#: src/generate.c:89 src/main.c:551 src/main.c:573 confg.gperf:192
-#: confg.gperf:355 liba2ps/routines.c:144
+#: src/generate.c:90 src/main.c:555 src/main.c:577 confg.gperf:201
+#: confg.gperf:364 liba2ps/routines.c:145
 #, c-format
 msgid "cannot open file `%s'"
 msgstr "ne morem odpreti fajla `%s'"
 
-#: src/generate.c:94 liba2ps/xbackupfile.c:224
+#: src/generate.c:95 liba2ps/xbackupfile.c:150
 #, c-format
 msgid "cannot get informations on file `%s'"
 msgstr "ne najdem podatkov o fajlu `%s'"
 
-#: src/generate.c:161
+#: src/generate.c:162
 #, c-format
 msgid "[%s (%s): 1 page on 1 sheet]\n"
 msgstr "[%s (%s): ena stran na listu]\n"
 
-#: src/generate.c:167
+#: src/generate.c:168
 #, c-format
 msgid "[%s (%s): %d pages on 1 sheet]\n"
 msgstr "[%s (%s): %d strani na enemu listu]\n"
 
-#: src/generate.c:174
+#: src/generate.c:175
 #, c-format
 msgid "[%s (%s): %d pages on %d sheets]\n"
 msgstr "[%s (%s): %d strani na %d listih]\n"
 
-#: src/generate.c:201
+#: src/generate.c:202
 #, c-format
 msgid "[Total: 1 page on 1 sheet] %s\n"
 msgstr "[Skupaj: ena stran na enemu listu] %s\n"
 
-#: src/generate.c:205
+#: src/generate.c:206
 #, c-format
 msgid "[Total: %d pages on 1 sheet] %s\n"
 msgstr "[Skupaj: %d strani na enemu listu] %s\n"
 
-#: src/generate.c:210
+#: src/generate.c:211
 #, c-format
 msgid "[Total: %d pages on %d sheets] %s\n"
 msgstr "[Skupaj: %d strani na %d listih] %s\n"
 
-#: src/generate.c:219
+#: src/generate.c:220
 msgid "[1 line wrapped]\n"
 msgstr ""
 
-#: src/generate.c:222
+#: src/generate.c:223
 #, fuzzy, c-format
 msgid "[%d lines wrapped]\n"
 msgstr "%d vrstic na stran"
 
-#: src/generate.c:235
+#: src/generate.c:236
 msgid "[No output produced]\n"
 msgstr "[Nic nismo dobili na izhod]\n"
 
-#: src/generate.c:307
+#: src/generate.c:308
 #, c-format
 msgid "%s, delegated to %s"
 msgstr "%s, pooblascen na %s"
 
-#: src/generate.c:315
+#: src/generate.c:316
 #, c-format
 msgid "[%s (%s): failed.  Ignored]\n"
 msgstr "[%s (%s): napaka. Ukaz ne bo izvrsen]\n"
 
-#: src/generate.c:323
+#: src/generate.c:324
 #, c-format
 msgid "[%s (unprintable): ignored]\n"
 msgstr "[%s (ni mozno natisniti): Ukaz ne bo izvrsen]\n"
 
-#: src/generate.c:332
+#: src/generate.c:333
 #, c-format
 msgid "[%s (binary): ignored]\n"
 msgstr "[%s (binarna oblika): Ukaz ne bo izvrsen]\n"
 
-#: src/generate.c:353
+#: src/generate.c:354
 msgid "plain"
 msgstr "osnovni oziroma obicajen"
 
-#: lexssh.l:348
+#: lexssh.l:350
 msgid "end-of-line in string constant"
 msgstr "znak-za-konec-vrstice v znakovni konstanti"
 
-#: lexssh.l:415 src/sheets-map.l:153 src/sheets-map.l:192
+#: lexssh.l:417 src/sheets-map.l:156 src/sheets-map.l:195
 #, fuzzy, c-format
 msgid "end of line inside a %s"
 msgstr "znak-za-konec-vrstice v znakovni konstanti"
 
-#: src/main.c:194
+#: src/main.c:198
 #, c-format
 msgid "received signal %d: %s"
 msgstr "prejeti signal %d: %s"
 
-#: src/main.c:233
+#: src/main.c:237
 msgid "heavy"
 msgstr "povdarjeno"
 
-#: src/main.c:237
+#: src/main.c:241
 msgid "normal"
 msgstr "normalno"
 
-#: src/main.c:241
+#: src/main.c:245
 msgid "none"
 msgstr "nicesar"
 
-#: src/main.c:315 src/main.c:319
+#: src/main.c:319 src/main.c:323
 msgid "yes"
 msgstr ""
 
-#: src/main.c:316 src/main.c:319 src/main.c:360
+#: src/main.c:320 src/main.c:323 src/main.c:364
 msgid "no"
 msgstr "ne"
 
-#: src/main.c:326
+#: src/main.c:330
 #, c-format
 msgid "Configuration status of %s %s\n"
 msgstr "Trenutno stanje nastavitev  %s %s\n"
 
-#: src/main.c:330 src/main.c:688
+#: src/main.c:334 src/main.c:692
 msgid "Sheets:\n"
 msgstr "Listov:\n"
 
-#: src/main.c:331
+#: src/main.c:335
 #, c-format
 msgid ""
 "  medium          = %s%s, %s\n"
@@ -188,43 +188,43 @@ msgstr ""
 "  poravnava        = %s\n"
 "  notranji rob     = %d\n"
 
-#: src/main.c:340
+#: src/main.c:344
 msgid "portrait"
 msgstr "pokoncno"
 
-#: src/main.c:340
+#: src/main.c:344
 msgid "landscape"
 msgstr "lezece"
 
-#: src/main.c:349
+#: src/main.c:353
 #, c-format
 msgid "%d characters per line"
 msgstr "%d znakov v vrstici"
 
-#: src/main.c:352
+#: src/main.c:356
 #, c-format
 msgid "%d lines per page"
 msgstr "%d vrstic na stran"
 
-#: src/main.c:355
+#: src/main.c:359
 #, c-format
 msgid "font size is %gpt"
 msgstr "velikost znaka/crke je  %gpt"
 
-#: src/main.c:364
+#: src/main.c:368
 msgid "each line"
 msgstr "vsaka vrstica"
 
-#: src/main.c:368
+#: src/main.c:372
 #, c-format
 msgid "each %d lines"
 msgstr "vsakih %d vrstic"
 
-#: src/main.c:371 src/main.c:709
+#: src/main.c:375 src/main.c:713
 msgid "Virtual pages:\n"
 msgstr "Navidezne strani:\n"
 
-#: src/main.c:372
+#: src/main.c:376
 #, c-format
 msgid ""
 "  number lines         = %s\n"
@@ -237,11 +237,11 @@ msgstr ""
 "  dolzina tabularija            = %d\n"
 "  oblika nenatiskljivih znakov  = %s\n"
 
-#: src/main.c:383
+#: src/main.c:387
 msgid "Headers:\n"
 msgstr "Glave strani:\n"
 
-#: src/main.c:384
+#: src/main.c:388
 #, c-format
 msgid ""
 "  header       = %s\n"
@@ -262,11 +262,11 @@ msgstr ""
 "  desni naslov           = %s\n"
 "  predloga               = %s\n"
 
-#: src/main.c:403 src/main.c:738
+#: src/main.c:407 src/main.c:742
 msgid "Input:\n"
 msgstr "Vhod:\n"
 
-#: src/main.c:404
+#: src/main.c:408
 #, c-format
 msgid ""
 "  truncate lines = %s\n"
@@ -287,15 +287,15 @@ msgstr ""
 "  vseeno natisni            = %s\n"
 "  izvrsitev ukaza prenesena = %s\n"
 
-#: src/main.c:429 src/main.c:495
+#: src/main.c:433 src/main.c:499
 msgid "selected automatically"
 msgstr "avtomaticni izbor"
 
-#: src/main.c:432 src/main.c:757
+#: src/main.c:436 src/main.c:761
 msgid "Pretty-printing:\n"
 msgstr "Prijeten natis:\n"
 
-#: src/main.c:433
+#: src/main.c:437
 #, c-format
 msgid ""
 "  style sheet     = %s\n"
@@ -306,15 +306,15 @@ msgstr ""
 "  nivo povdarjanja = %s\n"
 "  nivo zadrzevanja = %d\n"
 
-#: src/main.c:453
+#: src/main.c:457
 msgid "never make backups"
 msgstr "nikoli ne naredi varnostne kopije"
 
-#: src/main.c:457
+#: src/main.c:461
 msgid "simple backups of every file"
 msgstr "preprosta varnostna kopija vsakega fajla"
 
-#: src/main.c:462
+#: src/main.c:466
 msgid ""
 "numbered backups of files already numbered,\n"
 "                            and simple of others"
@@ -322,15 +322,15 @@ msgstr ""
 "ostevilcene varnostne kopije fajlov , ki ze imajo stevilko,\n"
 "                                   in preprosta varnostna kopija za ostale"
 
-#: src/main.c:467
+#: src/main.c:471
 msgid "numbered backups of every file"
 msgstr "ostevilcene varnostne kopije za vsak fajl"
 
-#: src/main.c:471 src/main.c:766
+#: src/main.c:475 src/main.c:770
 msgid "Output:\n"
 msgstr "Izhod:\n"
 
-#: src/main.c:472
+#: src/main.c:476
 #, c-format
 msgid ""
 "  destination     = %s\n"
@@ -341,11 +341,11 @@ msgstr ""
 "  preverjanje razlicice            = %s\n"
 "  podaljsek imena varnostne kopije = %s\n"
 
-#: src/main.c:485 src/main.c:777
+#: src/main.c:489 src/main.c:781
 msgid "PostScript:\n"
 msgstr "Postscript:\n"
 
-#: src/main.c:486
+#: src/main.c:490
 #, c-format
 msgid ""
 "  magic number              = %s\n"
@@ -364,21 +364,21 @@ msgstr ""
 "  stevilo strani na listu   = %s\n"
 "  opis strani               = "
 
-#: src/main.c:506
+#: src/main.c:510
 #, c-format
 msgid "  statusdict definitions    = "
 msgstr "  opis statusdict"
 
-#: src/main.c:509
+#: src/main.c:513
 #, c-format
 msgid "  page prefeed              = %s\n"
 msgstr " vnaprejsnji premik strani = %s\n"
 
-#: src/main.c:518
+#: src/main.c:522
 msgid "Internals:\n"
 msgstr "Notranje spremenljivke:\n"
 
-#: src/main.c:519
+#: src/main.c:523
 #, fuzzy, c-format
 msgid ""
 "  verbosity level     = %d\n"
@@ -390,7 +390,7 @@ msgstr ""
 "  zacasni imenik         = %s\n"
 "  pot do knjiznic        = \n"
 
-#: src/main.c:644
+#: src/main.c:648
 #, fuzzy, c-format
 msgid ""
 "Usage: %s [OPTION]... [FILE]...\n"
@@ -409,11 +409,11 @@ msgstr ""
 "Dolgi izbor oznacen z * pricakuje kot argument yes/no, njegova kratka "
 "izpeljanka pa privzema `yes'.\n"
 
-#: src/main.c:659
+#: src/main.c:663
 msgid "Tasks:\n"
 msgstr ""
 
-#: src/main.c:660
+#: src/main.c:664
 #, fuzzy
 msgid ""
 "  --version        display version\n"
@@ -444,17 +444,17 @@ msgstr ""
 "   `ppd', `printers', `prologues', `style-sheets', `user-options': \n"
 " razsirjen seznam.\n"
 
-#: src/main.c:671
+#: src/main.c:675
 msgid ""
 "After having performed the task, exit successfully.  Detailed lists may\n"
 "provide additional help on specific features.\n"
 msgstr ""
 
-#: src/main.c:679
+#: src/main.c:683
 msgid "Global:\n"
 msgstr "Globalno:\n"
 
-#: src/main.c:680
+#: src/main.c:684
 msgid ""
 "  -q, --quiet, --silent      be really quiet\n"
 "  -v, --verbose[=LEVEL]      set verbosity on, or to LEVEL\n"
@@ -476,7 +476,7 @@ msgstr ""
 "  -D, --define=TIPKA[:VREDNOST]  dodana oziroma odvzeta bo VREDNOST za "
 "TIPKO\n"
 
-#: src/main.c:689
+#: src/main.c:693
 #, fuzzy
 msgid ""
 "  -M, --medium=NAME      use output medium NAME\n"
@@ -505,7 +505,7 @@ msgstr ""
 "  -j, --borders*           dodaj okvir okrog stolpcev\n"
 "      --margin[=STEVILO]   dodaj notranji razmik velikosti STEVILO\n"
 
-#: src/main.c:702
+#: src/main.c:706
 msgid ""
 "The options -1.. -9 affect several primitive parameters to set up "
 "predefined\n"
@@ -515,7 +515,7 @@ msgid ""
 "options (`--columns', `--font-size' etc.).\n"
 msgstr ""
 
-#: src/main.c:710
+#: src/main.c:714
 msgid ""
 "      --line-numbers=NUM     precede each NUM lines with its line number\n"
 "  -C                         alias for --line-numbers=5\n"
@@ -541,11 +541,11 @@ msgstr ""
 "  --non-printable-format=FMT    doloci kako naj bodo nenatisljivi znaki "
 "natiskani\n"
 
-#: src/main.c:721
+#: src/main.c:725
 msgid "Headings:\n"
 msgstr "Glava:\n"
 
-#: src/main.c:723
+#: src/main.c:727
 #, fuzzy, no-c-format
 msgid ""
 "  -B, --no-header        no page headers at all\n"
@@ -567,11 +567,11 @@ msgstr ""
 "  --left-footer[=TEXT]       nastavi komentar na dnu lista na TEXT\n"
 "  --footer[=TEXT]            TEXT lahko vsebuje ubezne sekvence $ in %\n"
 
-#: src/main.c:734
+#: src/main.c:738
 msgid "The TEXTs may use special escapes.\n"
 msgstr ""
 
-#: src/main.c:739
+#: src/main.c:743
 msgid ""
 "  -a, --pages[=RANGE]        select the pages to print\n"
 "  -c, --truncate-lines*      cut long lines\n"
@@ -597,7 +597,7 @@ msgstr ""
 "  -Z, --delegate*            prenesi fajle v izvrsbo drugemu programu\n"
 "      --toc[=TEXT]           ustvari Tabelo vsebine\n"
 
-#: src/main.c:751
+#: src/main.c:755
 msgid ""
 "When delegations are enabled, a2ps may use other applications to handle the\n"
 "processing of files that should not be printed as raw information, e.g., "
@@ -605,7 +605,7 @@ msgid ""
 "PostScript, PDF etc.\n"
 msgstr ""
 
-#: src/main.c:758
+#: src/main.c:762
 msgid ""
 "  -E, --pretty-print[=LANG]  enable pretty-printing (set style to LANG)\n"
 "  --highlight-level=LEVEL    set pretty printing highlight LEVEL\n"
@@ -622,7 +622,7 @@ msgstr ""
 "  -g                          okrajsava za --highlight-level=heavy\n"
 "  --strip-level=NUM           odstrani NUM nivojev za komentar\n"
 
-#: src/main.c:767
+#: src/main.c:771
 #, fuzzy
 msgid ""
 "  -o, --output=FILE          leave output to file FILE.  If FILE is `-',\n"
@@ -642,7 +642,7 @@ msgstr ""
 "  -P, --printer=IME          izpisuj na tiskalnik IME\n"
 "  -d                         izpisuj na vnaprej dolocen tiskalnik\n"
 
-#: src/main.c:778
+#: src/main.c:782
 msgid ""
 "      --prologue=FILE        include FILE.pro as PostScript prologue\n"
 "      --ppd[=KEY]            automatic PPD selection or set to KEY\n"
@@ -668,7 +668,7 @@ msgstr ""
 "  -k, --page-prefeed         avtomatski zamik strani\n"
 "  -K, --no-page-prefeed      deaktiviraj avtomatski zamik strani\n"
 
-#: src/main.c:792
+#: src/main.c:796
 msgid ""
 "By default a2ps is tuned to do what you want to, so trust it.  To pretty\n"
 "print the content of the `src' directory and a table of content, and send "
@@ -690,7 +690,7 @@ msgid ""
 "    $ a2ps -=book paper.dvi.gz -d\n"
 msgstr ""
 
-#: src/main.c:813
+#: src/main.c:817
 #, fuzzy
 msgid ""
 "News, updates and documentation: visit http://www.gnu.org/software/a2ps/.\n"
@@ -698,7 +698,7 @@ msgstr ""
 "Novosti, izboljsane razlicice programa in dokumentacija: http://www.inf.enst."
 "fr/~demaille/a2ps/\n"
 
-#: src/main.c:815
+#: src/main.c:819
 #, fuzzy
 msgid "Report bugs to <bug-a2ps@gnu.org>.\n"
 msgstr ""
@@ -708,301 +708,278 @@ msgstr ""
 "sprejemam \n"
 "tudi ostro in manj ostro kritiko. To , kar berete, je razlicica 0.1 \n"
 
-#: src/main.c:933
-#, fuzzy
-msgid ""
-"Copyright (c) 1988-1993 Miguel Santana\n"
-"Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n"
-"Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta"
-msgstr ""
-"\n"
-"Vse pravice pridrzane (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
-"Vse pravice pridrzane (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel "
-"Santana\n"
-
-#: src/main.c:1164
+#: src/main.c:1160
 msgid "Table of Content"
 msgstr "Tabela vsebine"
 
-#: src/parsessh.y:236
+#: src/parsessh.y:238
 #, c-format
 msgid "cannot process `%s' which requires a2ps version %s"
 msgstr "ne morem izvrsiti `%s' , ki je vsebovan v  a2ps razlicica %s"
 
-#: src/sheets-map.l:111
+#: src/sheets-map.l:114
 #, c-format
 msgid "unexpected character `%c'"
 msgstr ""
 
-#: src/sheets-map.l:211 lexppd.l:211
+#: src/sheets-map.l:214 lexppd.l:213
+#, c-format
 msgid "too many includes"
 msgstr ""
 
-#: src/sheets-map.l:296 src/sheets-map.l:303
+#: src/sheets-map.l:299 src/sheets-map.l:306
 #, fuzzy, c-format
 msgid "no key defined for `%s'"
 msgstr "ne morem najti fajla `%s'"
 
-#: src/select.c:116 src/ssheet.c:857 fonts.l:837 fonts.l:839 fonts.l:841
-#: liba2ps/pathwalk.c:324 liba2ps/pathwalk.c:410
+#: src/select.c:119 src/ssheet.c:859 fonts.l:839 fonts.l:841 fonts.l:843
+#: liba2ps/pathwalk.c:323 liba2ps/pathwalk.c:409
 #, c-format
 msgid "cannot find file `%s'"
 msgstr "ne morem najti fajla `%s'"
 
-#: src/select.c:118
+#: src/select.c:121
+#, c-format
 msgid "automatic style selection cancelled"
 msgstr "samodejna izbira stila je izbrisana"
 
-#: src/ssheet.c:286
+#: src/ssheet.c:288
 #, c-format
 msgid "cannot compile regular expression `%s': %s"
 msgstr "ne morem prevesti stavka `%s': %s"
 
-#: src/ssheet.c:965 src/ssheet.c:986
+#: src/ssheet.c:967 src/ssheet.c:988
 msgid "Known Style Sheets"
 msgstr "Pripoznani stili za liste"
 
-#: src/ssheet.c:1452
+#: src/ssheet.c:1454
 #, c-format
 msgid "cannot find style sheet `%s': using plain style"
 msgstr "ne najdem stilni list `%s': uporabil bom osnovni stil"
 
-#: src/sshread.c:439
+#: src/sshread.c:441
 #, c-format
 msgid "unknown encoding `%s', ignored"
 msgstr "Neznano kodiranje `%s' ni uporabljeno"
 
-#: src/version-etc.c:39
-msgid "Copyright (C) 1999 Free Software Foundation, Inc."
-msgstr ""
-
-#: src/version-etc.c:61
-#, fuzzy, c-format
-msgid "Written by %s.\n"
-msgstr "Natiskano z %s"
-
-#: src/version-etc.c:67
-msgid ""
-"This is free software; see the source for copying conditions.  There is NO\n"
-"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
-msgstr ""
-
-#: src/versions.c:125
+#: src/versions.c:128
 #, c-format
 msgid "invalid version number `%s'"
 msgstr "`%s' neznana oznaka razlicice"
 
-#: liba2ps/caret.c:31
+#: liba2ps/caret.c:33
 msgid "space (i.e., ` ')"
 msgstr "presledek (npr., ` ')"
 
-#: liba2ps/caret.c:33
+#: liba2ps/caret.c:35
 msgid "octal (i.e., `\\001' etc.)"
 msgstr "oktalno stevilo (npr., `\\001' itd.)"
 
-#: liba2ps/caret.c:35
+#: liba2ps/caret.c:37
 msgid "hexadecimal (i.e., `\\x0a' etc.)"
 msgstr "hexadecimalno stevilo (npr., `\\x0a' itd"
 
-#: liba2ps/caret.c:37
+#: liba2ps/caret.c:39
 msgid "caret (i.e., `^C', `M-^C' etc.)"
 msgstr "caret (npr., `^C', `M-^C' itd.)"
 
-#: liba2ps/caret.c:39
+#: liba2ps/caret.c:41
 msgid "emacs (i.e., `C-c', `M-C-c' etc.)"
 msgstr "emacs (npr., `C-c', `M-C-c' itd.)"
 
-#: liba2ps/caret.c:41
+#: liba2ps/caret.c:43
 msgid "question-mark (i.e., `?')"
 msgstr "vprasaj (npr., `?')"
 
-#: liba2ps/closeout.c:72 liba2ps/closeout.c:74
-msgid "write error"
-msgstr ""
-
-#: confg.gperf:157 liba2ps/encoding.c:632
+#: confg.gperf:160 liba2ps/encoding.c:633
 #, c-format
 msgid "invalid option `%s'"
 msgstr "neveljaven izbor `%s'"
 
-#: confg.gperf:224 confg.gperf:231 confg.gperf:238
+#: confg.gperf:233 confg.gperf:240 confg.gperf:247
 #, c-format
 msgid "invalid definition for printer `%s': %s"
 msgstr "neveljavna definicija za tiskalnik `%s': %s"
 
-#: confg.gperf:229 confg.gperf:232 liba2ps/printers.c:41
+#: confg.gperf:238 confg.gperf:241 liba2ps/printers.c:42
 msgid "Unknown Printer"
 msgstr "Neznani tiskalnik"
 
-#: confg.gperf:236 confg.gperf:239 liba2ps/printers.c:40
+#: confg.gperf:245 confg.gperf:248 liba2ps/printers.c:41
 msgid "Default Printer"
 msgstr "Osnovni/primarni tiskalnik"
 
-#: confg.gperf:292 liba2ps/options.c:683
+#: confg.gperf:301 liba2ps/options.c:687
 #, c-format
 msgid "invalid variable identifier `%s'"
 msgstr "neveljavni oznacevalec `%s za spremenljivko"
 
-#: confg.gperf:321
+#: confg.gperf:330
 #, c-format
 msgid "obsolete `%s' entry.  Ignored"
 msgstr "nepotrebni vnos `%s'. Ni upostevan"
 
-#: liba2ps/encoding.c:1108 liba2ps/encoding.c:1129
+#: liba2ps/encoding.c:1109 liba2ps/encoding.c:1130
 msgid "Known Encodings"
 msgstr "Znano kodiranje"
 
-#: liba2ps/faces.c:146
+#: liba2ps/faces.c:148
+#, c-format
 msgid "incomplete knowledge of faces"
 msgstr "nezadostno poznavanje faces"
 
-#: liba2ps/filtdir.c:114
+#: liba2ps/filtdir.c:70
 #, c-format
 msgid "cannot close directory `%s'"
 msgstr "ne morem zapreti imenik `%s'"
 
-#: liba2ps/getnum.c:55 liba2ps/getnum.c:113 liba2ps/getnum.c:145
-#: liba2ps/getnum.c:213
+#: liba2ps/getnum.c:41 liba2ps/getnum.c:99 liba2ps/getnum.c:131
+#: liba2ps/getnum.c:199
 #, c-format
 msgid "invalid argument `%s' for `%s'"
 msgstr "neveljaven argument `%s' za `%s'"
 
-#: liba2ps/getnum.c:115
+#: liba2ps/getnum.c:101
 #, c-format
 msgid "Valid arguments are integers n such that: %s\n"
 msgstr "Veljavni argumenti so cela stevila n tako da: %s\n"
 
-#: liba2ps/getnum.c:215
+#: liba2ps/getnum.c:201
 #, c-format
 msgid "Valid arguments are floats f such that: %s\n"
 msgstr "Veljavni so argumenti z plavajoco vejico f , tako da: %s\n"
 
-#: liba2ps/jobs.c:302
+#: liba2ps/jobs.c:304
 #, c-format
 msgid "unknown encoding `%s'"
 msgstr "neznano kodiranje `%s'"
 
-#: liba2ps/madir.c:48
+#: liba2ps/madir.c:51
 msgid "rows first"
 msgstr "najprej vrstice"
 
-#: liba2ps/madir.c:51
+#: liba2ps/madir.c:54
 msgid "columns first"
 msgstr "najprej stolpci"
 
-#: liba2ps/media.c:164
+#: liba2ps/media.c:158
 #, c-format
 msgid "unknown medium `%s'"
 msgstr "neznano prenosno sredstvo `%s'"
 
-#: liba2ps/media.c:199 liba2ps/media.c:228
+#: liba2ps/media.c:193 liba2ps/media.c:222
 msgid "Known Media"
 msgstr "Znano prenosno sredstvo"
 
-#: liba2ps/media.c:202
+#: liba2ps/media.c:196
 msgid "Name"
 msgstr "Ime"
 
-#: liba2ps/media.c:203
+#: liba2ps/media.c:197
 msgid "dimensions"
 msgstr "mere"
 
-#: liba2ps/metaseq.c:90 liba2ps/metaseq.c:99
+#: liba2ps/metaseq.c:91 liba2ps/metaseq.c:100
 #, c-format
 msgid "Known Variables"
 msgstr "Znane spremenljivke"
 
-#: liba2ps/metaseq.c:148 liba2ps/metaseq.c:517 liba2ps/metaseq.c:534
-#: liba2ps/metaseq.c:594 liba2ps/metaseq.c:937 liba2ps/metaseq.c:958
+#: liba2ps/metaseq.c:149 liba2ps/metaseq.c:518 liba2ps/metaseq.c:535
+#: liba2ps/metaseq.c:595 liba2ps/metaseq.c:938 liba2ps/metaseq.c:959
 #, c-format
 msgid "%s: missing `%c' for %s%c escape"
 msgstr "%s: manjka `%c' za ubezno sekvenco %s%c"
 
-#: liba2ps/metaseq.c:274 liba2ps/metaseq.c:286
+#: liba2ps/metaseq.c:275 liba2ps/metaseq.c:287
 #, c-format
 msgid "Printed by %s"
 msgstr "Natiskano z %s"
 
-#: liba2ps/metaseq.c:284
+#: liba2ps/metaseq.c:285
 #, c-format
 msgid "Printed by %s from %s"
 msgstr "Natiskano z %s iz %s"
 
-#: liba2ps/metaseq.c:294 liba2ps/metaseq.c:313
+#: liba2ps/metaseq.c:295 liba2ps/metaseq.c:314
+#, c-format
 msgid "cannot get current working directory"
 msgstr "delovni imenik mi ni dostopen"
 
-#: liba2ps/metaseq.c:327 liba2ps/metaseq.c:520 liba2ps/metaseq.c:549
-#: liba2ps/metaseq.c:638 liba2ps/metaseq.c:940 liba2ps/metaseq.c:973
+#: liba2ps/metaseq.c:328 liba2ps/metaseq.c:521 liba2ps/metaseq.c:550
+#: liba2ps/metaseq.c:639 liba2ps/metaseq.c:941 liba2ps/metaseq.c:974
 #, c-format
 msgid "%s: too long argument for %s escape"
 msgstr "%s: predolg argument za ubezno sekvenco %s"
 
-#: liba2ps/metaseq.c:350 liba2ps/metaseq.c:661
+#: liba2ps/metaseq.c:351 liba2ps/metaseq.c:662
 msgid "%b %d, %y"
 msgstr "%b %d, %y"
 
-#: liba2ps/metaseq.c:359 liba2ps/metaseq.c:670
+#: liba2ps/metaseq.c:360 liba2ps/metaseq.c:671
 msgid "%A %B %d, %Y"
 msgstr "%A %B %d, %Y"
 
-#: liba2ps/metaseq.c:405 liba2ps/metaseq.c:434 liba2ps/metaseq.c:477
-#: liba2ps/metaseq.c:710 liba2ps/metaseq.c:794 liba2ps/metaseq.c:853
-#: liba2ps/metaseq.c:908 liba2ps/metaseq.c:1085 liba2ps/metaseq.c:1220
-#: liba2ps/metaseq.c:1232 liba2ps/metaseq.c:1275
+#: liba2ps/metaseq.c:406 liba2ps/metaseq.c:435 liba2ps/metaseq.c:478
+#: liba2ps/metaseq.c:711 liba2ps/metaseq.c:795 liba2ps/metaseq.c:854
+#: liba2ps/metaseq.c:909 liba2ps/metaseq.c:1086 liba2ps/metaseq.c:1221
+#: liba2ps/metaseq.c:1233 liba2ps/metaseq.c:1276
 #, c-format
 msgid "%s: unknown `%s' escape `%c' (%d)"
 msgstr "%s: neznana `%s' ubezna sekvenca `%c' (%d)"
 
-#: liba2ps/metaseq.c:412 liba2ps/metaseq.c:801
+#: liba2ps/metaseq.c:413 liba2ps/metaseq.c:802
 #, c-format
 msgid "Page %d"
 msgstr "Stran %d"
 
-#: liba2ps/metaseq.c:417 liba2ps/metaseq.c:812
+#: liba2ps/metaseq.c:418 liba2ps/metaseq.c:813
 #, c-format
 msgid "Page %d/%c"
 msgstr "Stran %d/%c"
 
-#: liba2ps/metaseq.c:579 liba2ps/metaseq.c:1007
+#: liba2ps/metaseq.c:580 liba2ps/metaseq.c:1008
 #, c-format
 msgid "%s: invalid separator `%s%c' for `%s' escape"
 msgstr "%s: neveljaven locevalni znak `%s%c' za ubezno sekvenco `%s'"
 
-#: liba2ps/metaseq.c:587 liba2ps/metaseq.c:597
+#: liba2ps/metaseq.c:588 liba2ps/metaseq.c:598
 #, c-format
 msgid "%s: invalid argument for %s%c escape"
 msgstr "%s: neveljaven argument za ubezno sekvenco %s%c"
 
-#: liba2ps/metaseq.c:808
+#: liba2ps/metaseq.c:809
 #, c-format
 msgid "Page %d/%d"
 msgstr "Stran %d/%d"
 
-#: liba2ps/metaseq.c:1252
+#: liba2ps/metaseq.c:1253
 msgid "output command"
 msgstr "izhodni ukaz"
 
-#: liba2ps/options.c:288
+#: liba2ps/options.c:50
+msgid "Copyright (C) 1988-2017 Free Software Foundation, Inc."
+msgstr ""
+
+#: liba2ps/options.c:292
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Poskusi z `%s --help' dobiti vec informacij.\n"
 
-#: liba2ps/output.c:457
+#: liba2ps/output.c:459
 #, c-format
 msgid "invalid face `%s'"
 msgstr "neveljavna oblika `%s'"
 
-#: liba2ps/output.c:529
+#: liba2ps/output.c:531
 #, c-format
 msgid "`%s' with no matching `%s'"
 msgstr "`%s' brez vsebovanega `%s'"
 
-#: liba2ps/ppd.c:94
+#: liba2ps/ppd.c:96
 msgid "Known Fonts"
 msgstr "Znane oblike crk"
 
-#: liba2ps/ppd.c:97
+#: liba2ps/ppd.c:99
 msgid ""
 "\n"
 "  None.\n"
@@ -1010,166 +987,148 @@ msgstr ""
 "\n"
 " ne obstaja.\n"
 
-#: liba2ps/ppd.c:135 liba2ps/ppd.c:151
+#: liba2ps/ppd.c:137 liba2ps/ppd.c:153
 msgid "Known PostScript Printer Descriptions"
 msgstr "Znani opisi PostScript tiskalnikov "
 
-#: liba2ps/prange.c:293 liba2ps/prange.c:311
+#: liba2ps/prange.c:295 liba2ps/prange.c:313
 #, c-format
 msgid "invalid interval `%s'"
 msgstr "neveljaven interval `%s'"
 
-#: liba2ps/printers.c:390 liba2ps/printers.c:407
+#: liba2ps/printers.c:391 liba2ps/printers.c:408
 #, fuzzy, c-format
 msgid "no command for the `%s' (%s%s)"
 msgstr "ne obstaja v naprej pripravljen ukaz za neznani tiskalnik `%s'"
 
-#: liba2ps/printers.c:423
+#: liba2ps/printers.c:424
 msgid "sent to the standard output"
 msgstr "poslano na standardni izhod"
 
-#: liba2ps/printers.c:424
+#: liba2ps/printers.c:425
 msgid "sent to the default printer"
 msgstr "poslano na primarni tiskalnik"
 
-#: liba2ps/printers.c:429
+#: liba2ps/printers.c:430
 #, c-format
 msgid "saved into the file `%s'"
 msgstr "shranjeno v fajl `%s'"
 
-#: liba2ps/printers.c:430
+#: liba2ps/printers.c:431
 #, c-format
 msgid "sent to the printer `%s'"
 msgstr "`%s' poslan v tiskanje"
 
-#: liba2ps/printers.c:607 liba2ps/printers.c:615
+#: liba2ps/printers.c:608 liba2ps/printers.c:616
 msgid "Known Outputs (Printers, etc.)"
 msgstr "Znane izhodne enote (Tiskalniki, itd.)"
 
-#: liba2ps/prolog.c:85 liba2ps/prolog.c:168
+#: liba2ps/prolog.c:87 liba2ps/prolog.c:170
 msgid "Known Prologues"
 msgstr ""
 "Znan Prologues ( ja, vem, prevod je zelo napacen. Prosim sporocite mi "
 "PRAVILNEGA. Hvala )"
 
-#: liba2ps/prolog.c:566
+#: liba2ps/prolog.c:568
 #, c-format
 msgid "font %f too big"
 msgstr "zvrst znaka %f je prevelika"
 
-#: liba2ps/psgen.c:649
+#: liba2ps/psgen.c:651
 #, c-format
 msgid "`%s' is a binary file, printing aborted"
 msgstr "`%s' je binarni fajl, tiskanje je prekinjeno"
 
-#: liba2ps/quotearg.c:202
-msgid "`"
-msgstr ""
-
-#: liba2ps/quotearg.c:205
-msgid "'"
-msgstr ""
-
-#: liba2ps/userdata.c:123
+#: liba2ps/userdata.c:114
 msgid "user"
 msgstr "uporabnik"
 
-#: liba2ps/userdata.c:124
+#: liba2ps/userdata.c:115
 msgid "Unknown User"
 msgstr "Neznani Uporabnik"
 
-#: liba2ps/useropt.c:63
+#: liba2ps/useropt.c:65
 #, c-format
 msgid "unknown user option `%s'"
 msgstr "neznan uporabniski izbor `%s'"
 
-#: liba2ps/useropt.c:74 liba2ps/useropt.c:85
+#: liba2ps/useropt.c:76 liba2ps/useropt.c:87
 msgid "Known User Options"
 msgstr "Pripoznane moznosti"
 
-#: liba2ps/xbackupfile.c:105 liba2ps/xmalloc.c:51
+#: liba2ps/xbackupfile.c:46
+#, c-format
 msgid "Memory exhausted"
 msgstr "Spomin je izcrpan"
 
-#: liba2ps/xbackupfile.c:240 liba2ps/xbackupfile.c:252
+#: liba2ps/xbackupfile.c:166 liba2ps/xbackupfile.c:178
 #, c-format
 msgid "cannot rename file `%s' as `%s'"
 msgstr "ne morem preimenovati fajla `%s' v `%s'"
 
-#: liba2ps/xbackupfile.c:255
+#: liba2ps/xbackupfile.c:181
 #, c-format
 msgid "restored file `%s'"
 msgstr "obujen fajl `%s'"
 
-#: liba2ps/argmatch.c:162
-#, fuzzy, c-format
-msgid "invalid argument %s for `%s'"
-msgstr "neveljaven argument `%s' za `%s'"
+#, fuzzy
+#~ msgid "Written by %s.\n"
+#~ msgstr "Natiskano z %s"
 
-#: liba2ps/argmatch.c:163
-#, fuzzy, c-format
-msgid "ambiguous argument %s for `%s'"
-msgstr "dvoumen argument `%s' za `%s'"
+#, fuzzy
+#~ msgid ""
+#~ "Copyright (c) 1988-1993 Miguel Santana\n"
+#~ "Copyright (c) 1995-2000 Akim Demaille, Miguel Santana\n"
+#~ "Copyright (c) 2007- Akim Demaille, Miguel Santana and Masayuki Hatta"
+#~ msgstr ""
+#~ "\n"
+#~ "Vse pravice pridrzane (c) 1988, 89, 90, 91, 92, 93 Miguel Santana\n"
+#~ "Vse pravice pridrzane (c) 1995, 96, 97, 98, 99 Akim Demaille, Miguel "
+#~ "Santana\n"
 
-#: liba2ps/argmatch.c:181
-#, c-format
-msgid "Valid arguments are:"
-msgstr "Pripoznane moznosti so"
+#, fuzzy
+#~ msgid "invalid argument %s for `%s'"
+#~ msgstr "neveljaven argument `%s' za `%s'"
 
-#: liba2ps/getopt.c:673
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: izbira `%s' je dvoumna\n"
+#, fuzzy
+#~ msgid "ambiguous argument %s for `%s'"
+#~ msgstr "dvoumen argument `%s' za `%s'"
 
-#: liba2ps/getopt.c:698
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: izbor `--%s' ne dovoljuje argumenta\n"
+#~ msgid "Valid arguments are:"
+#~ msgstr "Pripoznane moznosti so"
 
-#: liba2ps/getopt.c:703
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: izbor `%c%s' ne dovoljuje argumenta\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: izbira `%s' je dvoumna\n"
 
-#: liba2ps/getopt.c:721 liba2ps/getopt.c:894
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: izbor `%s' pricakuje argument\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: izbor `--%s' ne dovoljuje argumenta\n"
 
-#: liba2ps/getopt.c:750
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ne prepoznam izbora `--%s'\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: izbor `%c%s' ne dovoljuje argumenta\n"
 
-#: liba2ps/getopt.c:754
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ne prepoznam izbora `%c%s'\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: izbor `%s' pricakuje argument\n"
 
-#: liba2ps/getopt.c:780
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: neveljaven izbor -- %c\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: ne prepoznam izbora `--%s'\n"
 
-#: liba2ps/getopt.c:783
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: neustrezen izbor -- %c\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: ne prepoznam izbora `%c%s'\n"
 
-#: liba2ps/getopt.c:813 liba2ps/getopt.c:943
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: izbor pricakuje argument -- %c\n"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: neveljaven izbor -- %c\n"
 
-#: liba2ps/getopt.c:860
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: izbira `-W %s' je dvoumna\n"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: neustrezen izbor -- %c\n"
 
-#: liba2ps/getopt.c:878
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: izbira `-W %s' ne dopusca oziroma sprejema argumenta \n"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: izbor pricakuje argument -- %c\n"
+
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: izbira `-W %s' je dvoumna\n"
+
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: izbira `-W %s' ne dopusca oziroma sprejema argumenta \n"
 
 #~ msgid "Unknown system error"
 #~ msgstr "Neprepoznana sistemska napaka"

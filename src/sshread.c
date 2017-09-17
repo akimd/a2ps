@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "sshread.h"
 #include "ssheet.h"
@@ -64,10 +66,10 @@ struct token
 static inline struct token *
 token_new (void)
 {
-  struct token *res = XMALLOC (struct token, 1);
-  res->registers = XMALLOC (struct re_registers, 1);
-  res->registers->start = XMALLOC (regoff_t, 30);
-  res->registers->end = XMALLOC (regoff_t, 30);
+  struct token *res = XMALLOC (struct token);
+  res->registers = XMALLOC (struct re_registers);
+  res->registers->start = XNMALLOC (30, regoff_t);
+  res->registers->end = XNMALLOC (30, regoff_t);
   return res;
 }
 

@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "dsc.h"
 #include "jobs.h"
@@ -54,7 +56,7 @@ mv_key_hash_cmp (struct multivalued_entry *x, struct multivalued_entry *y)
 static struct multivalued_entry *
 multivalued_entry_new (const char * type)
 {
-  NEW (struct multivalued_entry, res);
+  struct multivalued_entry * res = XMALLOC (struct multivalued_entry);
   res->key = xstrdup (type);
   res->entries = string_htable_new ();
   return res;
@@ -157,7 +159,7 @@ multivalued_table_new (void)
 {
   static struct hash_table_s * res;
 
-  res = XMALLOC (hash_table, 1);
+  res = XMALLOC (hash_table);
   hash_init (res, 8,
 	     (hash_func_t) mv_key_hash_1,
 	     (hash_func_t) mv_key_hash_2,

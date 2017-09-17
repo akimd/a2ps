@@ -20,20 +20,20 @@
 # it is needed for yacc and lex files (seems related to #line, but
 # I really don't understand why)...
 AM_CPPFLAGS = -I.. -I$(srcdir) -I$(top_srcdir)/liba2ps -I$(top_builddir)/intl \
-	-DLOCALEDIR=\"$(localedir)\"
+	-I$(top_srcdir)/lib -DLOCALEDIR=\"$(localedir)\"
 
 bin_PROGRAMS = a2ps
 
 a2ps_SOURCES = main.c \
 read.c sshread.c ssheet.c select.c generate.c 			\
-delegate.c regex.c buffer.c versions.c ffaces.c			\
-version-etc.c long-options.c					\
+delegate.c buffer.c versions.c ffaces.c			\
+					\
 parsessh.y lexssh.l lexps.l sheets-map.l
 
 noinst_HEADERS = main.h \
 read.h sshread.h ssheet.h select.h generate.h			\
-delegate.h regex.h buffer.h versions.h ffaces.h			\
-version-etc.h long-options.h					\
+delegate.h buffer.h versions.h ffaces.h			\
+					\
 yy2ssh.h lexps.h
 
 BUILT_SOURCES = parsessh.c parsessh.h
@@ -41,6 +41,6 @@ BUILT_SOURCES = parsessh.c parsessh.h
 YFLAGS = -dtv
 LEX = @LEX@
 
-a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la @LIBINTL@ -lm
+a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la @LIBINTL@ ../lib/libgnu.la -lm
 
 EXTRA_DIST = $(BUILT_SOURCES)

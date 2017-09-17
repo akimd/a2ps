@@ -16,17 +16,20 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include <fnmatch.h>
 
 #include "a2ps.h"
 #include "select.h"
 #include "routines.h"
 #include "getshline.h"
-#include "path-concat.h"
+#include "filenamecat.h"
 #include "pathwalk.h"
 #include "filtdir.h"
 #include "message.h"
 #include "quotearg.h"
+#include "xstrndup.h"
 
 extern char * style_request;
 
@@ -64,7 +67,7 @@ struct pattern_rule *
 pattern_rule_new (const char *pattern, int on_file_verdict, bool insensitive_p,
 		  const char *command)
 {
-  NEW (struct pattern_rule, res);
+  struct pattern_rule * res = XMALLOC (struct pattern_rule);
 
   res->pattern = pattern;
   res->on_file_verdict = on_file_verdict;
@@ -267,11 +270,11 @@ get_command (const unsigned char *name_to_match, const unsigned char *name_to_fi
 				   ? name_to_match_lc : name_to_match),
 			 0))
 	  {
-	    XFREE (file_verdict);
+	    free (file_verdict);
 	    return rule(i)->command;
 	  }
       }
-  XFREE (file_verdict);
+  free (file_verdict);
 
   return "plain";
 }

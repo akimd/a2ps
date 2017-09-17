@@ -22,6 +22,8 @@
 /* Definition of the arguments/values for argmatching the verbosity
    level. */
 
+#include <config.h>
+
 const char *const _msg_verbosity_args[] =
 {
   "sheets",

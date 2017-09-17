@@ -30,6 +30,8 @@
  * $Id: lexppd.l,v 1.1.1.1.2.1 2007/12/29 01:58:19 mhatta Exp $
  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "lexppd.h"
 #include "ppd.h"
@@ -240,7 +242,7 @@ symbol	[^/#, \t\r\f\n\":()+]*
     {
       fclose (yyin);
       yy_delete_buffer (YY_CURRENT_BUFFER);
-      XFREE (ppdfilename);
+      free (ppdfilename);
       ppdfilename = filename_stack[include_stack_ptr];
       yy_switch_to_buffer (include_stack[include_stack_ptr]);
       message (msg_file, (stderr, "Back to file `%s'.\n", ppdfilename));

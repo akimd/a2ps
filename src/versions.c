@@ -16,9 +16,12 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "versions.h"
 #include "quotearg.h"
+#include "routines.h"
 
 /************************************************************************/
 /*	The version handling						*/

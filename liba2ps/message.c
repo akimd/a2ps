@@ -16,13 +16,15 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
 #include <stdio.h>
 #include <assert.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <memory.h>
+#include <string.h>
+
 /* Jim Meyering writes:
 
    "... Some ctype macros are valid only for character codes that
@@ -34,29 +36,11 @@
    Defining isascii to 1 should let any compiler worth its salt
    eliminate the && through constant folding."  */
 
-#if defined (STDC_HEADERS) || (!defined (isascii) && !defined (HAVE_ISASCII))
-#define ISASCII(c) 1
-#else
 #define ISASCII(c) isascii((int) c)
-#endif
 #define ISDIGIT(c) (ISASCII (c) && isdigit   ((int) c))
 
-#if defined STDC_HEADERS || defined _LIBC || defined HAVE_STDLIB_H
-# include <stdlib.h>
-#endif
 
 /* We want strtok. */
-
-#ifdef HAVE_STRING_H
-# if !STDC_HEADERS && HAVE_MEMORY_H
-#  include <memory.h>
-# endif
-# include <string.h>
-#else
-# include <strings.h>
-char *memchr ();
-#endif
-
 #include "message.h"
 #include "argmatch.h"
 #include "getnum.h"
@@ -82,7 +66,7 @@ msg_verbosity_argmatch (const char *option, char *arg)
 {
   int res = 0;
 
-  ARGMATCH_ASSERT (_msg_verbosity_args, _msg_verbosity_types);
+  //ARGMATCH_VERIFY (_msg_verbosity_args, _msg_verbosity_types);
 
   if (ISDIGIT (*arg))
     {
@@ -95,7 +79,7 @@ msg_verbosity_argmatch (const char *option, char *arg)
       char *token = strtok (arg, verbosity_sep);
       do
 	{
-	  res |= XARGCASEMATCH (option, token,
+	  res |= XARGMATCH (option, token,
 				_msg_verbosity_args, _msg_verbosity_types);
 	}
       while ((token = strtok (NULL, verbosity_sep)));

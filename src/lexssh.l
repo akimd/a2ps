@@ -30,6 +30,8 @@
  * $Id: lexssh.l,v 1.1.1.1.2.1 2007/12/29 01:58:35 mhatta Exp $
  */
 
+#include <config.h>
+
 #include "main.h"
 #include "yy2ssh.h"
 #include "parsessh.h"
@@ -364,12 +366,12 @@ naked_string	[^/#, \t\r\f\n\"()+]*
     pattern = (char *) obstack_finish (&string_stack);
     obstack_free (&string_stack, pattern);
 
-    yylval.pattern = XMALLOC (struct pattern, 1);
+    yylval.pattern = XMALLOC (struct pattern);
     /* len - 1, because the NUL must not be part of the pattern that
      * will be compiled.  We put tough, to be able to use the pattern
      * in regular C strings manipulations. */
     yylval.pattern->len = pattern_len - 1;
-    yylval.pattern->pattern = XMALLOC (char, pattern_len);
+    yylval.pattern->pattern = XNMALLOC (pattern_len, char);
     memcpy (yylval.pattern->pattern, pattern, pattern_len);
 
     BEGIN INITIAL;	/* Return to the regular scanning */

@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"		/* most global variables 		*/
 #include "prolog.h"
 #include "psgen.h"
@@ -345,7 +347,7 @@ page_begin (a2ps_job * job)
   if (!output_is_to_void (jdiv))
     {
       output (jdiv, "%%%%Page: (");
-      job->status->page_label = XMALLOC (unsigned char *, 1);
+      job->status->page_label = XMALLOC (unsigned char *);
       output_delayed_string (jdiv, job->status->page_label);
       output (jdiv, ") %d\n", job->sheets);
     }

@@ -16,7 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#define _GNU_SOURCE
+#include <config.h>
+
 #include <string.h>
 
 #include "encoding.h"
@@ -185,7 +186,7 @@ static inline unsigned int *
 wx_new (void)
 {
   int i;
-  unsigned int *res = XMALLOC (unsigned int, 256);
+  unsigned int *res = XNMALLOC (256, unsigned int);
 
   for (i = 0 ; i < 256 ; i++)
     res [i] = 0;
@@ -267,7 +268,7 @@ font_entry_hash_qcmp (struct font_entry ** x, struct font_entry ** y)
 static inline struct font_entry *
 font_entry_new (const char * name, unsigned int * wx)
 {
-  NEW (struct font_entry, res);
+  struct font_entry * res = XMALLOC (struct font_entry);
   res->key = xstrdup (name);
   res->used = false;
   res->wx = wx;
@@ -302,7 +303,7 @@ font_table_new (void)
 {
   struct hash_table_s * res;
 
-  res = XMALLOC (hash_table, 1);
+  res = XMALLOC (hash_table);
   hash_init (res, 32,
 	     (hash_func_t) font_entry_hash_1,
 	     (hash_func_t) font_entry_hash_2,
@@ -411,7 +412,7 @@ encoding_new (const char * key)
 {
   int i;
 
-  NEW (struct encoding, res);
+  struct encoding * res = XMALLOC (struct encoding);
 
   res->key = xstrdup (key);
   res->name = NULL;
@@ -437,10 +438,10 @@ encoding_free (struct encoding * encoding)
 {
   int i;
 
-  XFREE (encoding->key);
-  XFREE (encoding->name);
-  XFREE (encoding->default_font);
-  XFREE (encoding->documentation);
+  free (encoding->key);
+  free (encoding->name);
+  free (encoding->default_font);
+  free (encoding->documentation);
 
   for (i = 0 ; i < 256 ; i++)
     free (encoding->vector [i]);
@@ -832,7 +833,7 @@ encodings_table_new (void)
 {
   struct hash_table_s * res;
 
-  res = XMALLOC (hash_table, 1);
+  res = XMALLOC (hash_table);
   hash_init (res, 32,
 	     (hash_func_t) encoding_hash_1,
 	     (hash_func_t) encoding_hash_2,

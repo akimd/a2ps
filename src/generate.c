@@ -16,9 +16,10 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#include "main.h"
+#include <config.h>
 
-extern int isdir (const char *path);
+#include "main.h"
+#include "isdir.h"
 
 /* Name of the file in which the tmp sample file is stored. */
 char *sample_tmpname = NULL;
@@ -50,7 +51,7 @@ string_to_style_kind (const char * string)
 static buffer_t *
 input_new (unsigned char * name)
 {
-  NEW (buffer_t, res);
+  buffer_t * res = XMALLOC (buffer_t);
   struct file_job * file_job;
   struct stat statbuf;		/* to get file modification time */
   struct tm *tm;

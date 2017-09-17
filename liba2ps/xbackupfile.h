@@ -21,14 +21,8 @@
 #ifndef _XBACKUPFILES_H_
 #define _XBACKUPFILES_H_
 
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
-
 #include <stdio.h>
-#if HAVE_SYS_TYPES_H
-# include <sys/types.h>
-#endif
+#include <sys/types.h>
 
 #include "backupfile.h"
 

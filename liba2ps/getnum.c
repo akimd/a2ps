@@ -16,30 +16,16 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <config.h>
 
 #include <stdio.h>
 #include <stdlib.h>   /* abort() is wanted */
 
-#ifndef EXIT_FAILURE
-# define  EXIT_FAILURE 1
-#endif
-
 #include "argmatch.h"
-#include "error.h"
 #include "getnum.h"
 #include "quotearg.h"
-
-/* Take care of NLS matters.  */
-
-#if ENABLE_NLS
-# include <libintl.h>
-# define _(Text) gettext (Text)
-#else
-# define _(Text) Text
-#endif
+#include "routines.h"
+#include "error.h"
 
 /************************************************************************
  *	Get a length/integer in an interval				*
@@ -135,7 +121,7 @@ get_float_in_range (const char * option, const char * arg,
     {
     case 2:
       /* Multiply by the given unit */
-      res *= XARGCASEMATCH (option, buf, args_list, types_list);
+      res *= XARGMATCH (option, buf, args_list, types_list);
       break;
 
     case 1:
@@ -152,7 +138,7 @@ get_float_in_range (const char * option, const char * arg,
 					   args_list,
 					   (const char *) types_list,
 					   sizeof (*types_list),
-					   1, (argmatch_exit_fn) abort)];
+					   (argmatch_exit_fn) abort)];
 
   buf [0] = '\0';	/* means no error */
 

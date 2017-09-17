@@ -21,6 +21,8 @@
   before use it!
 */
 
+#include <config.h>
+
 #include "system.h"
 #include "printlen.h"
 

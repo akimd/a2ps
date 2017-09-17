@@ -39,10 +39,13 @@ jm_PATH_PERL
 # Check for the C compiler and the various oddities that may exist
 AC_PROG_CC
 AC_PROG_CC_C99
+gl_EARLY
 
 AS_IF([test "x$ac_cv_prog_cc_c99" = "xno"], [
   AC_MSG_ERROR([GNU a2ps requires a C99 capable compiler!])
 ])
+
+AC_USE_SYSTEM_EXTENSIONS
 
 AC_PROG_YACC
 AC_PROG_GPERF
@@ -64,68 +67,17 @@ AS_CASE([`$LEX --version`],
 # Libtool.  By default, don't do shared libs, liba2ps is not widely used.
 LT_INIT([disable-shared static])
 
-## ------------------------- ##
-## Checks for header files.  ##
-## ------------------------- ##
-
-AC_CHECK_HEADERS(sys/time.h sys/stat.h sys/types.h sys/ioctl.h  \
- math.h string.h strings.h stdlib.h unistd.h stdarg.h pwd.h malloc.h \
- memory.h errno.h fcntl.h stdbool.h fnmatch.h)
-
-## --------------------- ##
-## Checks for typedefs.  ##
-## --------------------- ##
-
-#
-# Checks for typedefs, structures, and compiler characteristics.
-#
-
-AC_TYPE_SIZE_T
-AC_TYPE_PID_T
-AC_TYPE_SIGNAL
-AC_STRUCT_TM
-AC_CHECK_MEMBERS([struct passwd.pw_gecos],,,
-[#if HAVE_PWD_H
-# include <pwd.h>
-#endif])
-
-## ---------------------- ##
-## Checks for Libraries.  ##
-## ---------------------- ##
-
-# -lsun is sometimes needed on IRIX to use passwd
-AC_SEARCH_LIBS(getpwuid, sun,
-	       [AC_DEFINE(HAVE_GETPWUID, 1,
-                          [Define if you have the function `getpwuid'.])],)
-
+gl_INIT
 
 ## ------------------------------ ##
 ## checks for library functions.  ##
 ## ------------------------------ ##
 
-AC_REPLACE_FUNCS(stpcpy stpncpy strtoul memcpy memset gethostname getuid)
-AC_CHECK_FUNCS(uname strchr strerror strerror_r getcwd bcopy bzero tempnam strsignal psignal setlocale)
 ad_FUNC_SYSTEMPAPERNAME
-AC_FUNC_CLOSEDIR_VOID
-AC_FUNC_VPRINTF
-AC_FUNC_OBSTACK
-
-# Check and replace broken or missing "fnmatch"
-AC_FUNC_FNMATCH
-if test $ac_cv_func_fnmatch_works = no; then
-  AC_LIBOBJ(fnmatch)
-  AC_DEFINE_UNQUOTED(fnmatch, rpl_fnmatch,
-	  [Define to rpl_fnmatch if the replacement function should be used.])
-fi
-
-# Needed checks for tinyterm.[ch]
-ad_TINYTERM_CHECKS
-
-AC_CHECK_DECLS([fputs, strlen])
 
 # Internationalization.
-AM_GNU_GETTEXT_VERSION(0.11.5)
-AM_GNU_GETTEXT(external, need-ngettext)
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external], [need-ngettext])
 
 # Save the cache
 AC_CACHE_SAVE
@@ -332,6 +284,7 @@ AC_CONFIG_FILES([
   doc/Makefile
   man/Makefile
   tests/Makefile tests/defs
+  lib/Makefile
   liba2ps/Makefile
   build-aux/Makefile
   etc/Makefile etc/a2ps_cfg etc/a2ps-site.cfg

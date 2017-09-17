@@ -30,6 +30,8 @@
  * $Id: parsessh.y,v 1.1.1.1.2.2 2007/12/29 01:58:35 mhatta Exp $
  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "ffaces.h"
@@ -257,7 +259,7 @@ long_string: tSTRING { $$ = $1; }
 	  len1 = ustrlen ($1);
 	  $1[len1] = '\n';
 	  len2 = ustrlen ($2);
-	  $$ = XMALLOC (unsigned char, len1 + len2 + 2);
+	  $$ = XNMALLOC (len1 + len2 + 2, unsigned char);
 	  ustpcpy (ustpncpy ($$, $1, len1 + 1), $2);
 	  free ($1);
 	  free ($2);
@@ -311,7 +313,7 @@ regex:
 	{
 	  /* Concatenate $2 to $1 makes $$ */
 	  $$ = $1;
-	  $$->pattern = XREALLOC ($$->pattern, char, $1->len + $2->len + 1);
+	  $$->pattern = xnrealloc ($$->pattern, $1->len + $2->len + 1, sizeof(char));
 	  strncpy ($$->pattern + $$->len, $2->pattern, $2->len);
 	  $$->len += $2->len;
 	  free ($2->pattern);

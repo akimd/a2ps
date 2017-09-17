@@ -19,11 +19,9 @@
 /* Written by Greg McGary */
 
 #include <config.h>
-#include <stdio.h>
 
-#if defined STDC_HEADERS || defined _LIBC || defined HAVE_STDLIB_H
-# include <stdlib.h>
-#endif
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "hashtab.h"
 #include "xalloc.h"
@@ -51,7 +49,7 @@ hash_init (struct hash_table_s* ht, unsigned long size,
   ht->ht_size = round_up_2 (size);
   if (ht->ht_size > (128 * 1024)) /* prevent size from getting out of hand */
     ht->ht_size /= 2;
-  ht->ht_vec = (void**) XCALLOC (struct token *, ht->ht_size);
+  ht->ht_vec = (void**) XCALLOC (ht->ht_size, struct token *);
   ht->ht_capacity = ht->ht_size * 15 / 16; /* 93.75% loading factor */
   ht->ht_fill = 0;
   ht->ht_collisions = 0;
@@ -230,7 +228,7 @@ hash_rehash (struct hash_table_s* ht)
   ht->ht_size *= 2;
   ht->ht_rehashes++;
   ht->ht_capacity = ht->ht_size - (ht->ht_size >> 4);
-  ht->ht_vec = (void **) XCALLOC (struct token *, ht->ht_size);
+  ht->ht_vec = (void **) XCALLOC (ht->ht_size, struct token *);
 
   for (ovp = old_vec; ovp < &old_vec[old_ht_size]; ovp++)
     {
@@ -266,7 +264,7 @@ hash_dump (struct hash_table_s *ht, void **vector_0, qsort_cmp_t compare)
   void **end = &ht->ht_vec[ht->ht_size];
 
   if (vector_0 == 0)
-    vector_0 = XMALLOC (void *, ht->ht_fill + 1);
+    vector_0 = XNMALLOC (ht->ht_fill + 1, void *);
   vector = vector_0;
 
   for (slot = ht->ht_vec; slot < end; slot++)
@@ -297,7 +295,7 @@ hash_dump_select (struct hash_table_s *ht, void **vector_0,
 
   if (vector_0 == 0)
     {
-      vector_0 = XMALLOC (void *, ht->ht_fill + 1);
+      vector_0 = XNMALLOC (ht->ht_fill + 1, void *);
       vector_0_malloced = 1;
     }
 
@@ -308,7 +306,7 @@ hash_dump_select (struct hash_table_s *ht, void **vector_0,
   vector_0 [fill] = 0;
 
   if (vector_0_malloced)
-    vector_0 = XREALLOC (vector_0, void *, fill + 1);
+    vector_0 = xnrealloc (vector_0, fill + 1, sizeof(void *));
 
   if (compare && fill > 1)
     qsort (vector_0, fill, sizeof (void *), compare);

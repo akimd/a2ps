@@ -24,52 +24,23 @@
 
  */
 
+#include <config.h>
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <inttypes.h>
+
+#include "xalloc.h"
+#include "tterm.h"
+#include "lister.h"
 
 #if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 8)
 #  define PARAM_UNUSED __attribute__ ((unused))
 #else
 #  define PARAM_UNUSED
 #endif
-
-#include <stdio.h>
-
-#if HAVE_STRING_H
-# if !STDC_HEADERS && HAVE_MEMORY_H
-#  include <memory.h>
-# endif
-# include <string.h>
-#else
-# if HAVE_STRINGS_H
-#  include <strings.h>
-# endif
-#endif
-#if HAVE_STDLIB_H
-# include <stdlib.h>
-#endif
-
-#if HAVE_SYS_TYPES_H
-# include <sys/types.h>
-#endif
-
-#if HAVE_INTTYPES_H
-# include <inttypes.h>
-#endif
-
-#if NEED_FPUTS_DECL
-extern void fputs ();
-#endif
-
-#if NEED_STRLEN_DECL
-extern int strlen ();
-#endif
-
-#include "xalloc.h"
-#include "tterm.h"
-#include "lister.h"
 
 /* Information about filling a column.  */
 struct world
@@ -219,9 +190,9 @@ init_worlds (struct lister * l)
      running, but only on LINE_WIDTH which is a constant. */
   if (l->multicol.worlds == NULL)
     {
-      l->multicol.worlds = XMALLOC (struct world, line_width);
+      l->multicol.worlds = XNMALLOC (line_width, struct world);
       for (i = 0; i < line_width; ++i)
-	l->multicol.worlds[i].widths = XMALLOC (size_t, i + 1);
+	l->multicol.worlds[i].widths = XNMALLOC (i + 1, size_t);
     }
 
   max_idx = ((line_width

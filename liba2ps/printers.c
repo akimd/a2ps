@@ -16,7 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
-#define _GNU_SOURCE
+#include <config.h>
+
 #include <string.h>
 
 #define printer_table hash_table_s
@@ -127,7 +128,7 @@ printer_set (struct printer *p,
 static struct printer *
 printer_new (const char *key)
 {
-  NEW (struct printer, res);
+  struct printer * res = XMALLOC (struct printer);
   printer_create (res, key);
   return res;
 }
@@ -139,9 +140,9 @@ static void
 printer_free (struct printer * printer)
 {
   /* Default and Unknown printers have NULL key. */
-  XFREE (printer->key);
-  XFREE (printer->ppdkey);
-  XFREE (printer->command);
+  free (printer->key);
+  free (printer->ppdkey);
+  free (printer->command);
 }
 
 /*
@@ -171,7 +172,7 @@ printer_self_print (struct printer * printer, FILE * stream)
 static inline struct printer_table *
 printer_table_new (void)
 {
-  NEW (struct hash_table_s, res);
+  struct hash_table_s * res = XMALLOC (struct hash_table_s);
 
   hash_init (res, 8,
 	     (hash_func_t) printer_hash_1,
@@ -293,7 +294,7 @@ struct a2ps_printers_s
 struct a2ps_printers_s *
 a2ps_printers_new (struct a2ps_common_s * common)
 {
-  NEW (struct a2ps_printers_s, res);
+  struct a2ps_printers_s * res = XMALLOC (struct a2ps_printers_s);
 
   /* Shared mem */
   res->common = common;
@@ -332,13 +333,13 @@ a2ps_printers_free (struct a2ps_printers_s * printers)
   printer_free (&printers->unknown_printer);
 
   /* PPD */
-  XFREE (printers->request_ppdkey);
-  XFREE (printers->default_ppdkey);
+  free (printers->request_ppdkey);
+  free (printers->default_ppdkey);
   ppd_free (printers->ppd);
 
   /* Output */
-  XFREE (printers->flag_output_name);
-  XFREE (printers->output_name);
+  free (printers->flag_output_name);
+  free (printers->output_name);
 
   free (printers);
 }
@@ -428,7 +429,7 @@ destination_to_string (const char *name, bool file_p)
       char *format = (file_p
 		      ? _("saved into the file `%s'")
 		      : _("sent to the printer `%s'"));
-      res = XMALLOC (unsigned char, strlen (format) + strlen (name));
+      res = XNMALLOC (strlen (format) + strlen (name), unsigned char);
       sprintf ((char *) res, format, name);
     }
   return res;
@@ -569,7 +570,7 @@ a2ps_printers_flag_output_set (struct a2ps_printers_s * printers,
   if (!is_printer && flag_output_name && strequ (flag_output_name, "-"))
     {
       /* Request for stdin */
-      XFREE (printers->flag_output_name);
+      free (printers->flag_output_name);
       printers->flag_output_name = NULL;
     }
   else

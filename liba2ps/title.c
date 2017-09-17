@@ -23,25 +23,14 @@
  */
 
 /* Get prototypes for the functions defined here.  */
-#if HAVE_CONFIG_H
-# include <config.h>
-#endif
+
+#include <config.h>
 
 #include <stdio.h>
 #include <string.h>
 
-#if HAVE_VPRINTF || HAVE_DOPRNT || _LIBC
-# if __STDC__
-#  include <stdarg.h>
-#  define VA_START(args, lastarg) va_start(args, lastarg)
-# else
-#  include <varargs.h>
-#  define VA_START(args, lastarg) va_start(args)
-# endif
-#else
-# define va_alist a1, a2, a3, a4, a5, a6, a7, a8
-# define va_dcl char *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
-#endif
+#include <stdarg.h>
+#define VA_START(args, lastarg) va_start(args, lastarg)
 
 # ifndef __attribute__
 /* This feature is available in gcc versions 2.5 and later.  */
@@ -63,24 +52,12 @@
    format string*/
 
 void
-#if defined(VA_START) && __STDC__
 title (FILE * stream, char c, int center_p, const char *format, ...)
-#else
-title (stream, c, center_p, format, va_alist)
-     FILE * stream;
-     char c;
-     int center_p;
-     char *format;
-     va_dcl
-#endif
 {
   int len;
   int padding;
-#ifdef VA_START
   va_list args;
-#endif
 
-#ifdef VA_START
   VA_START (args, format);
 
   len = vprintflen (format, args);
@@ -95,15 +72,9 @@ title (stream, c, center_p, format, va_alist)
 
   VA_START (args, format);
 
-# if HAVE_VPRINTF || _LIBC
   vfprintf (stream, format, args);
-# else
-  _doprnt (format, args, stream);
-# endif
   va_end (args);
-#else
-  fprintf (stream, format, a1, a2, a3, a4, a5, a6, a7, a8);
-#endif
+
   /* We suppose that \n can only be met at the end of format, not
    * of one of its arguments */
   if (format [strlen (format) - 1] != '\n')

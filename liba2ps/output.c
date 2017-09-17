@@ -16,6 +16,8 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "jobs.h"
 #include "routines.h"
@@ -67,7 +69,7 @@ struct output
 static struct derivation *
 new_derivation (enum derivation_type type)
 {
-  struct derivation * res = XMALLOC (struct derivation, 1);
+  struct derivation * res = XMALLOC (struct derivation);
   res->type = type;
   return res;
 }
@@ -115,7 +117,7 @@ output_new (const char * name)
 {
   struct output * res = NULL;
 
-  res = XMALLOC (struct output, 1);
+  res = XMALLOC (struct output);
   res->name = name;
   res->chunk = ds_new (MIN_CONTENT, ds_geometrical, 2);
   res->derivations = da_new ("derivations", MIN_DERIVATIONS,

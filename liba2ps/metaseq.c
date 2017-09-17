@@ -16,11 +16,12 @@
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
+#include <config.h>
+
 #include "a2ps.h"
 #include "routines.h"
 #include "jobs.h"
 #include "fjobs.h"
-#include "stpncpy.h"
 #include "message.h"
 #include "metaseq.h"
 #include "xobstack.h"
@@ -298,7 +299,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	    else
 	      cp2 = cp;
 	    APPEND_STR (cp2);
-	    XFREE (cp);
+	    free (cp);
 	    break;
 	  case 'C':	/* `%C' runtime in `hh:mm:ss' format */
 	    sprintf ((char *)buf, "%d:%02d:%02d", job->run_tm.tm_hour,
@@ -312,7 +313,7 @@ grow_user_string_obstack (struct obstack * user_string_stack,
 	      error (1, errno,
 		     _("cannot get current working directory"));
 	    APPEND_STR (cp);
-	    XFREE (cp);
+	    free (cp);
 	    break;
 
 	  case 'D':
