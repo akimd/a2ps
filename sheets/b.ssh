@@ -90,7 +90,7 @@ operators are
    := ,
    :: ,
 # try to use the mathematical notation for sets
-   (/:([ \t]*)({)/   \in , \1 Plain, \2 Plain ),
+#   (/:([ \t]*)(\{)/   \in , \1 Plain, \2 Plain ),
 # "/:" is not ambigous (no need to see if a set definition follows)
    "/:" \not\in,
    <=>  \Leftrightarrow,

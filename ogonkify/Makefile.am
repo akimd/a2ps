@@ -84,19 +84,19 @@ endif
 	@fontname=`grep "$*	" $(srcdir)/fontname.dat	\
 	  | sed 's/^.*	//'`; 				\
 	echo "Working on $$fontname-Ogonki ($*-o)...";	\
-	$(PERL) ./composeglyphs -i $*.afm -c $*-c.afm	\
-	   -o $*-o.ps -n $$fontname-Ogonki		\
-	   -a $*-o.afm -e ${encoding}.afm 		\
-	   -t ${targetEncoding}.afm
+	$(PERL) ./composeglyphs -i $(srcdir)/$*.afm -c $(srcdir)/$*-c.afm	\
+	   -o $(srcdir)/$*-o.ps -n $$fontname-Ogonki		\
+	   -a $*-o.afm -e $(srcdir)/$(encoding).afm 		\
+	   -t $(srcdir)/$(targetEncoding).afm
 
 %-o.ps: ogonki.enc composeglyphs.in %-c.afm
 	@fontname=`grep "$*	" $(srcdir)/fontname.dat	\
 	  | sed 's/^.*	//'`; 				\
 	echo "Working on $$fontname-Ogonki ($*-o)...";	\
-	$(PERL) ./composeglyphs -i $*.afm -c $*-c.afm	\
-	   -o $*-o.ps -n $$fontname-Ogonki		\
-	   -a $*-o.afm -e ${encoding}.afm 		\
-	   -t ${targetEncoding}.afm
+	$(PERL) ./composeglyphs -i $(srcdir)/$*.afm -c $(srcdir)/$*-c.afm	\
+	   -o $(srcdir)/$*-o.ps -n $$fontname-Ogonki		\
+	   -a $*-o.afm -e $(srcdir)/$(encoding).afm 		\
+	   -t $(srcdir)/$(targetEncoding).afm
 
 #
 # We want to distribute the product of composeglyphs too, avoiding
@@ -130,5 +130,5 @@ ogonkify: ogonkify.in
 	@cat $(srcdir)/${encoding}.enc		\
 	     $(srcdir)/${targetEncoding}.enc	\
 	     $(srcdir)/compose.ps		\
-	     $(srcdir)/$*.ps > $@.tmp 		\
-	&& mv $@.tmp $@
+	     $*.ps > $@.tmp
+	@mv $@.tmp $@

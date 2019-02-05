@@ -45,12 +45,12 @@ prcs-diff:
 	done
 
 FAQ: $(top_srcdir)/doc/a2ps.texi
-	LC_ALL=C $(MAKEINFO) --no-header -I $(top_srcdir)/doc a2ps.texi | \
+	LC_ALL=C $(MAKEINFO) --no-header -I $(top_srcdir)/doc $(top_srcdir)/doc/a2ps.texi | \
 	sed -n -f $(top_srcdir)/build-aux/make-faq.sed > FAQ-tmp
 	mv FAQ-tmp FAQ
 
 AUTHORS: $(top_srcdir)/doc/translators.txt $(top_srcdir)/doc/$(MAKE_AUTHORS) $(top_srcdir)/sheets/sheets.map
 	cd doc \
-	&& $(PERL) $(MAKE_AUTHORS) > $@-t \
+	&& srcdir=$(abs_top_srcdir)/doc $(PERL) $(abs_top_srcdir)/doc/$(MAKE_AUTHORS) > $@-t \
 	&& chmod 644 $@-t
 	mv doc/$@-t $@

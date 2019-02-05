@@ -25,7 +25,6 @@ texi2dvi4a2ps.1: $(top_srcdir)/contrib/texi2dvi4a2ps
 
 EXTRA_DIST = $(man_MANS) $(HELP2MAN) $(man_aux) \
   Makefile.maint GNUmakefile common.x
-PERL = @PERL@
 HELP2MAN = help2man
 MAINTAINERCLEANFILES = $(man_MANS)
 

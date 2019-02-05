@@ -41,6 +41,6 @@ BUILT_SOURCES = parsessh.c parsessh.h
 YFLAGS = -dtv
 LEX = @LEX@
 
-a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la @LIBINTL@ ../lib/libgnu.la -lm
+a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la $(LIBINTL) ../lib/libgnu.la -lm -L/opt/local/lib -lpaper # FIXME: hard coded.
 
 EXTRA_DIST = $(BUILT_SOURCES)

@@ -19,7 +19,9 @@
 #ifndef _ROUTINES_H_
 # define _ROUTINES_H_
 
-#include <libintl.h>
+#include <locale.h>
+
+#include <gettext.h>
 #define _(String) gettext (String)
 #define N_(String) String
 

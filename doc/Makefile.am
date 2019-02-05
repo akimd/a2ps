@@ -51,7 +51,7 @@ prologue.texi: $(top_srcdir)/ps/Makefile.am
 	$(xa2ps) --list=pro-texi > prologue.texi || rm prologue.texi
 
 translators.texi: $(srcdir)/translators.txt $(srcdir)/translators.pl
-	$(PERL) translators.pl > $@-t
+	srcdir=$(srcdir)/ $(PERL) $(srcdir)/translators.pl > $@-t
 	chmod 644 $@-t
 	mv $@-t $@
 

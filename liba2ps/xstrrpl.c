@@ -24,8 +24,6 @@
 #include <assert.h>
 #include "xstrrpl.h"
 
-extern char * stpcpy();
-
 /* Perform subsitutions in string.  Result is malloc'd
    E.g., result = xstrrrpl ("1234", subst) gives result = "112333"
    where subst = { {"1", "11"}, {"3", "333"}, { "4", ""}}

@@ -290,7 +290,7 @@ a2ps_handle_options (a2ps_job * job, int argc, char *argv[])
 	  /* Error message is done by getopt */
 	  fprintf (stderr,
 		   _("Try `%s --help' for more information.\n"),
-		   program_invocation_name);
+		   program_name);
 	  exit (EXIT_FAILURE);
 	}
 

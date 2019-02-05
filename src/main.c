@@ -328,7 +328,7 @@ list_options (struct a2ps_job *a_job, FILE *stream)
   /* Title of --list-options (%s%s is `a2ps' `version' */
   title (stream, '=', true,
 	 _("Configuration status of %s %s\n"),
-	 program_invocation_name, VERSION);
+	 program_name, VERSION);
   putc ('\n', stream);
 
   title (stream, '-', false, _("Sheets:\n"));
@@ -654,7 +654,7 @@ is sent to the default printer.  An output file may be specified with -o.\n\
 Mandatory arguments to long options are mandatory for short options too.\n\
 Long options marked with * require a yes/no argument, corresponding\n\
 short options stand for `yes'.\n"),
-	   program_invocation_name);
+	   program_name);
 
   /*
    * Does not print, and exits with success
@@ -933,7 +933,7 @@ main (int argc, char *argv[])
 
   /* Name under which this program was called. */
   program_name = base_name (argv[0]);
-  program_invocation_name = xstrdup (program_name);
+  /* program_invocation_name = xstrdup (program_name); */
 
   /* Set the NLS on */
   setlocale (LC_TIME, "");

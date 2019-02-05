@@ -4,7 +4,7 @@
 
 local ($mail, $name, $lang, $comment);
 
-$translator_file = "translators.txt";
+$translator_file = "$ENV{srcdir}/translators.txt";
 
 # List of the people who helped the translation
 open (STDIN, $translator_file)

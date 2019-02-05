@@ -24,6 +24,8 @@
 
 #include <string.h>
 
+int strverscmp (const char *s1, const char *s2);
+
 #include "a2ps.h"
 #include "pathwalk.h"
 #include "darray.h"

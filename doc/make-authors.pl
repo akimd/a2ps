@@ -11,7 +11,7 @@ sub title
     print "$line\n";
   }
 
-$translator_file = "translators.txt";
+$translator_file = "$ENV{srcdir}/translators.txt";
 
 # List of the people who wrote the package
 title "Authors of this package.";

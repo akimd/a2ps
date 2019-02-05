@@ -299,6 +299,12 @@ AC_CONFIG_FILES([
   fonts/Makefile
   ppd/Makefile
 ])
+
+if test x"${srcdir}" != x.; then
+  AC_CONFIG_LINKS([man/GNUmakefile:man/GNUmakefile])
+  AC_CONFIG_LINKS([man/Makefile.maint:man/Makefile.maint])
+fi
+
 AC_OUTPUT
 
 if test $MEDIUM = libpaper; then

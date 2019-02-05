@@ -41,7 +41,7 @@ xfind_backup_file_name (const char * file, enum backup_type backup_type)
 {
   char * res;
 
-  res = find_backup_file_name (file, backup_type);
+  res = find_backup_file_name (AT_FDCWD, file, backup_type);
   if (!res)
     error (1, 0, _("Memory exhausted"));
 
@@ -104,7 +104,7 @@ create_file_for_backup (char const *file, int oflag, mode_t mode,
          allows races between `stat' and `open'.  */
       if (stat (file, &st) == 0 && S_ISREG (st.st_mode))
 	{
-	  char *backup = find_backup_file_name (file, backup_type);
+	  char *backup = find_backup_file_name (AT_FDCWD, file, backup_type);
 	  if (rename (file, backup) != 0)
 	    return -1;
 	  free (backup);

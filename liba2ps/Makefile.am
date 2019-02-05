@@ -54,15 +54,14 @@ mylibitsources = message.c xstrrpl.c getshline.c pathwalk.c		\
 darray.c dstring.c printlen.c pair_ht.c filtdir.c str_ht.c		\
 title.c xbackupfile.c getnum.c tterm.c lister.c userdata.c
 
-noinst_HEADERS = $(liba2psheaders) $(mylibitheaders)   \
-gettext.h
+noinst_HEADERS = $(liba2psheaders) $(mylibitheaders)
 
 libitheaders = argv.h hashtab.h
 
 libitsources = argv.c hashtab.c
 
 noinst_HEADERS = $(liba2psheaders) $(libitheaders) $(mylibitheaders)   \
-$(libitpureheaders) gettext.h
+$(libitpureheaders)
 
 
 liba2ps_la_SOURCES = $(liba2pssources) $(libitsources) $(mylibitsources) \
