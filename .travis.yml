@@ -1,0 +1,44 @@
+# Travis defines and exports CC and CXX *after* we have defined our
+# environment variables via 'env'.  So, do not use 'env' to define
+# them.  Instead, put their definitions in MATRIX_EVAL, which we eval
+# after the definitions from Travis.
+
+language: cpp
+
+matrix:
+  include:
+    - name: "GCC 7 -O3"
+      os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CONFIGUREFLAGS='CPPFLAGS=-DNDEBUG CFLAGS=-O3 CXXFLAGS=-O3'"
+
+before_install:
+  - eval "$MATRIX_EVAL"
+  - env
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq autoconf automake autopoint flex gettext graphviz help2man m4 texinfo
+  - autoconf --version
+  - automake --version
+  - autopoint --version
+  - $CC --version
+  - $CXX --version
+  - flex --version
+  - gettext --version
+  - help2man --version
+  - ld --version
+  - makeinfo --version
+
+script:
+  - git tag -l
+  - ./bootstrap
+  - ./configure CC="$CC" CXX="$CXX" $CONFIGUREFLAGS || { cat config.log && false; }
+  - make -j2 $MAKE_ARGS
+  - make check VERBOSE=1
+
