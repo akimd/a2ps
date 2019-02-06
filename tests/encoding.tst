@@ -26,5 +26,5 @@ if test -f $REF_FILE; then :; else
 fi
 
 # Return the verdict
-cmp $REF_FILE $CHK_FILE 2> /dev/null
+diff -u $REF_FILE $CHK_FILE 2> /dev/null
 exit $?

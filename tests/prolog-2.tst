@@ -25,7 +25,7 @@ do
     $verbose "Running ref-a2ps -$nup $OPT $TST_FILE"
     $REF -$nup $OPT $TST_FILE >$ref_file 2>&5
   fi
-  cmp -s $ref_file $chk_file
+  diff -u $ref_file $chk_file
 done
 
 exit $failure

@@ -12,7 +12,7 @@
 # Get the guilty lines in *.c files
 # Omit strfime.c and confg.c, coz' their inlines are safe.
 # Exclude the word inlined.
-res=`(cd $top_srcdir && fgrep 'inline' src/*.c lib/*.c) |
+res=`(cd $top_srcdir && fgrep 'inline' src/*.c liba2ps/*.c) |
      egrep -v '__inline|static|inlined|lib/(confg|strftime)\.c' |
      sort -u`
 if test -n "$res"; then
@@ -22,7 +22,7 @@ if test -n "$res"; then
 fi
 
 # No inline allowed in a header.
-res=`(cd $top_srcdir && fgrep 'inline' src/*.h lib/*.h) | sort -u`
+res=`(cd $top_srcdir && fgrep 'inline' src/*.h liba2ps/*.h) | sort -u`
 if test -n "$res"; then
   echo "The following headers use inline:"
   echo "$res"
