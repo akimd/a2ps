@@ -41,6 +41,7 @@
 #  backupfile \
 #  dirname \
 #  filenamecat \
+#  gettext \
 #  isdir \
 #  long-options \
 #  obstack \
@@ -61,6 +62,7 @@ gl_MODULES([
   backupfile
   dirname
   filenamecat
+  gettext
   isdir
   long-options
   obstack

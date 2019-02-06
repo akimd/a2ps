@@ -21,7 +21,7 @@
 SUBDIRS = build-aux etc ps ogonkify lib liba2ps src po \
 	tests sheets encoding afm fonts ppd contrib doc man
 
-EXTRA_DIST = TODO ANNOUNCE FAQ a2ps.prj arch m4/gnulib-cache.m4
+EXTRA_DIST = TODO ANNOUNCE FAQ arch m4/gnulib-cache.m4
 
 MAKE_AUTHORS = make-authors.pl
 
@@ -45,7 +45,7 @@ prcs-diff:
 	done
 
 FAQ: $(top_srcdir)/doc/a2ps.texi
-	LC_ALL=C $(MAKEINFO) --no-header -I $(top_srcdir)/doc $(top_srcdir)/doc/a2ps.texi | \
+	LC_ALL=C $(MAKEINFO) --no-header -I $(top_builddir)/doc $(top_srcdir)/doc/a2ps.texi | \
 	sed -n -f $(top_srcdir)/build-aux/make-faq.sed > FAQ-tmp
 	mv FAQ-tmp FAQ
 

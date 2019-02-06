@@ -119,4 +119,4 @@ liba2ps.h: $(liba2ps_h_sources)
 	done;								\
 	mv liba2ps.h.tmp1 liba2ps.h
 
-EXTRA_DIST = liba2ps.h $(liba2ps_h_sources) strtol.c $(BUILT_SOURCES) confg.gperf
+EXTRA_DIST = liba2ps.h $(liba2ps_h_sources) $(BUILT_SOURCES) confg.gperf

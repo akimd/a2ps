@@ -6,7 +6,7 @@
 src/buffer.c
 src/delegate.c
 src/generate.c
-src/lexssh.c
+src/lexssh.l
 src/main.c
 # src/parsessh.c
 src/parsessh.y
@@ -19,24 +19,23 @@ src/versions.c
 
 # a2ps own files
 liba2ps/caret.c
-liba2ps/confg.c
+liba2ps/confg.gperf
 #liba2ps/darray.c
 #liba2ps/dstring.c
 liba2ps/encoding.c
 liba2ps/faces.c
 liba2ps/filtdir.c
-# Here we don't put fonts.l, because gettext dies on a pattern with "
-liba2ps/fonts.c
+liba2ps/fonts.l
 liba2ps/getnum.c
 liba2ps/jobs.c
-liba2ps/lexppd.c
+liba2ps/lexppd.l
 liba2ps/madir.c
 liba2ps/media.c
 liba2ps/metaseq.c
 liba2ps/options.c
 liba2ps/output.c
 liba2ps/pair_ht.c
-liba2ps/parseppd.c
+liba2ps/parseppd.y
 liba2ps/pathwalk.c
 liba2ps/ppd.c
 liba2ps/prange.c

@@ -130,5 +130,5 @@ ogonkify: ogonkify.in
 	@cat $(srcdir)/${encoding}.enc		\
 	     $(srcdir)/${targetEncoding}.enc	\
 	     $(srcdir)/compose.ps		\
-	     $*.ps > $@.tmp
+	     $(srcdir)/$*.ps > $@.tmp
 	@mv $@.tmp $@
