@@ -62,5 +62,6 @@ fonts.map: $(srcdir)/make_fonts_map.sh $(A2PS_CONFIG)
 	else \
 	  echo "Failed to build a fonts.map file."; \
 	  echo "Reverting to default file."; \
+	  rm -f fonts.map.tmp && \
 	  cp $(srcdir)/fontsmap fonts.map; \
 	fi

@@ -25,3 +25,6 @@ fixnt_SOURCES = fixnt.l
 
 EXTRA_DIST = \
 	card.in fixps.in pdiff.in psmandup.in psset.in texi2dvi4a2ps
+
+clean-local:
+	rm -rf *.dSYM

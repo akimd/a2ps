@@ -104,7 +104,7 @@ liba2ps.h.extract: $(liba2ps_h_extract_sources) Makefile.am
 
 liba2ps.h: $(liba2ps_h_sources)
 	@echo "Building liba2ps.h";					\
-	files=`grep liba2ps.h:include: liba2ps.h.in	\
+	files=`grep liba2ps.h:include: $(srcdir)/liba2ps.h.in	\
 	       | sed -e 's/^.*liba2ps.h:include:\([^ ]*\).*$$/\1/'`;	\
 	cp $(srcdir)/liba2ps.h.in liba2ps.h.tmp1;			\
 	for f in $$files;						\

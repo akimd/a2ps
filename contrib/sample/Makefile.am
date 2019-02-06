@@ -24,3 +24,6 @@ noinst_PROGRAMS = sample
 sample_SOURCES = main.c
 
 sample_LDADD = $(top_builddir)/liba2ps/liba2ps.la $(LIBINTL) -lm -L/opt/local/lib -lpaper # FIXME: hard coded.
+
+clean-local:
+	rm -rf *.dSYM

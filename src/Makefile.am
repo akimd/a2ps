@@ -44,3 +44,6 @@ LEX = @LEX@
 a2ps_LDADD = $(top_builddir)/liba2ps/liba2ps.la $(LIBINTL) ../lib/libgnu.la -lm -L/opt/local/lib -lpaper # FIXME: hard coded.
 
 EXTRA_DIST = $(BUILT_SOURCES)
+
+clean-local:
+	rm -rf *.dSYM
