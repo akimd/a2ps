@@ -1,4 +1,4 @@
-/* filalign.h - file alignment managing
+/* filalign.h - file alignment management
    Copyright 1988-2017 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
@@ -21,20 +21,22 @@
 
 /* How different files share the medium. */
 
-typedef int file_align_t;
+typedef enum
+  {
+   /* Always on different sheets. */
+   file_align_sheet = -1,
 
-/* Always on different sheets. */
-#define file_align_sheet -1
+   /* Always on different pages. */
+   file_align_page = -2,
 
-/* Always on different pages. */
-#define file_align_page -2
+   /* Always on different rank (i.e., columns or rows depending upon
+      the madir). */
+   file_align_rank = -3,
 
-/* Always on different rank (i.e., columns or rows depending upon the
-   madir). */
-#define file_align_rank -3
-
-/* Put as many files as you can per page. */
-#define file_align_virtual -4
+   /* Put as many files as you can per page. */
+   file_align_virtual = -4
+  }
+  file_align_t;
 
 /* Positive values are allowed and then means that each first *page*
    of a file must start on a page which is (a multiple of that number)

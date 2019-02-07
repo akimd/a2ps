@@ -44,17 +44,15 @@ static file_align_t const file_align_types[] =
   file_align_virtual, file_align_virtual, file_align_virtual
 };
 
+ARGMATCH_VERIFY(file_align_args, file_align_types);
+
 /* Return the file_align mode corresponding to ARG.
    FIXME: The error message is not clear enough. */
 
 file_align_t
 file_align_argmatch (const char * option, const char * arg)
 {
-  int i;
-
-  //ARGMATCH_VERIFY (file_align_args, file_align_types);
-
-  i = ARGMATCH (arg, file_align_args, file_align_types);
+  int i = ARGMATCH (arg, file_align_args, file_align_types);
   if (i >= 0)
     return file_align_types[i];
 
@@ -70,7 +68,7 @@ file_align_to_string (file_align_t file_align)
   static char buf[25];
 
   if (file_align < 0)
-    return ARGMATCH_TO_ARGUMENT (file_align,
+    return ARGMATCH_TO_ARGUMENT (&file_align,
 				 file_align_args, file_align_types);
 
   sprintf (buf, "%d", file_align);
