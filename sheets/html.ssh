@@ -1,11 +1,10 @@
 # Style sheet for HTML
 # Copyright (c) 1997, 98 Jim Diamond, Akim Demaille, Miguel Santana, Wesley Chun
-# $Id: html.ssh,v 1.1.1.1.2.1 2007/12/29 01:58:30 mhatta Exp $
 #
 
 #
 # This file is part of a2ps.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
@@ -24,7 +23,7 @@
 # 0.1 akim@freefriends.org:
 #       first version
 #
-# 1.0 wesc@alpha.ece.ucsb.edu:
+# 1.0 wescpy@gmail.com:
 #       added comments and bolded HTML tags
 #
 # FIXME: Beware of < and > for regex.
@@ -32,10 +31,10 @@
 #
 style HTML is
 
-written by "Akim Demaille <akim@freefriends.org>, Wesley J. Chun <wesc@alpha.ece.ucsb.edu>"
+written by "Akim Demaille <akim@freefriends.org>, Wesley J. Chun <wescpy@gmail.com>"
 
 version is 1.1
-requires a2ps 4.12a
+requires a2ps 4.13
 
 documentation is
   "This style is meant to pretty print HTML source files, not to simulate"
